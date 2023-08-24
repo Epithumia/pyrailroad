@@ -191,208 +191,266 @@ class RRCommand:
     line: int
 
 
+def create_diagram_node(command: RRCommand, diagram_type: str) -> Diagram:
+    children = [
+        _f for _f in [create_diagram(child) for child in command.children] if _f
+    ]
+    return Diagram(*children, type=diagram_type)
+
+
+def create_terminal_node(command: RRCommand) -> Terminal | None:
+    if command.children:
+        print(f"Line {command.line} - Terminal commands cannot have children.")
+        return None
+    return Terminal(command.text or "", command.prelude)
+
+
+def create_non_terminal_node(command: RRCommand) -> NonTerminal | None:
+    if command.children:
+        print(f"Line {command.line} - NonTerminal commands cannot have children.")
+        return None
+    return NonTerminal(command.text or "", command.prelude)
+
+
+def create_comment_node(command: RRCommand) -> Comment | None:
+    if command.children:
+        print(f"Line {command.line} - Comment commands cannot have children.")
+        return None
+    return Comment(command.text or "", command.prelude)
+
+
+def create_skip_node(command: RRCommand) -> Skip | None:
+    if command.children:
+        print(f"Line {command.line} - Skip commands cannot have children.")
+        return None
+    if command.text:
+        print(f"Line {command.line} - Skip commands cannot have text.")
+        return None
+    return Skip()
+
+
+def create_sequence_node(command: RRCommand) -> Sequence | None:
+    if command.prelude:
+        print(f"Line {command.line} - Sequence commands cannot have preludes.")
+        return None
+    if not command.children:
+        print(f"Line {command.line} - Sequence commands need at least one child.")
+        return None
+    children = [
+        _f for _f in [create_diagram(child) for child in command.children] if _f
+    ]
+    return Sequence(*children)
+
+
+def create_stack_node(command: RRCommand) -> Stack | None:
+    if command.prelude:
+        print(f"Line {command.line} - Stack commands cannot have preludes.")
+        return None
+    if not command.children:
+        print(f"Line {command.line} - Stack commands need at least one child.")
+        return None
+    children = [
+        _f for _f in [create_diagram(child) for child in command.children] if _f
+    ]
+    return Stack(*children)
+
+
+def create_horizontal_choice_node(command: RRCommand) -> HorizontalChoice | None:
+    if command.prelude:
+        print(f"Line {command.line} - HorizontalChoice commands cannot have preludes.")
+        return None
+    if not command.children:
+        print(
+            f"Line {command.line} - HorizontalChoice commands need at least one child."
+        )
+        return None
+    children = [
+        _f for _f in [create_diagram(child) for child in command.children] if _f
+    ]
+    return HorizontalChoice(*children)
+
+
+def create_multiple_choice_node(command: RRCommand) -> MultipleChoice | None:
+    if (default := command.prelude[0]) == "":
+        default = 0
+    try:
+        default = int(t.cast(str, default))
+    except ValueError:
+        print(
+            f"Line {command.line} - Choice preludes must be an integer. Got:\n{command.prelude}"
+        )
+        default = 0
+    if (mc_type := command.prelude[1]) == "":
+        mc_type = "any"
+    if mc_type not in ["any", "all"]:
+        print(f"Line {command.line} - MultipleChoice type must be any or all.")
+        return None
+    if not command.children:
+        print(f"Line {command.line} - MultipleChoice commands need at least one child.")
+        return None
+    children = [
+        _f for _f in [create_diagram(child) for child in command.children] if _f
+    ]
+    return MultipleChoice(default, mc_type, *children)
+
+
+def create_optional_sequence_node(command: RRCommand) -> OptionalSequence | None:
+    if command.prelude:
+        print(f"Line {command.line} - OptionalSequence commands cannot have preludes.")
+        return None
+    if not command.children:
+        print(
+            f"Line {command.line} - OptionalSequence commands need at least one child."
+        )
+        return None
+    children = [
+        _f for _f in [create_diagram(child) for child in command.children] if _f
+    ]
+    return OptionalSequence(*children)
+
+
+def create_choice_node(command: RRCommand) -> Choice | None:
+    if command.prelude == "":
+        default = 0
+    else:
+        try:
+            default = int(t.cast(str, command.prelude))
+        except ValueError:
+            print(
+                f"Line {command.line} - Choice preludes must be an integer. Got:\n{command.prelude}"
+            )
+            default = 0
+    if not command.children:
+        print(f"Line {command.line} - Choice commands need at least one child.")
+        return None
+    children = [
+        _f for _f in [create_diagram(child) for child in command.children] if _f
+    ]
+    return Choice(default, *children)
+
+
+def create_optional_node(command: RRCommand) -> Choice | None:
+    if command.prelude not in (None, "", "skip"):
+        print(
+            f"Line {command.line} - Optional preludes must be nothing or 'skip'. Got:\n{command.prelude}"
+        )
+        return None
+    if len(command.children) != 1:
+        print(f"Line {command.line} - Optional commands need exactly one child.")
+        return None
+    children = [
+        _f for _f in [create_diagram(child) for child in command.children] if _f
+    ]
+    return optional(children[0], skip=(command.prelude == "skip"))
+
+
+def create_alternating_sequence_node(command: RRCommand) -> AlternatingSequence | None:
+    if command.prelude:
+        print(
+            f"Line {command.line} - AlternatingSequence commands cannot have preludes."
+        )
+        return None
+    if len(command.children) != 2:
+        print(
+            f"Line {command.line} - AlternatingSequence commands need exactly two children."
+        )
+        return None
+    children = [
+        _f for _f in [create_diagram(child) for child in command.children] if _f
+    ]
+    return AlternatingSequence(children[0], children[1])
+
+
+def create_group_node(command: RRCommand) -> Group | None:
+    if len(command.children) != 1:
+        print(f"Line {command.line} - Group commands need exactly one child.")
+        return None
+    children = [
+        _f for _f in [create_diagram(child) for child in command.children] if _f
+    ]
+    if command.prelude:
+        return Group(children[0], label=command.prelude)
+    return Group(children[0])
+
+
+def create_one_or_more_node(command: RRCommand) -> OneOrMore | None:
+    if command.prelude:
+        print(f"Line {command.line} - OneOrMore commands cannot have preludes.")
+        return None
+    if 0 == len(command.children) > 2:
+        print(
+            f"Line {command.line} - OneOrMore commands must have one or two children."
+        )
+        return None
+    children = [
+        _f for _f in [create_diagram(child) for child in command.children] if _f
+    ]
+    return OneOrMore(*children)
+
+
+def create_zero_or_more_node(command: RRCommand) -> Choice | None:
+    if command.prelude not in (None, "", "skip"):
+        print(
+            f"Line {command.line} - ZeroOrMore preludes must be nothing or 'skip'. Got:\n{command.prelude}"
+        )
+        return None
+    if 0 == len(command.children) > 2:
+        print(
+            f"Line {command.line} - ZeroOrMore commands must have one or two children."
+        )
+        return None
+    children = [
+        _f for _f in [create_diagram(child) for child in command.children] if _f
+    ]
+    if not children:
+        print(f"Line {command.line} - ZeroOrMore has no valid children.")
+        return None
+    repeat = children[1] if len(children) == 2 else None
+    return zero_or_more(children[0], repeat=repeat, skip=(command.prelude == "skip"))
+
+
 def create_diagram(command: RRCommand, diagram_type="simple") -> DiagramItem | None:
     """
     From a tree of commands,
     create an actual Diagram class.
     Each command must be {command, prelude, children}
     """
-    if command.name == "Diagram":
-        children = [
-            _f for _f in [create_diagram(child) for child in command.children] if _f
-        ]
-        return Diagram(*children, type=diagram_type)
-    if command.name in ("T", "Terminal"):
-        if command.children:
-            print(f"Line {command.line} - Terminal commands cannot have children.")
+    match command.name:
+        case "Diagram":
+            return create_diagram_node(command, diagram_type)
+        case "T" | "Terminal":
+            return create_terminal_node(command)
+        case "N" | "NonTerminal":
+            return create_non_terminal_node(command)
+        case "C" | "Comment":
+            return create_comment_node(command)
+        case "S" | "Skip":
+            return create_skip_node(command)
+        case "And" | "Seq" | "Sequence":
+            return create_sequence_node(command)
+        case "Stack":
+            return create_stack_node(command)
+        case "HorizontalChoice":
+            return create_horizontal_choice_node(command)
+        case "MultipleChoice":
+            return create_multiple_choice_node(command)
+        case "OptionalSequence":
+            return create_optional_sequence_node(command)
+        case "Or" | "Choice":
+            return create_choice_node(command)
+        case "Opt" | "Optional":
+            return create_optional_node(command)
+        case "AlternatingSequence":
+            return create_alternating_sequence_node(command)
+        case "Group":
+            return create_group_node(command)
+        case "Plus" | "OneOrMore":
+            return create_one_or_more_node(command)
+        case "Star" | "ZeroOrMore":
+            return create_zero_or_more_node(command)
+        case _:
+            print(f"Line {command.line} - Unknown command '{command.name}'.")
             return None
-        return Terminal(command.text or "", command.prelude)
-    if command.name in ("N", "NonTerminal"):
-        if command.children:
-            print(f"Line {command.line} - NonTerminal commands cannot have children.")
-            return None
-        return NonTerminal(command.text or "", command.prelude)
-    if command.name in ("C", "Comment"):
-        if command.children:
-            print(f"Line {command.line} - Comment commands cannot have children.")
-            return None
-        return Comment(command.text or "", command.prelude)
-    if command.name in ("S", "Skip"):
-        if command.children:
-            print(f"Line {command.line} - Skip commands cannot have children.")
-            return None
-        if command.text:
-            print(f"Line {command.line} - Skip commands cannot have text.")
-            return None
-        return Skip()
-    if command.name in ("And", "Seq", "Sequence"):
-        if command.prelude:
-            print(f"Line {command.line} - Sequence commands cannot have preludes.")
-            return None
-        if not command.children:
-            print(f"Line {command.line} - Sequence commands need at least one child.")
-            return None
-        children = [
-            _f for _f in [create_diagram(child) for child in command.children] if _f
-        ]
-        return Sequence(*children)
-    if command.name in ("Stack",):
-        if command.prelude:
-            print(f"Line {command.line} - Stack commands cannot have preludes.")
-            return None
-        if not command.children:
-            print(f"Line {command.line} - Stack commands need at least one child.")
-            return None
-        children = [
-            _f for _f in [create_diagram(child) for child in command.children] if _f
-        ]
-        return Stack(*children)
-    if command.name in ("HorizontalChoice",):
-        if command.prelude:
-            print(
-                f"Line {command.line} - HorizontalChoice commands cannot have preludes."
-            )
-            return None
-        if not command.children:
-            print(
-                f"Line {command.line} - HorizontalChoice commands need at least one child."
-            )
-            return None
-        children = [
-            _f for _f in [create_diagram(child) for child in command.children] if _f
-        ]
-        return HorizontalChoice(*children)
-    if command.name in ("MultipleChoice",):
-        if (default := command.prelude[0]) == "":
-            default = 0
-        try:
-            default = int(t.cast(str, default))
-        except ValueError:
-            print(
-                f"Line {command.line} - Choice preludes must be an integer. Got:\n{command.prelude}"
-            )
-            default = 0
-        if (mc_type := command.prelude[1]) == "":
-            mc_type = "any"
-        if mc_type not in ["any", "all"]:
-            print(f"Line {command.line} - MultipleChoice type must be any or all.")
-            return None
-        if not command.children:
-            print(
-                f"Line {command.line} - MultipleChoice commands need at least one child."
-            )
-            return None
-        children = [
-            _f for _f in [create_diagram(child) for child in command.children] if _f
-        ]
-        return MultipleChoice(default, mc_type, *children)
-    if command.name in ("OptionalSequence",):
-        if command.prelude:
-            print(
-                f"Line {command.line} - OptionalSequence commands cannot have preludes."
-            )
-            return None
-        if not command.children:
-            print(
-                f"Line {command.line} - OptionalSequence commands need at least one child."
-            )
-            return None
-        children = [
-            _f for _f in [create_diagram(child) for child in command.children] if _f
-        ]
-        return OptionalSequence(*children)
-    if command.name in ("Or", "Choice"):
-        if command.prelude == "":
-            default = 0
-        else:
-            try:
-                default = int(t.cast(str, command.prelude))
-            except ValueError:
-                print(
-                    f"Line {command.line} - Choice preludes must be an integer. Got:\n{command.prelude}"
-                )
-                default = 0
-        if not command.children:
-            print(f"Line {command.line} - Choice commands need at least one child.")
-            return None
-        children = [
-            _f for _f in [create_diagram(child) for child in command.children] if _f
-        ]
-        return Choice(default, *children)
-    if command.name in ("Opt", "Optional"):
-        if command.prelude not in (None, "", "skip"):
-            print(
-                f"Line {command.line} - Optional preludes must be nothing or 'skip'. Got:\n{command.prelude}"
-            )
-            return None
-        if len(command.children) != 1:
-            print(f"Line {command.line} - Optional commands need exactly one child.")
-            return None
-        children = [
-            _f for _f in [create_diagram(child) for child in command.children] if _f
-        ]
-        return optional(children[0], skip=(command.prelude == "skip"))
-    if command.name in ("AlternatingSequence"):
-        if command.prelude:
-            print(
-                f"Line {command.line} - AlternatingSequence commands cannot have preludes."
-            )
-            return None
-        if len(command.children) != 2:
-            print(
-                f"Line {command.line} - AlternatingSequence commands need exactly two children."
-            )
-            return None
-        children = [
-            _f for _f in [create_diagram(child) for child in command.children] if _f
-        ]
-        return AlternatingSequence(children[0], children[1])
-    if command.name in ("Group"):
-        if len(command.children) != 1:
-            print(f"Line {command.line} - Group commands need exactly one child.")
-            return None
-        children = [
-            _f for _f in [create_diagram(child) for child in command.children] if _f
-        ]
-        if command.prelude:
-            return Group(children[0], label=command.prelude)
-        return Group(children[0])
-    if command.name in ("Plus", "OneOrMore"):
-        if command.prelude:
-            print(f"Line {command.line} - OneOrMore commands cannot have preludes.")
-            return None
-        if 0 == len(command.children) > 2:
-            print(
-                f"Line {command.line} - OneOrMore commands must have one or two children."
-            )
-            return None
-        children = [
-            _f for _f in [create_diagram(child) for child in command.children] if _f
-        ]
-        return OneOrMore(*children)
-    if command.name in ("Star", "ZeroOrMore"):
-        if command.prelude not in (None, "", "skip"):
-            print(
-                f"Line {command.line} - ZeroOrMore preludes must be nothing or 'skip'. Got:\n{command.prelude}"
-            )
-            return None
-        if 0 == len(command.children) > 2:
-            print(
-                f"Line {command.line} - ZeroOrMore commands must have one or two children."
-            )
-            return None
-        children = [
-            _f for _f in [create_diagram(child) for child in command.children] if _f
-        ]
-        if not children:
-            print(f"Line {command.line} - ZeroOrMore has no valid children.")
-            return None
-        repeat = children[1] if len(children) == 2 else None
-        return zero_or_more(
-            children[0], repeat=repeat, skip=(command.prelude == "skip")
-        )
-    print(f"Line {command.line} - Unknown command '{command.name}'.")
-    return None
 
 
 if __name__ == "__main__":
