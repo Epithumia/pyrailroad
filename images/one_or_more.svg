@@ -1,0 +1,40 @@
+<svg class="railroad-diagram" height="92" viewBox="0 0 276 92" width="276" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g transform="translate(.5 .5)">
+<g data-x="Start w:20 h:10/0/10">
+<path cls="class66s" d="M20 21v20m10 -20v20m-10 -10h20" /></g><path class="class1" d="M40 31h10" /><g data-x="Sequence w:176 h:11/0/41">
+<path class="class3" d="M50 31h0.0" /><path class="class4" d="M226.0 31h0.0" /><g data-x="OneOrMore w:64 h:11/0/41">
+<path class="class58" d="M50.0 31h0.0" /><path class="class59" d="M114.0 31h0.0" /><path class="class60" d="M50.0 31h10" /><g class="non-terminal " data-x="NonTerminal w:44 h:11/0/11">
+<path class="class69" d="M60.0 31h0.0" /><path class="class70" d="M104.0 31h0.0" /><rect height="22" width="44" x="60" y="20"></rect><text x="82" y="35">Row</text></g><path class="class61" d="M104.0 31h10" /><path class="class62" d="M60.0 31a10 10 0 0 0 -10 10v10a10 10 0 0 0 10 10" /><g class="terminal " data-x="Terminal w:28 h:11/0/11">
+<path class="class67" d="M60.0 61h8.0" /><path class="class68" d="M96.0 61h8.0" /><rect height="22" rx="10" ry="10" width="28" x="68" y="50"></rect><text x="82" y="65">,</text></g><path class="class63" d="M104.0 61a10 10 0 0 0 10 -10v-10a10 10 0 0 0 -10 -10" /></g><path class="class6" d="M114.0 31h10" /><path class="class5" d="M124.0 31h10" /><g class="terminal " data-x="Terminal w:92 h:11/0/11">
+<path class="class67" d="M134.0 31h0.0" /><path class="class68" d="M226.0 31h0.0" /><rect height="22" rx="10" ry="10" width="92" x="134" y="20"></rect><text x="180" y="35">your boat</text></g></g><path class="class2" d="M226 31h10" /><path cls="class74s" d="M 236 31 h 20 m -10 -10 v 20 m 10 -20 v 20" data-x="End w:20 h:10/0/10"></path></g><style>/* <![CDATA[ */
+	svg.railroad-diagram {
+		background-color:hsl(30,20%,95%);
+	}
+	svg.railroad-diagram path {
+		stroke-width:3;
+		stroke:black;
+		fill:rgba(0,0,0,0);
+	}
+	svg.railroad-diagram text {
+		font:bold 14px monospace;
+		text-anchor:middle;
+	}
+	svg.railroad-diagram text.label{
+		text-anchor:start;
+	}
+	svg.railroad-diagram text.comment{
+		font:italic 12px monospace;
+	}
+	svg.railroad-diagram rect{
+		stroke-width:3;
+		stroke:black;
+		fill:hsl(120,100%,90%);
+	}
+	svg.railroad-diagram rect.group-box {
+		stroke: gray;
+		stroke-dasharray: 10 5;
+		fill: none;
+	}
+
+/* ]]> */
+</style></svg>

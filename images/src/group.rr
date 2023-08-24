@@ -1,0 +1,7 @@
+Sequence:
+    Terminal: foo
+    Group: label
+        Choice:
+            NonTerminal: cmd1
+            NonTerminal: cmd2
+    Terminal: bar

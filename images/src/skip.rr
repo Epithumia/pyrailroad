@@ -1,0 +1,8 @@
+Stack:
+    Sequence:
+        NonTerminal: non-terminal
+        Terminal: terminal
+    Skip:
+    Sequence:
+        NonTerminal: non-terminal
+        Terminal: terminal

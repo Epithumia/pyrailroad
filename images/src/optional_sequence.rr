@@ -1,0 +1,4 @@
+OptionalSequence:
+    Terminal: foo
+    Terminal: bar
+    Terminal: baz

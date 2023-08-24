@@ -1,0 +1,4 @@
+MultipleChoice: 1 any
+    Terminal: foo
+    Terminal: bar
+    Terminal: baz

@@ -1,0 +1,4 @@
+Sequence:
+    Terminal: item
+    NonTerminal: operation
+    Terminal: item2

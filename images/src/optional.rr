@@ -1,0 +1,5 @@
+Sequence:
+    Optional:
+        Terminal: foo
+    Optional: skip
+        Terminal: bar
