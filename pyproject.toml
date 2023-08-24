@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyrailroad"
+authors = [
+    {name = "Rafael Lopez", email = "rafael.lopez@universite-paris-saclay.fr"},
+]
+description = "Python package to draw railroad (or syntax) diagrams. Based largely on railroad-daigram and the partial parser by tbatkins."
+readme = "README.md"
+requires-python = ">=3.10"
+keywords = ["railroad", "diagram"]
+license = {text = "MIT"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "typer"
+]
+dynamic = ["version"]
+
+[tool.setuptools.dynamic]
+version = {attr = "pyrailroad.VERSION"}
+
+[project.optional-dependencies]
+tests = ["pytest"]
+
+[project.scripts]
+py-railroad = "pyrailroad.parser:app"
