@@ -21,14 +21,66 @@ from .railroad import (
     zero_or_more,
     optional,
 )
-from typing_extensions import Annotated
+from typing_extensions import Annotated, Optional
 import typer
+
+import json
 
 app = typer.Typer()
 
 
-@app.callback(invoke_without_command=True)
-def parse_file(
+@app.command("json")
+def parse_json_file(
+    file: Annotated[
+        Path,
+        typer.Argument(
+            exists=True,
+            file_okay=True,
+            dir_okay=False,
+            writable=False,
+            readable=True,
+            resolve_path=True,
+        ),
+    ],
+    target: Annotated[
+        Path,
+        typer.Argument(
+            file_okay=True,
+            dir_okay=False,
+            writable=True,
+            resolve_path=True,
+        ),
+    ],
+    properties: Annotated[
+        Optional[Path],
+        typer.Argument(
+            exists=True,
+            file_okay=True,
+            dir_okay=False,
+            writable=False,
+            readable=True,
+            resolve_path=True,
+        ),
+    ] = None,
+) -> Diagram:
+    props = None
+    if properties:
+        props = json.load(properties)
+    with open(file) as f:
+        diagram = parse_json(f.read(), props)
+    if diagram:
+        write_diagram(diagram, target, props)
+
+
+def parse_json(string: str, properties: {}) -> Diagram | None:
+    """
+    TODO: implement
+    """
+    pass
+
+
+@app.command("dsl")
+def parse_dsl_file(
     file: Annotated[
         Path,
         typer.Argument(
