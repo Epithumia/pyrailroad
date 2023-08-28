@@ -1346,7 +1346,11 @@ class Group(DiagramItem):
     def to_dict(self) -> dict:
         if self.label is None:
             return {"element": "Group", "item": self.item.to_dict(), "label": None}
-        return {"element": "Group", "item": self.item.to_dict(), "label": self.label.to_dict()}
+        return {
+            "element": "Group",
+            "item": self.item.to_dict(),
+            "label": self.label.to_dict(),
+        }
 
 
 class Start(DiagramItem):

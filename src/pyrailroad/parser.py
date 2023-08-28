@@ -28,6 +28,7 @@ import json
 
 app = typer.Typer()
 
+
 @app.command("yaml")
 def parse_yaml_file(
     file: Annotated[
@@ -63,6 +64,7 @@ def parse_yaml_file(
     ] = None,
 ) -> None:
     import yaml
+
     props = None
     if properties:
         with open(properties) as f:
@@ -73,6 +75,7 @@ def parse_yaml_file(
         diagram = parse_json(json_input, props)
     if diagram:
         write_diagram(diagram, target, props)
+
 
 @app.command("json")
 def parse_json_file(
