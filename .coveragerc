@@ -1,9 +1,7 @@
 [run]
 
-include =
-    src/pyrailroad/*
-
 relative_files = True
+source = src/pyrailroad
 
 [report]
 precision = 2
