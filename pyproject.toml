@@ -16,7 +16,7 @@ classifiers = [
     "Programming Language :: Python :: 3",
 ]
 dependencies = [
-    "typer[full]", "pyyaml"
+    "typer[all]", "pyyaml"
 ]
 dynamic = ["version"]
 
