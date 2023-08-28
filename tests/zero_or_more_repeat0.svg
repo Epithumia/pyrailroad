@@ -1,0 +1,9 @@
+<svg  class="railroad-diagram"  height="111"  viewBox="0 0 208 111"  width="208" > 
+ <g  transform="translate(.5 .5)" > 
+ <g  data-x="Start w:20 h:10/0/10" > 
+ <path  cls="class66s"  d="M20 20v20m10 -20v20m-10 -10h20"  /> </g> <g  data-x="Choice w:128 h:0/0/61" > 
+ <path  class="class31"  d="M40 30h0.0"  /> <path  class="class32"  d="M168.0 30h0.0"  /> <path  class="class35"  d="M40.0 30h20"  /> <g  data-x="Skip w:0 h:0/0/0" > 
+ <path  class="class73"  d="M60.0 30h88"  /> </g> <path  class="class36"  d="M148.0 30h20"  /> <path  class="class37"  d="M40.0 30a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10"  /> <g  data-x="OneOrMore w:88 h:11/0/41" > 
+ <path  class="class58"  d="M60.0 50h0.0"  /> <path  class="class59"  d="M148.0 50h0.0"  /> <path  class="class60"  d="M60.0 50h10"  /> <g  class="terminal "  data-x="Terminal w:52 h:11/0/11" > 
+ <path  class="class67"  d="M70.0 50h8.0"  /> <path  class="class68"  d="M130.0 50h8.0"  /> <rect  height="22"  rx="10"  ry="10"  width="52"  x="78"  y="39" > </rect> <text  x="104"  y="54" > term </text> </g> <path  class="class61"  d="M138.0 50h10"  /> <path  class="class62"  d="M70.0 50a10 10 0 0 0 -10 10v10a10 10 0 0 0 10 10"  /> <g  class="terminal "  data-x="Terminal w:68 h:11/0/11" > 
+ <path  class="class67"  d="M70.0 80h0.0"  /> <path  class="class68"  d="M138.0 80h0.0"  /> <rect  height="22"  rx="10"  ry="10"  width="68"  x="70"  y="69" > </rect> <text  x="104"  y="84" > repeat </text> </g> <path  class="class63"  d="M138.0 80a10 10 0 0 0 10 -10v-10a10 10 0 0 0 -10 -10"  /> </g> <path  class="class38"  d="M148.0 50a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10"  /> </g> <path  cls="class74s"  d="M 168 30 h 20 m -10 -10 v 20 m 10 -20 v 20"  data-x="End w:20 h:10/0/10" > </path> </g> </svg>

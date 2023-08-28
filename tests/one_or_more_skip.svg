@@ -1,0 +1,7 @@
+<svg  class="railroad-diagram"  height="71"  viewBox="0 0 172 71"  width="172" > 
+ <g  transform="translate(.5 .5)" > 
+ <g  data-x="Start w:20 h:10/0/10" > 
+ <path  cls="class66s"  d="M20 21v20m10 -20v20m-10 -10h20"  /> </g> <path  class="class1"  d="M40 31h10"  /> <g  data-x="OneOrMore w:72 h:11/0/20" > 
+ <path  class="class58"  d="M50 31h0.0"  /> <path  class="class59"  d="M122.0 31h0.0"  /> <path  class="class60"  d="M50.0 31h10"  /> <g  class="terminal "  data-x="Terminal w:52 h:11/0/11" > 
+ <path  class="class67"  d="M60.0 31h0.0"  /> <path  class="class68"  d="M112.0 31h0.0"  /> <rect  height="22"  rx="10"  ry="10"  width="52"  x="60"  y="20" > </rect> <text  x="86"  y="35" > term </text> </g> <path  class="class61"  d="M112.0 31h10"  /> <path  class="class62"  d="M60.0 31a10 10 0 0 0 -10 10v0a10 10 0 0 0 10 10"  /> <g  data-x="Skip w:0 h:0/0/0" > 
+ <path  class="class73"  d="M60.0 51h52"  /> </g> <path  class="class63"  d="M112.0 51a10 10 0 0 0 10 -10v0a10 10 0 0 0 -10 -10"  /> </g> <path  class="class2"  d="M122 31h10"  /> <path  cls="class74s"  d="M 132 31 h 20 m -10 -10 v 20 m 10 -20 v 20"  data-x="End w:20 h:10/0/10" > </path> </g> </svg>

@@ -1,0 +1,8 @@
+[run]
+
+include =
+    src/pyrailroad/*
+
+[report]
+precision = 2
+

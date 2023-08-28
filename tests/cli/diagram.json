@@ -1,0 +1,321 @@
+{
+    "element": "Diagram",
+    "items": [
+        {
+            "element": "Start",
+            "type": "complex",
+            "label": null
+        },
+        {
+            "element": "Stack",
+            "items": [
+                {
+                    "element": "Choice",
+                    "default": 1,
+                    "items": [
+                        {
+                            "element": "Terminal",
+                            "text": "foo",
+                            "href": null,
+                            "title": null,
+                            "cls": ""
+                        },
+                        {
+                            "element": "NonTerminal",
+                            "text": "bar",
+                            "href": "raw",
+                            "title": null,
+                            "cls": ""
+                        },
+                        {
+                            "element": "Choice",
+                            "default": 1,
+                            "items": [
+                                {
+                                    "element": "Skip"
+                                },
+                                {
+                                    "element": "OneOrMore",
+                                    "item": {
+                                        "element": "Terminal",
+                                        "text": "z1",
+                                        "href": null,
+                                        "title": null,
+                                        "cls": ""
+                                    },
+                                    "repeat": {
+                                        "element": "Terminal",
+                                        "text": "z2",
+                                        "href": null,
+                                        "title": null,
+                                        "cls": ""
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "element": "OneOrMore",
+                            "item": {
+                                "element": "Terminal",
+                                "text": "baz",
+                                "href": null,
+                                "title": null,
+                                "cls": ""
+                            },
+                            "repeat": {
+                                "element": "Comment",
+                                "text": "and again...",
+                                "href": null,
+                                "title": null,
+                                "cls": ""
+                            }
+                        },
+                        {
+                            "element": "Sequence",
+                            "items": [
+                                {
+                                    "element": "Terminal",
+                                    "text": "s1",
+                                    "href": null,
+                                    "title": null,
+                                    "cls": ""
+                                },
+                                {
+                                    "element": "Terminal",
+                                    "text": "s2",
+                                    "href": null,
+                                    "title": null,
+                                    "cls": ""
+                                },
+                                {
+                                    "element": "Choice",
+                                    "default": 1,
+                                    "items": [
+                                        {
+                                            "element": "Skip"
+                                        },
+                                        {
+                                            "element": "Sequence",
+                                            "items": [
+                                                {
+                                                    "element": "Terminal",
+                                                    "text": "o1",
+                                                    "href": null,
+                                                    "title": null,
+                                                    "cls": ""
+                                                },
+                                                {
+                                                    "element": "Terminal",
+                                                    "text": "o2",
+                                                    "href": null,
+                                                    "title": null,
+                                                    "cls": ""
+                                                },
+                                                {
+                                                    "element": "Terminal",
+                                                    "text": "o3",
+                                                    "href": null,
+                                                    "title": null,
+                                                    "cls": ""
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "element": "Choice",
+                                    "default": 1,
+                                    "items": [
+                                        {
+                                            "element": "Terminal",
+                                            "text": "c1",
+                                            "href": "raw",
+                                            "title": null,
+                                            "cls": ""
+                                        },
+                                        {
+                                            "element": "Terminal",
+                                            "text": "c2",
+                                            "href": "html",
+                                            "title": null,
+                                            "cls": ""
+                                        },
+                                        {
+                                            "element": "Terminal",
+                                            "text": "c3",
+                                            "href": null,
+                                            "title": null,
+                                            "cls": ""
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "element": "MultipleChoice",
+                            "default": 0,
+                            "type": "any",
+                            "items": [
+                                {
+                                    "element": "Terminal",
+                                    "text": "mc1",
+                                    "href": null,
+                                    "title": null,
+                                    "cls": ""
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "element": "Terminal",
+                    "text": "ter1",
+                    "href": null,
+                    "title": null,
+                    "cls": ""
+                },
+                {
+                    "element": "Terminal",
+                    "text": "ter2",
+                    "href": null,
+                    "title": null,
+                    "cls": ""
+                },
+                {
+                    "element": "HorizontalChoice",
+                    "items": [
+                        {
+                            "element": "Choice",
+                            "default": 0,
+                            "items": [
+                                {
+                                    "element": "Terminal",
+                                    "text": "hc1",
+                                    "href": null,
+                                    "title": null,
+                                    "cls": ""
+                                },
+                                {
+                                    "element": "Terminal",
+                                    "text": "hc2",
+                                    "href": null,
+                                    "title": null,
+                                    "cls": ""
+                                }
+                            ]
+                        },
+                        {
+                            "element": "Choice",
+                            "default": 0,
+                            "items": [
+                                {
+                                    "element": "Terminal",
+                                    "text": "hc3",
+                                    "href": null,
+                                    "title": null,
+                                    "cls": ""
+                                },
+                                {
+                                    "element": "Terminal",
+                                    "text": "hc4",
+                                    "href": null,
+                                    "title": null,
+                                    "cls": ""
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "element": "Group",
+                    "item": {
+                        "element": "Sequence",
+                        "items": [
+                            {
+                                "element": "Terminal",
+                                "text": "g1",
+                                "href": null,
+                                "title": null,
+                                "cls": ""
+                            },
+                            {
+                                "element": "Terminal",
+                                "text": "g2",
+                                "href": null,
+                                "title": null,
+                                "cls": ""
+                            }
+                        ]
+                    },
+                    "label": null
+                },
+                {
+                    "element": "Group",
+                    "item": {
+                        "element": "Terminal",
+                        "text": "gl",
+                        "href": null,
+                        "title": null,
+                        "cls": ""
+                    },
+                    "label": {
+                        "element": "Comment",
+                        "text": "group label",
+                        "href": null,
+                        "title": null,
+                        "cls": ""
+                    }
+                },
+                {
+                    "element": "OptionalSequence",
+                    "items": [
+                        {
+                            "element": "Terminal",
+                            "text": "opt1",
+                            "href": null,
+                            "title": null,
+                            "cls": ""
+                        },
+                        {
+                            "element": "Terminal",
+                            "text": "opt2",
+                            "href": null,
+                            "title": null,
+                            "cls": ""
+                        },
+                        {
+                            "element": "Terminal",
+                            "text": "opt3",
+                            "href": null,
+                            "title": null,
+                            "cls": ""
+                        }
+                    ]
+                },
+                {
+                    "element": "AlternatingSequence",
+                    "items": [
+                        {
+                            "element": "Terminal",
+                            "text": "alt1",
+                            "href": null,
+                            "title": null,
+                            "cls": ""
+                        },
+                        {
+                            "element": "Terminal",
+                            "text": "alt2",
+                            "href": null,
+                            "title": null,
+                            "cls": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "element": "End",
+            "type": "complex"
+        }
+    ]
+}

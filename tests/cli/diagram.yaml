@@ -1,0 +1,207 @@
+element: Diagram
+items:
+- element: Start
+  label: null
+  type: complex
+- element: Stack
+  items:
+  - default: 1
+    element: Choice
+    items:
+    - cls: ''
+      element: Terminal
+      href: null
+      text: foo
+      title: null
+    - cls: ''
+      element: NonTerminal
+      href: raw
+      text: bar
+      title: null
+    - default: 1
+      element: Choice
+      items:
+      - element: Skip
+      - element: OneOrMore
+        item:
+          cls: ''
+          element: Terminal
+          href: null
+          text: z1
+          title: null
+        repeat:
+          cls: ''
+          element: Terminal
+          href: null
+          text: z2
+          title: null
+    - element: OneOrMore
+      item:
+        cls: ''
+        element: Terminal
+        href: null
+        text: baz
+        title: null
+      repeat:
+        cls: ''
+        element: Comment
+        href: null
+        text: and again...
+        title: null
+    - element: Sequence
+      items:
+      - cls: ''
+        element: Terminal
+        href: null
+        text: s1
+        title: null
+      - cls: ''
+        element: Terminal
+        href: null
+        text: s2
+        title: null
+      - default: 1
+        element: Choice
+        items:
+        - element: Skip
+        - element: Sequence
+          items:
+          - cls: ''
+            element: Terminal
+            href: null
+            text: o1
+            title: null
+          - cls: ''
+            element: Terminal
+            href: null
+            text: o2
+            title: null
+          - cls: ''
+            element: Terminal
+            href: null
+            text: o3
+            title: null
+      - default: 1
+        element: Choice
+        items:
+        - cls: ''
+          element: Terminal
+          href: raw
+          text: c1
+          title: null
+        - cls: ''
+          element: Terminal
+          href: html
+          text: c2
+          title: null
+        - cls: ''
+          element: Terminal
+          href: null
+          text: c3
+          title: null
+    - default: 0
+      element: MultipleChoice
+      items:
+      - cls: ''
+        element: Terminal
+        href: null
+        text: mc1
+        title: null
+      type: any
+  - cls: ''
+    element: Terminal
+    href: null
+    text: ter1
+    title: null
+  - cls: ''
+    element: Terminal
+    href: null
+    text: ter2
+    title: null
+  - element: HorizontalChoice
+    items:
+    - default: 0
+      element: Choice
+      items:
+      - cls: ''
+        element: Terminal
+        href: null
+        text: hc1
+        title: null
+      - cls: ''
+        element: Terminal
+        href: null
+        text: hc2
+        title: null
+    - default: 0
+      element: Choice
+      items:
+      - cls: ''
+        element: Terminal
+        href: null
+        text: hc3
+        title: null
+      - cls: ''
+        element: Terminal
+        href: null
+        text: hc4
+        title: null
+  - element: Group
+    item:
+      element: Sequence
+      items:
+      - cls: ''
+        element: Terminal
+        href: null
+        text: g1
+        title: null
+      - cls: ''
+        element: Terminal
+        href: null
+        text: g2
+        title: null
+    label: null
+  - element: Group
+    item:
+      cls: ''
+      element: Terminal
+      href: null
+      text: gl
+      title: null
+    label:
+      cls: ''
+      element: Comment
+      href: null
+      text: group label
+      title: null
+  - element: OptionalSequence
+    items:
+    - cls: ''
+      element: Terminal
+      href: null
+      text: opt1
+      title: null
+    - cls: ''
+      element: Terminal
+      href: null
+      text: opt2
+      title: null
+    - cls: ''
+      element: Terminal
+      href: null
+      text: opt3
+      title: null
+  - element: AlternatingSequence
+    items:
+    - cls: ''
+      element: Terminal
+      href: null
+      text: alt1
+      title: null
+    - cls: ''
+      element: Terminal
+      href: null
+      text: alt2
+      title: null
+- element: End
+  type: complex
