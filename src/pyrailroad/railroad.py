@@ -125,6 +125,9 @@ class DiagramItem:
     def walk(self, cb: WalkerF) -> None:
         cb(self)
 
+    def to_dict(self) -> dict:
+        raise NotImplementedError  # Virtual
+
 
 class DiagramMultiContainer(DiagramItem):
     def __init__(
@@ -263,34 +266,34 @@ def wrap_string(value: Node) -> DiagramItem:
 
 
 DEFAULT_STYLE = """\
-	svg.railroad-diagram {
-		background-color:hsl(30,20%,95%);
-	}
-	svg.railroad-diagram path {
-		stroke-width:3;
-		stroke:black;
-		fill:rgba(0,0,0,0);
-	}
-	svg.railroad-diagram text {
-		font:bold 14px monospace;
-		text-anchor:middle;
-	}
-	svg.railroad-diagram text.label{
-		text-anchor:start;
-	}
-	svg.railroad-diagram text.comment{
-		font:italic 12px monospace;
-	}
-	svg.railroad-diagram rect{
-		stroke-width:3;
-		stroke:black;
-		fill:hsl(120,100%,90%);
-	}
-	svg.railroad-diagram rect.group-box {
-		stroke: gray;
-		stroke-dasharray: 10 5;
-		fill: none;
-	}
+    svg.railroad-diagram {
+        background-color:hsl(30,20%,95%);
+    }
+    svg.railroad-diagram path {
+        stroke-width:3;
+        stroke:black;
+        fill:rgba(0,0,0,0);
+    }
+    svg.railroad-diagram text {
+        font:bold 14px monospace;
+        text-anchor:middle;
+    }
+    svg.railroad-diagram text.label{
+        text-anchor:start;
+    }
+    svg.railroad-diagram text.comment{
+        font:italic 12px monospace;
+    }
+    svg.railroad-diagram rect{
+        stroke-width:3;
+        stroke:black;
+        fill:hsl(120,100%,90%);
+    }
+    svg.railroad-diagram rect.group-box {
+        stroke: gray;
+        stroke-dasharray: 10 5;
+        fill: none;
+    }
 """
 
 
@@ -346,6 +349,9 @@ class Diagram(DiagramMultiContainer):
         if self.items[-1].needs_space:
             self.width -= 10
         self.formatted = False
+
+    def to_dict(self) -> dict:
+        return {"element": "Diagram", "items": [i.to_dict() for i in self.items]}
 
     def __repr__(self) -> str:
         items = ", ".join(map(repr, self.items[1:-1]))
@@ -432,6 +438,9 @@ class Sequence(DiagramMultiContainer):
             self.width -= 10
         add_debug(self)
 
+    def to_dict(self) -> dict:
+        return {"element": "Sequence", "items": [i.to_dict() for i in self.items]}
+
     def __repr__(self) -> str:
         items = ", ".join(repr(item) for item in self.items)
         return f"Sequence({items})"
@@ -481,6 +490,9 @@ class Stack(DiagramMultiContainer):
     def __repr__(self) -> str:
         items = ", ".join(repr(item) for item in self.items)
         return f"Stack({items})"
+
+    def to_dict(self) -> dict:
+        return {"element": "Stack", "items": [i.to_dict() for i in self.items]}
 
     def format(self, x: float, y: float, width: float) -> Stack:
         left_gap, right_gap = determine_gaps(width, self.width)
@@ -556,6 +568,12 @@ class OptionalSequence(DiagramMultiContainer):
     def __repr__(self) -> str:
         items = ", ".join(repr(item) for item in self.items)
         return f"OptionalSequence({items})"
+
+    def to_dict(self) -> dict:
+        return {
+            "element": "OptionalSequence",
+            "items": [i.to_dict() for i in self.items],
+        }
 
     def format(self, x: float, y: float, width: float) -> OptionalSequence:
         left_gap, right_gap = determine_gaps(width, self.width)
@@ -689,6 +707,12 @@ class AlternatingSequence(DiagramMultiContainer):
         items = ", ".join(repr(item) for item in self.items)
         return f"AlternatingSequence({items})"
 
+    def to_dict(self) -> dict:
+        return {
+            "element": "AlternatingSequence",
+            "items": [i.to_dict() for i in self.items],
+        }
+
     def format(self, x: float, y: float, width: float) -> AlternatingSequence:
         arc = AR
         gaps = determine_gaps(width, self.width)
@@ -781,6 +805,13 @@ class Choice(DiagramMultiContainer):
                 )
         self.down -= self.items[default].height  # already counted in self.height
         add_debug(self)
+
+    def to_dict(self) -> dict:
+        return {
+            "element": "Choice",
+            "default": self.default,
+            "items": [i.to_dict() for i in self.items],
+        }
 
     def __repr__(self) -> str:
         items = ", ".join(repr(item) for item in self.items)
@@ -898,6 +929,14 @@ class MultipleChoice(DiagramMultiContainer):
     def __repr__(self) -> str:
         items = ", ".join(repr(item) for item in self.items)
         return f"MultipleChoice({repr(self.default)}, {repr(self.type)}, {items})"
+
+    def to_dict(self) -> dict:
+        return {
+            "element": "MultipleChoice",
+            "default": self.default,
+            "type": self.type,
+            "items": [i.to_dict() for i in self.items],
+        }
 
     def format(self, x: float, y: float, width: float) -> MultipleChoice:
         left_gap, right_gap = determine_gaps(width, self.width)
@@ -1059,6 +1098,12 @@ class HorizontalChoice(DiagramMultiContainer):
         self.down = max(self._lowerTrack, first.height + first.down)
 
         add_debug(self)
+
+    def to_dict(self) -> dict:
+        return {
+            "element": "HorizontalChoice",
+            "items": [i.to_dict() for i in self.items],
+        }
 
     def format(self, x: float, y: float, width: float) -> HorizontalChoice:
         # Hook up the two sides if self is narrower than its stated width.
@@ -1222,6 +1267,13 @@ class OneOrMore(DiagramItem):
     def __repr__(self) -> str:
         return f"OneOrMore({repr(self.item)}, repeat={repr(self.rep)})"
 
+    def to_dict(self) -> dict:
+        return {
+            "element": "OneOrMore",
+            "item": self.item.to_dict(),
+            "repeat": self.rep.to_dict(),
+        }
+
 
 def zero_or_more(item: Node, repeat: Opt[Node] = None, skip: bool = False) -> Choice:
     result = optional(OneOrMore(item, repeat), skip)
@@ -1291,6 +1343,11 @@ class Group(DiagramItem):
         if self.label:
             self.label.walk(cb)
 
+    def to_dict(self) -> dict:
+        if self.label is None:
+            return {"element": "Group", "item": self.item.to_dict(), "label": None}
+        return {"element": "Group", "item": self.item.to_dict(), "label": self.label.to_dict()}
+
 
 class Start(DiagramItem):
     def __init__(self, type: str = "simple", label: Opt[str] = None):
@@ -1324,6 +1381,9 @@ class Start(DiagramItem):
     def __repr__(self) -> str:
         return f"Start(type={repr(self.type)}, label={repr(self.label)})"
 
+    def to_dict(self) -> dict:
+        return {"element": "Start", "type": self.type, "label": self.label}
+
 
 class End(DiagramItem):
     def __init__(self, type: str = "simple"):
@@ -1346,6 +1406,9 @@ class End(DiagramItem):
     def __repr__(self) -> str:
         return f"End(type={repr(self.type)})"
 
+    def to_dict(self) -> dict:
+        return {"element": "End", "type": self.type}
+
 
 class Terminal(DiagramItem):
     def __init__(
@@ -1361,6 +1424,15 @@ class Terminal(DiagramItem):
         self.down = 11
         self.needs_space = True
         add_debug(self)
+
+    def to_dict(self) -> dict:
+        return {
+            "element": "Terminal",
+            "text": self.text,
+            "href": self.href,
+            "title": self.title,
+            "cls": self.cls,
+        }
 
     def __repr__(self) -> str:
         return f"Terminal({repr(self.text)}, href={repr(self.href)}, title={repr(self.title)}, cls={repr(self.cls)})"
@@ -1411,6 +1483,15 @@ class NonTerminal(DiagramItem):
         self.needs_space = True
         add_debug(self)
 
+    def to_dict(self) -> dict:
+        return {
+            "element": "NonTerminal",
+            "text": self.text,
+            "href": self.href,
+            "title": self.title,
+            "cls": self.cls,
+        }
+
     def __repr__(self) -> str:
         return f"NonTerminal({repr(self.text)}, href={repr(self.href)}, title={repr(self.title)}, cls={repr(self.cls)})"
 
@@ -1458,6 +1539,15 @@ class Comment(DiagramItem):
         self.needs_space = True
         add_debug(self)
 
+    def to_dict(self) -> dict:
+        return {
+            "element": "Comment",
+            "text": self.text,
+            "href": self.href,
+            "title": self.title,
+            "cls": self.cls,
+        }
+
     def __repr__(self) -> str:
         return f"Comment({repr(self.text)}, href={repr(self.href)}, title={repr(self.title)}, cls={repr(self.cls)})"
 
@@ -1497,3 +1587,6 @@ class Skip(DiagramItem):
 
     def __repr__(self) -> str:
         return "Skip()"
+
+    def to_dict(self) -> dict:
+        return {"element": "Skip"}

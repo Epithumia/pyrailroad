@@ -28,6 +28,51 @@ import json
 
 app = typer.Typer()
 
+@app.command("yaml")
+def parse_yaml_file(
+    file: Annotated[
+        Path,
+        typer.Argument(
+            exists=True,
+            file_okay=True,
+            dir_okay=False,
+            writable=False,
+            readable=True,
+            resolve_path=True,
+        ),
+    ],
+    target: Annotated[
+        Path,
+        typer.Argument(
+            file_okay=True,
+            dir_okay=False,
+            writable=True,
+            resolve_path=True,
+        ),
+    ],
+    properties: Annotated[
+        Optional[Path],
+        typer.Argument(
+            exists=True,
+            file_okay=True,
+            dir_okay=False,
+            writable=False,
+            readable=True,
+            resolve_path=True,
+        ),
+    ] = None,
+) -> None:
+    import yaml
+    props = None
+    if properties:
+        with open(properties) as f:
+            props = yaml.safe_load(f.read())
+    with open(file) as f:
+        yaml_input = yaml.safe_load(f.read())
+        json_input = json.dumps(yaml_input)
+        diagram = parse_json(json_input, props)
+    if diagram:
+        write_diagram(diagram, target, props)
 
 @app.command("json")
 def parse_json_file(
@@ -62,7 +107,7 @@ def parse_json_file(
             resolve_path=True,
         ),
     ] = None,
-) -> Diagram:
+) -> None:
     props = None
     if properties:
         props = json.load(properties)
@@ -76,7 +121,8 @@ def parse_json(string: str, properties: {}) -> Diagram | None:
     """
     TODO: implement
     """
-    pass
+    data = json.loads(string)
+    print(data, properties)
 
 
 @app.command("dsl")
@@ -103,7 +149,7 @@ def parse_dsl_file(
     ],
     simple: Annotated[bool, typer.Option("--simple")] = False,
     standalone: Annotated[bool, typer.Option("--standalone")] = False,
-) -> Diagram:
+) -> None:
     with open(file) as f:
         diagram = parse(f.read(), simple)
     if diagram:
