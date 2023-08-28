@@ -5,34 +5,33 @@
  <path  class="class47"  d="M40 40h0.0"  /> <path  class="class48"  d="M240.0 40h0.0"  /> <path  class="class49"  d="M40.0 40a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10h70"  /> <path  class="class50"  d="M150.0 60h70a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10"  /> <path  class="class51"  d="M40.0 40h10"  /> <g  class="terminal "  data-x="Terminal w:60 h:11/0/11" > 
  <path  class="class67"  d="M50.0 40h10.0"  /> <path  class="class68"  d="M120.0 40h10.0"  /> <rect  height="22"  rx="10"  ry="10"  width="60"  x="60"  y="29" > </rect> <text  x="90"  y="44" > term1 </text> </g> <path  class="class57"  d="M130.0 40a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10"  /> <path  class="class52"  d="M130.0 20a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10"  /> <g  class="terminal "  data-x="Terminal w:60 h:11/0/11" > 
  <path  class="class67"  d="M150.0 40h10.0"  /> <path  class="class68"  d="M220.0 40h10.0"  /> <rect  height="22"  rx="10"  ry="10"  width="60"  x="160"  y="29" > </rect> <text  x="190"  y="44" > term2 </text> </g> <path  class="class53"  d="M230.0 40h10"  /> </g> <path  cls="class74s"  d="M 240 40 h 20 m -10 -10 v 20 m 10 -20 v 20"  data-x="End w:20 h:10/0/10" > </path> </g> <style>/* <![CDATA[ */
-    svg.railroad-diagram {
-        background-color:hsl(30,20%,95%);
-    }
-    svg.railroad-diagram path {
-        stroke-width:3;
-        stroke:black;
-        fill:rgba(0,0,0,0);
-    }
-    svg.railroad-diagram text {
-        font:bold 14px monospace;
-        text-anchor:middle;
-    }
-    svg.railroad-diagram text.label{
-        text-anchor:start;
-    }
-    svg.railroad-diagram text.comment{
-        font:italic 12px monospace;
-    }
-    svg.railroad-diagram rect{
-        stroke-width:3;
-        stroke:black;
-        fill:hsl(120,100%,90%);
-    }
-    svg.railroad-diagram rect.group-box {
-        stroke: gray;
-        stroke-dasharray: 10 5;
-        fill: none;
-    }
-
+svg.railroad-diagram {
+    background-color:hsl(30,20%,95%);
+}
+svg.railroad-diagram path {
+    stroke-width:3;
+    stroke:black;
+    fill:rgba(0,0,0,0);
+}
+svg.railroad-diagram text {
+    font:bold 14px monospace;
+    text-anchor:middle;
+}
+svg.railroad-diagram text.label{
+    text-anchor:start;
+}
+svg.railroad-diagram text.comment{
+    font:italic 12px monospace;
+}
+svg.railroad-diagram rect{
+    stroke-width:3;
+    stroke:black;
+    fill:hsl(120,100%,90%);
+}
+svg.railroad-diagram rect.group-box {
+    stroke: gray;
+    stroke-dasharray: 10 5;
+    fill: none;
+}
 /* ]]> */
 </style> </svg>

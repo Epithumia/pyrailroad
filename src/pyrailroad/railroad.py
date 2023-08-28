@@ -213,10 +213,20 @@ class DiagramItem:
                 )
             case "ZeroOrMore":
                 if "repeat" not in data.keys() or data["repeat"] is None:
-                    return zero_or_more(DiagramItem.from_dict(data["item"], properties), skip=data.get("skip", False))
-                return zero_or_more(DiagramItem.from_dict(data["item"], properties), DiagramItem.from_dict(data["repeat"], properties), skip=data.get("skip", False))
+                    return zero_or_more(
+                        DiagramItem.from_dict(data["item"], properties),
+                        skip=data.get("skip", False),
+                    )
+                return zero_or_more(
+                    DiagramItem.from_dict(data["item"], properties),
+                    DiagramItem.from_dict(data["repeat"], properties),
+                    skip=data.get("skip", False),
+                )
             case "Optional":
-                return optional(DiagramItem.from_dict(data["item"], properties), data.get("skip", False))
+                return optional(
+                    DiagramItem.from_dict(data["item"], properties),
+                    data.get("skip", False),
+                )
             case "Comment":
                 return Comment(
                     text=data["text"],
@@ -385,38 +395,6 @@ def wrap_string(value: Node) -> DiagramItem:
     return value if isinstance(value, DiagramItem) else Terminal(value)
 
 
-DEFAULT_STYLE = """\
-    svg.railroad-diagram {
-        background-color:hsl(30,20%,95%);
-    }
-    svg.railroad-diagram path {
-        stroke-width:3;
-        stroke:black;
-        fill:rgba(0,0,0,0);
-    }
-    svg.railroad-diagram text {
-        font:bold 14px monospace;
-        text-anchor:middle;
-    }
-    svg.railroad-diagram text.label{
-        text-anchor:start;
-    }
-    svg.railroad-diagram text.comment{
-        font:italic 12px monospace;
-    }
-    svg.railroad-diagram rect{
-        stroke-width:3;
-        stroke:black;
-        fill:hsl(120,100%,90%);
-    }
-    svg.railroad-diagram rect.group-box {
-        stroke: gray;
-        stroke-dasharray: 10 5;
-        fill: none;
-    }
-"""
-
-
 class Style:
     def __init__(self, css: str):
         self.css = css
@@ -529,7 +507,12 @@ class Diagram(DiagramMultiContainer):
         if not self.formatted:
             self.format()
         if css is None:
-            css = DEFAULT_STYLE
+            from importlib import resources as r
+            from . import style
+
+            inp_file = r.files(style) / "default.css"
+            with inp_file.open("rt") as f:
+                css = f.read()
         Style(css).add_to(self)
         self.attrs["xmlns"] = "http://www.w3.org/2000/svg"
         self.attrs["xmlns:xlink"] = "http://www.w3.org/1999/xlink"

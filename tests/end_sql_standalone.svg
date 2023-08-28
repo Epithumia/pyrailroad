@@ -2,34 +2,33 @@
  <g  transform="translate(.5 .5)" > 
  <g  data-x="Start w:20 h:10/0/10" > 
  <path  cls="class66s"  d="M20 20v20m10 -20v20m-10 -10h20"  /> </g> <path  data-x="End w:20 h:10/0/10" > </path> </g> <style>/* <![CDATA[ */
-    svg.railroad-diagram {
-        background-color:hsl(30,20%,95%);
-    }
-    svg.railroad-diagram path {
-        stroke-width:3;
-        stroke:black;
-        fill:rgba(0,0,0,0);
-    }
-    svg.railroad-diagram text {
-        font:bold 14px monospace;
-        text-anchor:middle;
-    }
-    svg.railroad-diagram text.label{
-        text-anchor:start;
-    }
-    svg.railroad-diagram text.comment{
-        font:italic 12px monospace;
-    }
-    svg.railroad-diagram rect{
-        stroke-width:3;
-        stroke:black;
-        fill:hsl(120,100%,90%);
-    }
-    svg.railroad-diagram rect.group-box {
-        stroke: gray;
-        stroke-dasharray: 10 5;
-        fill: none;
-    }
-
+svg.railroad-diagram {
+    background-color:hsl(30,20%,95%);
+}
+svg.railroad-diagram path {
+    stroke-width:3;
+    stroke:black;
+    fill:rgba(0,0,0,0);
+}
+svg.railroad-diagram text {
+    font:bold 14px monospace;
+    text-anchor:middle;
+}
+svg.railroad-diagram text.label{
+    text-anchor:start;
+}
+svg.railroad-diagram text.comment{
+    font:italic 12px monospace;
+}
+svg.railroad-diagram rect{
+    stroke-width:3;
+    stroke:black;
+    fill:hsl(120,100%,90%);
+}
+svg.railroad-diagram rect.group-box {
+    stroke: gray;
+    stroke-dasharray: 10 5;
+    fill: none;
+}
 /* ]]> */
 </style> </svg>
