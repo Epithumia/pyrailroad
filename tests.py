@@ -22,10 +22,10 @@ class BaseTest(unittest.TestCase):
 
 class UnitTests(BaseTest):
     def setUp(self):
-        super(UnitTests, self).setUp()
+        super().setUp()
 
     def tearDown(self):
-        super(UnitTests, self).tearDown()
+        super().tearDown()
 
     def test_terminal(self):
         from pyrailroad.railroad import Terminal, Diagram
@@ -1118,14 +1118,14 @@ class UnitTests(BaseTest):
 
 class CLITests(BaseTest):
     def setUp(self):
-        super(CLITests, self).setUp()
+        super().setUp()
         from typer.testing import CliRunner
 
         self.runner = CliRunner()
 
     def tearDown(self):
         silent_remove("tests/cli/output.svg")
-        super(CLITests, self).tearDown()
+        super().tearDown()
 
     def test_cli_help(self):
         from pyrailroad.parser import app
@@ -1186,21 +1186,23 @@ class CLITests(BaseTest):
             with open("tests/cli/diagram.svg", "r") as base:
                 assert res.read() == base.read()
 
-        result = self.runner.invoke(app, ["json", in_file, out_file, "--standalone"])
+        result = self.runner.invoke(
+            app, ["json", in_file, out_file, "tests/cli/complex_standalone.json"]
+        )
         assert result.exit_code == 0
         with open(out_file, "r") as res:
             with open("tests/cli/diagram_standalone.svg", "r") as base:
                 assert res.read() == base.read()
 
         result = self.runner.invoke(
-            app, ["json", in_file, out_file, "--standalone", "--simple"]
+            app, ["json", in_file, out_file, "tests/cli/simple_standalone.json"]
         )
         assert result.exit_code == 0
         with open(out_file, "r") as res:
             with open("tests/cli/diagram_standalone_simple.svg", "r") as base:
                 assert res.read() == base.read()
 
-    def test_cli_dsl(self):
+    def test_cli_yaml(self):
         from pyrailroad.parser import app
 
         in_file = "tests/cli/diagram.yaml"
@@ -1211,14 +1213,16 @@ class CLITests(BaseTest):
             with open("tests/cli/diagram.svg", "r") as base:
                 assert res.read() == base.read()
 
-        result = self.runner.invoke(app, ["yaml", in_file, out_file, "--standalone"])
+        result = self.runner.invoke(
+            app, ["yaml", in_file, out_file, "tests/cli/complex_standalone.yaml"]
+        )
         assert result.exit_code == 0
         with open(out_file, "r") as res:
             with open("tests/cli/diagram_standalone.svg", "r") as base:
                 assert res.read() == base.read()
 
         result = self.runner.invoke(
-            app, ["yaml", in_file, out_file, "--standalone", "--simple"]
+            app, ["yaml", in_file, out_file, "tests/cli/simple_standalone.yaml"]
         )
         assert result.exit_code == 0
         with open(out_file, "r") as res:

@@ -25,6 +25,7 @@ from typing_extensions import Annotated, Optional
 import typer
 
 import json
+import yaml
 
 app = typer.Typer()
 
@@ -63,18 +64,18 @@ def parse_yaml_file(
         ),
     ] = None,
 ) -> None:
-    import yaml
-
     props = None
     if properties:
         with open(properties) as f:
             props = yaml.safe_load(f.read())
+    else:
+        props = {"standalone": False, "type": "complex"}
     with open(file) as f:
         yaml_input = yaml.safe_load(f.read())
         json_input = json.dumps(yaml_input)
         diagram = parse_json(json_input, props)
     if diagram:
-        write_diagram(diagram, target, props)
+        write_diagram(diagram, target, props["standalone"])
 
 
 @app.command("json")
@@ -113,11 +114,19 @@ def parse_json_file(
 ) -> None:
     props = None
     if properties:
-        props = json.load(properties)
+        with open(properties, "r") as p:
+            props = json.loads(p.read())
+    else:
+        props = {"standalone": False, "type": "complex"}
     with open(file) as f:
         diagram = parse_json(f.read(), props)
     if diagram:
-        write_diagram(diagram, target, props)
+        write_diagram(diagram, target, props["standalone"])
+
+
+class ParseException(Exception):
+    def __init__(self, *args: object) -> None:
+        super().__init__(*args)
 
 
 def parse_json(string: str, properties: {}) -> Diagram | None:
@@ -125,7 +134,14 @@ def parse_json(string: str, properties: {}) -> Diagram | None:
     TODO: implement
     """
     data = json.loads(string)
-    print(data, properties)
+    if "element" not in data:
+        raise ParseException("Invalid input file : 'element' is missing from the root")
+    if data["element"] != "Diagram":
+        input_data = {"element": Diagram, "items": [data]}
+    else:
+        input_data = data
+    diagram = Diagram.from_dict(input_data, properties)
+    return diagram
 
 
 @app.command("dsl")

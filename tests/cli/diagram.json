@@ -3,7 +3,6 @@
     "items": [
         {
             "element": "Start",
-            "type": "complex",
             "label": null
         },
         {
@@ -28,30 +27,21 @@
                             "cls": ""
                         },
                         {
-                            "element": "Choice",
-                            "default": 1,
-                            "items": [
-                                {
-                                    "element": "Skip"
-                                },
-                                {
-                                    "element": "OneOrMore",
-                                    "item": {
-                                        "element": "Terminal",
-                                        "text": "z1",
-                                        "href": null,
-                                        "title": null,
-                                        "cls": ""
-                                    },
-                                    "repeat": {
-                                        "element": "Terminal",
-                                        "text": "z2",
-                                        "href": null,
-                                        "title": null,
-                                        "cls": ""
-                                    }
-                                }
-                            ]
+                            "element": "ZeroOrMore",
+                            "item": {
+                                "element": "Terminal",
+                                "text": "z1",
+                                "href": null,
+                                "title": null,
+                                "cls": ""
+                            },
+                            "repeat": {
+                                "element": "Terminal",
+                                "text": "z2",
+                                "href": null,
+                                "title": null,
+                                "cls": ""
+                            }
                         },
                         {
                             "element": "OneOrMore",
@@ -88,39 +78,33 @@
                                     "cls": ""
                                 },
                                 {
-                                    "element": "Choice",
-                                    "default": 1,
-                                    "items": [
-                                        {
-                                            "element": "Skip"
-                                        },
-                                        {
-                                            "element": "Sequence",
-                                            "items": [
-                                                {
-                                                    "element": "Terminal",
-                                                    "text": "o1",
-                                                    "href": null,
-                                                    "title": null,
-                                                    "cls": ""
-                                                },
-                                                {
-                                                    "element": "Terminal",
-                                                    "text": "o2",
-                                                    "href": null,
-                                                    "title": null,
-                                                    "cls": ""
-                                                },
-                                                {
-                                                    "element": "Terminal",
-                                                    "text": "o3",
-                                                    "href": null,
-                                                    "title": null,
-                                                    "cls": ""
-                                                }
-                                            ]
-                                        }
-                                    ]
+                                    "element": "Optional",
+                                    "item": {
+                                        "element": "Sequence",
+                                        "items": [
+                                            {
+                                                "element": "Terminal",
+                                                "text": "o1",
+                                                "href": null,
+                                                "title": null,
+                                                "cls": ""
+                                            },
+                                            {
+                                                "element": "Terminal",
+                                                "text": "o2",
+                                                "href": null,
+                                                "title": null,
+                                                "cls": ""
+                                            },
+                                            {
+                                                "element": "Terminal",
+                                                "text": "o3",
+                                                "href": null,
+                                                "title": null,
+                                                "cls": ""
+                                            }
+                                        ]
+                                    }
                                 },
                                 {
                                     "element": "Choice",
@@ -314,8 +298,7 @@
             ]
         },
         {
-            "element": "End",
-            "type": "complex"
+            "element": "End"
         }
     ]
 }

@@ -128,6 +128,126 @@ class DiagramItem:
     def to_dict(self) -> dict:
         raise NotImplementedError  # Virtual
 
+    @classmethod
+    def from_dict(
+        cls, data: dict, properties: dict | None = None
+    ) -> DiagramItem | None:
+        if "element" not in data.keys():
+            return None
+        match data["element"]:
+            case "Diagram":
+                return Diagram(
+                    *(
+                        DiagramItem.from_dict(item, properties)
+                        for item in data["items"]
+                    ),
+                    type=properties["type"],
+                )
+            case "Start":
+                if "type" not in data.keys() or data["type"] is None:
+                    start_type = properties.get("type", "simple")
+                else:
+                    start_type = data["type"]
+                return Start(start_type, data.get("label", None))
+            case "End":
+                if "type" not in data.keys() or data["type"] is None:
+                    end_type = properties.get("type", "simple")
+                else:
+                    end_type = data["type"]
+                return End(end_type)
+            case "Terminal":
+                return Terminal(
+                    text=data["text"],
+                    href=data.get("href", None),
+                    title=data.get("title", None),
+                    cls=data.get("cls", ""),
+                )
+            case "NonTerminal":
+                return NonTerminal(
+                    text=data["text"],
+                    href=data.get("href", None),
+                    title=data.get("title", None),
+                    cls=data.get("cls", ""),
+                )
+            case "Stack":
+                return Stack(
+                    *(DiagramItem.from_dict(item, properties) for item in data["items"])
+                )
+            case "Choice":
+                return Choice(
+                    int(data["default"]),
+                    *(
+                        DiagramItem.from_dict(item, properties)
+                        for item in data["items"]
+                    ),
+                )
+            case "HorizontalChoice":
+                return HorizontalChoice(
+                    *(DiagramItem.from_dict(item, properties) for item in data["items"])
+                )
+            case "OptionalSequence":
+                return OptionalSequence(
+                    *(DiagramItem.from_dict(item, properties) for item in data["items"])
+                )
+            case "AlternatingSequence":
+                return AlternatingSequence(
+                    *(DiagramItem.from_dict(item, properties) for item in data["items"])
+                )
+            case "MultipleChoice":
+                return MultipleChoice(
+                    int(data["default"]),
+                    data["type"],
+                    *(
+                        DiagramItem.from_dict(item, properties)
+                        for item in data["items"]
+                    ),
+                )
+            case "Skip":
+                return Skip()
+            case "OneOrMore":
+                if "repeat" not in data.keys() or data["repeat"] is None:
+                    return OneOrMore(data["item"])
+                return OneOrMore(
+                    DiagramItem.from_dict(data["item"], properties),
+                    DiagramItem.from_dict(data["repeat"], properties),
+                )
+            case "ZeroOrMore":
+                if "repeat" not in data.keys() or data["repeat"] is None:
+                    return zero_or_more(DiagramItem.from_dict(data["item"], properties), skip=data.get("skip", False))
+                return zero_or_more(DiagramItem.from_dict(data["item"], properties), DiagramItem.from_dict(data["repeat"], properties), skip=data.get("skip", False))
+            case "Optional":
+                return optional(DiagramItem.from_dict(data["item"], properties), data.get("skip", False))
+            case "Comment":
+                return Comment(
+                    text=data["text"],
+                    href=data.get("href", None),
+                    title=data.get("title", None),
+                    cls=data.get("cls", ""),
+                )
+            case "Sequence":
+                return Sequence(
+                    *(DiagramItem.from_dict(item, properties) for item in data["items"])
+                )
+            case "Group":
+                if "label" not in data.keys() or data["label"] is None:
+                    return Group(item=DiagramItem.from_dict(data["item"], properties))
+                if isinstance(data["label"], str):
+                    return Group(
+                        item=DiagramItem.from_dict(data["item"], properties),
+                        label=data["label"],
+                    )
+                return Group(
+                    item=DiagramItem.from_dict(data["item"], properties),
+                    label=DiagramItem.from_dict(data["label"], properties),
+                )
+            case _:
+                raise RRException("Unknown element")
+
+
+def apply_properties(properties: dict):
+    """Need to make the global parameters not global"""
+    pass
+
 
 class DiagramMultiContainer(DiagramItem):
     def __init__(

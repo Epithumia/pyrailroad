@@ -2,7 +2,6 @@ element: Diagram
 items:
 - element: Start
   label: null
-  type: complex
 - element: Stack
   items:
   - default: 1
@@ -204,4 +203,3 @@ items:
       text: alt2
       title: null
 - element: End
-  type: complex
