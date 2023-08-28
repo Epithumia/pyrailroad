@@ -3,6 +3,7 @@
 include =
     src/pyrailroad/*
 
+relative_files = True
+
 [report]
 precision = 2
-
