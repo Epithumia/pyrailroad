@@ -16,7 +16,7 @@ classifiers = [
     "Programming Language :: Python :: 3",
 ]
 dependencies = [
-    "typer"
+    "typer", "pyyaml"
 ]
 dynamic = ["version"]
 
@@ -24,7 +24,7 @@ dynamic = ["version"]
 version = {attr = "pyrailroad.VERSION"}
 
 [project.optional-dependencies]
-tests = ["pytest"]
+tests = ["pytest", "coverage"]
 
 [project.scripts]
 py-railroad = "pyrailroad.parser:app"
