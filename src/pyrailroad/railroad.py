@@ -28,10 +28,12 @@ if TYPE_CHECKING:
     AttrsT = Dict[str, Any]
 
 # Display constants
+DIAGRAM_CLASS = "railroad-diagram"  # class to put on the root <svg>
+
 DEBUG = True  # if true, writes some debug information into attributes
 VS = 8  # minimum vertical separation between things. For a 3px stroke, must be at least 4
 AR = 10  # radius of arcs
-DIAGRAM_CLASS = "railroad-diagram"  # class to put on the root <svg>
+
 STROKE_ODD_PIXEL_LENGTH = (
     True  # is the stroke width an odd (1px, 3px, etc) pixel length?
 )
@@ -423,7 +425,7 @@ class Diagram(DiagramMultiContainer):
             "svg",
             list(items),
             {
-                "class": DIAGRAM_CLASS,
+                "class": kwargs.get("diagram_class", DIAGRAM_CLASS),
             },
         )
         self.type = kwargs.get("type", "simple")
