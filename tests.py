@@ -752,7 +752,7 @@ class UnitTests(BaseTest):
         from pyrailroad.railroad import Diagram, zero_or_more, Terminal
 
         with pytest.raises(TypeError):
-            zero_or_more()
+            zero_or_more()  # NOSONAR
 
         t = zero_or_more(Terminal("term"))
         assert t.to_dict() == {
