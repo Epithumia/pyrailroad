@@ -1,7 +1,7 @@
 <svg  class="railroad-diagram"  height="60"  viewBox="0 0 80 60"  width="80"  xmlns="http://www.w3.org/2000/svg"  xmlns:xlink="http://www.w3.org/1999/xlink" > 
  <g  transform="translate(.5 .5)" > 
- <g  data-x="Start w:20 h:10/0/10" > 
- <path  cls="class66s"  d="M20 20v20m10 -20v20m-10 -10h20"  /> </g> <path  data-x="End w:20 h:10/0/10" > </path> </g> <style>/* <![CDATA[ */
+ <g > 
+ <path  cls="class66s"  d="M20 20v20m10 -20v20m-10 -10h20"  /> </g> <path > </path> </g> <style>/* <![CDATA[ */
 svg.railroad-diagram {
     background-color:hsl(30,20%,95%);
 }

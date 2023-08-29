@@ -1,5 +1,5 @@
 <svg  class="railroad-diagram"  height="60"  viewBox="0 0 138 60"  width="138" > 
  <g  transform="translate(.5 .5)" > 
- <g  data-x="Start w:20 h:10/0/10" > 
- <path  cls="class66s"  d="M20 20v20m10 -20v20m-10 -10h20"  /> </g> <path  class="class1"  d="M40 30h10"  /> <g  class="non-terminal "  data-x="Comment w:38 h:8/0/8" > 
- <path  class="class71"  d="M50 30h0.0"  /> <path  class="class72"  d="M88.0 30h0.0"  /> <a  xlink:href="href" > <text  class="comment"  x="69"  y="35" > text </text> <text  class="comment"  x="69"  y="35" > text </text> </a> <title > title </title> </g> <path  class="class2"  d="M88 30h10"  /> <path  cls="class74s"  d="M 98 30 h 20 m -10 -10 v 20 m 10 -20 v 20"  data-x="End w:20 h:10/0/10" > </path> </g> </svg>
+ <g > 
+ <path  cls="class66s"  d="M20 20v20m10 -20v20m-10 -10h20"  /> </g> <path  class="class1"  d="M40 30h10"  /> <g  class="non-terminal " > 
+ <path  class="class71"  d="M50 30h0.0"  /> <path  class="class72"  d="M88.0 30h0.0"  /> <a  xlink:href="href" > <text  class="comment"  x="69"  y="35" > text </text> <text  class="comment"  x="69"  y="35" > text </text> </a> <title > title </title> </g> <path  class="class2"  d="M88 30h10"  /> <path  cls="class74s"  d="M 98 30 h 20 m -10 -10 v 20 m 10 -20 v 20" > </path> </g> </svg>

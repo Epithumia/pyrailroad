@@ -1,0 +1,85 @@
+<svg class="railroad-diagram" height="1198.0" viewBox="0 0 658 1198.0" width="658" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g transform="translate(.5 .5)">
+<g>
+<path cls="class66c" d="M20 63v20m0 -10h20" /></g><path class="class1" d="M40 73h10" /><g>
+<path class="class7" d="M50 73h0" /><path class="class8" d="M50 73h16" /><g>
+<path class="class31" d="M66 73h0" /><path class="class32" d="M592 73h0" /><path class="class33" d="M66 73a16 16 0 0 0 16 -16v-10a16 16 0 0 1 16 -16" /><g class="terminal ">
+<path class="class67" d="M98 31h0" /><path class="class68" d="M154 31h406" /><rect height="22" rx="10" ry="10" width="56" x="98" y="20"></rect><text x="126" y="35">foo</text></g><path class="class34" d="M560 31a16 16 0 0 1 16 16v10a16 16 0 0 0 16 16" /><path class="class35" d="M66 73h32" /><g class="non-terminal ">
+<path class="class69" d="M98 73h0" /><path class="class70" d="M154 73h406" /><rect height="22" width="56" x="98" y="62"></rect><a xlink:href="raw"><text x="126" y="77">bar</text><text x="126" y="77">bar</text></a></g><path class="class36" d="M560 73h32" /><path class="class37" d="M66 73a16 16 0 0 1 16 16v31a16 16 0 0 0 16 16" /><g>
+<path class="class31" d="M98 136h0" /><path class="class32" d="M238 136h322" /><path class="class33" d="M98 136a16 16 0 0 0 16 -16v0a16 16 0 0 1 16 -16" /><g>
+<path class="class73" d="M130 104h76" /></g><path class="class34" d="M206 104a16 16 0 0 1 16 16v0a16 16 0 0 0 16 16" /><path class="class35" d="M98 136h32" /><g>
+<path class="class58" d="M130 136h0" /><path class="class59" d="M206 136h0" /><path class="class60" d="M130 136h16" /><g class="terminal ">
+<path class="class67" d="M146 136h0" /><path class="class68" d="M190 136h0" /><rect height="22" rx="10" ry="10" width="44" x="146" y="125"></rect><text x="168" y="140">z1</text></g><path class="class61" d="M190 136h16" /><path class="class62" d="M146 136a16 16 0 0 0 -16 16v10a16 16 0 0 0 16 16" /><g class="terminal ">
+<path class="class67" d="M146 178h0" /><path class="class68" d="M190 178h0" /><rect height="22" rx="10" ry="10" width="44" x="146" y="167"></rect><text x="168" y="182">z2</text></g><path class="class63" d="M190 178a16 16 0 0 0 16 -16v-10a16 16 0 0 0 -16 -16" /></g><path class="class36" d="M206 136h32" /></g><path class="class38" d="M560 136a16 16 0 0 0 16 -16v-31a16 16 0 0 1 16 -16" /><path class="class37" d="M66 73a16 16 0 0 1 16 16v115a16 16 0 0 0 16 16" /><g>
+<path class="class58" d="M98 220h0" /><path class="class59" d="M188 220h372" /><path class="class60" d="M98 220h16" /><g class="terminal ">
+<path class="class67" d="M114 220h0" /><path class="class68" d="M170 220h2" /><rect height="22" rx="10" ry="10" width="56" x="114" y="209"></rect><text x="142" y="224">baz</text></g><path class="class61" d="M172 220h16" /><path class="class62" d="M114 220a16 16 0 0 0 -16 16v7a16 16 0 0 0 16 16" /><g class="non-terminal ">
+<path class="class71" d="M114 259h0" /><path class="class72" d="M172 259h0" /><text class="comment" x="143" y="264">and again...</text></g><path class="class63" d="M172 259a16 16 0 0 0 16 -16v-7a16 16 0 0 0 -16 -16" /></g><path class="class38" d="M560 220a16 16 0 0 0 16 -16v-115a16 16 0 0 1 16 -16" /><path class="class37" d="M66 73a16 16 0 0 1 16 16v235a16 16 0 0 0 16 16" /><g>
+<path class="class3" d="M98 340h0" /><path class="class4" d="M560 340h0" /><g class="terminal ">
+<path class="class67" d="M98 340h0" /><path class="class68" d="M142 340h0" /><rect height="22" rx="10" ry="10" width="44" x="98" y="329"></rect><text x="120" y="344">s1</text></g><path class="class6" d="M142 340h10" /><path class="class5" d="M152 340h10" /><g class="terminal ">
+<path class="class67" d="M162 340h0" /><path class="class68" d="M206 340h0" /><rect height="22" rx="10" ry="10" width="44" x="162" y="329"></rect><text x="184" y="344">s2</text></g><path class="class6" d="M206 340h10" /><g>
+<path class="class31" d="M216 340h0" /><path class="class32" d="M452 340h0" /><path class="class33" d="M216 340a16 16 0 0 0 16 -16v0a16 16 0 0 1 16 -16" /><g>
+<path class="class73" d="M248 308h172" /></g><path class="class34" d="M420 308a16 16 0 0 1 16 16v0a16 16 0 0 0 16 16" /><path class="class35" d="M216 340h32" /><g>
+<path class="class3" d="M248 340h0" /><path class="class4" d="M420 340h0" /><g class="terminal ">
+<path class="class67" d="M248 340h0" /><path class="class68" d="M292 340h0" /><rect height="22" rx="10" ry="10" width="44" x="248" y="329"></rect><text x="270" y="344">o1</text></g><path class="class6" d="M292 340h10" /><path class="class5" d="M302 340h10" /><g class="terminal ">
+<path class="class67" d="M312 340h0" /><path class="class68" d="M356 340h0" /><rect height="22" rx="10" ry="10" width="44" x="312" y="329"></rect><text x="334" y="344">o2</text></g><path class="class6" d="M356 340h10" /><path class="class5" d="M366 340h10" /><g class="terminal ">
+<path class="class67" d="M376 340h0" /><path class="class68" d="M420 340h0" /><rect height="22" rx="10" ry="10" width="44" x="376" y="329"></rect><text x="398" y="344">o3</text></g></g><path class="class36" d="M420 340h32" /></g><g>
+<path class="class31" d="M452 340h0" /><path class="class32" d="M560 340h0" /><path class="class33" d="M452 340a16 16 0 0 0 16 -16v-10a16 16 0 0 1 16 -16" /><g class="terminal ">
+<path class="class67" d="M484 298h0" /><path class="class68" d="M528 298h0" /><rect height="22" rx="10" ry="10" width="44" x="484" y="287"></rect><a xlink:href="raw"><text x="506" y="302">c1</text><text x="506" y="302">c1</text></a></g><path class="class34" d="M528 298a16 16 0 0 1 16 16v10a16 16 0 0 0 16 16" /><path class="class35" d="M452 340h32" /><g class="terminal ">
+<path class="class67" d="M484 340h0" /><path class="class68" d="M528 340h0" /><rect height="22" rx="10" ry="10" width="44" x="484" y="329"></rect><a xlink:href="html"><text x="506" y="344">c2</text><text x="506" y="344">c2</text></a></g><path class="class36" d="M528 340h32" /><path class="class37" d="M452 340a16 16 0 0 1 16 16v10a16 16 0 0 0 16 16" /><g class="terminal ">
+<path class="class67" d="M484 382h0" /><path class="class68" d="M528 382h0" /><rect height="22" rx="10" ry="10" width="44" x="484" y="371"></rect><text x="506" y="386">c3</text></g><path class="class38" d="M528 382a16 16 0 0 0 16 -16v-10a16 16 0 0 1 16 -16" /></g></g><path class="class38" d="M560 340a16 16 0 0 0 16 -16v-235a16 16 0 0 1 16 -16" /><path class="class37" d="M66 73a16 16 0 0 1 16 16v319a16 16 0 0 0 16 16" /><g>
+<path class="class39" d="M98 424h0" /><path class="class40" d="M236 424h324" /><path class="class43" d="M128 424h16" /><g class="terminal ">
+<path class="class67" d="M144 424h0" /><path class="class68" d="M200 424h0" /><rect height="22" rx="10" ry="10" width="56" x="144" y="413"></rect><text x="172" y="428">mc1</text></g><path class="class44" d="M200 424h16" /><g class="diagram-text">
+<title>take one or more branches, once each, in any order</title><path class="diagram-text" d="M 128 414 h -26 a 4 4 0 0 0 -4 4 v 12 a 4 4 0 0 0 4 4 h 26 z"></path><text class="diagram-text" x="113" y="428">1+</text><path class="diagram-text" d="M 216 414 h 16 a 4 4 0 0 1 4 4 v 12 a 4 4 0 0 1 -4 4 h -16 z"></path><text class="diagram-arrow" x="226" y="428">↺</text></g></g><path class="class38" d="M560 424a16 16 0 0 0 16 -16v-319a16 16 0 0 1 16 -16" /></g><path class="class9" d="M592 73a16 16 0 0 1 16 16v350a16 16 0 0 1 -16 16h-526a16 16 0 0 0 -16 16v0a16 16 0 0 0 16 16" /><g class="terminal ">
+<path class="class67" d="M66 487h0" /><path class="class68" d="M134 487h458" /><rect height="22" rx="10" ry="10" width="68" x="66" y="476"></rect><text x="100" y="491">ter1</text></g><path class="class9" d="M592 487a16 16 0 0 1 16 16v0a16 16 0 0 1 -16 16h-526a16 16 0 0 0 -16 16v0a16 16 0 0 0 16 16" /><g class="terminal ">
+<path class="class67" d="M66 551h0" /><path class="class68" d="M134 551h458" /><rect height="22" rx="10" ry="10" width="68" x="66" y="540"></rect><text x="100" y="555">ter2</text></g><path class="class9" d="M592 551a16 16 0 0 1 16 16v0a16 16 0 0 1 -16 16h-526a16 16 0 0 0 -16 16v20a16 16 0 0 0 16 16" /><g>
+<path class="class47" d="M66 635h0" /><path class="class48" d="M370 635h222" /><path class="class49" d="M66 635a16 16 0 0 0 16 -16v0a16 16 0 0 1 16 -16h104" /><path class="class50" d="M234 708h104a16 16 0 0 0 16 -16v-41a16 16 0 0 1 16 -16" /><path class="class51" d="M66 635h16" /><g>
+<path class="class31" d="M82 635h0" /><path class="class32" d="M202 635h0" /><path class="class35" d="M82 635h32" /><g class="terminal ">
+<path class="class67" d="M114 635h0" /><path class="class68" d="M170 635h0" /><rect height="22" rx="10" ry="10" width="56" x="114" y="624"></rect><text x="142" y="639">hc1</text></g><path class="class36" d="M170 635h32" /><path class="class37" d="M82 635a16 16 0 0 1 16 16v10a16 16 0 0 0 16 16" /><g class="terminal ">
+<path class="class67" d="M114 677h0" /><path class="class68" d="M170 677h0" /><rect height="22" rx="10" ry="10" width="56" x="114" y="666"></rect><text x="142" y="681">hc2</text></g><path class="class38" d="M170 677a16 16 0 0 0 16 -16v-10a16 16 0 0 1 16 -16" /></g><path class="class57" d="M202 635a16 16 0 0 1 16 16v41a16 16 0 0 0 16 16" /><path class="class52" d="M202 603a16 16 0 0 1 16 16v0a16 16 0 0 0 16 16" /><g>
+<path class="class31" d="M234 635h0" /><path class="class32" d="M354 635h0" /><path class="class35" d="M234 635h32" /><g class="terminal ">
+<path class="class67" d="M266 635h0" /><path class="class68" d="M322 635h0" /><rect height="22" rx="10" ry="10" width="56" x="266" y="624"></rect><text x="294" y="639">hc3</text></g><path class="class36" d="M322 635h32" /><path class="class37" d="M234 635a16 16 0 0 1 16 16v10a16 16 0 0 0 16 16" /><g class="terminal ">
+<path class="class67" d="M266 677h0" /><path class="class68" d="M322 677h0" /><rect height="22" rx="10" ry="10" width="56" x="266" y="666"></rect><text x="294" y="681">hc4</text></g><path class="class38" d="M322 677a16 16 0 0 0 16 -16v-10a16 16 0 0 1 16 -16" /></g><path class="class53" d="M354 635h16" /></g><path class="class9" d="M592 635a16 16 0 0 1 16 16v61a16 16 0 0 1 -16 16h-526a16 16 0 0 0 -16 16v19a16 16 0 0 0 16 16" /><g>
+<path class="class64" d="M66 779h0" /><path class="class65" d="M194 779h398" /><rect class="group-box" height="62" rx="16" ry="16" width="128" x="66" y="748"></rect><g>
+<path class="class3" d="M66 779h0" /><path class="class4" d="M174 779h20" /><g class="terminal ">
+<path class="class67" d="M66 779h0" /><path class="class68" d="M110 779h0" /><rect height="22" rx="10" ry="10" width="44" x="66" y="768"></rect><text x="88" y="783">g1</text></g><path class="class6" d="M110 779h10" /><path class="class5" d="M120 779h10" /><g class="terminal ">
+<path class="class67" d="M130 779h0" /><path class="class68" d="M174 779h0" /><rect height="22" rx="10" ry="10" width="44" x="130" y="768"></rect><text x="152" y="783">g2</text></g></g></g><path class="class9" d="M592 779a16 16 0 0 1 16 16v19a16 16 0 0 1 -16 16h-526a16 16 0 0 0 -16 16v35a16 16 0 0 0 16 16" /><g>
+<path class="class64" d="M66 897h0" /><path class="class65" d="M130 897h462" /><rect class="group-box" height="62" rx="16" ry="16" width="64" x="66" y="866"></rect><g class="terminal ">
+<path class="class67" d="M66 897h0" /><path class="class68" d="M110 897h20" /><rect height="22" rx="10" ry="10" width="44" x="66" y="886"></rect><text x="88" y="901">gl</text></g><g class="non-terminal ">
+<path class="class71" d="M66 858h0" /><path class="class72" d="M120 858h0" /><text class="comment" x="93" y="863">group label</text></g></g><path class="class9" d="M592 897a16 16 0 0 1 16 16v19a16 16 0 0 1 -16 16h-526a16 16 0 0 0 -16 16v20a16 16 0 0 0 16 16" /><g>
+<path class="class12" d="M66 1000h0" /><path class="class13" d="M412 1000h180" /><path class="class14" d="M66 1000a16 16 0 0 0 16 -16v0a16 16 0 0 1 16 -16h62a16 16 0 0 1 16 16v0a16 16 0 0 0 16 16" /><path class="class15" d="M66 1000h26" /><g class="terminal ">
+<path class="class67" d="M92 1000h0" /><path class="class68" d="M160 1000h0" /><rect height="22" rx="10" ry="10" width="68" x="92" y="989"></rect><text x="126" y="1004">opt1</text></g><path class="class16" d="M160 968h126a16 16 0 0 1 16 16v0a16 16 0 0 0 16 16" /><path class="class17" d="M160 1000h32" /><g class="terminal ">
+<path class="class67" d="M192 1000h0" /><path class="class68" d="M260 1000h0" /><rect height="22" rx="10" ry="10" width="68" x="192" y="989"></rect><text x="226" y="1004">opt2</text></g><path class="class18" d="M260 1000h26" /><path class="class19" d="M160 1000a16 16 0 0 1 16 16v0a16 16 0 0 0 16 16h62a16 16 0 0 0 16 -16v0a16 16 0 0 1 16 -16" /><path class="class20" d="M286 1000h32" /><g class="terminal ">
+<path class="class67" d="M318 1000h0" /><path class="class68" d="M386 1000h0" /><rect height="22" rx="10" ry="10" width="68" x="318" y="989"></rect><text x="352" y="1004">opt3</text></g><path class="class21" d="M386 1000h26" /><path class="class22" d="M286 1000a16 16 0 0 1 16 16v0a16 16 0 0 0 16 16h62a16 16 0 0 0 16 -16v0a16 16 0 0 1 16 -16" /></g><path class="class9" d="M592 1000a16 16 0 0 1 16 16v20a16 16 0 0 1 -16 16h-526a16 16 0 0 0 -16 16v41.0a16 16 0 0 0 16 16" /><g>
+<path class="class23" d="M66 1125.0h0" /><path class="class24" d="M218 1125.0h374" /><path class="class25" d="M66 1125.0a16 16 0 0 0 16 -16v-10.0a16 16 0 0 1 16 -16" /><g class="terminal ">
+<path class="class67" d="M98 1083.0h0" /><path class="class68" d="M166 1083.0h20" /><rect height="22" rx="10" ry="10" width="68" x="98" y="1072"></rect><text x="132" y="1087">alt1</text></g><path class="class26" d="M186 1083.0a16 16 0 0 1 16 16v10.0a16 16 0 0 0 16 16" /><path class="class27" d="M66 1125.0a16 16 0 0 1 16 16v10.0a16 16 0 0 0 16 16" /><g class="terminal ">
+<path class="class67" d="M98 1167.0h0" /><path class="class68" d="M166 1167.0h20" /><rect height="22" rx="10" ry="10" width="68" x="98" y="1156"></rect><text x="132" y="1171">alt2</text></g><path class="class28" d="M186 1167.0a16 16 0 0 0 16 -16v-10.0a16 16 0 0 1 16 -16" /><path class="class29" d="M82 1099.0a16 16 0 0 0 16 16h27.37258300203048a 16 16 0 0 1 11.31370849898476 4.686291501015241l10.627416997969519 10.627416997969519a 16 16 0 0 0 11.31370849898476 4.686291501015241h27.37258300203048a16 16 0 0 1 16 16" /><path class="class30" d="M82 1151.0a16 16 0 0 1 16 -16h27.37258300203048a 16 16 0 0 0 11.31370849898476 -4.686291501015241l10.627416997969519 -10.627416997969519a 16 16 0 0 1 11.31370849898476 -4.686291501015241h27.37258300203048a16 16 0 0 0 16 -16" /></g><path class="class10" d="M592 1125.0h16" /><path class="class11" d="M608 1125.0h0" /></g><path class="class2" d="M608 1125.0h10" /><path cls="class74c" d="M 618 1125.0 h 20 m 0 -10 v 20"></path></g><style>/* <![CDATA[ */
+svg.railroad-diagram {
+    background-color:hsl(30,20%,95%);
+}
+svg.railroad-diagram path {
+    stroke-width:3;
+    stroke:black;
+    fill:rgba(0,0,0,0);
+}
+svg.railroad-diagram text {
+    font:bold 14px monospace;
+    text-anchor:middle;
+}
+svg.railroad-diagram text.label{
+    text-anchor:start;
+}
+svg.railroad-diagram text.comment{
+    font:italic 12px monospace;
+}
+svg.railroad-diagram rect{
+    stroke-width:3;
+    stroke:black;
+    fill:hsl(120,100%,90%);
+}
+svg.railroad-diagram rect.group-box {
+    stroke: gray;
+    stroke-dasharray: 10 5;
+    fill: none;
+}
+/* ]]> */
+</style></svg>

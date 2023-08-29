@@ -1,0 +1,10 @@
+{
+    "type": "complex",
+    "standalone": true,
+    "stroke_odd_pixel_length": false,
+    "VS": 20,
+    "AR": 16,
+    "char_width": 12,
+    "comment_char_width": 4,
+    "internal_alignment": "left"
+}

@@ -69,7 +69,7 @@ def parse_yaml_file(
         with open(properties) as f:
             props = yaml.safe_load(f.read())
     else:
-        props = {"standalone": False, "type": "complex"}
+        props = {"standalone": False, "type": "complex", "css": None}
     with open(file) as f:
         yaml_input = yaml.safe_load(f.read())
         json_input = json.dumps(yaml_input)
@@ -117,7 +117,7 @@ def parse_json_file(
         with open(properties, "r") as p:
             props = json.loads(p.read())
     else:
-        props = {"standalone": False, "type": "complex"}
+        props = {"standalone": False, "type": "complex", "css": None}
     with open(file) as f:
         diagram = parse_json(f.read(), props)
     if diagram:

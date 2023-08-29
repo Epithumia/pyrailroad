@@ -59,11 +59,15 @@ class UnitTests(BaseTest):
         d = Diagram(t)
         svg = []
         d.write_svg(svg.append)
+        with open("tests/terminal.svg", "w") as f:
+            f.write(" ".join(svg))
         with open("tests/terminal.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
         svg = []
         d.write_standalone(svg.append)
+        with open("tests/terminal_standalone.svg", "w") as f:
+            f.write(" ".join(svg))
         with open("tests/terminal_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
@@ -100,11 +104,15 @@ class UnitTests(BaseTest):
         d = Diagram(t)
         svg = []
         d.write_svg(svg.append)
+        with open("tests/non_terminal.svg", "w") as f:
+            f.write(" ".join(svg))
         with open("tests/non_terminal.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
         svg = []
         d.write_standalone(svg.append)
+        with open("tests/non_terminal_standalone.svg", "w") as f:
+            f.write(" ".join(svg))
         with open("tests/non_terminal_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
@@ -141,11 +149,15 @@ class UnitTests(BaseTest):
         d = Diagram(t)
         svg = []
         d.write_svg(svg.append)
+        with open("tests/comment.svg", "w") as f:
+            f.write(" ".join(svg))
         with open("tests/comment.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
         svg = []
         d.write_standalone(svg.append)
+        with open("tests/comment_standalone.svg", "w") as f:
+            f.write(" ".join(svg))
         with open("tests/comment_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
@@ -158,11 +170,15 @@ class UnitTests(BaseTest):
         d = Diagram(t)
         svg = []
         d.write_svg(svg.append)
+        with open("tests/skip.svg", "w") as f:
+            f.write(" ".join(svg))
         with open("tests/skip.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
         svg = []
         d.write_standalone(svg.append)
+        with open("tests/skip_standalone.svg", "w") as f:
+            f.write(" ".join(svg))
         with open("tests/skip_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
@@ -1202,6 +1218,14 @@ class CLITests(BaseTest):
             with open("tests/cli/diagram_standalone_simple.svg", "r") as base:
                 assert res.read() == base.read()
 
+        result = self.runner.invoke(
+            app, ["json", in_file, out_file, "tests/cli/customized_standalone.json"]
+        )
+        assert result.exit_code == 0
+        with open(out_file, "r") as res:
+            with open("tests/cli/diagram_standalone_custom.svg", "r") as base:
+                assert res.read() == base.read()
+
     def test_cli_yaml(self):
         from pyrailroad.parser import app
 
@@ -1227,4 +1251,12 @@ class CLITests(BaseTest):
         assert result.exit_code == 0
         with open(out_file, "r") as res:
             with open("tests/cli/diagram_standalone_simple.svg", "r") as base:
+                assert res.read() == base.read()
+
+        result = self.runner.invoke(
+            app, ["yaml", in_file, out_file, "tests/cli/customized_standalone.yaml"]
+        )
+        assert result.exit_code == 0
+        with open(out_file, "r") as res:
+            with open("tests/cli/diagram_standalone_custom.svg", "r") as base:
                 assert res.read() == base.read()

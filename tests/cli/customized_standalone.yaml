@@ -1,0 +1,8 @@
+AR: 16
+VS: 20
+char_width: 12
+comment_char_width: 4
+internal_alignment: left
+standalone: true
+stroke_odd_pixel_length: false
+type: complex

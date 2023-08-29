@@ -1,9 +1,9 @@
 <svg  class="railroad-diagram"  height="78"  viewBox="0 0 172 78"  width="172"  xmlns="http://www.w3.org/2000/svg"  xmlns:xlink="http://www.w3.org/1999/xlink" > 
  <g  transform="translate(.5 .5)" > 
- <g  data-x="Start w:20 h:10/0/10" > 
- <path  cls="class66s"  d="M20 29v20m10 -20v20m-10 -10h20"  /> </g> <path  class="class1"  d="M40 39h10"  /> <g  data-x="Group w:72 h:19/0/19" > 
- <path  class="class64"  d="M50 39h0.0"  /> <path  class="class65"  d="M122.0 39h0.0"  /> <rect  class="group-box"  height="38"  rx="10"  ry="10"  width="72"  x="50"  y="20" > </rect> <g  class="terminal "  data-x="Terminal w:52 h:11/0/11" > 
- <path  class="class67"  d="M50.0 39h10.0"  /> <path  class="class68"  d="M112.0 39h10.0"  /> <rect  height="22"  rx="10"  ry="10"  width="52"  x="60"  y="28" > </rect> <text  x="86"  y="43" > term </text> </g> </g> <path  class="class2"  d="M122 39h10"  /> <path  cls="class74s"  d="M 132 39 h 20 m -10 -10 v 20 m 10 -20 v 20"  data-x="End w:20 h:10/0/10" > </path> </g> <style>/* <![CDATA[ */
+ <g > 
+ <path  cls="class66s"  d="M20 29v20m10 -20v20m-10 -10h20"  /> </g> <path  class="class1"  d="M40 39h10"  /> <g > 
+ <path  class="class64"  d="M50 39h0.0"  /> <path  class="class65"  d="M122.0 39h0.0"  /> <rect  class="group-box"  height="38"  rx="10"  ry="10"  width="72"  x="50"  y="20" > </rect> <g  class="terminal " > 
+ <path  class="class67"  d="M50.0 39h10.0"  /> <path  class="class68"  d="M112.0 39h10.0"  /> <rect  height="22"  rx="10"  ry="10"  width="52"  x="60"  y="28" > </rect> <text  x="86"  y="43" > term </text> </g> </g> <path  class="class2"  d="M122 39h10"  /> <path  cls="class74s"  d="M 132 39 h 20 m -10 -10 v 20 m 10 -20 v 20" > </path> </g> <style>/* <![CDATA[ */
 svg.railroad-diagram {
     background-color:hsl(30,20%,95%);
 }
