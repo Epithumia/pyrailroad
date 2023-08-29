@@ -1,5 +1,5 @@
 {
-    "type": "complex",
+    "type": "sql",
     "standalone": true,
     "stroke_odd_pixel_length": false,
     "VS": 20,

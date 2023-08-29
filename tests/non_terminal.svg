@@ -1,5 +1,5 @@
 <svg  class="railroad-diagram"  height="62"  viewBox="0 0 152 62"  width="152" > 
  <g  transform="translate(.5 .5)" > 
  <g > 
- <path  cls="class66s"  d="M20 21v20m10 -20v20m-10 -10h20"  /> </g> <path  class="class1"  d="M40 31h10"  /> <g  class="non-terminal " > 
- <path  class="class69"  d="M50 31h0.0"  /> <path  class="class70"  d="M102.0 31h0.0"  /> <rect  height="22"  width="52"  x="50"  y="20" > </rect> <a  xlink:href="href" > <text  x="76"  y="35" > text </text> <text  x="76"  y="35" > text </text> </a> <title > title </title> </g> <path  class="class2"  d="M102 31h10"  /> <path  cls="class74s"  d="M 112 31 h 20 m -10 -10 v 20 m 10 -20 v 20" > </path> </g> </svg>
+ <path  class="start"  d="M20 21v20m10 -20v20m-10 -10h20"  /> </g> <path  d="M40 31h10"  /> <g  class="non-terminal " > 
+ <path  class="nonterm nt1"  d="M50 31h0.0"  /> <path  class="nonterm nt2"  d="M102.0 31h0.0"  /> <rect  height="22"  width="52"  x="50"  y="20" > </rect> <a  xlink:href="href" > <text  x="76"  y="35" > text </text> <text  x="76"  y="35" > text </text> </a> <title > title </title> </g> <path  d="M102 31h10"  /> <path  class="end"  d="M 112 31 h 20 m -10 -10 v 20 m 10 -20 v 20" > </path> </g> </svg>

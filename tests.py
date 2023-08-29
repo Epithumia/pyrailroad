@@ -59,15 +59,11 @@ class UnitTests(BaseTest):
         d = Diagram(t)
         svg = []
         d.write_svg(svg.append)
-        with open("tests/terminal.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/terminal.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
         svg = []
         d.write_standalone(svg.append)
-        with open("tests/terminal_standalone.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/terminal_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
@@ -104,15 +100,11 @@ class UnitTests(BaseTest):
         d = Diagram(t)
         svg = []
         d.write_svg(svg.append)
-        with open("tests/non_terminal.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/non_terminal.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
         svg = []
         d.write_standalone(svg.append)
-        with open("tests/non_terminal_standalone.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/non_terminal_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
@@ -149,15 +141,11 @@ class UnitTests(BaseTest):
         d = Diagram(t)
         svg = []
         d.write_svg(svg.append)
-        with open("tests/comment.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/comment.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
         svg = []
         d.write_standalone(svg.append)
-        with open("tests/comment_standalone.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/comment_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
@@ -170,15 +158,11 @@ class UnitTests(BaseTest):
         d = Diagram(t)
         svg = []
         d.write_svg(svg.append)
-        with open("tests/skip.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/skip.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
         svg = []
         d.write_standalone(svg.append)
-        with open("tests/skip_standalone.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/skip_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
@@ -209,15 +193,11 @@ class UnitTests(BaseTest):
         d = Diagram(t)
         svg = []
         d.write_svg(svg.append)
-        with open("tests/sequence.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/sequence.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
         svg = []
         d.write_standalone(svg.append)
-        with open("tests/sequence_standalone.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/sequence_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
@@ -248,15 +228,11 @@ class UnitTests(BaseTest):
         d = Diagram(t)
         svg = []
         d.write_svg(svg.append)
-        with open("tests/stack.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/stack.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
         svg = []
         d.write_standalone(svg.append)
-        with open("tests/stack_standalone.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/stack_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
@@ -287,15 +263,11 @@ class UnitTests(BaseTest):
         d = Diagram(t)
         svg = []
         d.write_svg(svg.append)
-        with open("tests/optional_sequence.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/optional_sequence.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
         svg = []
         d.write_standalone(svg.append)
-        with open("tests/optional_sequence_standalone.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/optional_sequence_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
@@ -326,15 +298,11 @@ class UnitTests(BaseTest):
         d = Diagram(t)
         svg = []
         d.write_svg(svg.append)
-        with open("tests/alternating_sequence.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/alternating_sequence.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
         svg = []
         d.write_standalone(svg.append)
-        with open("tests/alternating_sequence_standalone.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/alternating_sequence_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
@@ -368,15 +336,11 @@ class UnitTests(BaseTest):
         d = Diagram(t)
         svg = []
         d.write_svg(svg.append)
-        with open("tests/choice0.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/choice0.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
         svg = []
         d.write_standalone(svg.append)
-        with open("tests/choice0_standalone.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/choice0_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
@@ -404,15 +368,11 @@ class UnitTests(BaseTest):
         d = Diagram(t)
         svg = []
         d.write_svg(svg.append)
-        with open("tests/choice1.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/choice1.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
         svg = []
         d.write_standalone(svg.append)
-        with open("tests/choice1_standalone.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/choice1_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
@@ -451,15 +411,11 @@ class UnitTests(BaseTest):
         d = Diagram(t)
         svg = []
         d.write_svg(svg.append)
-        with open("tests/multiple_choice0_all.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/multiple_choice0_all.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
         svg = []
         d.write_standalone(svg.append)
-        with open("tests/multiple_choice0_all_standalone.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/multiple_choice0_all_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
@@ -488,15 +444,11 @@ class UnitTests(BaseTest):
         d = Diagram(t)
         svg = []
         d.write_svg(svg.append)
-        with open("tests/multiple_choice1_all.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/multiple_choice1_all.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
         svg = []
         d.write_standalone(svg.append)
-        with open("tests/multiple_choice1_all_standalone.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/multiple_choice1_all_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
@@ -525,15 +477,11 @@ class UnitTests(BaseTest):
         d = Diagram(t)
         svg = []
         d.write_svg(svg.append)
-        with open("tests/multiple_choice0_any.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/multiple_choice0_any.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
         svg = []
         d.write_standalone(svg.append)
-        with open("tests/multiple_choice0_any_standalone.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/multiple_choice0_any_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
@@ -562,15 +510,11 @@ class UnitTests(BaseTest):
         d = Diagram(t)
         svg = []
         d.write_svg(svg.append)
-        with open("tests/multiple_choice1_any.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/multiple_choice1_any.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
         svg = []
         d.write_standalone(svg.append)
-        with open("tests/multiple_choice1_any_standalone.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/multiple_choice1_any_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
@@ -618,15 +562,11 @@ class UnitTests(BaseTest):
         d = Diagram(t)
         svg = []
         d.write_svg(svg.append)
-        with open("tests/horizontal_choice.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/horizontal_choice.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
         svg = []
         d.write_standalone(svg.append)
-        with open("tests/horizontal_choice_standalone.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/horizontal_choice_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
@@ -652,15 +592,11 @@ class UnitTests(BaseTest):
         d = Diagram(t)
         svg = []
         d.write_svg(svg.append)
-        with open("tests/optional_no_skip.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/optional_no_skip.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
         svg = []
         d.write_standalone(svg.append)
-        with open("tests/optional_no_skip_standalone.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/optional_no_skip_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
@@ -683,15 +619,11 @@ class UnitTests(BaseTest):
         d = Diagram(t)
         svg = []
         d.write_svg(svg.append)
-        with open("tests/optional_skip.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/optional_skip.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
         svg = []
         d.write_standalone(svg.append)
-        with open("tests/optional_skip_standalone.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/optional_skip_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
@@ -717,15 +649,11 @@ class UnitTests(BaseTest):
         d = Diagram(t)
         svg = []
         d.write_svg(svg.append)
-        with open("tests/one_or_more_skip.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/one_or_more_skip.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
         svg = []
         d.write_standalone(svg.append)
-        with open("tests/one_or_more_skip_standalone.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/one_or_more_skip_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
@@ -751,15 +679,11 @@ class UnitTests(BaseTest):
         d = Diagram(t)
         svg = []
         d.write_svg(svg.append)
-        with open("tests/one_or_more_repeat.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/one_or_more_repeat.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
         svg = []
         d.write_standalone(svg.append)
-        with open("tests/one_or_more_repeat_standalone.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/one_or_more_repeat_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
@@ -792,15 +716,11 @@ class UnitTests(BaseTest):
         d = Diagram(t)
         svg = []
         d.write_svg(svg.append)
-        with open("tests/zero_or_more_skip1.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/zero_or_more_skip1.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
         svg = []
         d.write_standalone(svg.append)
-        with open("tests/zero_or_more_skip1_standalone.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/zero_or_more_skip1_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
@@ -827,15 +747,11 @@ class UnitTests(BaseTest):
         d = Diagram(t)
         svg = []
         d.write_svg(svg.append)
-        with open("tests/zero_or_more_skip0.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/zero_or_more_skip0.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
         svg = []
         d.write_standalone(svg.append)
-        with open("tests/zero_or_more_skip0_standalone.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/zero_or_more_skip0_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
@@ -868,15 +784,11 @@ class UnitTests(BaseTest):
         d = Diagram(t)
         svg = []
         d.write_svg(svg.append)
-        with open("tests/zero_or_more_repeat1.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/zero_or_more_repeat1.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
         svg = []
         d.write_standalone(svg.append)
-        with open("tests/zero_or_more_repeat1_standalone.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/zero_or_more_repeat1_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
@@ -909,15 +821,11 @@ class UnitTests(BaseTest):
         d = Diagram(t)
         svg = []
         d.write_svg(svg.append)
-        with open("tests/zero_or_more_repeat0.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/zero_or_more_repeat0.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
         svg = []
         d.write_standalone(svg.append)
-        with open("tests/zero_or_more_repeat0_standalone.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/zero_or_more_repeat0_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
@@ -943,15 +851,11 @@ class UnitTests(BaseTest):
         d = Diagram(t)
         svg = []
         d.write_svg(svg.append)
-        with open("tests/group_no_label.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/group_no_label.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
         svg = []
         d.write_standalone(svg.append)
-        with open("tests/group_no_label_standalone.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/group_no_label_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
@@ -977,15 +881,11 @@ class UnitTests(BaseTest):
         d = Diagram(t)
         svg = []
         d.write_svg(svg.append)
-        with open("tests/group_label.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/group_label.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
         svg = []
         d.write_standalone(svg.append)
-        with open("tests/group_label_standalone.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/group_label_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
@@ -998,15 +898,11 @@ class UnitTests(BaseTest):
         d = Diagram(t)
         svg = []
         d.write_svg(svg.append)
-        with open("tests/start_simple.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/start_simple.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
         svg = []
         d.write_standalone(svg.append)
-        with open("tests/start_simple_standalone.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/start_simple_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
@@ -1016,15 +912,11 @@ class UnitTests(BaseTest):
         d = Diagram(t)
         svg = []
         d.write_svg(svg.append)
-        with open("tests/start_label.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/start_label.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
         svg = []
         d.write_standalone(svg.append)
-        with open("tests/start_label_standalone.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/start_label_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
@@ -1034,15 +926,11 @@ class UnitTests(BaseTest):
         d = Diagram(t)
         svg = []
         d.write_svg(svg.append)
-        with open("tests/start_complex.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/start_complex.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
         svg = []
         d.write_standalone(svg.append)
-        with open("tests/start_complex_standalone.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/start_complex_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
@@ -1052,15 +940,11 @@ class UnitTests(BaseTest):
         d = Diagram(t)
         svg = []
         d.write_svg(svg.append)
-        with open("tests/start_sql.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/start_sql.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
         svg = []
         d.write_standalone(svg.append)
-        with open("tests/start_sql_standalone.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/start_sql_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
@@ -1076,15 +960,11 @@ class UnitTests(BaseTest):
         d = Diagram(t)
         svg = []
         d.write_svg(svg.append)
-        with open("tests/end_simple.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/end_simple.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
         svg = []
         d.write_standalone(svg.append)
-        with open("tests/end_simple_standalone.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/end_simple_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
@@ -1097,15 +977,11 @@ class UnitTests(BaseTest):
         d = Diagram(t)
         svg = []
         d.write_svg(svg.append)
-        with open("tests/end_complex.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/end_complex.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
         svg = []
         d.write_standalone(svg.append)
-        with open("tests/end_complex_standalone.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/end_complex_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
@@ -1118,15 +994,11 @@ class UnitTests(BaseTest):
         d = Diagram(t)
         svg = []
         d.write_svg(svg.append)
-        with open("tests/end_sql.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/end_sql.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
         svg = []
         d.write_standalone(svg.append)
-        with open("tests/end_sql_standalone.svg", "w") as f:
-            f.write(" ".join(svg))
         with open("tests/end_sql_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
@@ -1226,6 +1098,14 @@ class CLITests(BaseTest):
             with open("tests/cli/diagram_standalone_custom.svg", "r") as base:
                 assert res.read() == base.read()
 
+        result = self.runner.invoke(
+            app, ["yaml", in_file, out_file, "tests/cli/sql_standalone.json"]
+        )
+        assert result.exit_code == 0
+        with open(out_file, "r") as res:
+            with open("tests/cli/diagram_sql_standalone.svg", "r") as base:
+                assert res.read() == base.read()
+
     def test_cli_yaml(self):
         from pyrailroad.parser import app
 
@@ -1259,4 +1139,12 @@ class CLITests(BaseTest):
         assert result.exit_code == 0
         with open(out_file, "r") as res:
             with open("tests/cli/diagram_standalone_custom.svg", "r") as base:
+                assert res.read() == base.read()
+
+        result = self.runner.invoke(
+            app, ["yaml", in_file, out_file, "tests/cli/sql_standalone.yaml"]
+        )
+        assert result.exit_code == 0
+        with open(out_file, "r") as res:
+            with open("tests/cli/diagram_sql_standalone.svg", "r") as base:
                 assert res.read() == base.read()

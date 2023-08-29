@@ -339,6 +339,16 @@ class Path:
         self.attrs["d"] += f"m{x} {y}"
         return self
 
+    def big_m(self, x: float, y: float) -> Path:
+        self.attrs["d"] += f"M{x} {y}"
+        return self
+
+    def a(self, r: float) -> Path:
+        self.attrs[
+            "d"
+        ] += f"a {r},{r} 0 0 1 -{r},{r} {r},{r} 0 0 1 -{r},-{r} {r},{r} 0 0 1 {r},-{r} {r},{r} 0 0 1 {r},{r} z"
+        return self
+
     def l(self, x: float, y: float) -> Path:
         self.attrs["d"] += f"l{x} {y}"
         return self
@@ -529,13 +539,13 @@ class Diagram(DiagramMultiContainer):
             g.attrs["transform"] = "translate(.5 .5)"
         for item in self.items:
             if item.needs_space:
-                Path(x, y, cls="class1", AR=self.parameters["AR"]).h(10).add_to(g)
+                Path(x, y, AR=self.parameters["AR"]).h(10).add_to(g)
                 x += 10
             item.format(x, y, item.width).add_to(g)
             x += item.width
             y += item.height
             if item.needs_space:
-                Path(x, y, cls="class2", AR=self.parameters["AR"]).h(10).add_to(g)
+                Path(x, y, AR=self.parameters["AR"]).h(10).add_to(g)
                 x += 10
         self.attrs["width"] = str(self.width + padding_left + padding_right)
         self.attrs["height"] = str(
@@ -600,23 +610,23 @@ class Sequence(DiagramMultiContainer):
         left_gap, right_gap = determine_gaps(
             width, self.width, self.parameters["internal_alignment"]
         )
-        Path(x, y, cls="class3", AR=self.parameters["AR"]).h(left_gap).add_to(self)
+        Path(x, y, cls="seq seq1", AR=self.parameters["AR"]).h(left_gap).add_to(self)
         Path(
             x + left_gap + self.width,
             y + self.height,
-            cls="class4",
+            cls="seq seq2",
             AR=self.parameters["AR"],
         ).h(right_gap).add_to(self)
         x += left_gap
         for i, item in enumerate(self.items):
             if item.needs_space and i > 0:
-                Path(x, y, cls="class5", AR=self.parameters["AR"]).h(10).add_to(self)
+                Path(x, y, cls="seq seq3", AR=self.parameters["AR"]).h(10).add_to(self)
                 x += 10
             item.format(x, y, item.width).add_to(self)
             x += item.width
             y += item.height
             if item.needs_space and i < len(self.items) - 1:
-                Path(x, y, cls="class6", AR=self.parameters["AR"]).h(10).add_to(self)
+                Path(x, y, cls="seq seq4", AR=self.parameters["AR"]).h(10).add_to(self)
                 x += 10
         return self
 
@@ -658,11 +668,13 @@ class Stack(DiagramMultiContainer):
         left_gap, right_gap = determine_gaps(
             width, self.width, self.parameters["internal_alignment"]
         )
-        Path(x, y, cls="class7", AR=self.parameters["AR"]).h(left_gap).add_to(self)
+        Path(x, y, cls="stack stack1", AR=self.parameters["AR"]).h(left_gap).add_to(
+            self
+        )
         x += left_gap
         x_initial = x
         if len(self.items) > 1:
-            Path(x, y, cls="class8", AR=self.parameters["AR"]).h(
+            Path(x, y, cls="stack stack2", AR=self.parameters["AR"]).h(
                 self.parameters["AR"]
             ).add_to(self)
             x += self.parameters["AR"]
@@ -675,7 +687,7 @@ class Stack(DiagramMultiContainer):
             y += item.height
             if i != len(self.items) - 1:
                 (
-                    Path(x, y, cls="class9", AR=self.parameters["AR"])
+                    Path(x, y, cls="stack stack3", AR=self.parameters["AR"])
                     .arc("ne")
                     .down(
                         max(
@@ -697,6 +709,7 @@ class Stack(DiagramMultiContainer):
                         )
                     )
                     .arc("ws")
+                    .right(10)
                     .add_to(self)
                 )
                 y += max(
@@ -707,11 +720,13 @@ class Stack(DiagramMultiContainer):
                 )
                 x = x_initial + self.parameters["AR"]
         if len(self.items) > 1:
-            Path(x, y, cls="class10", AR=self.parameters["AR"]).h(
+            Path(x, y, cls="stack stack4", AR=self.parameters["AR"]).h(
                 self.parameters["AR"]
             ).add_to(self)
             x += self.parameters["AR"]
-        Path(x, y, cls="class11", AR=self.parameters["AR"]).h(right_gap).add_to(self)
+        Path(x, y, cls="stack stack5", AR=self.parameters["AR"]).h(right_gap).add_to(
+            self
+        )
         return self
 
 
@@ -775,11 +790,13 @@ class OptionalSequence(DiagramMultiContainer):
         left_gap, right_gap = determine_gaps(
             width, self.width, self.parameters["internal_alignment"]
         )
-        Path(x, y, cls="class12", AR=self.parameters["AR"]).right(left_gap).add_to(self)
+        Path(x, y, cls="optseq os1", AR=self.parameters["AR"]).right(left_gap).add_to(
+            self
+        )
         Path(
             x + left_gap + self.width,
             y + self.height,
-            cls="class13",
+            cls="optseq os2",
             AR=self.parameters["AR"],
         ).right(right_gap).add_to(self)
         x += left_gap
@@ -791,7 +808,7 @@ class OptionalSequence(DiagramMultiContainer):
             if i == 0:
                 # Upper skip
                 (
-                    Path(x, y, cls="class14", AR=self.parameters["AR"])
+                    Path(x, y, cls="optseq os3", AR=self.parameters["AR"])
                     .arc("se")
                     .up(y - upper_line_y - self.parameters["AR"] * 2)
                     .arc("wn")
@@ -803,7 +820,7 @@ class OptionalSequence(DiagramMultiContainer):
                 )
                 # Straight line
                 (
-                    Path(x, y, cls="class15", AR=self.parameters["AR"])
+                    Path(x, y, cls="optseq os4", AR=self.parameters["AR"])
                     .right(item_space + self.parameters["AR"])
                     .add_to(self)
                 )
@@ -815,7 +832,7 @@ class OptionalSequence(DiagramMultiContainer):
             elif i < last:
                 # Upper skip
                 (
-                    Path(x, upper_line_y, cls="class16", AR=self.parameters["AR"])
+                    Path(x, upper_line_y, cls="optseq os5", AR=self.parameters["AR"])
                     .right(
                         self.parameters["AR"] * 2
                         + max(item_width, self.parameters["AR"])
@@ -828,7 +845,7 @@ class OptionalSequence(DiagramMultiContainer):
                 )
                 # Straight line
                 (
-                    Path(x, y, cls="class17", AR=self.parameters["AR"])
+                    Path(x, y, cls="optseq os6", AR=self.parameters["AR"])
                     .right(self.parameters["AR"] * 2)
                     .add_to(self)
                 )
@@ -837,7 +854,7 @@ class OptionalSequence(DiagramMultiContainer):
                     Path(
                         x + item.width + self.parameters["AR"] * 2,
                         y + item.height,
-                        cls="class18",
+                        cls="optseq os7",
                         AR=self.parameters["AR"],
                     )
                     .right(item_space + self.parameters["AR"])
@@ -845,7 +862,7 @@ class OptionalSequence(DiagramMultiContainer):
                 )
                 # Lower skip
                 (
-                    Path(x, y, cls="class19", AR=self.parameters["AR"])
+                    Path(x, y, cls="optseq os8", AR=self.parameters["AR"])
                     .arc("ne")
                     .down(
                         item.height
@@ -870,7 +887,7 @@ class OptionalSequence(DiagramMultiContainer):
             else:
                 # Straight line
                 (
-                    Path(x, y, cls="class20", AR=self.parameters["AR"])
+                    Path(x, y, cls="optseq os9", AR=self.parameters["AR"])
                     .right(self.parameters["AR"] * 2)
                     .add_to(self)
                 )
@@ -879,7 +896,7 @@ class OptionalSequence(DiagramMultiContainer):
                     Path(
                         x + self.parameters["AR"] * 2 + item.width,
                         y + item.height,
-                        cls="class21",
+                        cls="optseq os10",
                         AR=self.parameters["AR"],
                     )
                     .right(item_space + self.parameters["AR"])
@@ -887,7 +904,7 @@ class OptionalSequence(DiagramMultiContainer):
                 )
                 # Lower skip
                 (
-                    Path(x, y, cls="class22", AR=self.parameters["AR"])
+                    Path(x, y, cls="optseq os11", AR=self.parameters["AR"])
                     .arc("ne")
                     .down(
                         item.height
@@ -961,9 +978,11 @@ class AlternatingSequence(DiagramMultiContainer):
     def format(self, x: float, y: float, width: float) -> AlternatingSequence:
         arc = self.parameters["AR"]
         gaps = determine_gaps(width, self.width, self.parameters["internal_alignment"])
-        Path(x, y, cls="class23", AR=self.parameters["AR"]).right(gaps[0]).add_to(self)
+        Path(x, y, cls="altseq as1", AR=self.parameters["AR"]).right(gaps[0]).add_to(
+            self
+        )
         x += gaps[0]
-        Path(x + self.width, y, cls="class24", AR=self.parameters["AR"]).right(
+        Path(x + self.width, y, cls="altseq as2", AR=self.parameters["AR"]).right(
             gaps[1]
         ).add_to(self)
         # bounding box
@@ -974,28 +993,28 @@ class AlternatingSequence(DiagramMultiContainer):
         # top
         first_in = self.up - first.up
         first_out = self.up - first.up - first.height
-        Path(x, y, cls="class25", AR=self.parameters["AR"]).arc("se").up(
+        Path(x, y, cls="altseq as3", AR=self.parameters["AR"]).arc("se").up(
             first_in - 2 * arc
         ).arc("wn").add_to(self)
         first.format(x + 2 * arc, y - first_in, self.width - 4 * arc).add_to(self)
         Path(
             x + self.width - 2 * arc,
             y - first_out,
-            cls="class26",
+            cls="altseq as4",
             AR=self.parameters["AR"],
         ).arc("ne").down(first_out - 2 * arc).arc("ws").add_to(self)
 
         # bottom
         second_in = self.down - second.down - second.height
         second_out = self.down - second.down
-        Path(x, y, cls="class27", AR=self.parameters["AR"]).arc("ne").down(
+        Path(x, y, cls="altseq as5", AR=self.parameters["AR"]).arc("ne").down(
             second_in - 2 * arc
         ).arc("ws").add_to(self)
         second.format(x + 2 * arc, y + second_in, self.width - 4 * arc).add_to(self)
         Path(
             x + self.width - 2 * arc,
             y + second_out,
-            cls="class28",
+            cls="altseq as6",
             AR=self.parameters["AR"],
         ).arc("se").up(second_out - 2 * arc).arc("wn").add_to(self)
 
@@ -1007,7 +1026,10 @@ class AlternatingSequence(DiagramMultiContainer):
         cross_bar = (self.width - 4 * arc - cross_x) / 2
         (
             Path(
-                x + arc, y - cross_y / 2 - arc, cls="class29", AR=self.parameters["AR"]
+                x + arc,
+                y - cross_y / 2 - arc,
+                cls="altseq as7",
+                AR=self.parameters["AR"],
             )
             .arc("ws")
             .right(cross_bar)
@@ -1020,7 +1042,10 @@ class AlternatingSequence(DiagramMultiContainer):
         )
         (
             Path(
-                x + arc, y + cross_y / 2 + arc, cls="class30", AR=self.parameters["AR"]
+                x + arc,
+                y + cross_y / 2 + arc,
+                cls="altseq as8",
+                AR=self.parameters["AR"],
             )
             .arc("wn")
             .right(cross_bar)
@@ -1087,11 +1112,11 @@ class Choice(DiagramMultiContainer):
         )
 
         # Hook up the two sides if self is narrower than its stated width.
-        Path(x, y, cls="class31", AR=self.parameters["AR"]).h(left_gap).add_to(self)
+        Path(x, y, cls="choice ch1", AR=self.parameters["AR"]).h(left_gap).add_to(self)
         Path(
             x + left_gap + self.width,
             y + self.height,
-            cls="class32",
+            cls="choice ch2",
             AR=self.parameters["AR"],
         ).h(right_gap).add_to(self)
         x += left_gap
@@ -1107,7 +1132,7 @@ class Choice(DiagramMultiContainer):
                 default.up + self.parameters["VS"] + above[0].down + above[0].height,
             )
         for i, ni, item in double_enumerate(above):
-            Path(x, y, cls="class33", AR=self.parameters["AR"]).arc("se").up(
+            Path(x, y, cls="choice ch3", AR=self.parameters["AR"]).arc("se").up(
                 distance_from_y - self.parameters["AR"] * 2
             ).arc("wn").add_to(self)
             item.format(
@@ -1116,7 +1141,7 @@ class Choice(DiagramMultiContainer):
             Path(
                 x + self.parameters["AR"] * 2 + inner_width,
                 y - distance_from_y + item.height,
-                cls="class34",
+                cls="choice ch4",
                 AR=self.parameters["AR"],
             ).arc("ne").down(
                 distance_from_y
@@ -1138,7 +1163,7 @@ class Choice(DiagramMultiContainer):
                 )
 
         # Do the straight-line path.
-        Path(x, y, cls="class35", AR=self.parameters["AR"]).right(
+        Path(x, y, cls="choice ch5", AR=self.parameters["AR"]).right(
             self.parameters["AR"] * 2
         ).add_to(self)
         self.items[self.default].format(
@@ -1147,7 +1172,7 @@ class Choice(DiagramMultiContainer):
         Path(
             x + self.parameters["AR"] * 2 + inner_width,
             y + self.height,
-            cls="class36",
+            cls="choice ch6",
             AR=self.parameters["AR"],
         ).right(self.parameters["AR"] * 2).add_to(self)
 
@@ -1159,7 +1184,7 @@ class Choice(DiagramMultiContainer):
                 default.height + default.down + self.parameters["VS"] + below[0].up,
             )
         for i, item in enumerate(below):
-            Path(x, y, cls="class37", AR=self.parameters["AR"]).arc("ne").down(
+            Path(x, y, cls="choice ch7", AR=self.parameters["AR"]).arc("ne").down(
                 distance_from_y - self.parameters["AR"] * 2
             ).arc("ws").add_to(self)
             item.format(
@@ -1168,7 +1193,7 @@ class Choice(DiagramMultiContainer):
             Path(
                 x + self.parameters["AR"] * 2 + inner_width,
                 y + distance_from_y + item.height,
-                cls="class38",
+                cls="choice ch8",
                 AR=self.parameters["AR"],
             ).arc("se").up(
                 distance_from_y
@@ -1251,11 +1276,13 @@ class MultipleChoice(DiagramMultiContainer):
         )
 
         # Hook up the two sides if self is narrower than its stated width.
-        Path(x, y, cls="class39", AR=self.parameters["AR"]).h(left_gap).add_to(self)
+        Path(x, y, cls="multichoice mc1", AR=self.parameters["AR"]).h(left_gap).add_to(
+            self
+        )
         Path(
             x + left_gap + self.width,
             y + self.height,
-            cls="class40",
+            cls="multichoice mc2",
             AR=self.parameters["AR"],
         ).h(right_gap).add_to(self)
         x += left_gap
@@ -1271,7 +1298,7 @@ class MultipleChoice(DiagramMultiContainer):
             )
         for i, ni, item in double_enumerate(above):
             (
-                Path(x + 30, y, cls="class41", AR=self.parameters["AR"])
+                Path(x + 30, y, cls="multichoice mc3", AR=self.parameters["AR"])
                 .up(distance_from_y - self.parameters["AR"])
                 .arc("wn")
                 .add_to(self)
@@ -1283,7 +1310,7 @@ class MultipleChoice(DiagramMultiContainer):
                 Path(
                     x + 30 + self.parameters["AR"] + self.inner_width,
                     y - distance_from_y + item.height,
-                    cls="class42",
+                    cls="multichoice mc4",
                 )
                 .arc("ne")
                 .down(
@@ -1305,7 +1332,7 @@ class MultipleChoice(DiagramMultiContainer):
                 )
 
         # Do the straight-line path.
-        Path(x + 30, y, cls="class43", AR=self.parameters["AR"]).right(
+        Path(x + 30, y, cls="multichoice mc5", AR=self.parameters["AR"]).right(
             self.parameters["AR"]
         ).add_to(self)
         self.items[self.default].format(
@@ -1314,7 +1341,7 @@ class MultipleChoice(DiagramMultiContainer):
         Path(
             x + 30 + self.parameters["AR"] + self.inner_width,
             y + self.height,
-            cls="class44",
+            cls="multichoice mc6",
             AR=self.parameters["AR"],
         ).right(self.parameters["AR"]).add_to(self)
 
@@ -1327,7 +1354,7 @@ class MultipleChoice(DiagramMultiContainer):
             )
         for i, item in enumerate(below):
             (
-                Path(x + 30, y, cls="class45", AR=self.parameters["AR"])
+                Path(x + 30, y, cls="multichoice mc7", AR=self.parameters["AR"])
                 .down(distance_from_y - self.parameters["AR"])
                 .arc("ws")
                 .add_to(self)
@@ -1339,7 +1366,7 @@ class MultipleChoice(DiagramMultiContainer):
                 Path(
                     x + 30 + self.parameters["AR"] + self.inner_width,
                     y + distance_from_y + item.height,
-                    cls="class46",
+                    cls="multichoice mc8",
                     AR=self.parameters["AR"],
                 )
                 .arc("se")
@@ -1466,11 +1493,13 @@ class HorizontalChoice(DiagramMultiContainer):
         left_gap, right_gap = determine_gaps(
             width, self.width, self.parameters["internal_alignment"]
         )
-        Path(x, y, cls="class47", AR=self.parameters["AR"]).h(left_gap).add_to(self)
+        Path(x, y, cls="horizchoice hc1", AR=self.parameters["AR"]).h(left_gap).add_to(
+            self
+        )
         Path(
             x + left_gap + self.width,
             y + self.height,
-            cls="class48",
+            cls="horizchoice hc2",
             AR=self.parameters["AR"],
         ).h(right_gap).add_to(self)
         x += left_gap
@@ -1485,7 +1514,7 @@ class HorizontalChoice(DiagramMultiContainer):
             - self.parameters["AR"]
         )
         (
-            Path(x, y, cls="class49", AR=self.parameters["AR"])
+            Path(x, y, cls="horizchoice hc3", AR=self.parameters["AR"])
             .arc("se")
             .up(self._upperTrack - self.parameters["AR"] * 2)
             .arc("wn")
@@ -1511,7 +1540,7 @@ class HorizontalChoice(DiagramMultiContainer):
             Path(
                 lower_start,
                 y + self._lowerTrack,
-                cls="class50",
+                cls="horizchoice hc4",
                 AR=self.parameters["AR"],
             )
             .h(lower_span)
@@ -1526,7 +1555,7 @@ class HorizontalChoice(DiagramMultiContainer):
             # input track
             if i == 0:
                 (
-                    Path(x, y, cls="class51", AR=self.parameters["AR"])
+                    Path(x, y, cls="horizchoice hc5", AR=self.parameters["AR"])
                     .h(self.parameters["AR"])
                     .add_to(self)
                 )
@@ -1534,7 +1563,10 @@ class HorizontalChoice(DiagramMultiContainer):
             else:
                 (
                     Path(
-                        x, y - self._upperTrack, cls="class52", AR=self.parameters["AR"]
+                        x,
+                        y - self._upperTrack,
+                        cls="horizchoice hc6",
+                        AR=self.parameters["AR"],
                     )
                     .arc("ne")
                     .v(self._upperTrack - self.parameters["AR"] * 2)
@@ -1552,14 +1584,17 @@ class HorizontalChoice(DiagramMultiContainer):
             if i == len(self.items) - 1:
                 if item.height == 0:
                     (
-                        Path(x, y, cls="class53", AR=self.parameters["AR"])
+                        Path(x, y, cls="horizchoice hc7", AR=self.parameters["AR"])
                         .h(self.parameters["AR"])
                         .add_to(self)
                     )
                 else:
                     (
                         Path(
-                            x, y + item.height, cls="class54", AR=self.parameters["AR"]
+                            x,
+                            y + item.height,
+                            cls="horizchoice hc8",
+                            AR=self.parameters["AR"],
                         )
                         .arc("se")
                         .add_to(self)
@@ -1569,7 +1604,10 @@ class HorizontalChoice(DiagramMultiContainer):
                 if item.height - self._lowerTrack >= self.parameters["AR"] * 2:
                     (
                         Path(
-                            x, y + item.height, cls="class55", AR=self.parameters["AR"]
+                            x,
+                            y + item.height,
+                            cls="horizchoice hc9",
+                            AR=self.parameters["AR"],
                         )
                         .arc("se")
                         .v(self._lowerTrack - item.height + self.parameters["AR"] * 2)
@@ -1581,14 +1619,22 @@ class HorizontalChoice(DiagramMultiContainer):
                     # so just bail and draw a straight line for now.
                     (
                         Path(
-                            x, y + item.height, cls="class56", AR=self.parameters["AR"]
+                            x,
+                            y + item.height,
+                            cls="horizchoice hc10",
+                            AR=self.parameters["AR"],
                         )
                         .l(self.parameters["AR"] * 2, self._lowerTrack - item.height)
                         .add_to(self)
                     )
             else:
                 (
-                    Path(x, y + item.height, cls="class57", AR=self.parameters["AR"])
+                    Path(
+                        x,
+                        y + item.height,
+                        cls="horizchoice hc11",
+                        AR=self.parameters["AR"],
+                    )
                     .arc("ne")
                     .v(self._lowerTrack - item.height - self.parameters["AR"] * 2)
                     .arc("ws")
@@ -1631,17 +1677,17 @@ class OneOrMore(DiagramItem):
         )
 
         # Hook up the two sides if self is narrower than its stated width.
-        Path(x, y, cls="class58", AR=self.parameters["AR"]).h(left_gap).add_to(self)
+        Path(x, y, cls="oneor oom1", AR=self.parameters["AR"]).h(left_gap).add_to(self)
         Path(
             x + left_gap + self.width,
             y + self.height,
-            cls="class59",
+            cls="oneor oom2",
             AR=self.parameters["AR"],
         ).h(right_gap).add_to(self)
         x += left_gap
 
         # Draw item
-        Path(x, y, cls="class60", AR=self.parameters["AR"]).right(
+        Path(x, y, cls="oneor oom3", AR=self.parameters["AR"]).right(
             self.parameters["AR"]
         ).add_to(self)
         self.item.format(
@@ -1650,7 +1696,7 @@ class OneOrMore(DiagramItem):
         Path(
             x + self.width - self.parameters["AR"],
             y + self.height,
-            cls="class61",
+            cls="oneor oom4",
             AR=self.parameters["AR"],
         ).right(self.parameters["AR"]).add_to(self)
 
@@ -1659,9 +1705,11 @@ class OneOrMore(DiagramItem):
             self.parameters["AR"] * 2,
             self.item.height + self.item.down + self.parameters["VS"] + self.rep.up,
         )
-        Path(x + self.parameters["AR"], y, cls="class62", AR=self.parameters["AR"]).arc(
-            "nw"
-        ).down(distance_from_y - self.parameters["AR"] * 2).arc("ws").add_to(self)
+        Path(
+            x + self.parameters["AR"], y, cls="oneor oom5", AR=self.parameters["AR"]
+        ).arc("nw").down(distance_from_y - self.parameters["AR"] * 2).arc("ws").add_to(
+            self
+        )
         self.rep.format(
             x + self.parameters["AR"],
             y + distance_from_y,
@@ -1670,7 +1718,7 @@ class OneOrMore(DiagramItem):
         Path(
             x + self.width - self.parameters["AR"],
             y + distance_from_y + self.rep.height,
-            cls="class63",
+            cls="oneor oom6",
             AR=self.parameters["AR"],
         ).arc("se").up(
             distance_from_y
@@ -1745,11 +1793,11 @@ class Group(DiagramItem):
         left_gap, right_gap = determine_gaps(
             width, self.width, self.parameters["internal_alignment"]
         )
-        Path(x, y, cls="class64", AR=self.parameters["AR"]).h(left_gap).add_to(self)
+        Path(x, y, cls="group gr1", AR=self.parameters["AR"]).h(left_gap).add_to(self)
         Path(
             x + left_gap + self.width,
             y + self.height,
-            cls="class65",
+            cls="group gr2",
             AR=self.parameters["AR"],
         ).h(right_gap).add_to(self)
         x += left_gap
@@ -1809,12 +1857,13 @@ class Start(DiagramItem):
         add_debug(self)
 
     def format(self, x: float, y: float, width: float) -> Start:
-        path = Path(x, y - 10)
+        path = Path(x, y - 10, cls="start")
         if self.type == "complex":
-            path.attrs["cls"] = "class66c"
             path.down(20).m(0, -10).right(self.width).add_to(self)
+        elif self.type == "sql":
+            path = Path(x, y - 10, cls="start ")
+            path.m(0, 10).a(3.7).big_m(x, y).right(self.width).add_to(self)
         else:
-            path.attrs["cls"] = "class66s"
             path.down(20).m(10, -20).down(20).m(-10, -10).right(self.width).add_to(self)
         if self.label:
             DiagramItem(
@@ -1841,12 +1890,13 @@ class End(DiagramItem):
         add_debug(self)
 
     def format(self, x: float, y: float, width: float) -> End:
+        self.attrs["class"] = "end"
         if self.type == "simple":
-            self.attrs["cls"] = "class74s"
             self.attrs["d"] = "M {0} {1} h 20 m -10 -10 v 20 m 10 -20 v 20".format(x, y)
         elif self.type == "complex":
-            self.attrs["cls"] = "class74c"
             self.attrs["d"] = "M {0} {1} h 20 m 0 -10 v 20".format(x, y)
+        elif self.type == "sql":
+            self.attrs["d"] = "M {0} {1} h 20 m -5 -5 5,5 -5,5".format(x, y)
         return self
 
     def __repr__(self) -> str:
@@ -1896,10 +1946,12 @@ class Terminal(DiagramItem):
         )
 
         # Hook up the two sides if self is narrower than its stated width.
-        Path(x, y, cls="class67", AR=self.parameters["AR"]).h(left_gap).add_to(self)
-        Path(x + left_gap + self.width, y, cls="class68", AR=self.parameters["AR"]).h(
-            right_gap
-        ).add_to(self)
+        Path(x, y, cls="terminal term1", AR=self.parameters["AR"]).h(left_gap).add_to(
+            self
+        )
+        Path(
+            x + left_gap + self.width, y, cls="terminal term2", AR=self.parameters["AR"]
+        ).h(right_gap).add_to(self)
 
         DiagramItem(
             "rect",
@@ -1965,10 +2017,10 @@ class NonTerminal(DiagramItem):
         )
 
         # Hook up the two sides if self is narrower than its stated width.
-        Path(x, y, cls="class69", AR=self.parameters["AR"]).h(left_gap).add_to(self)
-        Path(x + left_gap + self.width, y, cls="class70", AR=self.parameters["AR"]).h(
-            right_gap
-        ).add_to(self)
+        Path(x, y, cls="nonterm nt1", AR=self.parameters["AR"]).h(left_gap).add_to(self)
+        Path(
+            x + left_gap + self.width, y, cls="nonterm nt2", AR=self.parameters["AR"]
+        ).h(right_gap).add_to(self)
 
         DiagramItem(
             "rect",
@@ -2032,10 +2084,12 @@ class Comment(DiagramItem):
         )
 
         # Hook up the two sides if self is narrower than its stated width.
-        Path(x, y, cls="class71", AR=self.parameters["AR"]).h(left_gap).add_to(self)
-        Path(x + left_gap + self.width, y, cls="class72", AR=self.parameters["AR"]).h(
-            right_gap
-        ).add_to(self)
+        Path(x, y, cls="comment com1", AR=self.parameters["AR"]).h(left_gap).add_to(
+            self
+        )
+        Path(
+            x + left_gap + self.width, y, cls="comment com2", AR=self.parameters["AR"]
+        ).h(right_gap).add_to(self)
 
         text = DiagramItem(
             "text",
@@ -2061,7 +2115,7 @@ class Skip(DiagramItem):
         add_debug(self)
 
     def format(self, x: float, y: float, width: float) -> Skip:
-        Path(x, y, cls="class73", AR=self.parameters["AR"]).right(width).add_to(self)
+        Path(x, y, cls="skip", AR=self.parameters["AR"]).right(width).add_to(self)
         return self
 
     def __repr__(self) -> str:

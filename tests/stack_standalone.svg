@@ -1,10 +1,10 @@
 <svg  class="railroad-diagram"  height="102"  viewBox="0 0 200 102"  width="200"  xmlns="http://www.w3.org/2000/svg"  xmlns:xlink="http://www.w3.org/1999/xlink" > 
  <g  transform="translate(.5 .5)" > 
  <g > 
- <path  cls="class66s"  d="M20 21v20m10 -20v20m-10 -10h20"  /> </g> <path  class="class1"  d="M40 31h10"  /> <g > 
- <path  class="class7"  d="M50 31h0.0"  /> <path  class="class8"  d="M50.0 31h10"  /> <g  class="terminal " > 
- <path  class="class67"  d="M60.0 31h10.0"  /> <path  class="class68"  d="M130.0 31h10.0"  /> <rect  height="22"  rx="10"  ry="10"  width="60"  x="70"  y="20" > </rect> <text  x="100"  y="35" > term1 </text> </g> <path  class="class9"  d="M140.0 31a10 10 0 0 1 10 10v0a10 10 0 0 1 -10 10h-80a10 10 0 0 0 -10 10v0a10 10 0 0 0 10 10"  /> <g  class="terminal " > 
- <path  class="class67"  d="M60.0 71h10.0"  /> <path  class="class68"  d="M130.0 71h10.0"  /> <rect  height="22"  rx="10"  ry="10"  width="60"  x="70"  y="60" > </rect> <text  x="100"  y="75" > term2 </text> </g> <path  class="class10"  d="M140.0 71h10"  /> <path  class="class11"  d="M150.0 71h0.0"  /> </g> <path  class="class2"  d="M150 71h10"  /> <path  cls="class74s"  d="M 160 71 h 20 m -10 -10 v 20 m 10 -20 v 20" > </path> </g> <style>/* <![CDATA[ */
+ <path  class="start"  d="M20 21v20m10 -20v20m-10 -10h20"  /> </g> <path  d="M40 31h10"  /> <g > 
+ <path  class="stack stack1"  d="M50 31h0.0"  /> <path  class="stack stack2"  d="M50.0 31h10"  /> <g  class="terminal " > 
+ <path  class="terminal term1"  d="M60.0 31h10.0"  /> <path  class="terminal term2"  d="M130.0 31h10.0"  /> <rect  height="22"  rx="10"  ry="10"  width="60"  x="70"  y="20" > </rect> <text  x="100"  y="35" > term1 </text> </g> <path  class="stack stack3"  d="M140.0 31a10 10 0 0 1 10 10v0a10 10 0 0 1 -10 10h-80a10 10 0 0 0 -10 10v0a10 10 0 0 0 10 10h10"  /> <g  class="terminal " > 
+ <path  class="terminal term1"  d="M60.0 71h10.0"  /> <path  class="terminal term2"  d="M130.0 71h10.0"  /> <rect  height="22"  rx="10"  ry="10"  width="60"  x="70"  y="60" > </rect> <text  x="100"  y="75" > term2 </text> </g> <path  class="stack stack4"  d="M140.0 71h10"  /> <path  class="stack stack5"  d="M150.0 71h0.0"  /> </g> <path  d="M150 71h10"  /> <path  class="end"  d="M 160 71 h 20 m -10 -10 v 20 m 10 -20 v 20" > </path> </g> <style>/* <![CDATA[ */
 svg.railroad-diagram {
     background-color:hsl(30,20%,95%);
 }
@@ -12,6 +12,11 @@ svg.railroad-diagram path {
     stroke-width:3;
     stroke:black;
     fill:rgba(0,0,0,0);
+}
+svg.railroad-diagram path.start {
+    stroke-width:3;
+    stroke:black;
+    fill:rgba(0,0,0,1);
 }
 svg.railroad-diagram text {
     font:bold 14px monospace;

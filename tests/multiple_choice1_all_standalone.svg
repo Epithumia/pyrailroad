@@ -1,11 +1,11 @@
 <svg  class="railroad-diagram"  height="92"  viewBox="0 0 230 92"  width="230"  xmlns="http://www.w3.org/2000/svg"  xmlns:xlink="http://www.w3.org/1999/xlink" > 
  <g  transform="translate(.5 .5)" > 
  <g > 
- <path  cls="class66s"  d="M20 51v20m10 -20v20m-10 -10h20"  /> </g> <path  class="class1"  d="M40 61h10"  /> <g > 
- <path  class="class39"  d="M50 61h0.0"  /> <path  class="class40"  d="M180.0 61h0.0"  /> <path  class="class41"  d="M80.0 61v-20a10 10 0 0 1 10 -10"  /> <g  class="terminal " > 
- <path  class="class67"  d="M90.0 31h0.0"  /> <path  class="class68"  d="M150.0 31h0.0"  /> <rect  height="22"  rx="10"  ry="10"  width="60"  x="90"  y="20" > </rect> <text  x="120"  y="35" > term1 </text> </g> <path  class="class42"  d="M150.0 31aNone None 0 0 1 None Nonev10"  /> <path  class="class43"  d="M80.0 61h10"  /> <g  class="terminal " > 
- <path  class="class67"  d="M90.0 61h0.0"  /> <path  class="class68"  d="M150.0 61h0.0"  /> <rect  height="22"  rx="10"  ry="10"  width="60"  x="90"  y="50" > </rect> <text  x="120"  y="65" > term2 </text> </g> <path  class="class44"  d="M150.0 61h10"  /> <g  class="diagram-text" > 
- <title > take all branches, once each, in any order </title> <path  class="diagram-text"  d="M 80.0 51 h -26 a 4 4 0 0 0 -4 4 v 12 a 4 4 0 0 0 4 4 h 26 z" > </path> <text  class="diagram-text"  x="65"  y="65" > all </text> <path  class="diagram-text"  d="M 160.0 51 h 16 a 4 4 0 0 1 4 4 v 12 a 4 4 0 0 1 -4 4 h -16 z" > </path> <text  class="diagram-arrow"  x="170"  y="65" > ↺ </text> </g> </g> <path  class="class2"  d="M180 61h10"  /> <path  cls="class74s"  d="M 190 61 h 20 m -10 -10 v 20 m 10 -20 v 20" > </path> </g> <style>/* <![CDATA[ */
+ <path  class="start"  d="M20 51v20m10 -20v20m-10 -10h20"  /> </g> <path  d="M40 61h10"  /> <g > 
+ <path  class="multichoice mc1"  d="M50 61h0.0"  /> <path  class="multichoice mc2"  d="M180.0 61h0.0"  /> <path  class="multichoice mc3"  d="M80.0 61v-20a10 10 0 0 1 10 -10"  /> <g  class="terminal " > 
+ <path  class="terminal term1"  d="M90.0 31h0.0"  /> <path  class="terminal term2"  d="M150.0 31h0.0"  /> <rect  height="22"  rx="10"  ry="10"  width="60"  x="90"  y="20" > </rect> <text  x="120"  y="35" > term1 </text> </g> <path  class="multichoice mc4"  d="M150.0 31aNone None 0 0 1 None Nonev10"  /> <path  class="multichoice mc5"  d="M80.0 61h10"  /> <g  class="terminal " > 
+ <path  class="terminal term1"  d="M90.0 61h0.0"  /> <path  class="terminal term2"  d="M150.0 61h0.0"  /> <rect  height="22"  rx="10"  ry="10"  width="60"  x="90"  y="50" > </rect> <text  x="120"  y="65" > term2 </text> </g> <path  class="multichoice mc6"  d="M150.0 61h10"  /> <g  class="diagram-text" > 
+ <title > take all branches, once each, in any order </title> <path  class="diagram-text"  d="M 80.0 51 h -26 a 4 4 0 0 0 -4 4 v 12 a 4 4 0 0 0 4 4 h 26 z" > </path> <text  class="diagram-text"  x="65"  y="65" > all </text> <path  class="diagram-text"  d="M 160.0 51 h 16 a 4 4 0 0 1 4 4 v 12 a 4 4 0 0 1 -4 4 h -16 z" > </path> <text  class="diagram-arrow"  x="170"  y="65" > ↺ </text> </g> </g> <path  d="M180 61h10"  /> <path  class="end"  d="M 190 61 h 20 m -10 -10 v 20 m 10 -20 v 20" > </path> </g> <style>/* <![CDATA[ */
 svg.railroad-diagram {
     background-color:hsl(30,20%,95%);
 }
@@ -13,6 +13,11 @@ svg.railroad-diagram path {
     stroke-width:3;
     stroke:black;
     fill:rgba(0,0,0,0);
+}
+svg.railroad-diagram path.start {
+    stroke-width:3;
+    stroke:black;
+    fill:rgba(0,0,0,1);
 }
 svg.railroad-diagram text {
     font:bold 14px monospace;

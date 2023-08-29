@@ -1,7 +1,7 @@
 <svg  class="railroad-diagram"  height="60"  viewBox="0 0 80 60"  width="80"  xmlns="http://www.w3.org/2000/svg"  xmlns:xlink="http://www.w3.org/1999/xlink" > 
  <g  transform="translate(.5 .5)" > 
  <g > 
- <path  cls="class66s"  d="M20 20v20m10 -20v20m-10 -10h20"  /> </g> <path  cls="class74c"  d="M 40 30 h 20 m 0 -10 v 20" > </path> </g> <style>/* <![CDATA[ */
+ <path  class="start"  d="M20 20v20m10 -20v20m-10 -10h20"  /> </g> <path  class="end"  d="M 40 30 h 20 m 0 -10 v 20" > </path> </g> <style>/* <![CDATA[ */
 svg.railroad-diagram {
     background-color:hsl(30,20%,95%);
 }
@@ -9,6 +9,11 @@ svg.railroad-diagram path {
     stroke-width:3;
     stroke:black;
     fill:rgba(0,0,0,0);
+}
+svg.railroad-diagram path.start {
+    stroke-width:3;
+    stroke:black;
+    fill:rgba(0,0,0,1);
 }
 svg.railroad-diagram text {
     font:bold 14px monospace;

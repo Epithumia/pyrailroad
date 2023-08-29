@@ -1,7 +1,7 @@
 <svg  class="railroad-diagram"  height="94"  viewBox="0 0 172 94"  width="172" > 
  <g  transform="translate(.5 .5)" > 
  <g > 
- <path  cls="class66s"  d="M20 45v20m10 -20v20m-10 -10h20"  /> </g> <path  class="class1"  d="M40 55h10"  /> <g > 
- <path  class="class64"  d="M50 55h0.0"  /> <path  class="class65"  d="M122.0 55h0.0"  /> <rect  class="group-box"  height="38"  rx="10"  ry="10"  width="72"  x="50"  y="36" > </rect> <g  class="terminal " > 
- <path  class="class67"  d="M50.0 55h10.0"  /> <path  class="class68"  d="M112.0 55h10.0"  /> <rect  height="22"  rx="10"  ry="10"  width="52"  x="60"  y="44" > </rect> <text  x="86"  y="59" > term </text> </g> <g  class="non-terminal " > 
- <path  class="class71"  d="M50.0 28h0.0"  /> <path  class="class72"  d="M95.0 28h0.0"  /> <text  class="comment"  x="72.5"  y="33" > label </text> </g> </g> <path  class="class2"  d="M122 55h10"  /> <path  cls="class74s"  d="M 132 55 h 20 m -10 -10 v 20 m 10 -20 v 20" > </path> </g> </svg>
+ <path  class="start"  d="M20 45v20m10 -20v20m-10 -10h20"  /> </g> <path  d="M40 55h10"  /> <g > 
+ <path  class="group gr1"  d="M50 55h0.0"  /> <path  class="group gr2"  d="M122.0 55h0.0"  /> <rect  class="group-box"  height="38"  rx="10"  ry="10"  width="72"  x="50"  y="36" > </rect> <g  class="terminal " > 
+ <path  class="terminal term1"  d="M50.0 55h10.0"  /> <path  class="terminal term2"  d="M112.0 55h10.0"  /> <rect  height="22"  rx="10"  ry="10"  width="52"  x="60"  y="44" > </rect> <text  x="86"  y="59" > term </text> </g> <g  class="non-terminal " > 
+ <path  class="comment com1"  d="M50.0 28h0.0"  /> <path  class="comment com2"  d="M95.0 28h0.0"  /> <text  class="comment"  x="72.5"  y="33" > label </text> </g> </g> <path  d="M122 55h10"  /> <path  class="end"  d="M 132 55 h 20 m -10 -10 v 20 m 10 -20 v 20" > </path> </g> </svg>

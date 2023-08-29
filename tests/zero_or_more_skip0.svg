@@ -1,9 +1,9 @@
 <svg  class="railroad-diagram"  height="90"  viewBox="0 0 192 90"  width="192" > 
  <g  transform="translate(.5 .5)" > 
  <g > 
- <path  cls="class66s"  d="M20 20v20m10 -20v20m-10 -10h20"  /> </g> <g > 
- <path  class="class31"  d="M40 30h0.0"  /> <path  class="class32"  d="M152.0 30h0.0"  /> <path  class="class35"  d="M40.0 30h20"  /> <g > 
- <path  class="class73"  d="M60.0 30h72"  /> </g> <path  class="class36"  d="M132.0 30h20"  /> <path  class="class37"  d="M40.0 30a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10"  /> <g > 
- <path  class="class58"  d="M60.0 50h0.0"  /> <path  class="class59"  d="M132.0 50h0.0"  /> <path  class="class60"  d="M60.0 50h10"  /> <g  class="terminal " > 
- <path  class="class67"  d="M70.0 50h0.0"  /> <path  class="class68"  d="M122.0 50h0.0"  /> <rect  height="22"  rx="10"  ry="10"  width="52"  x="70"  y="39" > </rect> <text  x="96"  y="54" > term </text> </g> <path  class="class61"  d="M122.0 50h10"  /> <path  class="class62"  d="M70.0 50a10 10 0 0 0 -10 10v0a10 10 0 0 0 10 10"  /> <g > 
- <path  class="class73"  d="M70.0 70h52"  /> </g> <path  class="class63"  d="M122.0 70a10 10 0 0 0 10 -10v0a10 10 0 0 0 -10 -10"  /> </g> <path  class="class38"  d="M132.0 50a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10"  /> </g> <path  cls="class74s"  d="M 152 30 h 20 m -10 -10 v 20 m 10 -20 v 20" > </path> </g> </svg>
+ <path  class="start"  d="M20 20v20m10 -20v20m-10 -10h20"  /> </g> <g > 
+ <path  class="choice ch1"  d="M40 30h0.0"  /> <path  class="choice ch2"  d="M152.0 30h0.0"  /> <path  class="choice ch5"  d="M40.0 30h20"  /> <g > 
+ <path  class="skip"  d="M60.0 30h72"  /> </g> <path  class="choice ch6"  d="M132.0 30h20"  /> <path  class="choice ch7"  d="M40.0 30a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10"  /> <g > 
+ <path  class="oneor oom1"  d="M60.0 50h0.0"  /> <path  class="oneor oom2"  d="M132.0 50h0.0"  /> <path  class="oneor oom3"  d="M60.0 50h10"  /> <g  class="terminal " > 
+ <path  class="terminal term1"  d="M70.0 50h0.0"  /> <path  class="terminal term2"  d="M122.0 50h0.0"  /> <rect  height="22"  rx="10"  ry="10"  width="52"  x="70"  y="39" > </rect> <text  x="96"  y="54" > term </text> </g> <path  class="oneor oom4"  d="M122.0 50h10"  /> <path  class="oneor oom5"  d="M70.0 50a10 10 0 0 0 -10 10v0a10 10 0 0 0 10 10"  /> <g > 
+ <path  class="skip"  d="M70.0 70h52"  /> </g> <path  class="oneor oom6"  d="M122.0 70a10 10 0 0 0 10 -10v0a10 10 0 0 0 -10 -10"  /> </g> <path  class="choice ch8"  d="M132.0 50a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10"  /> </g> <path  class="end"  d="M 152 30 h 20 m -10 -10 v 20 m 10 -20 v 20" > </path> </g> </svg>

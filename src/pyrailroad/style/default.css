@@ -6,6 +6,11 @@ svg.railroad-diagram path {
     stroke:black;
     fill:rgba(0,0,0,0);
 }
+svg.railroad-diagram path.start {
+    stroke-width:3;
+    stroke:black;
+    fill:rgba(0,0,0,1);
+}
 svg.railroad-diagram text {
     font:bold 14px monospace;
     text-anchor:middle;
