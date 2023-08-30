@@ -2,9 +2,9 @@
 from __future__ import annotations
 
 import math as Math
-import sys
 
 from typing import TYPE_CHECKING
+
 
 if TYPE_CHECKING:
     from typing import (
@@ -26,9 +26,6 @@ if TYPE_CHECKING:
     WriterF = Callable[[str], Any]
     WalkerF = Callable[[DiagramItem], Any]  # type: ignore # pylint: disable=used-before-assignment
     AttrsT = Dict[str, Any]
-
-# Display constants
-DIAGRAM_CLASS = "railroad-diagram"  # class to put on the root <svg>
 
 
 class RRException(Exception):
@@ -93,15 +90,26 @@ class DiagramItem:
         self.needs_space = False
 
         # Parameters
+        from .defaults import (
+            DIAGRAM_CLASS,
+            DEBUG,
+            STROKE_ODD_PIXEL_LENGTH,
+            VS,
+            AR,
+            CHAR_WIDTH,
+            COMMENT_CHAR_WIDTH,
+            INTERNAL_ALIGNMENT,
+        )
+
         self.parameters = {
-            "debug": False,  # if True, add debug info to the diagram
-            "stroke_odd_pixel_length": True,
-            "diagram_class": "railroad-diagram",  # Default class for the svg diagram
-            "VS": 8,  # minimum vertical separation between things. For a 3px stroke, must be at least 4
-            "AR": 10,  # radius of arcs
-            "char_width": 8,  # width of each monospace character. play until you find the right value for your font
-            "comment_char_width": 7,  # comments are in smaller text by default
-            "internal_alignment": "center",  # how to align items when they have extra space. left/right/center
+            "debug": DEBUG,
+            "stroke_odd_pixel_length": STROKE_ODD_PIXEL_LENGTH,
+            "diagram_class": DIAGRAM_CLASS,
+            "VS": VS,
+            "AR": AR,
+            "char_width": CHAR_WIDTH,
+            "comment_char_width": COMMENT_CHAR_WIDTH,
+            "internal_alignment": INTERNAL_ALIGNMENT,
         }
         for k in parameters.keys():
             self.parameters[k] = parameters[k]
@@ -476,6 +484,9 @@ class Style:
 class Diagram(DiagramMultiContainer):
     def __init__(self, *items: Node, parameters: Opt[AttrsT] = {}, **kwargs: str):
         # Accepts a type=[simple|complex] kwarg
+
+        from .defaults import DIAGRAM_CLASS
+
         DiagramMultiContainer.__init__(
             self,
             "svg",
