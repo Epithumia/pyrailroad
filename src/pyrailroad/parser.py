@@ -21,6 +21,9 @@ from .railroad import (
     zero_or_more,
     optional,
 )
+
+from .exceptions import ParseException
+
 from typing_extensions import Annotated, Optional
 import typer
 
@@ -124,9 +127,7 @@ def parse_json_file(
         write_diagram(diagram, target, props["standalone"])
 
 
-class ParseException(Exception):
-    def __init__(self, *args: object) -> None:
-        super().__init__(*args)
+
 
 
 def parse_json(string: str, properties: {}) -> Diagram | None:

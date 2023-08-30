@@ -5,6 +5,8 @@ import math as Math
 
 from typing import TYPE_CHECKING
 
+from .exceptions import RRException
+
 
 if TYPE_CHECKING:
     from typing import (
@@ -28,9 +30,7 @@ if TYPE_CHECKING:
     AttrsT = Dict[str, Any]
 
 
-class RRException(Exception):
-    def __init__(self, *args: object) -> None:
-        super().__init__(*args)
+
 
 
 def escape_attr(val: Union[str, float]) -> str:
