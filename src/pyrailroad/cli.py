@@ -69,6 +69,7 @@ items:
 [/italic]
 """
 
+
 @cli.command("yaml", no_args_is_help=True, help=help_yaml)
 def parse_yaml_file(
     file: input_file_argument,

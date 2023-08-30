@@ -28,7 +28,7 @@ class UnitTests(BaseTest):
         super().tearDown()
 
     def test_terminal(self):
-        from pyrailroad.railroad import Terminal, Diagram
+        from pyrailroad.elements import Terminal, Diagram
 
         with pytest.raises(TypeError):
             Terminal()
@@ -69,7 +69,7 @@ class UnitTests(BaseTest):
         assert " ".join(svg) == svg_result
 
     def test_non_terminal(self):
-        from pyrailroad.railroad import NonTerminal, Diagram
+        from pyrailroad.elements import NonTerminal, Diagram
 
         with pytest.raises(TypeError):
             NonTerminal()
@@ -110,7 +110,7 @@ class UnitTests(BaseTest):
         assert " ".join(svg) == svg_result
 
     def test_comment(self):
-        from pyrailroad.railroad import Comment, Diagram
+        from pyrailroad.elements import Comment, Diagram
 
         with pytest.raises(TypeError):
             Comment()
@@ -151,7 +151,7 @@ class UnitTests(BaseTest):
         assert " ".join(svg) == svg_result
 
     def test_skip(self):
-        from pyrailroad.railroad import Skip, Diagram
+        from pyrailroad.elements import Skip, Diagram
 
         t = Skip()
         assert t.to_dict() == {"element": "Skip"}
@@ -168,7 +168,7 @@ class UnitTests(BaseTest):
         assert " ".join(svg) == svg_result
 
     def test_sequence(self):
-        from pyrailroad.railroad import Terminal, Sequence, Diagram
+        from pyrailroad.elements import Terminal, Sequence, Diagram
 
         t = Sequence(Terminal("term1"), Terminal("term2"))
         assert t.to_dict() == {
@@ -203,7 +203,7 @@ class UnitTests(BaseTest):
         assert " ".join(svg) == svg_result
 
     def test_stack(self):
-        from pyrailroad.railroad import Terminal, Diagram, Stack
+        from pyrailroad.elements import Terminal, Diagram, Stack
 
         t = Stack(Terminal("term1"), Terminal("term2"))
         assert t.to_dict() == {
@@ -238,7 +238,7 @@ class UnitTests(BaseTest):
         assert " ".join(svg) == svg_result
 
     def test_optional_sequence(self):
-        from pyrailroad.railroad import Terminal, OptionalSequence, Diagram
+        from pyrailroad.elements import Terminal, OptionalSequence, Diagram
 
         t = OptionalSequence(Terminal("term1"), Terminal("term2"))
         assert t.to_dict() == {
@@ -273,7 +273,7 @@ class UnitTests(BaseTest):
         assert " ".join(svg) == svg_result
 
     def test_alternating_sequence(self):
-        from pyrailroad.railroad import Terminal, AlternatingSequence, Diagram
+        from pyrailroad.elements import Terminal, AlternatingSequence, Diagram
 
         t = AlternatingSequence(Terminal("term1"), Terminal("term2"))
         assert t.to_dict() == {
@@ -308,7 +308,7 @@ class UnitTests(BaseTest):
         assert " ".join(svg) == svg_result
 
     def test_choice(self):
-        from pyrailroad.railroad import Terminal, Choice, Diagram
+        from pyrailroad.elements import Terminal, Choice, Diagram
 
         with pytest.raises(TypeError):
             Choice(Terminal("term1"), Terminal("term2"))
@@ -378,7 +378,7 @@ class UnitTests(BaseTest):
         assert " ".join(svg) == svg_result
 
     def test_multiple_choice(self):
-        from pyrailroad.railroad import Terminal, MultipleChoice, Diagram
+        from pyrailroad.elements import Terminal, MultipleChoice, Diagram
 
         with pytest.raises(TypeError):
             MultipleChoice()
@@ -520,7 +520,7 @@ class UnitTests(BaseTest):
         assert " ".join(svg) == svg_result
 
     def test_horizontal_choice(self):
-        from pyrailroad.railroad import Terminal, HorizontalChoice, Diagram
+        from pyrailroad.elements import Terminal, HorizontalChoice, Diagram
 
         with pytest.raises(IndexError):
             HorizontalChoice()
@@ -572,7 +572,7 @@ class UnitTests(BaseTest):
         assert " ".join(svg) == svg_result
 
     def test_optional(self):
-        from pyrailroad.railroad import Terminal, optional, Diagram
+        from pyrailroad.elements import Terminal, optional, Diagram
 
         t = optional(Terminal("term"))
         assert t.to_dict() == {
@@ -629,7 +629,7 @@ class UnitTests(BaseTest):
         assert " ".join(svg) == svg_result
 
     def test_one_or_more(self):
-        from pyrailroad.railroad import Diagram, OneOrMore, Terminal
+        from pyrailroad.elements import Diagram, OneOrMore, Terminal
 
         with pytest.raises(TypeError):
             OneOrMore()
@@ -689,7 +689,7 @@ class UnitTests(BaseTest):
         assert " ".join(svg) == svg_result
 
     def test_zero_or_more(self):
-        from pyrailroad.railroad import Diagram, zero_or_more, Terminal
+        from pyrailroad.elements import Diagram, zero_or_more, Terminal
 
         with pytest.raises(TypeError):
             zero_or_more()  # NOSONAR
@@ -831,7 +831,7 @@ class UnitTests(BaseTest):
         assert " ".join(svg) == svg_result
 
     def test_group(self):
-        from pyrailroad.railroad import Diagram, Group, Terminal
+        from pyrailroad.elements import Diagram, Group, Terminal
 
         with pytest.raises(TypeError):
             Group()
@@ -891,7 +891,7 @@ class UnitTests(BaseTest):
         assert " ".join(svg) == svg_result
 
     def test_start(self):
-        from pyrailroad.railroad import Start, Diagram
+        from pyrailroad.elements import Start, Diagram
 
         t = Start()
         assert t.to_dict() == {"element": "Start", "type": "simple", "label": None}
@@ -950,7 +950,7 @@ class UnitTests(BaseTest):
         assert " ".join(svg) == svg_result
 
     def test_end(self):
-        from pyrailroad.railroad import End, Diagram
+        from pyrailroad.elements import End, Diagram
 
         t = End()
         assert t.to_dict() == {
@@ -1004,6 +1004,364 @@ class UnitTests(BaseTest):
         assert " ".join(svg) == svg_result
 
 
+class JSONParserTests(BaseTest):
+    def test_parse_json(self):
+        from pyrailroad.parser import parse_json
+        from pyrailroad.elements import Diagram
+
+        input_string = """{
+    "element": "Choice",
+    "default": 0,
+    "items": [
+        {
+            "element": "Terminal",
+            "text": "foo"
+        },
+        {
+            "element": "Terminal",
+            "text": "bar",
+            "href": "raw"
+        }
+    ]
+}"""
+        r = parse_json(
+            input_string, {"standalone": False, "type": "complex", "css": None}
+        )
+        assert isinstance(r, Diagram)
+
+    def test_missing_element_json(self):
+        from pyrailroad.parser import parse_json
+        from pyrailroad.exceptions import ParseException
+
+        input_string = """{
+    "error": "Choice",
+    "default": 0,
+    "items": [
+        {
+            "element": "Terminal",
+            "text": "foo"
+        },
+        {
+            "element": "Terminal",
+            "text": "bar",
+            "href": "raw"
+        }
+    ]
+}"""
+        with pytest.raises(ParseException) as e:
+            parse_json(
+                input_string, {"standalone": False, "type": "complex", "css": None}
+            )
+        assert e.value.msg == "Invalid input file : 'element' is missing from the root."
+
+    def test_choice_error_json(self):
+        from pyrailroad.parser import parse_json
+        from pyrailroad.exceptions import ParseException
+
+        input_string = """{
+    "element": "Choice",
+    "default": null,
+    "items": [
+        {
+            "element": "Terminal",
+            "text": "foo"
+        },
+        {
+            "element": "Terminal",
+            "text": "bar",
+            "href": "raw"
+        }
+    ]
+}"""
+        with pytest.raises(ParseException) as e:
+            parse_json(
+                input_string, {"standalone": False, "type": "complex", "css": None}
+            )
+        assert e.value.msg == 'Attribute "default" must be an integer, got: None.'
+
+    def test_unknown_element_json(self):
+        from pyrailroad.parser import parse_json
+        from pyrailroad.exceptions import ParseException
+
+        input_string = """{
+    "element": "Chance",
+    "default": 0,
+    "items": [
+        {
+            "element": "Terminal",
+            "text": "foo"
+        },
+        {
+            "element": "Terminal",
+            "text": "bar",
+            "href": "raw"
+        }
+    ]
+}"""
+        with pytest.raises(ParseException) as e:
+            parse_json(
+                input_string, {"standalone": False, "type": "complex", "css": None}
+            )
+        assert e.value.msg == "Unknown element: Chance."
+
+
+class DSLExceptionTests(BaseTest):
+    def test_general_parsing_errors(self):
+        from pyrailroad.parser import parse
+        from pyrailroad.exceptions import ParseException
+
+        unknown_element = "Terminally: foo"
+        with pytest.raises(ParseException) as e:
+            parse(unknown_element, True)
+        assert (
+            e.value.msg
+            == "Line 1 doesn't contain a valid railroad-diagram command. Got:\nTerminally: foo"
+        )
+
+        bad_indent = "    Choice: 0\n  Terminal: foo\n  Terminal: bar"
+        with pytest.raises(ParseException) as e:
+            parse(bad_indent, True)
+        assert (
+            e.value.msg
+            == "Inconsistent indentation: line 1 is indented less than the first line."
+        )
+
+        bad_block_grammar = "Sequence foo:\n  Terminal: bar\n  Terminal: bar"
+        with pytest.raises(ParseException) as e:
+            parse(bad_block_grammar, True)
+        assert (
+            e.value.msg
+            == "Line 1 doesn't match the grammar 'Command: optional-prelude'. Got:\nSequence foo:"
+        )
+
+        bad_multiple_choice_grammar = "MultipleChoice foo: bar"
+        with pytest.raises(ParseException) as e:
+            parse(bad_multiple_choice_grammar, True)
+        assert (
+            e.value.msg
+            == "Line 1 doesn't match the grammar 'MultipleChoice: optional-prelude'. Got:\nMultipleChoice foo: bar"
+        )
+
+        bad_indents = "Sequence:\n\tTerminal: foo\n\tTerminal: bar\nSequence:\n\t\tTerminal: foo\n\t\tTerminal: bar"
+        with pytest.raises(ParseException) as e:
+            parse(bad_indents, True)
+        assert (
+            e.value.msg
+            == "Line 5 jumps more than 1 indent level from the previous line:\nTerminal: foo"
+        )
+
+    def test_terminal_parsing_error(self):
+        from pyrailroad.parser import parse
+        from pyrailroad.exceptions import ParseException
+
+        element = "Terminal:\n  Terminal: foo"
+        with pytest.raises(ParseException) as e:
+            parse(element, True)
+        assert e.value.msg == "Line 1 - Terminal commands cannot have children."
+
+    def test_non_terminal_parsing_error(self):
+        from pyrailroad.parser import parse
+        from pyrailroad.exceptions import ParseException
+
+        element = "NonTerminal:\n  Terminal: foo"
+        with pytest.raises(ParseException) as e:
+            parse(element, True)
+        assert e.value.msg == "Line 1 - NonTerminal commands cannot have children."
+
+    def test_comment_error(self):
+        from pyrailroad.parser import parse
+        from pyrailroad.exceptions import ParseException
+
+        element = "Comment:\n  Terminal: foo"
+        with pytest.raises(ParseException) as e:
+            parse(element, True)
+        assert e.value.msg == "Line 1 - Comment commands cannot have children."
+
+    def test_skip_error(self):
+        from pyrailroad.parser import parse
+        from pyrailroad.exceptions import ParseException
+
+        element = "Skip:\n  Terminal: foo"
+        with pytest.raises(ParseException) as e:
+            parse(element, True)
+        assert e.value.msg == "Line 1 - Skip commands cannot have children."
+
+        element = "Skip: foo"
+        with pytest.raises(ParseException) as e:
+            parse(element, True)
+        assert e.value.msg == "Line 1 - Skip commands cannot have text."
+
+    def test_sequence_error(self):
+        from pyrailroad.parser import parse
+        from pyrailroad.exceptions import ParseException
+
+        element = "Sequence: foo"
+        with pytest.raises(ParseException) as e:
+            parse(element, True)
+        assert e.value.msg == "Line 1 - Sequence commands cannot have preludes."
+
+        element = "Sequence:"
+        with pytest.raises(ParseException) as e:
+            parse(element, True)
+        assert e.value.msg == "Line 1 - Sequence commands need at least one child."
+
+    def test_stack_error(self):
+        from pyrailroad.parser import parse
+        from pyrailroad.exceptions import ParseException
+
+        element = "Stack: foo"
+        with pytest.raises(ParseException) as e:
+            parse(element, True)
+        assert e.value.msg == "Line 1 - Stack commands cannot have preludes."
+
+        element = "Stack:"
+        with pytest.raises(ParseException) as e:
+            parse(element, True)
+        assert e.value.msg == "Line 1 - Stack commands need at least one child."
+
+    def test_horizontal_choice_error(self):
+        from pyrailroad.parser import parse
+        from pyrailroad.exceptions import ParseException
+
+        element = "HorizontalChoice: foo"
+        with pytest.raises(ParseException) as e:
+            parse(element, True)
+        assert e.value.msg == "Line 1 - HorizontalChoice commands cannot have preludes."
+
+        element = "HorizontalChoice:"
+        with pytest.raises(ParseException) as e:
+            parse(element, True)
+        assert (
+            e.value.msg == "Line 1 - HorizontalChoice commands need at least one child."
+        )
+
+    def test_optional_sequence_error(self):
+        from pyrailroad.parser import parse
+        from pyrailroad.exceptions import ParseException
+
+        element = "OptionalSequence: foo"
+        with pytest.raises(ParseException) as e:
+            parse(element, True)
+        assert e.value.msg == "Line 1 - OptionalSequence commands cannot have preludes."
+
+        element = "OptionalSequence:"
+        with pytest.raises(ParseException) as e:
+            parse(element, True)
+        assert (
+            e.value.msg == "Line 1 - OptionalSequence commands need at least one child."
+        )
+
+    def test_alternating_sequence_error(self):
+        from pyrailroad.parser import parse
+        from pyrailroad.exceptions import ParseException
+
+        element = "AlternatingSequence: foo"
+        with pytest.raises(ParseException) as e:
+            parse(element, True)
+        assert (
+            e.value.msg == "Line 1 - AlternatingSequence commands cannot have preludes."
+        )
+
+        element = "AlternatingSequence:"
+        with pytest.raises(ParseException) as e:
+            parse(element, True)
+        assert (
+            e.value.msg
+            == "Line 1 - AlternatingSequence commands need exactly two children."
+        )
+
+    def test_one_or_more_error(self):
+        from pyrailroad.parser import parse
+        from pyrailroad.exceptions import ParseException
+
+        element = "OneOrMore: foo"
+        with pytest.raises(ParseException) as e:
+            parse(element, True)
+        assert e.value.msg == "Line 1 - OneOrMore commands cannot have preludes."
+
+        element = "OneOrMore:"
+        with pytest.raises(ParseException) as e:
+            parse(element, True)
+        assert (
+            e.value.msg == "Line 1 - OneOrMore commands must have one or two children."
+        )
+
+    def test_zero_or_more_error(self):
+        from pyrailroad.parser import parse
+        from pyrailroad.exceptions import ParseException
+
+        element = "ZeroOrMore: foo"
+        with pytest.raises(ParseException) as e:
+            parse(element, True)
+        assert (
+            e.value.msg
+            == "Line 1 - ZeroOrMore preludes must be nothing or 'skip'. Got:\nfoo"
+        )
+
+        element = "ZeroOrMore:"
+        with pytest.raises(ParseException) as e:
+            parse(element, True)
+        assert (
+            e.value.msg == "Line 1 - ZeroOrMore commands must have one or two children."
+        )
+
+    def test_group_error(self):
+        from pyrailroad.parser import parse
+        from pyrailroad.exceptions import ParseException
+
+        element = "Group:\n\tTerminal: foo\n\tTerminal: bar"
+        with pytest.raises(ParseException) as e:
+            parse(element, True)
+        assert e.value.msg == "Line 1 - Group commands need exactly one child."
+
+    def test_optional_error(self):
+        from pyrailroad.parser import parse
+        from pyrailroad.exceptions import ParseException
+
+        element = "Optional: foo"
+        with pytest.raises(ParseException) as e:
+            parse(element, True)
+        assert (
+            e.value.msg
+            == "Line 1 - Optional preludes must be nothing or 'skip'. Got:\nfoo"
+        )
+
+        element = "Optional:"
+        with pytest.raises(ParseException) as e:
+            parse(element, True)
+        assert e.value.msg == "Line 1 - Optional commands need exactly one child."
+
+    def test_choice_error(self):
+        from pyrailroad.parser import parse
+        from pyrailroad.exceptions import ParseException
+
+        element = "Choice: foo"
+        with pytest.raises(ParseException) as e:
+            parse(element, True)
+        assert e.value.msg == "Line 1 - Choice preludes must be an integer. Got:\nfoo"
+
+        element = "Choice:"
+        with pytest.raises(ParseException) as e:
+            parse(element, True)
+        assert e.value.msg == "Line 1 - Choice commands need at least one child."
+
+    def test_multiple_choice_error(self):
+        from pyrailroad.parser import parse
+        from pyrailroad.exceptions import ParseException
+
+        element = "MultipleChoice: foo"
+        with pytest.raises(ParseException) as e:
+            parse(element, True)
+        assert e.value.msg == "Line 1 - MultipleChoice type must be any or all."
+
+        element = "MultipleChoice:"
+        with pytest.raises(ParseException) as e:
+            parse(element, True)
+        assert (
+            e.value.msg == "Line 1 - MultipleChoice commands need at least one child."
+        )
+
+
 class CLITests(BaseTest):
     def setUp(self):
         super().setUp()
@@ -1016,47 +1374,47 @@ class CLITests(BaseTest):
         super().tearDown()
 
     def test_cli_help(self):
-        from pyrailroad.parser import app
+        from pyrailroad.cli import cli
 
-        result = self.runner.invoke(app, ["--help"])
+        result = self.runner.invoke(cli, ["--help"])
         assert result.exit_code == 0
         assert "dsl" in result.stdout
         assert "json" in result.stdout
         assert "yaml" in result.stdout
-        result = self.runner.invoke(app, ["dsl", "--help"])
+        result = self.runner.invoke(cli, ["dsl", "--help"])
         assert result.exit_code == 0
         assert "file" in result.stdout
         assert "target" in result.stdout
-        result = self.runner.invoke(app, ["json", "--help"])
+        result = self.runner.invoke(cli, ["json", "--help"])
         assert result.exit_code == 0
         assert "file" in result.stdout
         assert "target" in result.stdout
-        assert "properties" in result.stdout
-        result = self.runner.invoke(app, ["yaml", "--help"])
+        assert "parameters" in result.stdout
+        result = self.runner.invoke(cli, ["yaml", "--help"])
         assert result.exit_code == 0
         assert "file" in result.stdout
         assert "target" in result.stdout
-        assert "properties" in result.stdout
+        assert "parameters" in result.stdout
 
     def test_cli_dsl(self):
-        from pyrailroad.parser import app
+        from pyrailroad.cli import cli
 
         in_file = "tests/cli/diagram.dsl"
         out_file = "tests/cli/output.svg"
-        result = self.runner.invoke(app, ["dsl", in_file, out_file])
+        result = self.runner.invoke(cli, ["dsl", in_file, out_file])
         assert result.exit_code == 0
         with open(out_file, "r") as res:
             with open("tests/cli/diagram.svg", "r") as base:
                 assert res.read() == base.read()
 
-        result = self.runner.invoke(app, ["dsl", in_file, out_file, "--standalone"])
+        result = self.runner.invoke(cli, ["dsl", in_file, out_file, "--standalone"])
         assert result.exit_code == 0
         with open(out_file, "r") as res:
             with open("tests/cli/diagram_standalone.svg", "r") as base:
                 assert res.read() == base.read()
 
         result = self.runner.invoke(
-            app, ["dsl", in_file, out_file, "--standalone", "--simple"]
+            cli, ["dsl", in_file, out_file, "--standalone", "--simple"]
         )
         assert result.exit_code == 0
         with open(out_file, "r") as res:
@@ -1064,18 +1422,18 @@ class CLITests(BaseTest):
                 assert res.read() == base.read()
 
     def test_cli_json(self):
-        from pyrailroad.parser import app
+        from pyrailroad.cli import cli
 
         in_file = "tests/cli/diagram.json"
         out_file = "tests/cli/output.svg"
-        result = self.runner.invoke(app, ["json", in_file, out_file])
+        result = self.runner.invoke(cli, ["json", in_file, out_file])
         assert result.exit_code == 0
         with open(out_file, "r") as res:
             with open("tests/cli/diagram.svg", "r") as base:
                 assert res.read() == base.read()
 
         result = self.runner.invoke(
-            app, ["json", in_file, out_file, "tests/cli/complex_standalone.json"]
+            cli, ["json", in_file, out_file, "tests/cli/complex_standalone.json"]
         )
         assert result.exit_code == 0
         with open(out_file, "r") as res:
@@ -1083,7 +1441,7 @@ class CLITests(BaseTest):
                 assert res.read() == base.read()
 
         result = self.runner.invoke(
-            app, ["json", in_file, out_file, "tests/cli/simple_standalone.json"]
+            cli, ["json", in_file, out_file, "tests/cli/simple_standalone.json"]
         )
         assert result.exit_code == 0
         with open(out_file, "r") as res:
@@ -1091,7 +1449,7 @@ class CLITests(BaseTest):
                 assert res.read() == base.read()
 
         result = self.runner.invoke(
-            app, ["json", in_file, out_file, "tests/cli/customized_standalone.json"]
+            cli, ["json", in_file, out_file, "tests/cli/customized_standalone.json"]
         )
         assert result.exit_code == 0
         with open(out_file, "r") as res:
@@ -1099,7 +1457,7 @@ class CLITests(BaseTest):
                 assert res.read() == base.read()
 
         result = self.runner.invoke(
-            app, ["yaml", in_file, out_file, "tests/cli/sql_standalone.json"]
+            cli, ["yaml", in_file, out_file, "tests/cli/sql_standalone.json"]
         )
         assert result.exit_code == 0
         with open(out_file, "r") as res:
@@ -1107,18 +1465,18 @@ class CLITests(BaseTest):
                 assert res.read() == base.read()
 
     def test_cli_yaml(self):
-        from pyrailroad.parser import app
+        from pyrailroad.cli import cli
 
         in_file = "tests/cli/diagram.yaml"
         out_file = "tests/cli/output.svg"
-        result = self.runner.invoke(app, ["yaml", in_file, out_file])
+        result = self.runner.invoke(cli, ["yaml", in_file, out_file])
         assert result.exit_code == 0
         with open(out_file, "r") as res:
             with open("tests/cli/diagram.svg", "r") as base:
                 assert res.read() == base.read()
 
         result = self.runner.invoke(
-            app, ["yaml", in_file, out_file, "tests/cli/complex_standalone.yaml"]
+            cli, ["yaml", in_file, out_file, "tests/cli/complex_standalone.yaml"]
         )
         assert result.exit_code == 0
         with open(out_file, "r") as res:
@@ -1126,7 +1484,7 @@ class CLITests(BaseTest):
                 assert res.read() == base.read()
 
         result = self.runner.invoke(
-            app, ["yaml", in_file, out_file, "tests/cli/simple_standalone.yaml"]
+            cli, ["yaml", in_file, out_file, "tests/cli/simple_standalone.yaml"]
         )
         assert result.exit_code == 0
         with open(out_file, "r") as res:
@@ -1134,7 +1492,7 @@ class CLITests(BaseTest):
                 assert res.read() == base.read()
 
         result = self.runner.invoke(
-            app, ["yaml", in_file, out_file, "tests/cli/customized_standalone.yaml"]
+            cli, ["yaml", in_file, out_file, "tests/cli/customized_standalone.yaml"]
         )
         assert result.exit_code == 0
         with open(out_file, "r") as res:
@@ -1142,7 +1500,7 @@ class CLITests(BaseTest):
                 assert res.read() == base.read()
 
         result = self.runner.invoke(
-            app, ["yaml", in_file, out_file, "tests/cli/sql_standalone.yaml"]
+            cli, ["yaml", in_file, out_file, "tests/cli/sql_standalone.yaml"]
         )
         assert result.exit_code == 0
         with open(out_file, "r") as res:

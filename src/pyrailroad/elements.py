@@ -5,7 +5,7 @@ import math as Math
 
 from typing import TYPE_CHECKING
 
-from .exceptions import RRException
+from .exceptions import ParseException
 
 
 if TYPE_CHECKING:
@@ -79,7 +79,7 @@ class DiagramItem:
         self.children: List[Union[Node, Path, Style]] = [text] if text else []
 
     def format(self, x: float, y: float, width: float) -> DiagramItem:
-        raise NotImplementedError  # Virtual
+        raise NotImplementedError  # pragma: no cover
 
     def add_to(self, parent: DiagramItem) -> DiagramItem:
         parent.children.append(self)
@@ -105,7 +105,7 @@ class DiagramItem:
         cb(self)
 
     def to_dict(self) -> dict:
-        raise NotImplementedError  # Virtual
+        raise NotImplementedError  # pragma: no cover
 
     @classmethod
     def from_dict(
@@ -160,6 +160,12 @@ class DiagramItem:
                     parameters=parameters,
                 )
             case "Choice":
+                try:
+                    int(data["default"])
+                except TypeError:
+                    raise ParseException(
+                        f"Attribute \"default\" must be an integer, got: {data['default']}."
+                    )
                 return Choice(
                     int(data["default"]),
                     *(
@@ -265,7 +271,7 @@ class DiagramItem:
                     parameters=parameters,
                 )
             case _:
-                raise RRException("Unknown element")
+                raise ParseException(f"Unknown element: {data['element']}.")
 
 
 def apply_properties(properties: dict):
