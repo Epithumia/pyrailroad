@@ -17,11 +17,10 @@ if TYPE_CHECKING:
         Optional as Opt,
         Sequence as Seq,
         TypeVar,
-        Union,
     )
 
     T = TypeVar("T")  # pragma: no cover
-    Node = Union[str, "DiagramItem"]  # pragma: no cover
+    Node = str | "DiagramItem"  # pragma: no cover
     WriterF = Callable[[str], Any]  # pragma: no cover
     WalkerF = Callable[["DiagramItem"], Any]  # pragma: no cover
     AttrsT = Dict[str, Any]  # pragma: no cover
@@ -76,7 +75,7 @@ class DiagramItem:
         self.attrs: AttrsT = attrs or {}
         # Subclasses store their meaningful children as .item or .items;
         # .children instead stores their formatted SVG nodes.
-        self.children: List[Union[Node, Path, Style]] = [text] if text else []
+        self.children: List[Node | Path | Style] = [text] if text else []
 
     def format(self, x: float, y: float, width: float) -> DiagramItem:
         raise NotImplementedError  # pragma: no cover

@@ -5,17 +5,15 @@ from .elements import Diagram, DiagramItem, Terminal
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    
     from typing import (  # pragma: no cover
         Generator,
         Sequence as Seq,
         Tuple,
         TypeVar,
-        Union,
     )
 
     T = TypeVar("T")  # pragma: no cover
-    Node = Union[str, DiagramItem]  # pragma: no cover
+    Node = str | DiagramItem  # pragma: no cover
 
 
 def write_diagram(diagram: Diagram, target: Path, standalone: bool = False):
@@ -26,7 +24,7 @@ def write_diagram(diagram: Diagram, target: Path, standalone: bool = False):
             diagram.write_svg(t.write)
 
 
-def escape_attr(val: Union[str, float]) -> str:
+def escape_attr(val: str | float) -> str:
     if isinstance(val, str):
         return val.replace("&", "&amp;").replace("'", "&apos;").replace('"', "&quot;")
     return f"{val:g}"
