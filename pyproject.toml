@@ -27,4 +27,4 @@ version = {attr = "pyrailroad.VERSION"}
 tests = ["pytest", "coverage"]
 
 [project.scripts]
-py-railroad = "pyrailroad.parser:app"
+py-railroad = "pyrailroad.cli:cli"

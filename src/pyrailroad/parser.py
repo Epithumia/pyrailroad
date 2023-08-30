@@ -1,8 +1,7 @@
-from pathlib import Path
-
 import dataclasses
+import json
 import typing as t
-from .railroad import (
+from .elements import (
     Diagram,
     Terminal,
     Comment,
@@ -24,164 +23,26 @@ from .railroad import (
 
 from .exceptions import ParseException
 
-from typing_extensions import Annotated, Optional
-import typer
 
-import json
-import yaml
-
-app = typer.Typer()
-
-
-@app.command("yaml")
-def parse_yaml_file(
-    file: Annotated[
-        Path,
-        typer.Argument(
-            exists=True,
-            file_okay=True,
-            dir_okay=False,
-            writable=False,
-            readable=True,
-            resolve_path=True,
-        ),
-    ],
-    target: Annotated[
-        Path,
-        typer.Argument(
-            file_okay=True,
-            dir_okay=False,
-            writable=True,
-            resolve_path=True,
-        ),
-    ],
-    properties: Annotated[
-        Optional[Path],
-        typer.Argument(
-            exists=True,
-            file_okay=True,
-            dir_okay=False,
-            writable=False,
-            readable=True,
-            resolve_path=True,
-        ),
-    ] = None,
-) -> None:
-    props = None
-    if properties:
-        with open(properties) as f:
-            props = yaml.safe_load(f.read())
-    else:
-        props = {"standalone": False, "type": "complex", "css": None}
-    with open(file) as f:
-        yaml_input = yaml.safe_load(f.read())
-        json_input = json.dumps(yaml_input)
-        diagram = parse_json(json_input, props)
-    if diagram:
-        write_diagram(diagram, target, props["standalone"])
-
-
-@app.command("json")
-def parse_json_file(
-    file: Annotated[
-        Path,
-        typer.Argument(
-            exists=True,
-            file_okay=True,
-            dir_okay=False,
-            writable=False,
-            readable=True,
-            resolve_path=True,
-        ),
-    ],
-    target: Annotated[
-        Path,
-        typer.Argument(
-            file_okay=True,
-            dir_okay=False,
-            writable=True,
-            resolve_path=True,
-        ),
-    ],
-    properties: Annotated[
-        Optional[Path],
-        typer.Argument(
-            exists=True,
-            file_okay=True,
-            dir_okay=False,
-            writable=False,
-            readable=True,
-            resolve_path=True,
-        ),
-    ] = None,
-) -> None:
-    props = None
-    if properties:
-        with open(properties, "r") as p:
-            props = json.loads(p.read())
-    else:
-        props = {"standalone": False, "type": "complex", "css": None}
-    with open(file) as f:
-        diagram = parse_json(f.read(), props)
-    if diagram:
-        write_diagram(diagram, target, props["standalone"])
-
-
-
+@dataclasses.dataclass
+class RRCommand:
+    name: str
+    prelude: str | None
+    children: list["RRCommand"]
+    text: str | None
+    line: int
 
 
 def parse_json(string: str, properties: {}) -> Diagram | None:
-    """
-    TODO: implement
-    """
     data = json.loads(string)
     if "element" not in data:
         raise ParseException("Invalid input file : 'element' is missing from the root")
     if data["element"] != "Diagram":
-        input_data = {"element": Diagram, "items": [data]}
+        input_data = {"element": "Diagram", "items": [data]}
     else:
         input_data = data
     diagram = Diagram.from_dict(input_data, properties)
     return diagram
-
-
-@app.command("dsl")
-def parse_dsl_file(
-    file: Annotated[
-        Path,
-        typer.Argument(
-            exists=True,
-            file_okay=True,
-            dir_okay=False,
-            writable=False,
-            readable=True,
-            resolve_path=True,
-        ),
-    ],
-    target: Annotated[
-        Path,
-        typer.Argument(
-            file_okay=True,
-            dir_okay=False,
-            writable=True,
-            resolve_path=True,
-        ),
-    ],
-    simple: Annotated[bool, typer.Option("--simple")] = False,
-    standalone: Annotated[bool, typer.Option("--standalone")] = False,
-) -> None:
-    with open(file) as f:
-        diagram = parse(f.read(), simple)
-    if diagram:
-        write_diagram(diagram, target, standalone)
-
-
-def write_diagram(diagram: Diagram, target: Path, standalone: bool = False):
-    with open(target, "w") as t:
-        if standalone:
-            diagram.write_standalone(t.write)
-        else:
-            diagram.write_svg(t.write)
 
 
 def parse(string: str, simple: bool) -> Diagram | None:
@@ -211,10 +72,7 @@ def parse(string: str, simple: bool) -> Diagram | None:
         if line.startswith(initial_indent):
             lines[i] = line[len(initial_indent) :]
         else:
-            print(
-                f"Inconsistent indentation: line {i} is indented less than the first line."
-            )
-            return Diagram()
+            raise ParseException(f"Inconsistent indentation: line {i} is indented less than the first line.")
 
     # Determine subsequent indentation
     for line in lines:
@@ -287,10 +145,9 @@ def parse(string: str, simple: bool) -> Diagram | None:
                 line=i,
             )
         else:
-            print(
+            raise ParseException(
                 f"Line {i} doesn't contain a valid railroad-diagram command. Got:\n{line.strip()}",
             )
-            return None
 
         active_commands[str(indent)].children.append(node)
         active_commands[str(indent + 1)] = node
@@ -298,15 +155,6 @@ def parse(string: str, simple: bool) -> Diagram | None:
     diagram = create_diagram(tree, diagram_type=diagram_type)
     assert diagram is None or isinstance(diagram, Diagram)
     return diagram
-
-
-@dataclasses.dataclass
-class RRCommand:
-    name: str
-    prelude: str | None
-    children: list["RRCommand"]
-    text: str | None
-    line: int
 
 
 def create_diagram_node(command: RRCommand, diagram_type: str) -> Diagram:
@@ -569,7 +417,3 @@ def create_diagram(command: RRCommand, diagram_type="simple") -> DiagramItem | N
         case _:
             print(f"Line {command.line} - Unknown command '{command.name}'.")
             return None
-
-
-if __name__ == "__main__":
-    app()
