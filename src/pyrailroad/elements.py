@@ -1988,8 +1988,7 @@ class Terminal(DiagramItem):
             "text", {"x": x + left_gap + self.width / 2, "y": y + 4}, self.text
         )
         if self.href is not None:
-            a = DiagramItem("a", {"xlink:href": self.href}, text).add_to(self)
-            text.add_to(a)
+            DiagramItem("a", {"xlink:href": self.href}, text).add_to(self)
         else:
             text.add_to(self)
         if self.title is not None:
@@ -2059,8 +2058,7 @@ class NonTerminal(DiagramItem):
             "text", {"x": x + left_gap + self.width / 2, "y": y + 4}, self.text
         )
         if self.href is not None:
-            a = DiagramItem("a", {"xlink:href": self.href}, text).add_to(self)
-            text.add_to(a)
+            DiagramItem("a", {"xlink:href": self.href}, text).add_to(self)
         else:
             text.add_to(self)
         if self.title is not None:
@@ -2125,8 +2123,7 @@ class Comment(DiagramItem):
             self.text,
         )
         if self.href is not None:
-            a = DiagramItem("a", {"xlink:href": self.href}, text).add_to(self)
-            text.add_to(a)
+            DiagramItem("a", {"xlink:href": self.href}, text).add_to(self)
         else:
             text.add_to(self)
         if self.title is not None:
