@@ -916,7 +916,7 @@ class AlternatingSequence(DiagramMultiContainer):
         if len(items) == 2:
             return super(AlternatingSequence, cls).__new__(cls)
         else:
-            raise RRException(
+            raise ParseException(
                 "AlternatingSequence takes exactly two arguments, but got {0} arguments.".format(
                     len(items)
                 )
