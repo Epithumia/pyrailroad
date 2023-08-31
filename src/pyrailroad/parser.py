@@ -19,6 +19,7 @@ from .elements import (
     Group,
     zero_or_more,
     optional,
+    Arrow,
 )
 
 from .exceptions import ParseException
@@ -90,7 +91,7 @@ def parse(string: str, simple: bool) -> Diagram | None:
     tree = RRCommand(name="Diagram", prelude="", children=[], text=None, line=0)
     active_commands = {"0": tree}
     block_names = "And|Seq|Sequence|Stack|Or|Choice|Opt|Optional|Plus|OneOrMore|Star|ZeroOrMore|OptionalSequence|HorizontalChoice|AlternatingSequence|Group"
-    text_names = "T|Terminal|N|NonTerminal|C|Comment|S|Skip"
+    text_names = "T|Terminal|N|NonTerminal|C|Comment|S|Skip|Arrow"
     for i, line in enumerate(lines, 1):
         indent = 0
         while line.startswith(indent_text):
@@ -184,6 +185,18 @@ def create_comment_node(command: RRCommand) -> Comment | None:
             f"Line {command.line} - Comment commands cannot have children."
         )
     return Comment(command.text or "", command.prelude)
+
+
+def create_arrow_node(command: RRCommand) -> Comment | None:
+    if command.prelude:
+        raise ParseException(
+            f"Line {command.line} - Arrow commands cannot have preludes."
+        )
+    if command.children:
+        raise ParseException(
+            f"Line {command.line} - Arrow commands cannot have children."
+        )
+    return Arrow(command.text or "")
 
 
 def create_skip_node(command: RRCommand) -> Skip | None:
@@ -396,6 +409,8 @@ def create_diagram(command: RRCommand, diagram_type="simple") -> DiagramItem | N
             return create_comment_node(command)
         case "S" | "Skip":
             return create_skip_node(command)
+        case "Arrow":
+            return create_arrow_node(command)
         case "And" | "Seq" | "Sequence":
             return create_sequence_node(command)
         case "Stack":

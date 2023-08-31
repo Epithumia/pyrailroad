@@ -134,6 +134,12 @@ class DiagramItem:
                 else:
                     end_type = data["type"]
                 return End(end_type, parameters=parameters)
+            case "Arrow":
+                if "direction" not in data.keys() or data["direction"] is None:
+                    direction = "right"
+                else:
+                    direction = data["direction"]
+                return Arrow(direction, parameters=parameters)
             case "Terminal":
                 return Terminal(
                     text=data["text"],
@@ -1912,6 +1918,7 @@ class End(DiagramItem):
         add_debug(self)
 
     def format(self, x: float, y: float, width: float) -> End:
+        # TODO: use the width
         self.attrs["class"] = "end"
         if self.type == "simple":
             self.attrs["d"] = "M {0} {1} h 20 m -10 -10 v 20 m 10 -20 v 20".format(x, y)
@@ -1926,6 +1933,36 @@ class End(DiagramItem):
 
     def to_dict(self) -> dict:
         return {"element": "End", "type": self.type}
+
+
+class Arrow(DiagramItem):
+    def __init__(self, direction: str = "right", parameters: Opt[AttrsT] = {}):
+        DiagramItem.__init__(self, "path", parameters=parameters)
+        from .utils import add_debug
+
+        self.width = 20
+        self.up = 10
+        self.down = 10
+        self.direction = direction
+        add_debug(self)
+
+    def format(self, x: float, y: float, width: float) -> End:
+        self.attrs["class"] = "arrow"
+        if self.direction == "right":
+            self.attrs["d"] = "M {0} {1} h {2} m -5 -5 5,5 -5,5".format(x, y, width)
+        elif self.direction == "left":
+            self.attrs["d"] = "M {0} {1} m 5 -5 -5,5 5,5 -5,-5 h {2}".format(
+                x, y, width
+            )
+        else:
+            self.attrs["d"] = "M {0} {1} h {2}".format(x, y, width)
+        return self
+
+    def __repr__(self) -> str:
+        return f"Arrow(direction={repr(self.direction)})"
+
+    def to_dict(self) -> dict:
+        return {"element": "Arrow", "direction": self.direction}
 
 
 class Terminal(DiagramItem):
