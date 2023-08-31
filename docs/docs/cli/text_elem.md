@@ -1,7 +1,7 @@
 <!-- markdownlint-disable-file MD033 MD024 -->
 # Text elements
 
-Text elements are single elements on the diagram and the base building blocks. They are either [**Terminal**](#terminal), [**NonTerminal**](#nonterminal), [**Comment**](#comment) or [**Skip**](#skip).
+Text elements are single elements on the diagram and the base building blocks. They are either [**Terminal**](#terminal), [**NonTerminal**](#nonterminal), [**Comment**](#comment), [**Arrow**](#arrow) or [**Skip**](#skip).
 
 ## Terminal
 
@@ -309,11 +309,102 @@ Represents a comment. The Comment element has a required property `text`, and th
 <figcaption>With additional options (hover for the title)</figcaption>
 </figure>
 
+## Arrow
+
+### Syntax
+
+=== "DSL"
+
+    Arrow right:
+
+    ```dsl
+    Arrow:
+    ```
+
+    With a direction:
+
+    ```dsl
+    Arrow: left|right
+    ```
+
+    Undirected:
+
+    ```dsl
+    Arrow: undirected
+    ```
+
+=== "JSON"
+
+    Arrow right:
+
+    ```json
+    {
+        "element": "Arrow"
+    }
+    ```
+
+    With a direction:
+
+    ```json
+    {
+        "element": "Arrow",
+        "direction": "left|right"
+    }
+    ```
+
+    Undirected (draws a line):
+
+    ```json
+    {
+        "element": "Arrow",
+        "direction": "undirected"
+    }
+    ```
+
+=== "YAML"
+
+    Arrow right:
+
+    ```yaml
+    element: Arrow
+    ```
+
+    With a direction:
+
+    ```yaml
+    element: Arrow
+    direction: left|right
+    ```
+
+    Undirected:
+
+    ```yaml
+    element: Arrow
+    direction: undirected
+    ```
+
+### Properties
+
+**direction**: optional string, can be *left* or *right* to orient the arrow left or right, or any other string to draw a plain line instead.
+
+### Output
+
+<figure markdown>
+![Arrow left](../images/arrow_left.svg)
+<figcaption>Arrow left</figcaption>
+</figure>
+<figure markdown>
+![Arrow right](../images/arrow_right.svg)
+<figcaption>Arrow right</figcaption>
+</figure>
+<figure markdown>
+![Undirected: a line](../images/arrow_undir.svg)
+<figcaption>Undirected: a line</figcaption>
+</figure>
+
 ## Skip
 
 An empty line. Used for vertical blocks like Stack.
-
-### Syntax
 
 ### Syntax
 
@@ -331,7 +422,7 @@ An empty line. Used for vertical blocks like Stack.
 
     ```json
     {
-        "element": "Skip",
+        "element": "Skip"
     }
     ```
 
