@@ -9,6 +9,12 @@ This package can be used as a stand-alone (command-line interface) generator or 
 
 Railroad diagrams, or syntax diagrams, are useful in representing *grammar* in the programming sense.
 
-This tool cas be used standalone as a command line program ([CLI](cli/index.md)) or as a [library](library.md).
+## Getting started
 
-A [Gallery](gallery.md) is also available to see how all the elements interact together.
+Install it with pip: `python3 -m pip install pyrailroad`
+
+After that, `py-railroad --help` will show you some help. 
+
+This tool cas be used standalone as a command line program ([CLI](cli/index.md)) or as a [library](library.md). The former will give you details about the syntax of the input files or code used to generate the various diagram elements.
+
+A [Gallery](gallery.md) is also coming soon to see how all the elements interact together.
