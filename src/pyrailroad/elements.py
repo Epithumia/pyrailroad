@@ -165,6 +165,8 @@ class DiagramItem:
                     raise ParseException(
                         f"Attribute \"default\" must be an integer, got: {data['default']}."
                     )
+                except KeyError:
+                    data["default"] = 0
                 return Choice(
                     int(data["default"]),
                     *(
@@ -211,7 +213,10 @@ class DiagramItem:
                 return Skip(parameters=parameters)
             case "OneOrMore":
                 if "repeat" not in data.keys() or data["repeat"] is None:
-                    return OneOrMore(data["item"], parameters=parameters)
+                    return OneOrMore(
+                        DiagramItem.from_dict(data["item"], parameters),
+                        parameters=parameters,
+                    )
                 return OneOrMore(
                     DiagramItem.from_dict(data["item"], parameters),
                     DiagramItem.from_dict(data["repeat"], parameters),
@@ -1311,6 +1316,7 @@ class MultipleChoice(DiagramMultiContainer):
                     x + 30 + self.parameters["AR"] + self.inner_width,
                     y - distance_from_y + item.height,
                     cls="multichoice mc4",
+                    ar=self.parameters["AR"],
                 )
                 .arc("ne")
                 .down(
