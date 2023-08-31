@@ -1,16 +1,3 @@
-# Diagram gallery
-
-A simplified SELECT statement in SQL :
-
-![SQL SELECT](images/sql_select_stmt_simple.svg)
-
-Parameters:
-
-```yaml
-type: sql
-```
-
-```yaml
 element: Sequence
 items:
   - element: Arrow
@@ -59,4 +46,3 @@ items:
     type: right
   - element: NonTerminal
     text: condition
-```
