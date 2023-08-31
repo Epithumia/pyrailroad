@@ -150,6 +150,51 @@ class UnitTests(BaseTest):
             svg_result = f.read()
         assert " ".join(svg) == svg_result
 
+    def test_arrow(self):
+        from pyrailroad.elements import Arrow, Diagram
+
+        t = Arrow()
+        assert t.to_dict() == {"element": "Arrow", "direction": "right"}
+        d = Diagram(t)
+        svg = []
+        d.write_svg(svg.append)
+        with open("tests/arrow_right.svg", "r") as f:
+            svg_result = f.read()
+        assert " ".join(svg) == svg_result
+        svg = []
+        d.write_standalone(svg.append)
+        with open("tests/arrow_right_standalone.svg", "r") as f:
+            svg_result = f.read()
+        assert " ".join(svg) == svg_result
+
+        t = Arrow("left")
+        assert t.to_dict() == {"element": "Arrow", "direction": "left"}
+        d = Diagram(t)
+        svg = []
+        d.write_svg(svg.append)
+        with open("tests/arrow_left.svg", "r") as f:
+            svg_result = f.read()
+        assert " ".join(svg) == svg_result
+        svg = []
+        d.write_standalone(svg.append)
+        with open("tests/arrow_left_standalone.svg", "r") as f:
+            svg_result = f.read()
+        assert " ".join(svg) == svg_result
+
+        t = Arrow("undirected")
+        assert t.to_dict() == {"element": "Arrow", "direction": "undirected"}
+        d = Diagram(t)
+        svg = []
+        d.write_svg(svg.append)
+        with open("tests/arrow_undirected.svg", "r") as f:
+            svg_result = f.read()
+        assert " ".join(svg) == svg_result
+        svg = []
+        d.write_standalone(svg.append)
+        with open("tests/arrow_undirected_standalone.svg", "r") as f:
+            svg_result = f.read()
+        assert " ".join(svg) == svg_result
+
     def test_skip(self):
         from pyrailroad.elements import Skip, Diagram
 
