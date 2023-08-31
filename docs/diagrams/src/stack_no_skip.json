@@ -1,0 +1,13 @@
+{
+    "element": "Stack",
+    "items": [
+        {
+            "element": "Terminal",
+            "text": "foo"
+        },
+        {
+            "element": "Terminal",
+            "text": "foo"
+        }
+    ]
+}

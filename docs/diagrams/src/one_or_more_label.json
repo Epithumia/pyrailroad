@@ -1,0 +1,11 @@
+{
+    "element": "OneOrMore",
+    "item": {
+        "element": "Terminal",
+        "text": "foo"
+    },
+    "repeat": {
+        "element": "Comment",
+        "text": "bar"
+    }
+}

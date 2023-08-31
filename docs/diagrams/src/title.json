@@ -1,0 +1,29 @@
+{
+    "element": "Diagram",
+    "items": [
+        {
+            "element": "Stack",
+            "items": [
+                {
+                    "element": "Terminal",
+                    "text": "Generate"
+                },
+                {
+                    "element": "Terminal",
+                    "text": "Some"
+                }
+            ]
+        },
+        {
+            "element": "OneOrMore",
+            "item": {
+                "element": "Terminal",
+                "text": "railroad diagrams"
+            },
+            "repeat": {
+                "element": "Comment",
+                "text": "and more"
+            }
+        }
+    ]
+}

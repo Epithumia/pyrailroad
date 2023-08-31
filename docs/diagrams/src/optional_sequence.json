@@ -1,0 +1,17 @@
+{
+    "element": "OptionalSequence",
+    "items": [
+        {
+            "element": "Terminal",
+            "text": "1"
+        },
+        {
+            "element": "Terminal",
+            "text": "2"
+        },
+        {
+            "element": "Terminal",
+            "text": "3"
+        }
+    ]
+}

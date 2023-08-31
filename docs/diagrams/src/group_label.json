@@ -1,0 +1,35 @@
+{
+    "element": "Sequence",
+    "items": [
+        {
+            "element": "Terminal",
+            "text": "foo"
+        },
+        {
+            "element": "Group",
+            "label": {
+                "element": "Comment",
+                "text": "Definition",
+                "href": "https://dictionary.cambridge.org/dictionary/english/choice"
+            },
+            "item": {
+                "element": "Choice",
+                "default": 0,
+                "items": [
+                    {
+                        "element": "NonTerminal",
+                        "text": "option 1"
+                    },
+                    {
+                        "element": "NonTerminal",
+                        "text": "option 2"
+                    }
+                ]
+            }
+        },
+        {
+            "element": "Terminal",
+            "text": "bar"
+        }
+    ]
+}

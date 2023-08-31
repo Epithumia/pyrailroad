@@ -1,0 +1,41 @@
+{
+    "element": "HorizontalChoice",
+    "items": [
+        {
+            "element": "Choice",
+            "default": 1,
+            "items": [
+                {
+                    "element": "Terminal",
+                    "text": "1"
+                },
+                {
+                    "element": "Terminal",
+                    "text": "2"
+                },
+                {
+                    "element": "Terminal",
+                    "text": "3"
+                }
+            ]
+        },
+        {
+            "element": "Choice",
+            "default": 1,
+            "items": [
+                {
+                    "element": "Terminal",
+                    "text": "4"
+                },
+                {
+                    "element": "Terminal",
+                    "text": "5"
+                },
+                {
+                    "element": "Terminal",
+                    "text": "6"
+                }
+            ]
+        }
+    ]
+}

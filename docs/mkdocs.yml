@@ -1,0 +1,80 @@
+site_name: PyRailroad
+site_url: https://epithumia.github.io/pyrailroad
+
+repo_url: https://github.com/Epithumia/pyrailroad
+repo_name: Epithumia/pyrailroad
+
+theme:
+  name: material
+
+  language: en
+
+  features:
+    - content.code.annotate
+    - navigation.indexes
+    - navigation.sections
+    - content.code.copy
+
+  icon:
+    repo: fontawesome/brands/github
+
+plugins:
+  - search:
+      lang: en
+  - inline-svg
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - def_list
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true 
+  - toc:
+      permalink: true
+
+
+extra:
+  consent:
+    title: Cookie consent
+    description: >- 
+      We use only cookies to recognize your repeated visits and preferences.
+      While installed by the theme used, both Google Analytics and Github cookies
+      have been disabled by default.
+    cookies:
+      analytics:
+        name: Google Analytics
+        checked: false
+      github:
+        name: Github
+        checked: false
+
+copyright: >
+  Copyright &copy; Rafaël Lopez –
+  <a href="#__consent">Change cookie settings</a>
+
+nav:
+  - Home: 'index.md'
+  - 'Usage':
+    - 'CLI': 
+      - 'cli/index.md'
+      - Base elements: 'cli/base_elem.md'
+      - Text elements: 'cli/text_elem.md'
+      - Block elements: 'cli/block_elem.md'
+    - 'Library': 'library.md'
+    - 'Gallery': 'gallery.md'
+  - About:
+    - 'License': 'license.md'
+    - 'Release Notes': 'release-notes.md'
+
+extra_css:
+  - extra/custom.css
+  - extra/svg.css

@@ -1,0 +1,7 @@
+<svg class="railroad-diagram" height="71" viewBox="0 0 164 71" width="164">
+<g transform="translate(.5 .5)">
+<g>
+<path class="start" d="M20 30v20m10 -20v20m-10 -10h20" /></g><g>
+<path class="choice ch1" d="M40 40h0.0" /><path class="choice ch2" d="M124.0 40h0.0" /><path class="choice ch3" d="M40.0 40a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10" /><g>
+<path class="skip" d="M60.0 20h44" /></g><path class="choice ch4" d="M104.0 20a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10" /><path class="choice ch5" d="M40.0 40h20" /><g class="terminal ">
+<path class="terminal term1" d="M60.0 40h0.0" /><path class="terminal term2" d="M104.0 40h0.0" /><rect height="22" rx="10" ry="10" width="44" x="60" y="29"></rect><text x="82" y="44">foo</text></g><path class="choice ch6" d="M104.0 40h20" /></g><path class="end" d="M 124 40 h 20 m -10 -10 v 20 m 10 -20 v 20"></path></g></svg>

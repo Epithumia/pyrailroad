@@ -1,0 +1,12 @@
+{
+    "element": "ZeroOrMore",
+    "item": {
+        "element": "Terminal",
+        "text": "foo"
+    },
+    "skip": true,
+    "repeat": {
+        "element": "Comment",
+        "text": "bar"
+    }
+}

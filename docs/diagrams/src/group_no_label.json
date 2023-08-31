@@ -1,0 +1,30 @@
+{
+    "element": "Sequence",
+    "items": [
+        {
+            "element": "Terminal",
+            "text": "foo"
+        },
+        {
+            "element": "Group",
+            "item": {
+                "element": "Choice",
+                "default": 0,
+                "items": [
+                    {
+                        "element": "NonTerminal",
+                        "text": "option 1"
+                    },
+                    {
+                        "element": "NonTerminal",
+                        "text": "option 2"
+                    }
+                ]
+            }
+        },
+        {
+            "element": "Terminal",
+            "text": "bar"
+        }
+    ]
+}

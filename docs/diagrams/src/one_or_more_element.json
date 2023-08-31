@@ -1,0 +1,24 @@
+{
+    "element": "Sequence",
+    "items": [
+        {
+            "element": "Terminal",
+            "text": "Sequence("
+        },
+        {
+            "element": "OneOrMore",
+            "item": {
+                "element": "NonTerminal",
+                "text": "element"
+            },
+            "repeat": {
+                "element": "Terminal",
+                "text": ","
+            }
+        },
+        {
+            "element": "Terminal",
+            "text": ")"
+        }
+    ]
+}

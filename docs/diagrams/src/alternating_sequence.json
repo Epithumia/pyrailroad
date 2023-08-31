@@ -1,0 +1,13 @@
+{
+    "element": "AlternatingSequence",
+    "items": [
+        {
+            "element": "Terminal",
+            "text": "foo"
+        },
+        {
+            "element": "Terminal",
+            "text": "bar"
+        }
+    ]
+}

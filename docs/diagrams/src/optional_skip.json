@@ -1,0 +1,8 @@
+{
+    "element": "Optional",
+    "skip": true,
+    "item": {
+        "element": "Terminal",
+        "text": "foo"
+    }
+}

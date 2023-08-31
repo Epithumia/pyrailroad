@@ -1,0 +1,7 @@
+{
+    "element": "ZeroOrMore",
+    "item": {
+        "element": "Terminal",
+        "text": "foo"
+    }
+}
