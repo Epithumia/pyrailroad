@@ -14,11 +14,9 @@ type: sql
 element: Sequence
 items:
   - element: Arrow
-    type: right
   - element: Terminal
     text: SELECT
   - element: Arrow
-    type: right
   - element: OneOrMore
     item:
       element: NonTerminal
@@ -33,11 +31,9 @@ items:
         - element: Arrow
           direction: left
   - element: Arrow
-    type: right
   - element: Terminal
     text: FROM
   - element: Arrow
-    type: right
   - element: OneOrMore
     item:
       element: NonTerminal
@@ -52,11 +48,9 @@ items:
         - element: Arrow
           direction: left
   - element: Arrow
-    type: right
   - element: Terminal
     text: WHERE
   - element: Arrow
-    type: right
   - element: NonTerminal
     text: condition
 ```
