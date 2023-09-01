@@ -1,7 +1,0 @@
-Sequence:
-    ZeroOrMore:
-        Terminal: foo
-        Comment: repeat if necessary
-    ZeroOrMore: skip
-        Terminal: bar
-        Comment: repeat if necessary
