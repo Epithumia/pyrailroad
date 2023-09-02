@@ -31,7 +31,7 @@ def escape_attr(val: str | float) -> str:
 
 
 def escape_html(val: str) -> str:
-    return escape_attr(val).replace("<", "&lt;")
+    return escape_attr(val).replace("<", "&lt;").replace(">", "&gt;")
 
 
 def determine_gaps(
