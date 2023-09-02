@@ -196,7 +196,7 @@ def create_arrow_node(command: RRCommand) -> Comment | None:
         raise ParseException(
             f"Line {command.line} - Arrow commands cannot have children."
         )
-    return Arrow(command.text or "")
+    return Arrow(command.text or "right")
 
 
 def create_skip_node(command: RRCommand) -> Skip | None:

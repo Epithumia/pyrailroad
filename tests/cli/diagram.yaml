@@ -202,4 +202,9 @@ items:
       href: null
       text: alt2
       title: null
+  - element: Arrow
+    direction: left
+  - element: Arrow
+    direction: undirected
+  - element: Arrow
 - element: End

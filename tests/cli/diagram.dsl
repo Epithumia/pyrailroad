@@ -44,3 +44,6 @@ Stack:
     AlternatingSequence:
         Terminal: alt1
         Terminal: alt2
+    Arrow: left
+    Arrow: undirected
+    Arrow: 

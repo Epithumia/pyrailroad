@@ -294,6 +294,17 @@
                             "cls": ""
                         }
                     ]
+                },
+                {
+                    "element": "Arrow",
+                    "direction": "left"
+                },
+                {
+                    "element": "Arrow",
+                    "direction": "undirected"
+                },
+                {
+                    "element": "Arrow"
                 }
             ]
         },
