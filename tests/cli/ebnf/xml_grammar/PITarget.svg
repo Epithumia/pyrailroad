@@ -1,0 +1,5 @@
+<svg class="railroad-diagram" height="62" viewBox="0 0 418 62" width="418">
+<g transform="translate(.5 .5)">
+<g>
+<path class="start" d="M20 21v20m0 -10h74" /><text style="text-anchor:start" x="20" y="16">PITarget</text></g><path d="M94 31h10" /><g class="expression ">
+<path class="expression exp1" d="M104 31h0.0" /><path class="expression exp2" d="M368.0 31h0.0" /><polygon points="114.0, 20 358.0, 20 368.0, 31 358.0, 42 114.0, 42 104.0, 31"></polygon><text x="236" y="35">Name - ( X | x M | m L | l )</text></g><path d="M368 31h10" /><path class="end" d="M 378 31 h 20 m 0 -10 v 20"></path></g></svg>

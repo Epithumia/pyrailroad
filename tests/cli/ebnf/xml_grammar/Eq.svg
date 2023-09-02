@@ -1,0 +1,12 @@
+<svg class="railroad-diagram" height="71" viewBox="0 0 290 71" width="290">
+<g transform="translate(.5 .5)">
+<g>
+<path class="start" d="M20 30v20m0 -10h26" /><text style="text-anchor:start" x="20" y="25">Eq</text></g><path d="M46 40h10" /><g>
+<path class="seq seq1" d="M56 40h0.0" /><path class="seq seq2" d="M240.0 40h0.0" /><g>
+<path class="choice ch1" d="M56.0 40h0.0" /><path class="choice ch2" d="M124.0 40h0.0" /><path class="choice ch3" d="M56.0 40a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10" /><g>
+<path class="skip" d="M76.0 20h28" /></g><path class="choice ch4" d="M104.0 20a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10" /><path class="choice ch5" d="M56.0 40h20" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M76.0 40h0.0" /><path class="nonterm nt2" d="M104.0 40h0.0" /><rect height="22" width="28" x="76" y="29"></rect><text x="90" y="44">S</text></g><path class="choice ch6" d="M104.0 40h20" /></g><path class="seq seq3" d="M124.0 40h10" /><g class="terminal ">
+<path class="terminal term1" d="M134.0 40h0.0" /><path class="terminal term2" d="M162.0 40h0.0" /><rect height="22" rx="10" ry="10" width="28" x="134" y="29"></rect><text x="148" y="44">=</text></g><path class="seq seq4" d="M162.0 40h10" /><g>
+<path class="choice ch1" d="M172.0 40h0.0" /><path class="choice ch2" d="M240.0 40h0.0" /><path class="choice ch3" d="M172.0 40a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10" /><g>
+<path class="skip" d="M192.0 20h28" /></g><path class="choice ch4" d="M220.0 20a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10" /><path class="choice ch5" d="M172.0 40h20" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M192.0 40h0.0" /><path class="nonterm nt2" d="M220.0 40h0.0" /><rect height="22" width="28" x="192" y="29"></rect><text x="206" y="44">S</text></g><path class="choice ch6" d="M220.0 40h20" /></g></g><path d="M240 40h10" /><path class="end" d="M 250 40 h 20 m 0 -10 v 20"></path></g></svg>

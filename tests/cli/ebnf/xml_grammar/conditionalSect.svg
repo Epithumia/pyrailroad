@@ -1,0 +1,7 @@
+<svg class="railroad-diagram" height="92" viewBox="0 0 338 92" width="338">
+<g transform="translate(.5 .5)">
+<g>
+<path class="start" d="M20 51v20m0 -10h130" /><text style="text-anchor:start" x="20" y="46">conditionalSect</text></g><g>
+<path class="choice ch1" d="M150 61h0.0" /><path class="choice ch2" d="M298.0 61h0.0" /><path class="choice ch3" d="M150.0 61a10 10 0 0 0 10 -10v-10a10 10 0 0 1 10 -10" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M170.0 31h0.0" /><path class="nonterm nt2" d="M278.0 31h0.0" /><rect height="22" width="108" x="170" y="20"></rect><text x="224" y="35">includeSect</text></g><path class="choice ch4" d="M278.0 31a10 10 0 0 1 10 10v10a10 10 0 0 0 10 10" /><path class="choice ch5" d="M150.0 61h20" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M170.0 61h4.0" /><path class="nonterm nt2" d="M274.0 61h4.0" /><rect height="22" width="100" x="174" y="50"></rect><text x="224" y="65">ignoreSect</text></g><path class="choice ch6" d="M278.0 61h20" /></g><path class="end" d="M 298 61 h 20 m 0 -10 v 20"></path></g></svg>

@@ -1,0 +1,8 @@
+<svg class="railroad-diagram" height="122" viewBox="0 0 218 122" width="218">
+<g transform="translate(.5 .5)">
+<g>
+<path class="start" d="M20 51v20m0 -10h42" /><text style="text-anchor:start" x="20" y="46">Misc</text></g><g>
+<path class="choice ch1" d="M62 61h0.0" /><path class="choice ch2" d="M178.0 61h0.0" /><path class="choice ch3" d="M62.0 61a10 10 0 0 0 10 -10v-10a10 10 0 0 1 10 -10" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M82.0 31h0.0" /><path class="nonterm nt2" d="M158.0 31h0.0" /><rect height="22" width="76" x="82" y="20"></rect><text x="120" y="35">Comment</text></g><path class="choice ch4" d="M158.0 31a10 10 0 0 1 10 10v10a10 10 0 0 0 10 10" /><path class="choice ch5" d="M62.0 61h20" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M82.0 61h20.0" /><path class="nonterm nt2" d="M138.0 61h20.0" /><rect height="22" width="36" x="102" y="50"></rect><text x="120" y="65">PI</text></g><path class="choice ch6" d="M158.0 61h20" /><path class="choice ch7" d="M62.0 61a10 10 0 0 1 10 10v10a10 10 0 0 0 10 10" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M82.0 91h24.0" /><path class="nonterm nt2" d="M134.0 91h24.0" /><rect height="22" width="28" x="106" y="80"></rect><text x="120" y="95">S</text></g><path class="choice ch8" d="M158.0 91a10 10 0 0 0 10 -10v-10a10 10 0 0 1 10 -10" /></g><path class="end" d="M 178 61 h 20 m 0 -10 v 20"></path></g></svg>

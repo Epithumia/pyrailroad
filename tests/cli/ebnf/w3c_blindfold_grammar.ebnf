@@ -1,0 +1,10 @@
+grammar ::= clause*                   # A grammar is zero or more clauses
+clause  ::= clauseName "::=" pattern  # A clause associates a name with a pattern
+pattern ::= branch ("|" branch)*      # A pattern has one or more branches (alternatives)
+branch  ::= term+                     # A branch is one or more terms
+term    ::=                           # A term is:  
+            string                    #  a string in single or double quotes
+          | charset                   #  a character set (as in perl: [a-z0-9], etc) 
+          | "(" pattern ")"           #  a pattern, in parentheses 
+          | clauseName                #  a clauseName, matching a pattern by name
+          | term [*+?]                #  a term followed by a "*", "+", or "?" operator

@@ -1,0 +1,11 @@
+<svg class="railroad-diagram" height="62" viewBox="0 0 558 62" width="558">
+<g transform="translate(.5 .5)">
+<g>
+<path class="start" d="M20 21v20m0 -10h58" /><text style="text-anchor:start" x="20" y="16">AttDef</text></g><path d="M78 31h10" /><g>
+<path class="seq seq1" d="M88 31h0.0" /><path class="seq seq2" d="M508.0 31h0.0" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M88.0 31h0.0" /><path class="nonterm nt2" d="M116.0 31h0.0" /><rect height="22" width="28" x="88" y="20"></rect><text x="102" y="35">S</text></g><path class="seq seq4" d="M116.0 31h10" /><path class="seq seq3" d="M126.0 31h10" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M136.0 31h0.0" /><path class="nonterm nt2" d="M188.0 31h0.0" /><rect height="22" width="52" x="136" y="20"></rect><text x="162" y="35">Name</text></g><path class="seq seq4" d="M188.0 31h10" /><path class="seq seq3" d="M198.0 31h10" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M208.0 31h0.0" /><path class="nonterm nt2" d="M236.0 31h0.0" /><rect height="22" width="28" x="208" y="20"></rect><text x="222" y="35">S</text></g><path class="seq seq4" d="M236.0 31h10" /><path class="seq seq3" d="M246.0 31h10" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M256.0 31h0.0" /><path class="nonterm nt2" d="M332.0 31h0.0" /><rect height="22" width="76" x="256" y="20"></rect><text x="294" y="35">AttType</text></g><path class="seq seq4" d="M332.0 31h10" /><path class="seq seq3" d="M342.0 31h10" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M352.0 31h0.0" /><path class="nonterm nt2" d="M380.0 31h0.0" /><rect height="22" width="28" x="352" y="20"></rect><text x="366" y="35">S</text></g><path class="seq seq4" d="M380.0 31h10" /><path class="seq seq3" d="M390.0 31h10" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M400.0 31h0.0" /><path class="nonterm nt2" d="M508.0 31h0.0" /><rect height="22" width="108" x="400" y="20"></rect><text x="454" y="35">DefaultDecl</text></g></g><path d="M508 31h10" /><path class="end" d="M 518 31 h 20 m 0 -10 v 20"></path></g></svg>

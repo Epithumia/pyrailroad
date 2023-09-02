@@ -1,0 +1,15 @@
+<svg class="railroad-diagram" height="80" viewBox="0 0 752 80" width="752">
+<g transform="translate(.5 .5)">
+<g>
+<path class="start" d="M20 30v20m0 -10h154" /><text style="text-anchor:start" x="20" y="25">ignoreSectContents</text></g><path d="M174 40h10" /><g>
+<path class="seq seq1" d="M184 40h0.0" /><path class="seq seq2" d="M702.0 40h0.0" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M184.0 40h0.0" /><path class="nonterm nt2" d="M252.0 40h0.0" /><rect height="22" width="68" x="184" y="29"></rect><text x="218" y="44">Ignore</text></g><path class="seq seq4" d="M252.0 40h10" /><g>
+<path class="choice ch1" d="M262.0 40h0.0" /><path class="choice ch2" d="M702.0 40h0.0" /><path class="choice ch3" d="M262.0 40a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10" /><g>
+<path class="skip" d="M282.0 20h400" /></g><path class="choice ch4" d="M682.0 20a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10" /><path class="choice ch5" d="M262.0 40h20" /><g>
+<path class="oneor oom1" d="M282.0 40h0.0" /><path class="oneor oom2" d="M682.0 40h0.0" /><path class="oneor oom3" d="M282.0 40h10" /><g>
+<path class="seq seq1" d="M292.0 40h0.0" /><path class="seq seq2" d="M672.0 40h0.0" /><g class="terminal ">
+<path class="terminal term1" d="M292.0 40h0.0" /><path class="terminal term2" d="M336.0 40h0.0" /><rect height="22" rx="10" ry="10" width="44" x="292" y="29"></rect><text x="314" y="44">&lt;![</text></g><path class="seq seq4" d="M336.0 40h10" /><path class="seq seq3" d="M346.0 40h10" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M356.0 40h0.0" /><path class="nonterm nt2" d="M520.0 40h0.0" /><rect height="22" width="164" x="356" y="29"></rect><text x="438" y="44">ignoreSectContents</text></g><path class="seq seq4" d="M520.0 40h10" /><path class="seq seq3" d="M530.0 40h10" /><g class="terminal ">
+<path class="terminal term1" d="M540.0 40h0.0" /><path class="terminal term2" d="M584.0 40h0.0" /><rect height="22" rx="10" ry="10" width="44" x="540" y="29"></rect><text x="562" y="44">]]&gt;</text></g><path class="seq seq4" d="M584.0 40h10" /><path class="seq seq3" d="M594.0 40h10" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M604.0 40h0.0" /><path class="nonterm nt2" d="M672.0 40h0.0" /><rect height="22" width="68" x="604" y="29"></rect><text x="638" y="44">Ignore</text></g></g><path class="oneor oom4" d="M672.0 40h10" /><path class="oneor oom5" d="M292.0 40a10 10 0 0 0 -10 10v0a10 10 0 0 0 10 10" /><g>
+<path class="skip" d="M292.0 60h380" /></g><path class="oneor oom6" d="M672.0 60a10 10 0 0 0 10 -10v0a10 10 0 0 0 -10 -10" /></g><path class="choice ch6" d="M682.0 40h20" /></g></g><path d="M702 40h10" /><path class="end" d="M 712 40 h 20 m 0 -10 v 20"></path></g></svg>

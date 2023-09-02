@@ -1,0 +1,8 @@
+<svg class="railroad-diagram" height="62" viewBox="0 0 374 62" width="374">
+<g transform="translate(.5 .5)">
+<g>
+<path class="start" d="M20 21v20m0 -10h58" /><text style="text-anchor:start" x="20" y="16">CDSect</text></g><path d="M78 31h10" /><g>
+<path class="seq seq1" d="M88 31h0.0" /><path class="seq seq2" d="M324.0 31h0.0" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M88.0 31h0.0" /><path class="nonterm nt2" d="M164.0 31h0.0" /><rect height="22" width="76" x="88" y="20"></rect><text x="126" y="35">CDStart</text></g><path class="seq seq4" d="M164.0 31h10" /><path class="seq seq3" d="M174.0 31h10" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M184.0 31h0.0" /><path class="nonterm nt2" d="M244.0 31h0.0" /><rect height="22" width="60" x="184" y="20"></rect><text x="214" y="35">CData</text></g><path class="seq seq4" d="M244.0 31h10" /><path class="seq seq3" d="M254.0 31h10" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M264.0 31h0.0" /><path class="nonterm nt2" d="M324.0 31h0.0" /><rect height="22" width="60" x="264" y="20"></rect><text x="294" y="35">CDEnd</text></g></g><path d="M324 31h10" /><path class="end" d="M 334 31 h 20 m 0 -10 v 20"></path></g></svg>

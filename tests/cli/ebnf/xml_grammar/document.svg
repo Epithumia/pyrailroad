@@ -1,0 +1,12 @@
+<svg class="railroad-diagram" height="80" viewBox="0 0 440 80" width="440">
+<g transform="translate(.5 .5)">
+<g>
+<path class="start" d="M20 30v20m0 -10h74" /><text style="text-anchor:start" x="20" y="25">document</text></g><path d="M94 40h10" /><g>
+<path class="seq seq1" d="M104 40h0.0" /><path class="seq seq2" d="M390.0 40h0.0" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M104.0 40h0.0" /><path class="nonterm nt2" d="M172.0 40h0.0" /><rect height="22" width="68" x="104" y="29"></rect><text x="138" y="44">prolog</text></g><path class="seq seq4" d="M172.0 40h10" /><path class="seq seq3" d="M182.0 40h10" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M192.0 40h0.0" /><path class="nonterm nt2" d="M268.0 40h0.0" /><rect height="22" width="76" x="192" y="29"></rect><text x="230" y="44">element</text></g><path class="seq seq4" d="M268.0 40h10" /><g>
+<path class="choice ch1" d="M278.0 40h0.0" /><path class="choice ch2" d="M390.0 40h0.0" /><path class="choice ch3" d="M278.0 40a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10" /><g>
+<path class="skip" d="M298.0 20h72" /></g><path class="choice ch4" d="M370.0 20a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10" /><path class="choice ch5" d="M278.0 40h20" /><g>
+<path class="oneor oom1" d="M298.0 40h0.0" /><path class="oneor oom2" d="M370.0 40h0.0" /><path class="oneor oom3" d="M298.0 40h10" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M308.0 40h0.0" /><path class="nonterm nt2" d="M360.0 40h0.0" /><rect height="22" width="52" x="308" y="29"></rect><text x="334" y="44">Misc</text></g><path class="oneor oom4" d="M360.0 40h10" /><path class="oneor oom5" d="M308.0 40a10 10 0 0 0 -10 10v0a10 10 0 0 0 10 10" /><g>
+<path class="skip" d="M308.0 60h52" /></g><path class="oneor oom6" d="M360.0 60a10 10 0 0 0 10 -10v0a10 10 0 0 0 -10 -10" /></g><path class="choice ch6" d="M370.0 40h20" /></g></g><path d="M390 40h10" /><path class="end" d="M 400 40 h 20 m 0 -10 v 20"></path></g></svg>

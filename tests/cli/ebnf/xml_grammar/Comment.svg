@@ -1,0 +1,16 @@
+<svg class="railroad-diagram" height="109" viewBox="0 0 514 109" width="514">
+<g transform="translate(.5 .5)">
+<g>
+<path class="start" d="M20 59v20m0 -10h66" /><text style="text-anchor:start" x="20" y="54">Comment</text></g><path d="M86 69h10" /><g>
+<path class="seq seq1" d="M96 69h0.0" /><path class="seq seq2" d="M464.0 69h0.0" /><g class="terminal ">
+<path class="terminal term1" d="M96.0 69h0.0" /><path class="terminal term2" d="M148.0 69h0.0" /><rect height="22" rx="10" ry="10" width="52" x="96" y="58"></rect><text x="122" y="73">&lt;!--</text></g><path class="seq seq4" d="M148.0 69h10" /><g>
+<path class="choice ch1" d="M158.0 69h0.0" /><path class="choice ch2" d="M410.0 69h0.0" /><path class="choice ch3" d="M158.0 69a10 10 0 0 0 10 -10v-29a10 10 0 0 1 10 -10" /><g>
+<path class="skip" d="M178.0 20h212" /></g><path class="choice ch4" d="M390.0 20a10 10 0 0 1 10 10v29a10 10 0 0 0 10 10" /><path class="choice ch5" d="M158.0 69h20" /><g>
+<path class="oneor oom1" d="M178.0 69h0.0" /><path class="oneor oom2" d="M390.0 69h0.0" /><path class="oneor oom3" d="M178.0 69h10" /><g>
+<path class="choice ch1" d="M188.0 69h0.0" /><path class="choice ch2" d="M380.0 69h0.0" /><path class="choice ch3" d="M188.0 69a10 10 0 0 0 10 -10v-10a10 10 0 0 1 10 -10" /><g class="expression ">
+<path class="expression exp1" d="M208.0 39h24.0" /><path class="expression exp2" d="M336.0 39h24.0" /><polygon points="242.0, 28 326.0, 28 336.0, 39 326.0, 50 242.0, 50 232.0, 39"></polygon><text x="284" y="43">Char - -</text></g><path class="choice ch4" d="M360.0 39a10 10 0 0 1 10 10v10a10 10 0 0 0 10 10" /><path class="choice ch5" d="M188.0 69h20" /><g>
+<path class="seq seq1" d="M208.0 69h0.0" /><path class="seq seq2" d="M360.0 69h0.0" /><g class="terminal ">
+<path class="terminal term1" d="M208.0 69h0.0" /><path class="terminal term2" d="M236.0 69h0.0" /><rect height="22" rx="10" ry="10" width="28" x="208" y="58"></rect><text x="222" y="73">-</text></g><path class="seq seq4" d="M236.0 69h10" /><path class="seq seq3" d="M246.0 69h10" /><g class="expression ">
+<path class="expression exp1" d="M256.0 69h0.0" /><path class="expression exp2" d="M360.0 69h0.0" /><polygon points="266.0, 58 350.0, 58 360.0, 69 350.0, 80 266.0, 80 256.0, 69"></polygon><text x="308" y="73">Char - -</text></g></g><path class="choice ch6" d="M360.0 69h20" /></g><path class="oneor oom4" d="M380.0 69h10" /><path class="oneor oom5" d="M188.0 69a10 10 0 0 0 -10 10v0a10 10 0 0 0 10 10" /><g>
+<path class="skip" d="M188.0 89h192" /></g><path class="oneor oom6" d="M380.0 89a10 10 0 0 0 10 -10v0a10 10 0 0 0 -10 -10" /></g><path class="choice ch6" d="M390.0 69h20" /></g><path class="seq seq3" d="M410.0 69h10" /><g class="terminal ">
+<path class="terminal term1" d="M420.0 69h0.0" /><path class="terminal term2" d="M464.0 69h0.0" /><rect height="22" rx="10" ry="10" width="44" x="420" y="58"></rect><text x="442" y="73">--&gt;</text></g></g><path d="M464 69h10" /><path class="end" d="M 474 69 h 20 m 0 -10 v 20"></path></g></svg>

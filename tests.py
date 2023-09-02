@@ -12,6 +12,19 @@ def silent_remove(filename):
             raise  # re-raise exception if a different error occurred
 
 
+def silent_remove_dir(path):
+    try:
+        dirpath, _, filenames = list(os.walk(path))[0]
+        for file in filenames:
+            silent_remove(os.path.join(dirpath, file))
+        os.rmdir(path)
+    except OSError as e:  # this would be "except OSError, e:" before Python 2.6
+        if e.errno != errno.ENOENT:  # errno.ENOENT = no such file or directory
+            raise  # re-raise exception if a different error occurred
+    except IndexError:
+        pass
+
+
 class BaseTest(unittest.TestCase):
     def setUp(self) -> None:
         return super().setUp()
@@ -192,6 +205,47 @@ class UnitTests(BaseTest):
         svg = []
         d.write_standalone(svg.append)
         with open("tests/arrow_undirected_standalone.svg", "r") as f:
+            svg_result = f.read()
+        assert " ".join(svg) == svg_result
+
+    def test_expression(self):
+        from pyrailroad.elements import Expression, Diagram
+
+        with pytest.raises(TypeError):
+            Expression()
+        t = Expression("text")
+        assert t.to_dict() == {
+            "element": "Expression",
+            "text": "text",
+            "href": None,
+            "title": None,
+            "cls": "",
+        }
+        t = Expression("text", "href")
+        assert t.to_dict() == {
+            "element": "Expression",
+            "text": "text",
+            "href": "href",
+            "title": None,
+            "cls": "",
+        }
+        t = Expression("text", "href", "title")
+        assert t.to_dict() == {
+            "element": "Expression",
+            "text": "text",
+            "href": "href",
+            "title": "title",
+            "cls": "",
+        }
+        d = Diagram(t)
+        svg = []
+        d.write_svg(svg.append)
+        with open("tests/expression.svg", "r") as f:
+            svg_result = f.read()
+        assert " ".join(svg) == svg_result
+        svg = []
+        d.write_standalone(svg.append)
+        with open("tests/expression_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
 
@@ -1416,6 +1470,7 @@ class CLITests(BaseTest):
 
     def tearDown(self):
         silent_remove("tests/cli/output.svg")
+        silent_remove_dir("tests/cli/ebnf/output")
         super().tearDown()
 
     def test_cli_help(self):
@@ -1551,3 +1606,52 @@ class CLITests(BaseTest):
         with open(out_file, "r") as res:
             with open("tests/cli/diagram_sql_standalone.svg", "r") as base:
                 assert res.read() == base.read()
+
+    def test_cli_ebnf(self):
+        from pyrailroad.cli import cli
+
+        in_file = "tests/cli/ebnf/error.ebnf"
+        out_dir = "tests/cli/ebnf/output"
+
+        result = self.runner.invoke(cli, ["ebnf", in_file, out_dir])
+
+        assert result.exit_code == 1
+
+        in_file = "tests/cli/ebnf/w3c_blindfold_grammar.ebnf"
+        out_dir = "tests/cli/ebnf/output"
+
+        result = self.runner.invoke(cli, ["ebnf", in_file, out_dir])
+
+        assert result.exit_code == 0
+
+        result = self.runner.invoke(cli, ["ebnf", in_file, out_dir, "--to-json"])
+
+        assert result.exit_code == 0
+
+        in_file = "tests/cli/ebnf/xml_grammar.ebnf"
+        out_dir = "tests/cli/ebnf/output"
+
+        result = self.runner.invoke(cli, ["ebnf", in_file, out_dir])
+
+        assert result.exit_code == 0
+
+        w3c_dir = "tests/cli/ebnf/w3c_blindfold/"
+        xml_dir = "tests/cli/ebnf/xml_grammar/"
+
+        dirpath, _, filenames = list(os.walk(w3c_dir))[0]
+        for filename in filenames:
+            file_ = os.path.join(dirpath, filename)
+            with open(file_, "r") as f:
+                expected = f.read()
+            with open(os.path.join(out_dir, filename), "r") as f:
+                actual = f.read()
+            assert expected == actual
+
+        dirpath, _, filenames = list(os.walk(xml_dir))[0]
+        for filename in filenames:
+            file_ = os.path.join(dirpath, filename)
+            with open(file_, "r") as f:
+                expected = f.read()
+            with open(os.path.join(out_dir, filename), "r") as f:
+                actual = f.read()
+            assert expected == actual

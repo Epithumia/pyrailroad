@@ -13,7 +13,7 @@ def parse_ebnf(string: str, parameters: {}) -> dict[str:Diagram]:
     if cst.error_flag > 999:
         raise ParseException(str(cst.errors[0]))
     elif cst.error_flag > 0:
-        for e in cst.errors:
+        for e in cst.errors:  # Not sure if the EBNF grammar allows to raise warnings
             print(e)
 
     ast = transform_ebnf(cst)
@@ -95,7 +95,9 @@ def process(tree: Node, non_terminals: [], explicit_group=False, keep_quotes=Fal
             }
         case "group":
             if len(tree.children) > 1:
-                raise NotImplementedError()
+                raise NotImplementedError(
+                    "Please open an issue on the github repository with the grammar you used."
+                )  # pragma: no cover
             if explicit_group:
                 return {
                     "element": "Sequence",
@@ -113,7 +115,9 @@ def process(tree: Node, non_terminals: [], explicit_group=False, keep_quotes=Fal
             }
         case "difference":
             if len(tree.children) != 2:
-                raise NotImplementedError()
+                raise NotImplementedError(
+                    "Please open an issue on the github repository with the grammar you used."
+                )  # pragma: no cover
             return {
                 "element": "Expression",
                 "text": f"{collapse(process(tree.children[0],[], True))} - {collapse(process(tree.children[1],[], True))}",
@@ -124,7 +128,7 @@ def process(tree: Node, non_terminals: [], explicit_group=False, keep_quotes=Fal
                 "item": process(tree.children[0], non_terminals),
             }
         case _:
-            raise NotImplementedError(tree.name)
+            raise NotImplementedError(tree.name)  # pragma: no cover
 
 
 def collapse(node: {}) -> str:
@@ -137,8 +141,8 @@ def collapse(node: {}) -> str:
             return " ".join([collapse(item) for item in node["items"]])
         case "Choice":
             return " | ".join([collapse(item) for item in node["items"]])
-        case _:
-            raise NotImplementedError(node)
+        case _:  # pragma: no cover
+            raise NotImplementedError(node)  # pragma: no cover
 
 
 def get_non_terminal(tree: Node) -> str | None:
@@ -146,4 +150,4 @@ def get_non_terminal(tree: Node) -> str | None:
         return get_non_terminal(tree.children[0])
     if tree.name == "symbol":
         return tree.content
-    return None
+    return None  # pragma: no cover

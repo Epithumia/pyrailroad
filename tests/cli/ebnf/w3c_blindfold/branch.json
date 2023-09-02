@@ -1,0 +1,1 @@
+{"element": "Diagram", "items": [{"element": "Start", "type": "complex", "label": "branch"}, {"element": "OneOrMore", "item": {"element": "NonTerminal", "text": "term", "href": null, "title": null, "cls": ""}, "repeat": {"element": "Skip"}}, {"element": "End", "type": "complex"}]}

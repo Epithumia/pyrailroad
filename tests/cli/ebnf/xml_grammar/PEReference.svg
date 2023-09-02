@@ -1,0 +1,8 @@
+<svg class="railroad-diagram" height="62" viewBox="0 0 326 62" width="326">
+<g transform="translate(.5 .5)">
+<g>
+<path class="start" d="M20 21v20m0 -10h98" /><text style="text-anchor:start" x="20" y="16">PEReference</text></g><path d="M118 31h10" /><g>
+<path class="seq seq1" d="M128 31h0.0" /><path class="seq seq2" d="M276.0 31h0.0" /><g class="terminal ">
+<path class="terminal term1" d="M128.0 31h0.0" /><path class="terminal term2" d="M156.0 31h0.0" /><rect height="22" rx="10" ry="10" width="28" x="128" y="20"></rect><text x="142" y="35">%</text></g><path class="seq seq4" d="M156.0 31h10" /><path class="seq seq3" d="M166.0 31h10" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M176.0 31h0.0" /><path class="nonterm nt2" d="M228.0 31h0.0" /><rect height="22" width="52" x="176" y="20"></rect><text x="202" y="35">Name</text></g><path class="seq seq4" d="M228.0 31h10" /><path class="seq seq3" d="M238.0 31h10" /><g class="terminal ">
+<path class="terminal term1" d="M248.0 31h0.0" /><path class="terminal term2" d="M276.0 31h0.0" /><rect height="22" rx="10" ry="10" width="28" x="248" y="20"></rect><text x="262" y="35">;</text></g></g><path d="M276 31h10" /><path class="end" d="M 286 31 h 20 m 0 -10 v 20"></path></g></svg>

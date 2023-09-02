@@ -1,0 +1,11 @@
+<svg class="railroad-diagram" height="101" viewBox="0 0 424 101" width="424">
+<g transform="translate(.5 .5)">
+<g>
+<path class="start" d="M20 60v20m0 -10h82" /><text style="text-anchor:start" x="20" y="55">EntityDef</text></g><g>
+<path class="choice ch1" d="M102 70h0.0" /><path class="choice ch2" d="M384.0 70h0.0" /><path class="choice ch3" d="M102.0 70a10 10 0 0 0 10 -10v-19a10 10 0 0 1 10 -10" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M122.0 31h67.0" /><path class="nonterm nt2" d="M297.0 31h67.0" /><rect height="22" width="108" x="189" y="20"></rect><text x="243" y="35">EntityValue</text></g><path class="choice ch4" d="M364.0 31a10 10 0 0 1 10 10v19a10 10 0 0 0 10 10" /><path class="choice ch5" d="M102.0 70h20" /><g>
+<path class="seq seq1" d="M122.0 70h0.0" /><path class="seq seq2" d="M364.0 70h0.0" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M122.0 70h0.0" /><path class="nonterm nt2" d="M222.0 70h0.0" /><rect height="22" width="100" x="122" y="59"></rect><text x="172" y="74">ExternalID</text></g><path class="seq seq4" d="M222.0 70h10" /><g>
+<path class="choice ch1" d="M232.0 70h0.0" /><path class="choice ch2" d="M364.0 70h0.0" /><path class="choice ch3" d="M232.0 70a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10" /><g>
+<path class="skip" d="M252.0 50h92" /></g><path class="choice ch4" d="M344.0 50a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10" /><path class="choice ch5" d="M232.0 70h20" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M252.0 70h0.0" /><path class="nonterm nt2" d="M344.0 70h0.0" /><rect height="22" width="92" x="252" y="59"></rect><text x="298" y="74">NDataDecl</text></g><path class="choice ch6" d="M344.0 70h20" /></g></g><path class="choice ch6" d="M364.0 70h20" /></g><path class="end" d="M 384 70 h 20 m 0 -10 v 20"></path></g></svg>

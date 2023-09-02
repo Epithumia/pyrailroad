@@ -1,0 +1,13 @@
+<svg class="railroad-diagram" height="80" viewBox="0 0 376 80" width="376">
+<g transform="translate(.5 .5)">
+<g>
+<path class="start" d="M20 30v20m0 -10h50" /><text style="text-anchor:start" x="20" y="25">Names</text></g><path d="M70 40h10" /><g>
+<path class="seq seq1" d="M80 40h0.0" /><path class="seq seq2" d="M326.0 40h0.0" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M80.0 40h0.0" /><path class="nonterm nt2" d="M132.0 40h0.0" /><rect height="22" width="52" x="80" y="29"></rect><text x="106" y="44">Name</text></g><path class="seq seq4" d="M132.0 40h10" /><g>
+<path class="choice ch1" d="M142.0 40h0.0" /><path class="choice ch2" d="M326.0 40h0.0" /><path class="choice ch3" d="M142.0 40a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10" /><g>
+<path class="skip" d="M162.0 20h144" /></g><path class="choice ch4" d="M306.0 20a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10" /><path class="choice ch5" d="M142.0 40h20" /><g>
+<path class="oneor oom1" d="M162.0 40h0.0" /><path class="oneor oom2" d="M306.0 40h0.0" /><path class="oneor oom3" d="M162.0 40h10" /><g>
+<path class="seq seq1" d="M172.0 40h0.0" /><path class="seq seq2" d="M296.0 40h0.0" /><g class="terminal character">
+<path class="terminal term1" d="M172.0 40h0.0" /><path class="terminal term2" d="M224.0 40h0.0" /><rect height="22" rx="10" ry="10" width="52" x="172" y="29"></rect><text x="198" y="44">#x20</text></g><path class="seq seq4" d="M224.0 40h10" /><path class="seq seq3" d="M234.0 40h10" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M244.0 40h0.0" /><path class="nonterm nt2" d="M296.0 40h0.0" /><rect height="22" width="52" x="244" y="29"></rect><text x="270" y="44">Name</text></g></g><path class="oneor oom4" d="M296.0 40h10" /><path class="oneor oom5" d="M172.0 40a10 10 0 0 0 -10 10v0a10 10 0 0 0 10 10" /><g>
+<path class="skip" d="M172.0 60h124" /></g><path class="oneor oom6" d="M296.0 60a10 10 0 0 0 10 -10v0a10 10 0 0 0 -10 -10" /></g><path class="choice ch6" d="M306.0 40h20" /></g></g><path d="M326 40h10" /><path class="end" d="M 336 40 h 20 m 0 -10 v 20"></path></g></svg>

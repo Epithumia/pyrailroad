@@ -1,0 +1,5 @@
+<svg class="railroad-diagram" height="62" viewBox="0 0 386 62" width="386">
+<g transform="translate(.5 .5)">
+<g>
+<path class="start" d="M20 21v20m0 -10h50" /><text style="text-anchor:start" x="20" y="16">CData</text></g><path d="M70 31h10" /><g class="expression ">
+<path class="expression exp1" d="M80 31h0.0" /><path class="expression exp2" d="M336.0 31h0.0" /><polygon points="90.0, 20 326.0, 20 336.0, 31 326.0, 42 90.0, 42 80.0, 31"></polygon><text x="208" y="35">Char* - ( Char* ]]&gt; Char* )</text></g><path d="M336 31h10" /><path class="end" d="M 346 31 h 20 m 0 -10 v 20"></path></g></svg>

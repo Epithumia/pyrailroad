@@ -1,0 +1,1 @@
+{"element": "Diagram", "items": [{"element": "Start", "type": "complex", "label": "grammar"}, {"element": "Choice", "default": 1, "items": [{"element": "Skip"}, {"element": "OneOrMore", "item": {"element": "NonTerminal", "text": "clause", "href": null, "title": null, "cls": ""}, "repeat": {"element": "Skip"}}]}, {"element": "End", "type": "complex"}]}

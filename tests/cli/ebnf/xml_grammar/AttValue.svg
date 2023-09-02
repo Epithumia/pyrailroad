@@ -1,0 +1,25 @@
+<svg class="railroad-diagram" height="186" viewBox="0 0 426 186" width="426">
+<g transform="translate(.5 .5)">
+<g>
+<path class="start" d="M20 136v20m0 -10h74" /><text style="text-anchor:start" x="20" y="131">AttValue</text></g><g>
+<path class="choice ch1" d="M94 146h0.0" /><path class="choice ch2" d="M386.0 146h0.0" /><path class="choice ch3" d="M94.0 146a10 10 0 0 0 10 -10v-57a10 10 0 0 1 10 -10" /><g>
+<path class="seq seq1" d="M114.0 69h0.0" /><path class="seq seq2" d="M366.0 69h0.0" /><g class="terminal ">
+<path class="terminal term1" d="M114.0 69h0.0" /><path class="terminal term2" d="M134.0 69h0.0" /><rect height="22" rx="10" ry="10" width="20" x="114" y="58"></rect><text x="124" y="73"></text></g><path class="seq seq4" d="M134.0 69h10" /><g>
+<path class="choice ch1" d="M144.0 69h0.0" /><path class="choice ch2" d="M336.0 69h0.0" /><path class="choice ch3" d="M144.0 69a10 10 0 0 0 10 -10v-29a10 10 0 0 1 10 -10" /><g>
+<path class="skip" d="M164.0 20h152" /></g><path class="choice ch4" d="M316.0 20a10 10 0 0 1 10 10v29a10 10 0 0 0 10 10" /><path class="choice ch5" d="M144.0 69h20" /><g>
+<path class="oneor oom1" d="M164.0 69h0.0" /><path class="oneor oom2" d="M316.0 69h0.0" /><path class="oneor oom3" d="M164.0 69h10" /><g>
+<path class="choice ch1" d="M174.0 69h0.0" /><path class="choice ch2" d="M306.0 69h0.0" /><path class="choice ch3" d="M174.0 69a10 10 0 0 0 10 -10v-10a10 10 0 0 1 10 -10" /><g class="expression ">
+<path class="expression exp1" d="M194.0 39h2.0" /><path class="expression exp2" d="M284.0 39h2.0" /><polygon points="206.0, 28 274.0, 28 284.0, 39 274.0, 50 206.0, 50 196.0, 39"></polygon><text x="240" y="43">[^&lt;&amp;&quot;]</text></g><path class="choice ch4" d="M286.0 39a10 10 0 0 1 10 10v10a10 10 0 0 0 10 10" /><path class="choice ch5" d="M174.0 69h20" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M194.0 69h0.0" /><path class="nonterm nt2" d="M286.0 69h0.0" /><rect height="22" width="92" x="194" y="58"></rect><text x="240" y="73">Reference</text></g><path class="choice ch6" d="M286.0 69h20" /></g><path class="oneor oom4" d="M306.0 69h10" /><path class="oneor oom5" d="M174.0 69a10 10 0 0 0 -10 10v0a10 10 0 0 0 10 10" /><g>
+<path class="skip" d="M174.0 89h132" /></g><path class="oneor oom6" d="M306.0 89a10 10 0 0 0 10 -10v0a10 10 0 0 0 -10 -10" /></g><path class="choice ch6" d="M316.0 69h20" /></g><path class="seq seq3" d="M336.0 69h10" /><g class="terminal ">
+<path class="terminal term1" d="M346.0 69h0.0" /><path class="terminal term2" d="M366.0 69h0.0" /><rect height="22" rx="10" ry="10" width="20" x="346" y="58"></rect><text x="356" y="73"></text></g></g><path class="choice ch4" d="M366.0 69a10 10 0 0 1 10 10v57a10 10 0 0 0 10 10" /><path class="choice ch5" d="M94.0 146h20" /><g>
+<path class="seq seq1" d="M114.0 146h0.0" /><path class="seq seq2" d="M366.0 146h0.0" /><g class="terminal ">
+<path class="terminal term1" d="M114.0 146h0.0" /><path class="terminal term2" d="M134.0 146h0.0" /><rect height="22" rx="10" ry="10" width="20" x="114" y="135"></rect><text x="124" y="150"></text></g><path class="seq seq4" d="M134.0 146h10" /><g>
+<path class="choice ch1" d="M144.0 146h0.0" /><path class="choice ch2" d="M336.0 146h0.0" /><path class="choice ch3" d="M144.0 146a10 10 0 0 0 10 -10v-29a10 10 0 0 1 10 -10" /><g>
+<path class="skip" d="M164.0 97h152" /></g><path class="choice ch4" d="M316.0 97a10 10 0 0 1 10 10v29a10 10 0 0 0 10 10" /><path class="choice ch5" d="M144.0 146h20" /><g>
+<path class="oneor oom1" d="M164.0 146h0.0" /><path class="oneor oom2" d="M316.0 146h0.0" /><path class="oneor oom3" d="M164.0 146h10" /><g>
+<path class="choice ch1" d="M174.0 146h0.0" /><path class="choice ch2" d="M306.0 146h0.0" /><path class="choice ch3" d="M174.0 146a10 10 0 0 0 10 -10v-10a10 10 0 0 1 10 -10" /><g class="expression ">
+<path class="expression exp1" d="M194.0 116h2.0" /><path class="expression exp2" d="M284.0 116h2.0" /><polygon points="206.0, 105 274.0, 105 284.0, 116 274.0, 127 206.0, 127 196.0, 116"></polygon><text x="240" y="120">[^&lt;&amp;&apos;]</text></g><path class="choice ch4" d="M286.0 116a10 10 0 0 1 10 10v10a10 10 0 0 0 10 10" /><path class="choice ch5" d="M174.0 146h20" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M194.0 146h0.0" /><path class="nonterm nt2" d="M286.0 146h0.0" /><rect height="22" width="92" x="194" y="135"></rect><text x="240" y="150">Reference</text></g><path class="choice ch6" d="M286.0 146h20" /></g><path class="oneor oom4" d="M306.0 146h10" /><path class="oneor oom5" d="M174.0 146a10 10 0 0 0 -10 10v0a10 10 0 0 0 10 10" /><g>
+<path class="skip" d="M174.0 166h132" /></g><path class="oneor oom6" d="M306.0 166a10 10 0 0 0 10 -10v0a10 10 0 0 0 -10 -10" /></g><path class="choice ch6" d="M316.0 146h20" /></g><path class="seq seq3" d="M336.0 146h10" /><g class="terminal ">
+<path class="terminal term1" d="M346.0 146h0.0" /><path class="terminal term2" d="M366.0 146h0.0" /><rect height="22" rx="10" ry="10" width="20" x="346" y="135"></rect><text x="356" y="150"></text></g></g><path class="choice ch6" d="M366.0 146h20" /></g><path class="end" d="M 386 146 h 20 m 0 -10 v 20"></path></g></svg>
