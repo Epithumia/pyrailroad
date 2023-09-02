@@ -47,7 +47,7 @@ target_dir_argument = Annotated[
         writable=True,
         resolve_path=True,
         show_default=False,
-        help="Path to the output file.",
+        help="Path to the output directory.",
     ),
 ]
 
