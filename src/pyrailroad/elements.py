@@ -280,6 +280,14 @@ class DiagramItem:
                     label=DiagramItem.from_dict(data["label"], parameters),
                     parameters=parameters,
                 )
+            case "Expression":
+                return Expression(
+                    text=data["text"],
+                    href=data.get("href", None),
+                    title=data.get("title", None),
+                    cls=data.get("cls", ""),
+                    parameters=parameters,
+                )
             case _:
                 raise ParseException(f"Unknown element: {data['element']}.")
 
@@ -2095,6 +2103,80 @@ class NonTerminal(DiagramItem):
                 "y": y - 11,
                 "width": self.width,
                 "height": self.up + self.down,
+            },
+        ).add_to(self)
+        text = DiagramItem(
+            "text", {"x": x + left_gap + self.width / 2, "y": y + 4}, self.text
+        )
+        if self.href is not None:
+            DiagramItem("a", {"xlink:href": self.href}, text).add_to(self)
+        else:
+            text.add_to(self)
+        if self.title is not None:
+            DiagramItem("title", {}, self.title).add_to(self)
+        return self
+
+
+class Expression(DiagramItem):
+    def __init__(
+        self,
+        text: str,
+        href: Opt[str] = None,
+        title: Opt[str] = None,
+        cls: str = "",
+        parameters: Opt[AttrsT] = {},
+    ):
+        DiagramItem.__init__(
+            self, "g", {"class": " ".join(["expression", cls])}, parameters=parameters
+        )
+        from .utils import add_debug
+
+        self.text = text
+        self.href = href
+        self.title = title
+        self.cls = cls
+        self.width = len(text) * self.parameters["char_width"] + 40
+        self.up = 11
+        self.down = 11
+        self.needs_space = True
+        add_debug(self)
+
+    def to_dict(self) -> dict:
+        return {
+            "element": "Expression",
+            "text": self.text,
+            "href": self.href,
+            "title": self.title,
+            "cls": self.cls,
+        }
+
+    def __repr__(self) -> str:
+        return f"Expression({repr(self.text)}, href={repr(self.href)}, title={repr(self.title)}, cls={repr(self.cls)})"
+
+    def format(self, x: float, y: float, width: float) -> Expression:
+        from .utils import determine_gaps
+
+        left_gap, right_gap = determine_gaps(
+            width, self.width, self.parameters["internal_alignment"]
+        )
+
+        # Hook up the two sides if self is narrower than its stated width.
+        Path(x, y, cls="expression exp1", ar=self.parameters["AR"]).h(left_gap).add_to(
+            self
+        )
+        Path(
+            x + left_gap + self.width,
+            y,
+            cls="expression exp2",
+            ar=self.parameters["AR"],
+        ).h(right_gap).add_to(self)
+
+        w = self.width
+        h = self.up + self.down
+        DiagramItem(
+            "polygon",
+            {
+                "points": f"{x + left_gap + 10}, {y-11} {x + left_gap + w - 10}, {y-11} {x + left_gap + w}, {y} {x + left_gap + w - 10}, {y-11 + h} {x + left_gap + 10}, {y-11 + h} {x + left_gap}, {y}"
             },
         ).add_to(self)
         text = DiagramItem(

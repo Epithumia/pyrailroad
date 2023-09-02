@@ -7,11 +7,11 @@ from typing_extensions import Annotated, Optional
 from pathlib import Path
 
 from .parser import parse_json, parse
+from .ebnf_parser import parse_ebnf
 from .utils import write_diagram
 
-from rich.markdown import Markdown
-
 cli = typer.Typer(add_completion=False, rich_markup_mode="rich", no_args_is_help=True)
+
 
 input_file_argument = Annotated[
     Path,
@@ -39,6 +39,18 @@ target_argument = Annotated[
     ),
 ]
 
+target_dir_argument = Annotated[
+    Path,
+    typer.Argument(
+        file_okay=False,
+        dir_okay=True,
+        writable=True,
+        resolve_path=True,
+        show_default=False,
+        help="Path to the output file.",
+    ),
+]
+
 parameters_argument = Annotated[
     Optional[Path],
     typer.Argument(
@@ -51,6 +63,46 @@ parameters_argument = Annotated[
         help="Path to the parameters file. If omitted, default parameters will be used.",
     ),
 ]
+
+help_ebnf = """
+Parses a EBNF [bold]FILE[/bold] for railroad diagrams and writes them into [bold]TARGET[/bold] directory.
+Various parameters of the diagram engine can be specified in a JSON [bold]PARAMETERS[/bold] file.
+
+Example...
+"""
+
+
+@cli.command("ebnf", no_args_is_help=True, help=help_ebnf)
+def parse_ebnf_file(
+    file: input_file_argument,
+    target: target_dir_argument,
+    parameters: parameters_argument = None,
+    to_json: Annotated[
+        bool,
+        typer.Option(
+            "--to-json",
+            help="Writes JSON source files for the diagrams instead of SVG files.",
+        ),
+    ] = False,
+):
+    if parameters:
+        with open(parameters, "r") as p:
+            params = json.loads(p.read())
+    else:
+        params = {"standalone": False, "type": "complex", "css": None}
+    with open(file) as f:
+        diagrams = parse_ebnf(f.read(), params)
+    if not target.exists():
+        target.mkdir()
+    for name in diagrams.keys():
+        if not to_json:
+            write_diagram(
+                diagrams[name], target.joinpath(f"{name}.svg"), params["standalone"]
+            )
+        else:
+            with open(target.joinpath(f"{name}.json"), "w") as f:
+                f.write(json.dumps(diagrams[name].to_dict()))
+
 
 help_yaml = """
 Parses a YAML [bold]FILE[/bold] for railroad diagrams and writes it into [bold]TARGET[/bold] file.
