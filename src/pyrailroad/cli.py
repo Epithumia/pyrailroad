@@ -79,6 +79,11 @@ def parse_yaml_file(
     if parameters:
         with open(parameters) as f:
             params = yaml.safe_load(f.read())
+        if "css" not in params:
+            params["css"] = None
+        else:
+            with open(params["css"]) as f:
+                params["css"] = f.read()
     else:
         params = {"standalone": False, "type": "complex", "css": None}
     with open(file) as f:
@@ -123,6 +128,11 @@ def parse_json_file(
     if parameters:
         with open(parameters, "r") as p:
             params = json.loads(p.read())
+        if "css" not in params:
+            params["css"] = None
+        else:
+            with open(params["css"]) as f:
+                params["css"] = f.read()
     else:
         params = {"standalone": False, "type": "complex", "css": None}
     with open(file) as f:
