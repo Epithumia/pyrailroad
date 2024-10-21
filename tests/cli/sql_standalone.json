@@ -1,4 +1,5 @@
 {
     "type": "sql",
-    "standalone": true
+    "standalone": true,
+    "css": "tests/cli/sql.css"
 }
