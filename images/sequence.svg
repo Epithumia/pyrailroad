@@ -1,0 +1,8 @@
+<svg class="railroad-diagram" height="62" viewBox="0 0 224 62" width="224">
+<g transform="translate(.5 .5)">
+<g>
+<path class="start" d="M20 21v20m10 -20v20m-10 -10h20" /></g><path d="M40 31h10" /><g>
+<path class="seq seq1" d="M50 31h0.0" /><path class="seq seq2" d="M174.0 31h0.0" /><g class="terminal ">
+<path class="terminal term1" d="M50.0 31h0.0" /><path class="terminal term2" d="M78.0 31h0.0" /><rect height="22" rx="10" ry="10" width="28" x="50" y="20"></rect><text x="64" y="35">1</text></g><path class="seq seq4" d="M78.0 31h10" /><path class="seq seq3" d="M88.0 31h10" /><g class="terminal ">
+<path class="terminal term1" d="M98.0 31h0.0" /><path class="terminal term2" d="M126.0 31h0.0" /><rect height="22" rx="10" ry="10" width="28" x="98" y="20"></rect><text x="112" y="35">2</text></g><path class="seq seq4" d="M126.0 31h10" /><path class="seq seq3" d="M136.0 31h10" /><g class="terminal ">
+<path class="terminal term1" d="M146.0 31h0.0" /><path class="terminal term2" d="M174.0 31h0.0" /><rect height="22" rx="10" ry="10" width="28" x="146" y="20"></rect><text x="160" y="35">3</text></g></g><path d="M174 31h10" /><path class="end" d="M 184 31 h 20 m -10 -10 v 20 m 10 -20 v 20"></path></g></svg>

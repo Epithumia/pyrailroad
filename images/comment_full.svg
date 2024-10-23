@@ -1,0 +1,5 @@
+<svg class="railroad-diagram" height="60" viewBox="0 0 152 60" width="152">
+<g transform="translate(.5 .5)">
+<g>
+<path class="start" d="M20 20v20m10 -20v20m-10 -10h20" /></g><path d="M40 30h10" /><g class="non-terminal custom_terminal">
+<path class="comment com1" d="M50 30h0.0" /><path class="comment com2" d="M102.0 30h0.0" /><a xlink:href="https://github.com"><text class="comment" x="76" y="35">github</text><text class="comment" x="76" y="35">github</text></a><title>This is a link</title></g><path d="M102 30h10" /><path class="end" d="M 112 30 h 20 m -10 -10 v 20 m 10 -20 v 20"></path></g></svg>
