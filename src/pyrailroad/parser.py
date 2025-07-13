@@ -35,7 +35,7 @@ class RRCommand:
     line: int
 
 
-def parse_json(string: str, properties: {}) -> Diagram | None:
+def parse_json(string: str, properties: dict) -> Diagram | None:
     data = json.loads(string)
     if "element" not in data:
         raise ParseException("Invalid input file : 'element' is missing from the root.")

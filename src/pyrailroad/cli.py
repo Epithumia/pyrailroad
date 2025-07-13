@@ -131,6 +131,15 @@ def parse_yaml_file(
     if parameters:
         with open(parameters) as f:
             params = yaml.safe_load(f.read())
+        if "standalone" not in params:
+            params["standalone"] = False
+        if "css" not in params:
+            params["css"] = None
+        else:
+            with open(params["css"]) as f:
+                params["css"] = f.read()
+        if "type" not in params:
+            params["type"] = "complex"
     else:
         params = {"standalone": False, "type": "complex", "css": None}
     with open(file) as f:
@@ -138,7 +147,7 @@ def parse_yaml_file(
         json_input = json.dumps(yaml_input)
         diagram = parse_json(json_input, params)
     if diagram:
-        write_diagram(diagram, target, params["standalone"])
+        write_diagram(diagram, target, params["standalone"], params["css"])
 
 
 help_json = """
@@ -175,12 +184,21 @@ def parse_json_file(
     if parameters:
         with open(parameters, "r") as p:
             params = json.loads(p.read())
+        if "standalone" not in params:
+            params["standalone"] = False
+        if "css" not in params:
+            params["css"] = None
+        else:
+            with open(params["css"]) as f:
+                params["css"] = f.read()
+        if "type" not in params:
+            params["type"] = "complex"
     else:
         params = {"standalone": False, "type": "complex", "css": None}
     with open(file) as f:
         diagram = parse_json(f.read(), params)
     if diagram:
-        write_diagram(diagram, target, params["standalone"])
+        write_diagram(diagram, target, params["standalone"], params["css"])
 
 
 help_dsl = """

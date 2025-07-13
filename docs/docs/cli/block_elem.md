@@ -355,7 +355,7 @@ All properties are mandatory.
 <figcaption>MultipleChoice: any of three</figcaption>
 </figure>
 <figure markdown>
-![MultipleChoice: all of three](../images/multiple_choice_any.svg)
+![MultipleChoice: all of three](../images/multiple_choice_all.svg)
 <figcaption>MultipleChoice: all of three</figcaption>
 </figure>
 
