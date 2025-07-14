@@ -6,7 +6,7 @@ from .elements import Diagram
 from .exceptions import ParseException
 
 
-def parse_ebnf(string: str, parameters: {}) -> dict[str:Diagram]:
+def parse_ebnf(string: str, parameters: dict) -> dict[str:Diagram]:
     parse = HeuristicEBNFGrammar()
 
     cst = parse(string)
@@ -46,7 +46,7 @@ def ast_to_dict(tree: Node, keep_quotes=False) -> dict:
     return {}
 
 
-def process(tree: Node, non_terminals: [], explicit_group=False, keep_quotes=False):
+def process(tree: Node, non_terminals: list, explicit_group=False, keep_quotes=False):
     match tree.name:
         case "definition":
             result = {
@@ -139,7 +139,7 @@ def process(tree: Node, non_terminals: [], explicit_group=False, keep_quotes=Fal
             raise NotImplementedError(tree.name)  # pragma: no cover
 
 
-def collapse(node: {}) -> str:
+def collapse(node: dict) -> str:
     match node["element"]:
         case "Terminal" | "Expression":
             return node["text"]
