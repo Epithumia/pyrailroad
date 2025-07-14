@@ -16,7 +16,7 @@ classifiers = [
     "Programming Language :: Python :: 3",
 ]
 dependencies = [
-    "typer[all]", "pyyaml", "mkdocs", "mkdocs-material", "DHParser"
+    "typer[all]", "pyyaml", "mkdocs", "mkdocs-material", "DHParser==1.8.3"
 ]
 dynamic = ["version"]
 

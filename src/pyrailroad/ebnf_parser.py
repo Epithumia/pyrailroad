@@ -1,5 +1,6 @@
 from DHParser import Node
-from DHParser.ebnf import HeuristicEBNFGrammar, transform_ebnf
+from DHParser.ebnf import transform_ebnf
+from DHParser.ebnf_flavors.heuristic import HeuristicEBNFGrammar
 
 from .elements import Diagram
 from .exceptions import ParseException
@@ -114,6 +115,11 @@ def process(tree: Node, non_terminals: [], explicit_group=False, keep_quotes=Fal
             return {
                 "element": "Expression",
                 "text": f"[{''.join([collapse(process(child, {}, keep_quotes=keep_quotes)) for child in tree.children])}]",
+            }
+        case "range_desc":
+            return {
+                "element": "Expression",
+                "text": f"{''.join([collapse(process(child, {}, keep_quotes=keep_quotes)) for child in tree.children])}",
             }
         case "difference":
             if len(tree.children) != 2:
