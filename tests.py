@@ -1481,6 +1481,7 @@ class CLITests(BaseTest):
         assert "dsl" in result.stdout
         assert "json" in result.stdout
         assert "yaml" in result.stdout
+        assert "ebnf" in result.stdout
         result = self.runner.invoke(cli, ["dsl", "--help"])
         assert result.exit_code == 0
         assert "file" in result.stdout
@@ -1495,6 +1496,12 @@ class CLITests(BaseTest):
         assert "file" in result.stdout
         assert "target" in result.stdout
         assert "parameters" in result.stdout
+        result = self.runner.invoke(cli, ["ebnf", "--help"])
+        assert result.exit_code == 0
+        assert "file" in result.stdout
+        assert "target" in result.stdout
+        assert "parameters" in result.stdout
+        assert "to-json" in result.stdout
 
     def test_cli_dsl(self):
         from pyrailroad.cli import cli
