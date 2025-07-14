@@ -19,11 +19,11 @@ For both `json`, `yaml` and `ebnf`, various parameters of the diagram engine can
 - `--simple`: draws the diagram using the "simple" style.
 - `--standalone`: embeds a default stylesheet inside the output for rendering.
 
+Both styles are named so in the original code and haven't been changed (yet).
+
 For `ebnf`, there is another option:
 
 - `--to-json`: writes the diagrams into JSON files instead of SVG files.
-
-Both styles are named so in the original code and haven't been changed (yet).
 
 Examples:
 
@@ -86,13 +86,13 @@ Examples:
     Usage with a parameters file:
 
     ```bash
-    py-railroad yaml ebnf grammar.ebnf output_dir my_parameters.json
+    py-railroad ebnf grammar.ebnf output_dir my_parameters.json
     ```
 
     Usage with a parameters file, write JSON files instead of SVG:
 
     ```bash
-    py-railroad yaml ebnf --to-json grammar.ebnf output_dir my_parameters.json
+    py-railroad ebnf --to-json grammar.ebnf output_dir my_parameters.json
     ```
 
 DSL support was initially developed by [tabatkins](https://github.com/tabatkins) in [railroadparser.py](https://github.com/speced/bikeshed/blob/main/bikeshed/railroadparser.py[) and extended to support all the elements from [railroad-diagrams](https://github.com/tabatkins/railroad-diagrams) that were missing. While complete in terms of elements, customization is limited to simple/complex styles and standalone or not. Several customizations of the diagram and of elements themselves are only available using the JSON or YAML parser.
@@ -112,3 +112,5 @@ There are three categories of elements:
 Unfortunately, there is too much to say and too many variants to explain. This program assumes that you know what you are doing if using EBNF as input.
 
 If you wish to learn more, the [Wikipedia article](https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form) might be useful, as well as this [article by  Federico Tomassetti](https://tomassetti.me/ebnf/)
+
+This program will attempt to guess the correct EBNF grammar for you, but you might have to rewrite a few clauses/items, or in the worst case, dig into the code and submit a bug report or better yet, a pull request to add the missing grammar.
