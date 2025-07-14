@@ -95,7 +95,7 @@ Examples:
     py-railroad yaml ebnf --to-json grammar.ebnf output_dir my_parameters.json
     ```
 
-DSL support was initially developed by [tbatkins](https://github.com/tabatkins) in [railroadparser.py](https://github.com/speced/bikeshed/blob/main/bikeshed/railroadparser.py[) and extended to support all the elements from [railroad-diagrams](https://github.com/tabatkins/railroad-diagrams) that were missing. While complete in terms of elements, customization is limited to simple/complex styles and standalone or not. Several customizations of the diagram and of elements themselves are only available using the JSON or YAML parser.
+DSL support was initially developed by [tabatkins](https://github.com/tabatkins) in [railroadparser.py](https://github.com/speced/bikeshed/blob/main/bikeshed/railroadparser.py[) and extended to support all the elements from [railroad-diagrams](https://github.com/tabatkins/railroad-diagrams) that were missing. While complete in terms of elements, customization is limited to simple/complex styles and standalone or not. Several customizations of the diagram and of elements themselves are only available using the JSON or YAML parser.
 
 ## Diagram syntax
 

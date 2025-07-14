@@ -7,7 +7,7 @@ name = "pyrailroad"
 authors = [
     {name = "Rafael Lopez", email = "rafael.lopez@universite-paris-saclay.fr"},
 ]
-description = "Python package to draw railroad (or syntax) diagrams. Based largely on railroad-daigram and the partial parser by tbatkins."
+description = "Python package to draw railroad (or syntax) diagrams. Based largely on railroad-daigram and the partial parser by tabatkins."
 readme = "README.md"
 requires-python = ">=3.10"
 keywords = ["railroad", "diagram"]

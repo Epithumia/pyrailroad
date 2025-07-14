@@ -3,7 +3,7 @@
 
 <figure>![Title image](images/title.svg)</figure>
 
-PyRailroad is a Python package to draw railroad (or syntax) diagrams. Based largely on [railroad-diagrams](https://github.com/tabatkins/railroad-diagrams) and the [partial parser](https://github.com/speced/bikeshed/blob/main/bikeshed/railroadparser.py[), both by [tbatkins](https://github.com/tabatkins)
+PyRailroad is a Python package to draw railroad (or syntax) diagrams. Based largely on [railroad-diagrams](https://github.com/tabatkins/railroad-diagrams) and the [partial parser](https://github.com/speced/bikeshed/blob/main/bikeshed/railroadparser.py[), both by [tabatkins](https://github.com/tabatkins)
 
 This package can be used as a stand-alone (command-line interface) generator or as a library. this generates railroad diagrams (like what [JSON.org](http://json.org) uses) using SVG.
 
