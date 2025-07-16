@@ -16,9 +16,11 @@ if TYPE_CHECKING:
     Node = str | DiagramItem  # pragma: no cover
 
 
-def write_diagram(diagram: Diagram, target: Path, standalone: bool = False, css: str | None = None) -> None:
+def write_diagram(diagram: Diagram, target: Path, standalone: bool = False, text: bool = False, css: str | None = None) -> None:
     with open(target, "w") as t:
-        if standalone:
+        if text:
+            diagram.write_text(t.write)
+        elif standalone:
             diagram.write_standalone(t.write, css)
         else:
             diagram.write_svg(t.write)

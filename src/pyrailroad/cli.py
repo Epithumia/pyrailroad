@@ -89,7 +89,7 @@ def parse_ebnf_file(
         with open(parameters, "r") as p:
             params = json.loads(p.read())
     else:
-        params = {"standalone": False, "type": "complex", "css": None}
+        params = {"standalone": False, "text": False, "type": "complex", "css": None}
     with open(file) as f:
         diagrams = parse_ebnf(f.read(), params)
     if not target.exists():
@@ -97,7 +97,7 @@ def parse_ebnf_file(
     for name in diagrams.keys():
         if not to_json:
             write_diagram(
-                diagrams[name], target.joinpath(f"{name}.svg"), params["standalone"]
+                diagrams[name], target.joinpath(f"{name}.svg"), params["standalone"], params["text"], params["css"]
             )
         else:
             with open(target.joinpath(f"{name}.json"), "w") as f:
@@ -133,6 +133,8 @@ def parse_yaml_file(
             params = yaml.safe_load(f.read())
         if "standalone" not in params:
             params["standalone"] = False
+        if "text" not in params:
+            params["text"] = False
         if "css" not in params:
             params["css"] = None
         else:
@@ -141,13 +143,15 @@ def parse_yaml_file(
         if "type" not in params:
             params["type"] = "complex"
     else:
-        params = {"standalone": False, "type": "complex", "css": None}
+        params = {"standalone": False, "text": False, "type": "complex", "css": None}
     with open(file) as f:
         yaml_input = yaml.safe_load(f.read())
         json_input = json.dumps(yaml_input)
         diagram = parse_json(json_input, params)
     if diagram:
-        write_diagram(diagram, target, params["standalone"], params["css"])
+        write_diagram(
+            diagram, target, params["standalone"], params["text"], params["css"]
+        )
 
 
 help_json = """
@@ -186,6 +190,8 @@ def parse_json_file(
             params = json.loads(p.read())
         if "standalone" not in params:
             params["standalone"] = False
+        if "text" not in params:
+            params["text"] = False
         if "css" not in params:
             params["css"] = None
         else:
@@ -194,11 +200,13 @@ def parse_json_file(
         if "type" not in params:
             params["type"] = "complex"
     else:
-        params = {"standalone": False, "type": "complex", "css": None}
+        params = {"standalone": False, "text": False, "type": "complex", "css": None}
     with open(file) as f:
         diagram = parse_json(f.read(), params)
     if diagram:
-        write_diagram(diagram, target, params["standalone"], params["css"])
+        write_diagram(
+            diagram, target, params["standalone"], params["text"], params["css"]
+        )
 
 
 help_dsl = """
@@ -235,11 +243,18 @@ def parse_dsl_file(
             help="Writes a standalone SVG containing the stylesheet to display it.",
         ),
     ] = False,
+    text: Annotated[
+        bool,
+        typer.Option(
+            "--text",
+            help="Writes the diagram in text format",
+        ),
+    ] = False,
 ) -> None:
     with open(file) as f:
         diagram = parse(f.read(), simple)
     if diagram:
-        write_diagram(diagram, target, standalone)
+        write_diagram(diagram, target, standalone, text)
 
 
 if __name__ == "__main__":
