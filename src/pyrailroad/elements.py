@@ -7,7 +7,6 @@ from typing import TYPE_CHECKING
 
 from .exceptions import ParseException
 
-# TODO: add TextDiagram and methods from https://github.com/tabatkins/railroad-diagrams/blob/gh-pages/railroad.py + _repr_ partout où nécessaire
 
 if TYPE_CHECKING:
     from typing import (  # pragma: no cover
@@ -332,11 +331,6 @@ class DiagramItem:
                 )
             case _:
                 raise ParseException(f"Unknown element: {data['element']}.")
-
-
-# def apply_properties(properties: dict):
-#    """Need to make the global parameters not global"""
-#    pass
 
 
 class DiagramMultiContainer(DiagramItem):

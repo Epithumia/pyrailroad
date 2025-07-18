@@ -53,23 +53,32 @@ def process(tree: Node, non_terminals: list, explicit_group=False, keep_quotes=F
                 "element": "Diagram",
                 "items": [{"element": "Start", "label": tree.children[0].content}],
             }
-            result["items"].append(process(tree.children[1], non_terminals, keep_quotes=keep_quotes))
+            result["items"].append(
+                process(tree.children[1], non_terminals, keep_quotes=keep_quotes)
+            )
             result["items"].append({"element": "End"})
             return result
         case "repetition":
             return {
                 "element": "ZeroOrMore",
-                "item": process(tree.children[0], non_terminals, keep_quotes=keep_quotes),
+                "item": process(
+                    tree.children[0], non_terminals, keep_quotes=keep_quotes
+                ),
             }
         case "oneormore":
             return {
                 "element": "OneOrMore",
-                "item": process(tree.children[0], non_terminals, keep_quotes=keep_quotes),
+                "item": process(
+                    tree.children[0], non_terminals, keep_quotes=keep_quotes
+                ),
             }
         case "sequence":
             return {
                 "element": "Sequence",
-                "items": [process(child, non_terminals, keep_quotes=keep_quotes) for child in tree.children],
+                "items": [
+                    process(child, non_terminals, keep_quotes=keep_quotes)
+                    for child in tree.children
+                ],
             }
         case "symbol":
             if tree.content in non_terminals:
@@ -94,7 +103,10 @@ def process(tree: Node, non_terminals: list, explicit_group=False, keep_quotes=F
             return {
                 "element": "Choice",
                 "default": len(tree.children) // 2,
-                "items": [process(child, non_terminals, keep_quotes=keep_quotes) for child in tree.children],
+                "items": [
+                    process(child, non_terminals, keep_quotes=keep_quotes)
+                    for child in tree.children
+                ],
             }
         case "group":
             if len(tree.children) > 1:
@@ -106,7 +118,9 @@ def process(tree: Node, non_terminals: list, explicit_group=False, keep_quotes=F
                     "element": "Sequence",
                     "items": [
                         {"element": "Terminal", "text": "("},
-                        process(tree.children[0], non_terminals, keep_quotes=keep_quotes),
+                        process(
+                            tree.children[0], non_terminals, keep_quotes=keep_quotes
+                        ),
                         {"element": "Terminal", "text": ")"},
                     ],
                 }
@@ -114,12 +128,12 @@ def process(tree: Node, non_terminals: list, explicit_group=False, keep_quotes=F
         case "char_range":
             return {
                 "element": "Expression",
-                "text": f"[{''.join([collapse(process(child, {}, keep_quotes=keep_quotes)) for child in tree.children])}]",
+                "text": f"[{''.join([collapse(process(child, [], keep_quotes=keep_quotes)) for child in tree.children])}]",
             }
         case "range_desc":
             return {
                 "element": "Expression",
-                "text": f"{''.join([collapse(process(child, {}, keep_quotes=keep_quotes)) for child in tree.children])}",
+                "text": f"{''.join([collapse(process(child, [], keep_quotes=keep_quotes)) for child in tree.children])}",
             }
         case "difference":
             if len(tree.children) != 2:
@@ -133,7 +147,9 @@ def process(tree: Node, non_terminals: list, explicit_group=False, keep_quotes=F
         case "option":
             return {
                 "element": "Optional",
-                "item": process(tree.children[0], non_terminals, keep_quotes=keep_quotes),
+                "item": process(
+                    tree.children[0], non_terminals, keep_quotes=keep_quotes
+                ),
             }
         case _:
             raise NotImplementedError(tree.name)  # pragma: no cover
