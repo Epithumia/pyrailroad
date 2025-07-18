@@ -1,0 +1,17 @@
+<svg class="railroad-diagram" height="71" viewBox="0 0 722 71" width="722">
+<g transform="translate(.5 .5)">
+<g>
+<path class="start" d="M20 30v20m0 -10h66" /><text style="text-anchor:start" x="20" y="25">XMLDecl</text></g><path d="M86 40h10" /><g>
+<path class="seq seq1" d="M96 40h0.0" /><path class="seq seq2" d="M672.0 40h0.0" /><g class="terminal ">
+<path class="terminal term1" d="M96.0 40h0.0" /><path class="terminal term2" d="M156.0 40h0.0" /><rect height="22" rx="10" ry="10" width="60" x="96" y="29"></rect><text x="126" y="44">&lt;?xml</text></g><path class="seq seq4" d="M156.0 40h10" /><path class="seq seq3" d="M166.0 40h10" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M176.0 40h0.0" /><path class="nonterm nt2" d="M284.0 40h0.0" /><rect height="22" width="108" x="176" y="29"></rect><text x="230" y="44">VersionInfo</text></g><path class="seq seq4" d="M284.0 40h10" /><g>
+<path class="choice ch1" d="M294.0 40h0.0" /><path class="choice ch2" d="M450.0 40h0.0" /><path class="choice ch3" d="M294.0 40a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10" /><g>
+<path class="skip" d="M314.0 20h116" /></g><path class="choice ch4" d="M430.0 20a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10" /><path class="choice ch5" d="M294.0 40h20" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M314.0 40h0.0" /><path class="nonterm nt2" d="M430.0 40h0.0" /><rect height="22" width="116" x="314" y="29"></rect><text x="372" y="44">EncodingDecl</text></g><path class="choice ch6" d="M430.0 40h20" /></g><g>
+<path class="choice ch1" d="M450.0 40h0.0" /><path class="choice ch2" d="M558.0 40h0.0" /><path class="choice ch3" d="M450.0 40a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10" /><g>
+<path class="skip" d="M470.0 20h68" /></g><path class="choice ch4" d="M538.0 20a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10" /><path class="choice ch5" d="M450.0 40h20" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M470.0 40h0.0" /><path class="nonterm nt2" d="M538.0 40h0.0" /><rect height="22" width="68" x="470" y="29"></rect><text x="504" y="44">SDDecl</text></g><path class="choice ch6" d="M538.0 40h20" /></g><g>
+<path class="choice ch1" d="M558.0 40h0.0" /><path class="choice ch2" d="M626.0 40h0.0" /><path class="choice ch3" d="M558.0 40a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10" /><g>
+<path class="skip" d="M578.0 20h28" /></g><path class="choice ch4" d="M606.0 20a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10" /><path class="choice ch5" d="M558.0 40h20" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M578.0 40h0.0" /><path class="nonterm nt2" d="M606.0 40h0.0" /><rect height="22" width="28" x="578" y="29"></rect><text x="592" y="44">S</text></g><path class="choice ch6" d="M606.0 40h20" /></g><path class="seq seq3" d="M626.0 40h10" /><g class="terminal ">
+<path class="terminal term1" d="M636.0 40h0.0" /><path class="terminal term2" d="M672.0 40h0.0" /><rect height="22" rx="10" ry="10" width="36" x="636" y="29"></rect><text x="654" y="44">?&gt;</text></g></g><path d="M672 40h10" /><path class="end" d="M 682 40 h 20 m 0 -10 v 20"></path></g></svg>

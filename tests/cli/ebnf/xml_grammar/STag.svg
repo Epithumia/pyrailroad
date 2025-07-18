@@ -1,0 +1,18 @@
+<svg class="railroad-diagram" height="80" viewBox="0 0 538 80" width="538">
+<g transform="translate(.5 .5)">
+<g>
+<path class="start" d="M20 30v20m0 -10h42" /><text style="text-anchor:start" x="20" y="25">STag</text></g><path d="M62 40h10" /><g>
+<path class="seq seq1" d="M72 40h0.0" /><path class="seq seq2" d="M488.0 40h0.0" /><g class="terminal ">
+<path class="terminal term1" d="M72.0 40h0.0" /><path class="terminal term2" d="M100.0 40h0.0" /><rect height="22" rx="10" ry="10" width="28" x="72" y="29"></rect><text x="86" y="44">&lt;</text></g><path class="seq seq4" d="M100.0 40h10" /><path class="seq seq3" d="M110.0 40h10" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M120.0 40h0.0" /><path class="nonterm nt2" d="M172.0 40h0.0" /><rect height="22" width="52" x="120" y="29"></rect><text x="146" y="44">Name</text></g><path class="seq seq4" d="M172.0 40h10" /><g>
+<path class="choice ch1" d="M182.0 40h0.0" /><path class="choice ch2" d="M382.0 40h0.0" /><path class="choice ch3" d="M182.0 40a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10" /><g>
+<path class="skip" d="M202.0 20h160" /></g><path class="choice ch4" d="M362.0 20a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10" /><path class="choice ch5" d="M182.0 40h20" /><g>
+<path class="oneor oom1" d="M202.0 40h0.0" /><path class="oneor oom2" d="M362.0 40h0.0" /><path class="oneor oom3" d="M202.0 40h10" /><g>
+<path class="seq seq1" d="M212.0 40h0.0" /><path class="seq seq2" d="M352.0 40h0.0" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M212.0 40h0.0" /><path class="nonterm nt2" d="M240.0 40h0.0" /><rect height="22" width="28" x="212" y="29"></rect><text x="226" y="44">S</text></g><path class="seq seq4" d="M240.0 40h10" /><path class="seq seq3" d="M250.0 40h10" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M260.0 40h0.0" /><path class="nonterm nt2" d="M352.0 40h0.0" /><rect height="22" width="92" x="260" y="29"></rect><text x="306" y="44">Attribute</text></g></g><path class="oneor oom4" d="M352.0 40h10" /><path class="oneor oom5" d="M212.0 40a10 10 0 0 0 -10 10v0a10 10 0 0 0 10 10" /><g>
+<path class="skip" d="M212.0 60h140" /></g><path class="oneor oom6" d="M352.0 60a10 10 0 0 0 10 -10v0a10 10 0 0 0 -10 -10" /></g><path class="choice ch6" d="M362.0 40h20" /></g><g>
+<path class="choice ch1" d="M382.0 40h0.0" /><path class="choice ch2" d="M450.0 40h0.0" /><path class="choice ch3" d="M382.0 40a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10" /><g>
+<path class="skip" d="M402.0 20h28" /></g><path class="choice ch4" d="M430.0 20a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10" /><path class="choice ch5" d="M382.0 40h20" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M402.0 40h0.0" /><path class="nonterm nt2" d="M430.0 40h0.0" /><rect height="22" width="28" x="402" y="29"></rect><text x="416" y="44">S</text></g><path class="choice ch6" d="M430.0 40h20" /></g><path class="seq seq3" d="M450.0 40h10" /><g class="terminal ">
+<path class="terminal term1" d="M460.0 40h0.0" /><path class="terminal term2" d="M488.0 40h0.0" /><rect height="22" rx="10" ry="10" width="28" x="460" y="29"></rect><text x="474" y="44">&gt;</text></g></g><path d="M488 40h10" /><path class="end" d="M 498 40 h 20 m 0 -10 v 20"></path></g></svg>

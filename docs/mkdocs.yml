@@ -22,6 +22,33 @@ plugins:
   - search:
       lang: en
   - inline-svg
+  - markdown-exec
+  - autorefs
+  - mkdocstrings:
+      enable_inventory: true
+      default_handler: 
+        python
+      handlers:
+        python:
+          paths: [../alambic]
+          options:
+            #show_source: False
+            #docstring_style: sphinx
+            heading_level: 4
+            inherited_members: true
+            signature_crossrefs: true
+            #merge_init_into_class: true
+            parameter_headings: false
+            separate_signature: true
+            show_bases: true
+            show_root_heading: true
+            show_root_full_path: false
+            show_signature_annotations: true
+            show_source: false
+            show_symbol_type_heading: true
+            show_symbol_type_toc: true
+            summary: true
+            unwrap_annotated: true
 
 markdown_extensions:
   - admonition
@@ -69,7 +96,9 @@ nav:
       - Base elements: 'cli/base_elem.md'
       - Text elements: 'cli/text_elem.md'
       - Block elements: 'cli/block_elem.md'
-    - 'Library': 'library.md'
+    - 'Library': 
+      - Basic usage: 'library/basic_usage.md'
+      - Code documentation: 'library/library.md'
     - 'Gallery': 'gallery.md'
   - About:
     - 'License': 'license.md'

@@ -1,0 +1,16 @@
+<svg class="railroad-diagram" height="92" viewBox="0 0 710 92" width="710">
+<g transform="translate(.5 .5)">
+<g>
+<path class="start" d="M20 51v20m0 -10h106" /><text style="text-anchor:start" x="20" y="46">NotationDecl</text></g><path d="M126 61h10" /><g>
+<path class="seq seq1" d="M136 61h0.0" /><path class="seq seq2" d="M660.0 61h0.0" /><g class="terminal ">
+<path class="terminal term1" d="M136.0 61h0.0" /><path class="terminal term2" d="M236.0 61h0.0" /><rect height="22" rx="10" ry="10" width="100" x="136" y="50"></rect><text x="186" y="65">&lt;!NOTATION</text></g><path class="seq seq4" d="M236.0 61h10" /><path class="seq seq3" d="M246.0 61h10" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M256.0 61h0.0" /><path class="nonterm nt2" d="M284.0 61h0.0" /><rect height="22" width="28" x="256" y="50"></rect><text x="270" y="65">S</text></g><path class="seq seq4" d="M284.0 61h10" /><path class="seq seq3" d="M294.0 61h10" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M304.0 61h0.0" /><path class="nonterm nt2" d="M356.0 61h0.0" /><rect height="22" width="52" x="304" y="50"></rect><text x="330" y="65">Name</text></g><path class="seq seq4" d="M356.0 61h10" /><path class="seq seq3" d="M366.0 61h10" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M376.0 61h0.0" /><path class="nonterm nt2" d="M404.0 61h0.0" /><rect height="22" width="28" x="376" y="50"></rect><text x="390" y="65">S</text></g><path class="seq seq4" d="M404.0 61h10" /><g>
+<path class="choice ch1" d="M414.0 61h0.0" /><path class="choice ch2" d="M554.0 61h0.0" /><path class="choice ch3" d="M414.0 61a10 10 0 0 0 10 -10v-10a10 10 0 0 1 10 -10" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M434.0 31h0.0" /><path class="nonterm nt2" d="M534.0 31h0.0" /><rect height="22" width="100" x="434" y="20"></rect><text x="484" y="35">ExternalID</text></g><path class="choice ch4" d="M534.0 31a10 10 0 0 1 10 10v10a10 10 0 0 0 10 10" /><path class="choice ch5" d="M414.0 61h20" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M434.0 61h8.0" /><path class="nonterm nt2" d="M526.0 61h8.0" /><rect height="22" width="84" x="442" y="50"></rect><text x="484" y="65">PublicID</text></g><path class="choice ch6" d="M534.0 61h20" /></g><g>
+<path class="choice ch1" d="M554.0 61h0.0" /><path class="choice ch2" d="M622.0 61h0.0" /><path class="choice ch3" d="M554.0 61a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10" /><g>
+<path class="skip" d="M574.0 41h28" /></g><path class="choice ch4" d="M602.0 41a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10" /><path class="choice ch5" d="M554.0 61h20" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M574.0 61h0.0" /><path class="nonterm nt2" d="M602.0 61h0.0" /><rect height="22" width="28" x="574" y="50"></rect><text x="588" y="65">S</text></g><path class="choice ch6" d="M602.0 61h20" /></g><path class="seq seq3" d="M622.0 61h10" /><g class="terminal ">
+<path class="terminal term1" d="M632.0 61h0.0" /><path class="terminal term2" d="M660.0 61h0.0" /><rect height="22" rx="10" ry="10" width="28" x="632" y="50"></rect><text x="646" y="65">&gt;</text></g></g><path d="M660 61h10" /><path class="end" d="M 670 61 h 20 m 0 -10 v 20"></path></g></svg>

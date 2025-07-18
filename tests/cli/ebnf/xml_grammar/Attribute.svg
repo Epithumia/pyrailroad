@@ -1,0 +1,8 @@
+<svg class="railroad-diagram" height="62" viewBox="0 0 374 62" width="374">
+<g transform="translate(.5 .5)">
+<g>
+<path class="start" d="M20 21v20m0 -10h82" /><text style="text-anchor:start" x="20" y="16">Attribute</text></g><path d="M102 31h10" /><g>
+<path class="seq seq1" d="M112 31h0.0" /><path class="seq seq2" d="M324.0 31h0.0" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M112.0 31h0.0" /><path class="nonterm nt2" d="M164.0 31h0.0" /><rect height="22" width="52" x="112" y="20"></rect><text x="138" y="35">Name</text></g><path class="seq seq4" d="M164.0 31h10" /><path class="seq seq3" d="M174.0 31h10" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M184.0 31h0.0" /><path class="nonterm nt2" d="M220.0 31h0.0" /><rect height="22" width="36" x="184" y="20"></rect><text x="202" y="35">Eq</text></g><path class="seq seq4" d="M220.0 31h10" /><path class="seq seq3" d="M230.0 31h10" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M240.0 31h0.0" /><path class="nonterm nt2" d="M324.0 31h0.0" /><rect height="22" width="84" x="240" y="20"></rect><text x="282" y="35">AttValue</text></g></g><path d="M324 31h10" /><path class="end" d="M 334 31 h 20 m 0 -10 v 20"></path></g></svg>

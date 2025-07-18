@@ -1,0 +1,15 @@
+<svg class="railroad-diagram" height="92" viewBox="0 0 634 92" width="634">
+<g transform="translate(.5 .5)">
+<g>
+<path class="start" d="M20 51v20m0 -10h90" /><text style="text-anchor:start" x="20" y="46">ExternalID</text></g><g>
+<path class="choice ch1" d="M110 61h0.0" /><path class="choice ch2" d="M594.0 61h0.0" /><path class="choice ch3" d="M110.0 61a10 10 0 0 0 10 -10v-10a10 10 0 0 1 10 -10" /><g>
+<path class="seq seq1" d="M130.0 31h92.0" /><path class="seq seq2" d="M482.0 31h92.0" /><g class="terminal ">
+<path class="terminal term1" d="M222.0 31h0.0" /><path class="terminal term2" d="M290.0 31h0.0" /><rect height="22" rx="10" ry="10" width="68" x="222" y="20"></rect><text x="256" y="35">SYSTEM</text></g><path class="seq seq4" d="M290.0 31h10" /><path class="seq seq3" d="M300.0 31h10" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M310.0 31h0.0" /><path class="nonterm nt2" d="M338.0 31h0.0" /><rect height="22" width="28" x="310" y="20"></rect><text x="324" y="35">S</text></g><path class="seq seq4" d="M338.0 31h10" /><path class="seq seq3" d="M348.0 31h10" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M358.0 31h0.0" /><path class="nonterm nt2" d="M482.0 31h0.0" /><rect height="22" width="124" x="358" y="20"></rect><text x="420" y="35">SystemLiteral</text></g></g><path class="choice ch4" d="M574.0 31a10 10 0 0 1 10 10v10a10 10 0 0 0 10 10" /><path class="choice ch5" d="M110.0 61h20" /><g>
+<path class="seq seq1" d="M130.0 61h0.0" /><path class="seq seq2" d="M574.0 61h0.0" /><g class="terminal ">
+<path class="terminal term1" d="M130.0 61h0.0" /><path class="terminal term2" d="M198.0 61h0.0" /><rect height="22" rx="10" ry="10" width="68" x="130" y="50"></rect><text x="164" y="65">PUBLIC</text></g><path class="seq seq4" d="M198.0 61h10" /><path class="seq seq3" d="M208.0 61h10" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M218.0 61h0.0" /><path class="nonterm nt2" d="M246.0 61h0.0" /><rect height="22" width="28" x="218" y="50"></rect><text x="232" y="65">S</text></g><path class="seq seq4" d="M246.0 61h10" /><path class="seq seq3" d="M256.0 61h10" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M266.0 61h0.0" /><path class="nonterm nt2" d="M382.0 61h0.0" /><rect height="22" width="116" x="266" y="50"></rect><text x="324" y="65">PubidLiteral</text></g><path class="seq seq4" d="M382.0 61h10" /><path class="seq seq3" d="M392.0 61h10" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M402.0 61h0.0" /><path class="nonterm nt2" d="M430.0 61h0.0" /><rect height="22" width="28" x="402" y="50"></rect><text x="416" y="65">S</text></g><path class="seq seq4" d="M430.0 61h10" /><path class="seq seq3" d="M440.0 61h10" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M450.0 61h0.0" /><path class="nonterm nt2" d="M574.0 61h0.0" /><rect height="22" width="124" x="450" y="50"></rect><text x="512" y="65">SystemLiteral</text></g></g><path class="choice ch6" d="M574.0 61h20" /></g><path class="end" d="M 594 61 h 20 m 0 -10 v 20"></path></g></svg>

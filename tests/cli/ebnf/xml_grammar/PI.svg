@@ -1,0 +1,13 @@
+<svg class="railroad-diagram" height="71" viewBox="0 0 638 71" width="638">
+<g transform="translate(.5 .5)">
+<g>
+<path class="start" d="M20 30v20m0 -10h26" /><text style="text-anchor:start" x="20" y="25">PI</text></g><path d="M46 40h10" /><g>
+<path class="seq seq1" d="M56 40h0.0" /><path class="seq seq2" d="M588.0 40h0.0" /><g class="terminal ">
+<path class="terminal term1" d="M56.0 40h0.0" /><path class="terminal term2" d="M92.0 40h0.0" /><rect height="22" rx="10" ry="10" width="36" x="56" y="29"></rect><text x="74" y="44">&lt;?</text></g><path class="seq seq4" d="M92.0 40h10" /><path class="seq seq3" d="M102.0 40h10" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M112.0 40h0.0" /><path class="nonterm nt2" d="M196.0 40h0.0" /><rect height="22" width="84" x="112" y="29"></rect><text x="154" y="44">PITarget</text></g><path class="seq seq4" d="M196.0 40h10" /><g>
+<path class="choice ch1" d="M206.0 40h0.0" /><path class="choice ch2" d="M542.0 40h0.0" /><path class="choice ch3" d="M206.0 40a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10" /><g>
+<path class="skip" d="M226.0 20h296" /></g><path class="choice ch4" d="M522.0 20a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10" /><path class="choice ch5" d="M206.0 40h20" /><g>
+<path class="seq seq1" d="M226.0 40h0.0" /><path class="seq seq2" d="M522.0 40h0.0" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M226.0 40h0.0" /><path class="nonterm nt2" d="M254.0 40h0.0" /><rect height="22" width="28" x="226" y="29"></rect><text x="240" y="44">S</text></g><path class="seq seq4" d="M254.0 40h10" /><path class="seq seq3" d="M264.0 40h10" /><g class="expression ">
+<path class="expression exp1" d="M274.0 40h0.0" /><path class="expression exp2" d="M522.0 40h0.0" /><polygon points="284.0, 29 512.0, 29 522.0, 40 512.0, 51 284.0, 51 274.0, 40"></polygon><text x="398" y="44">Char* - ( Char* ?&gt; Char* )</text></g></g><path class="choice ch6" d="M522.0 40h20" /></g><path class="seq seq3" d="M542.0 40h10" /><g class="terminal ">
+<path class="terminal term1" d="M552.0 40h0.0" /><path class="terminal term2" d="M588.0 40h0.0" /><rect height="22" rx="10" ry="10" width="36" x="552" y="29"></rect><text x="570" y="44">?&gt;</text></g></g><path d="M588 40h10" /><path class="end" d="M 598 40 h 20 m 0 -10 v 20"></path></g></svg>

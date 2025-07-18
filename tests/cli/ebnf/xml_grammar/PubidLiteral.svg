@@ -1,0 +1,21 @@
+<svg class="railroad-diagram" height="128" viewBox="0 0 486 128" width="486">
+<g transform="translate(.5 .5)">
+<g>
+<path class="start" d="M20 78v20m0 -10h106" /><text style="text-anchor:start" x="20" y="73">PubidLiteral</text></g><g>
+<path class="choice ch1" d="M126 88h0.0" /><path class="choice ch2" d="M446.0 88h0.0" /><path class="choice ch3" d="M126.0 88a10 10 0 0 0 10 -10v-28a10 10 0 0 1 10 -10" /><g>
+<path class="seq seq1" d="M146.0 40h26.0" /><path class="seq seq2" d="M400.0 40h26.0" /><g class="terminal ">
+<path class="terminal term1" d="M172.0 40h0.0" /><path class="terminal term2" d="M200.0 40h0.0" /><rect height="22" rx="10" ry="10" width="28" x="172" y="29"></rect><text x="186" y="44">&quot;</text></g><path class="seq seq4" d="M200.0 40h10" /><g>
+<path class="choice ch1" d="M210.0 40h0.0" /><path class="choice ch2" d="M362.0 40h0.0" /><path class="choice ch3" d="M210.0 40a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10" /><g>
+<path class="skip" d="M230.0 20h112" /></g><path class="choice ch4" d="M342.0 20a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10" /><path class="choice ch5" d="M210.0 40h20" /><g>
+<path class="oneor oom1" d="M230.0 40h0.0" /><path class="oneor oom2" d="M342.0 40h0.0" /><path class="oneor oom3" d="M230.0 40h10" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M240.0 40h0.0" /><path class="nonterm nt2" d="M332.0 40h0.0" /><rect height="22" width="92" x="240" y="29"></rect><text x="286" y="44">PubidChar</text></g><path class="oneor oom4" d="M332.0 40h10" /><path class="oneor oom5" d="M240.0 40a10 10 0 0 0 -10 10v0a10 10 0 0 0 10 10" /><g>
+<path class="skip" d="M240.0 60h92" /></g><path class="oneor oom6" d="M332.0 60a10 10 0 0 0 10 -10v0a10 10 0 0 0 -10 -10" /></g><path class="choice ch6" d="M342.0 40h20" /></g><path class="seq seq3" d="M362.0 40h10" /><g class="terminal ">
+<path class="terminal term1" d="M372.0 40h0.0" /><path class="terminal term2" d="M400.0 40h0.0" /><rect height="22" rx="10" ry="10" width="28" x="372" y="29"></rect><text x="386" y="44">&quot;</text></g></g><path class="choice ch4" d="M426.0 40a10 10 0 0 1 10 10v28a10 10 0 0 0 10 10" /><path class="choice ch5" d="M126.0 88h20" /><g>
+<path class="seq seq1" d="M146.0 88h0.0" /><path class="seq seq2" d="M426.0 88h0.0" /><g class="terminal ">
+<path class="terminal term1" d="M146.0 88h0.0" /><path class="terminal term2" d="M174.0 88h0.0" /><rect height="22" rx="10" ry="10" width="28" x="146" y="77"></rect><text x="160" y="92">&apos;</text></g><path class="seq seq4" d="M174.0 88h10" /><g>
+<path class="choice ch1" d="M184.0 88h0.0" /><path class="choice ch2" d="M388.0 88h0.0" /><path class="choice ch3" d="M184.0 88a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10" /><g>
+<path class="skip" d="M204.0 68h164" /></g><path class="choice ch4" d="M368.0 68a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10" /><path class="choice ch5" d="M184.0 88h20" /><g>
+<path class="oneor oom1" d="M204.0 88h0.0" /><path class="oneor oom2" d="M368.0 88h0.0" /><path class="oneor oom3" d="M204.0 88h10" /><g class="expression ">
+<path class="expression exp1" d="M214.0 88h0.0" /><path class="expression exp2" d="M358.0 88h0.0" /><polygon points="224.0, 77 348.0, 77 358.0, 88 348.0, 99 224.0, 99 214.0, 88"></polygon><text x="286" y="92">PubidChar - &apos;</text></g><path class="oneor oom4" d="M358.0 88h10" /><path class="oneor oom5" d="M214.0 88a10 10 0 0 0 -10 10v0a10 10 0 0 0 10 10" /><g>
+<path class="skip" d="M214.0 108h144" /></g><path class="oneor oom6" d="M358.0 108a10 10 0 0 0 10 -10v0a10 10 0 0 0 -10 -10" /></g><path class="choice ch6" d="M368.0 88h20" /></g><path class="seq seq3" d="M388.0 88h10" /><g class="terminal ">
+<path class="terminal term1" d="M398.0 88h0.0" /><path class="terminal term2" d="M426.0 88h0.0" /><rect height="22" rx="10" ry="10" width="28" x="398" y="77"></rect><text x="412" y="92">&apos;</text></g></g><path class="choice ch6" d="M426.0 88h20" /></g><path class="end" d="M 446 88 h 20 m 0 -10 v 20"></path></g></svg>

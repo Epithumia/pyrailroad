@@ -1,0 +1,8 @@
+<svg class="railroad-diagram" height="62" viewBox="0 0 406 62" width="406">
+<g transform="translate(.5 .5)">
+<g>
+<path class="start" d="M20 21v20m0 -10h74" /><text style="text-anchor:start" x="20" y="16">PublicID</text></g><path d="M94 31h10" /><g>
+<path class="seq seq1" d="M104 31h0.0" /><path class="seq seq2" d="M356.0 31h0.0" /><g class="terminal ">
+<path class="terminal term1" d="M104.0 31h0.0" /><path class="terminal term2" d="M172.0 31h0.0" /><rect height="22" rx="10" ry="10" width="68" x="104" y="20"></rect><text x="138" y="35">PUBLIC</text></g><path class="seq seq4" d="M172.0 31h10" /><path class="seq seq3" d="M182.0 31h10" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M192.0 31h0.0" /><path class="nonterm nt2" d="M220.0 31h0.0" /><rect height="22" width="28" x="192" y="20"></rect><text x="206" y="35">S</text></g><path class="seq seq4" d="M220.0 31h10" /><path class="seq seq3" d="M230.0 31h10" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M240.0 31h0.0" /><path class="nonterm nt2" d="M356.0 31h0.0" /><rect height="22" width="116" x="240" y="20"></rect><text x="298" y="35">PubidLiteral</text></g></g><path d="M356 31h10" /><path class="end" d="M 366 31 h 20 m 0 -10 v 20"></path></g></svg>

@@ -7,11 +7,11 @@ from typing_extensions import Annotated, Optional
 from pathlib import Path
 
 from .parser import parse_json, parse
+from .ebnf_parser import parse_ebnf
 from .utils import write_diagram
 
-from rich.markdown import Markdown
-
 cli = typer.Typer(add_completion=False, rich_markup_mode="rich", no_args_is_help=True)
+
 
 input_file_argument = Annotated[
     Path,
@@ -39,6 +39,18 @@ target_argument = Annotated[
     ),
 ]
 
+target_dir_argument = Annotated[
+    Path,
+    typer.Argument(
+        file_okay=False,
+        dir_okay=True,
+        writable=True,
+        resolve_path=True,
+        show_default=False,
+        help="Path to the output directory.",
+    ),
+]
+
 parameters_argument = Annotated[
     Optional[Path],
     typer.Argument(
@@ -51,6 +63,46 @@ parameters_argument = Annotated[
         help="Path to the parameters file. If omitted, default parameters will be used.",
     ),
 ]
+
+help_ebnf = """
+Parses a EBNF [bold]FILE[/bold] for railroad diagrams and writes them into [bold]TARGET[/bold] directory.
+Various parameters of the diagram engine can be specified in a JSON [bold]PARAMETERS[/bold] file.
+
+Example...
+"""
+
+
+@cli.command("ebnf", no_args_is_help=True, help=help_ebnf)
+def parse_ebnf_file(
+    file: input_file_argument,
+    target: target_dir_argument,
+    parameters: parameters_argument = None,
+    to_json: Annotated[
+        bool,
+        typer.Option(
+            "--to-json",
+            help="Writes JSON source files for the diagrams instead of SVG files.",
+        ),
+    ] = False,
+):
+    if parameters:
+        with open(parameters, "r") as p:
+            params = json.loads(p.read())
+    else:
+        params = {"standalone": False, "text": False, "type": "complex", "css": None}
+    with open(file) as f:
+        diagrams = parse_ebnf(f.read(), params)
+    if not target.exists():
+        target.mkdir()
+    for name in diagrams.keys():
+        if not to_json:
+            write_diagram(
+                diagrams[name], target.joinpath(f"{name}.svg"), params["standalone"], params["text"], params["css"]
+            )
+        else:
+            with open(target.joinpath(f"{name}.json"), "w") as f:
+                f.write(json.dumps(diagrams[name].to_dict()))
+
 
 help_yaml = """
 Parses a YAML [bold]FILE[/bold] for railroad diagrams and writes it into [bold]TARGET[/bold] file.
@@ -81,6 +133,8 @@ def parse_yaml_file(
             params = yaml.safe_load(f.read())
         if "standalone" not in params:
             params["standalone"] = False
+        if "text" not in params:
+            params["text"] = False
         if "css" not in params:
             params["css"] = None
         else:
@@ -89,13 +143,15 @@ def parse_yaml_file(
         if "type" not in params:
             params["type"] = "complex"
     else:
-        params = {"standalone": False, "type": "complex", "css": None}
+        params = {"standalone": False, "text": False, "type": "complex", "css": None}
     with open(file) as f:
         yaml_input = yaml.safe_load(f.read())
         json_input = json.dumps(yaml_input)
         diagram = parse_json(json_input, params)
     if diagram:
-        write_diagram(diagram, target, params["standalone"], params["css"])
+        write_diagram(
+            diagram, target, params["standalone"], params["text"], params["css"]
+        )
 
 
 help_json = """
@@ -134,6 +190,8 @@ def parse_json_file(
             params = json.loads(p.read())
         if "standalone" not in params:
             params["standalone"] = False
+        if "text" not in params:
+            params["text"] = False
         if "css" not in params:
             params["css"] = None
         else:
@@ -142,11 +200,13 @@ def parse_json_file(
         if "type" not in params:
             params["type"] = "complex"
     else:
-        params = {"standalone": False, "type": "complex", "css": None}
+        params = {"standalone": False, "text": False, "type": "complex", "css": None}
     with open(file) as f:
         diagram = parse_json(f.read(), params)
     if diagram:
-        write_diagram(diagram, target, params["standalone"], params["css"])
+        write_diagram(
+            diagram, target, params["standalone"], params["text"], params["css"]
+        )
 
 
 help_dsl = """
@@ -183,11 +243,18 @@ def parse_dsl_file(
             help="Writes a standalone SVG containing the stylesheet to display it.",
         ),
     ] = False,
+    text: Annotated[
+        bool,
+        typer.Option(
+            "--text",
+            help="Writes the diagram in text format",
+        ),
+    ] = False,
 ) -> None:
     with open(file) as f:
         diagram = parse(f.read(), simple)
     if diagram:
-        write_diagram(diagram, target, standalone)
+        write_diagram(diagram, target, standalone, text)
 
 
 if __name__ == "__main__":

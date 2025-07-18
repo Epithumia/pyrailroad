@@ -1,0 +1,7 @@
+<svg class="railroad-diagram" height="71" viewBox="0 0 210 71" width="210">
+<g transform="translate(.5 .5)">
+<g>
+<path class="start" d="M20 21v20m0 -10h58" /><text style="text-anchor:start" x="20" y="16">branch</text></g><path d="M78 31h10" /><g>
+<path class="oneor oom1" d="M88 31h0.0" /><path class="oneor oom2" d="M160.0 31h0.0" /><path class="oneor oom3" d="M88.0 31h10" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M98.0 31h0.0" /><path class="nonterm nt2" d="M150.0 31h0.0" /><rect height="22" width="52" x="98" y="20"></rect><text x="124" y="35">term</text></g><path class="oneor oom4" d="M150.0 31h10" /><path class="oneor oom5" d="M98.0 31a10 10 0 0 0 -10 10v0a10 10 0 0 0 10 10" /><g>
+<path class="skip" d="M98.0 51h52" /></g><path class="oneor oom6" d="M150.0 51a10 10 0 0 0 10 -10v0a10 10 0 0 0 -10 -10" /></g><path d="M160 31h10" /><path class="end" d="M 170 31 h 20 m 0 -10 v 20"></path></g></svg>

@@ -11,3 +11,5 @@ COMMENT_CHAR_WIDTH = 7  # comments are in smaller text by default
 INTERNAL_ALIGNMENT = (
     "center"  # how to align items when they have extra space. left/right/center
 )
+ESCAPE_HTML = True  # Should Diagram.write_text() produce HTML-escaped text, or raw?
+FORMATTING = "unicode"  # "unicode" or "ascii"

@@ -11,6 +11,11 @@ svg.railroad-diagram path.start {
     stroke:black;
     fill:rgba(0,0,0,1);
 }
+svg.railroad-diagram polygon {
+    stroke-width:3;
+    stroke:black;
+    fill:hsl(120,100%,90%);
+}
 svg.railroad-diagram text {
     font:bold 14px monospace;
     text-anchor:middle;

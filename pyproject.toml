@@ -7,7 +7,7 @@ name = "pyrailroad"
 authors = [
     {name = "Rafael Lopez", email = "rafael.lopez@universite-paris-saclay.fr"},
 ]
-description = "Python package to draw railroad (or syntax) diagrams. Based largely on railroad-daigram and the partial parser by tbatkins."
+description = "Python package to draw railroad (or syntax) diagrams. Based largely on railroad-diagram and the partial parser by tabatkins."
 readme = "README.md"
 requires-python = ">=3.10"
 keywords = ["railroad", "diagram"]
@@ -16,7 +16,7 @@ classifiers = [
     "Programming Language :: Python :: 3",
 ]
 dependencies = [
-    "typer[all]", "pyyaml", "mkdocs", "mkdocs-material"
+    "typer[all]", "pyyaml", "DHParser==1.8.3"
 ]
 dynamic = ["version"]
 
@@ -25,6 +25,7 @@ version = {attr = "pyrailroad.VERSION"}
 
 [project.optional-dependencies]
 tests = ["pytest", "coverage"]
+documentation = ["mkdocs", "mkdocs-material", "mkdocs-plugin-inline-svg", "mkdocstrings[python]", "markdown-exec"]
 
 [project.scripts]
 py-railroad = "pyrailroad.cli:cli"

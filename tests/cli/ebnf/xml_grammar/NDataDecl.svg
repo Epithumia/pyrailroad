@@ -1,0 +1,9 @@
+<svg class="railroad-diagram" height="62" viewBox="0 0 390 62" width="390">
+<g transform="translate(.5 .5)">
+<g>
+<path class="start" d="M20 21v20m0 -10h82" /><text style="text-anchor:start" x="20" y="16">NDataDecl</text></g><path d="M102 31h10" /><g>
+<path class="seq seq1" d="M112 31h0.0" /><path class="seq seq2" d="M340.0 31h0.0" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M112.0 31h0.0" /><path class="nonterm nt2" d="M140.0 31h0.0" /><rect height="22" width="28" x="112" y="20"></rect><text x="126" y="35">S</text></g><path class="seq seq4" d="M140.0 31h10" /><path class="seq seq3" d="M150.0 31h10" /><g class="terminal ">
+<path class="terminal term1" d="M160.0 31h0.0" /><path class="terminal term2" d="M220.0 31h0.0" /><rect height="22" rx="10" ry="10" width="60" x="160" y="20"></rect><text x="190" y="35">NDATA</text></g><path class="seq seq4" d="M220.0 31h10" /><path class="seq seq3" d="M230.0 31h10" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M240.0 31h0.0" /><path class="nonterm nt2" d="M268.0 31h0.0" /><rect height="22" width="28" x="240" y="20"></rect><text x="254" y="35">S</text></g><path class="seq seq4" d="M268.0 31h10" /><path class="seq seq3" d="M278.0 31h10" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M288.0 31h0.0" /><path class="nonterm nt2" d="M340.0 31h0.0" /><rect height="22" width="52" x="288" y="20"></rect><text x="314" y="35">Name</text></g></g><path d="M340 31h10" /><path class="end" d="M 350 31 h 20 m 0 -10 v 20"></path></g></svg>

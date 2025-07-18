@@ -1,7 +1,146 @@
-<!-- markdownlint-disable-file MD033 MD024 -->
+<!-- markdownlint-disable-file MD033 MD024 MD046 -->
 # Text elements
 
-Text elements are single elements on the diagram and the base building blocks. They are either [**Terminal**](#terminal), [**NonTerminal**](#nonterminal), [**Comment**](#comment), [**Arrow**](#arrow) or [**Skip**](#skip).
+Text elements are single elements on the diagram and the base building blocks. They are either [**Expression**](#expression), [**Terminal**](#terminal), [**NonTerminal**](#nonterminal), [**Comment**](#comment), [**Arrow**](#arrow) or [**Skip**](#skip).
+
+## Expression
+
+An expression is either a sub-diagram for a bigger diagram (typically, a clause in a grammar, which will appear as non-terminal in another part of the grammar), or something that the EBNF parser couldn't handle on its own (and will need a little help rewriting).
+
+For exemple, the [W3C blindfold grammar for EBNF](https://www.w3.org/2001/06/blindfold/grammar) is specified as follows:
+
+```ebnf
+grammar ::= clause*                   # A grammar is zero or more clauses
+clause  ::= clauseName "::=" pattern  # A clause associates a name with a pattern
+pattern ::= branch ("|" branch)*      # A pattern has one or more branches (alternatives)
+branch  ::= term+                     # A branch is one or more terms
+term    ::=                           # A term is:  
+            string                    #  a string in single or double quotes
+          | charset                   #  a character set (as in perl: [a-z0-9], etc) 
+          | "(" pattern ")"           #  a pattern, in parentheses 
+          | clauseName                #  a clauseName, matching a pattern by name
+          | term [*+?]                #  a term followed by a "*", "+", or "?" operator
+```
+
+There are five expressions in that grammar, and running py-railroad on it produces the following diagrams:
+
+<figure markdown>
+![grammar](../images/w3c_blindfold/grammar.svg)
+<figcaption>grammar</figcaption>
+</figure>
+<figure markdown>
+![clause](../images/w3c_blindfold/clause.svg)
+<figcaption>clause</figcaption>
+</figure>
+<figure markdown>
+![pattern](../images/w3c_blindfold/pattern.svg)
+<figcaption>pattern</figcaption>
+</figure>
+<figure markdown>
+![branch](../images/w3c_blindfold/branch.svg)
+<figcaption>branch</figcaption>
+</figure>
+<figure markdown>
+![term](../images/w3c_blindfold/term.svg)
+<figcaption>term</figcaption>
+</figure>
+
+In the last expression, the last element is [*+?] because the parser treated it as a character range and couldn't tell whether it was a finite list of characters (a [**Choice**](block_elem.md#choice)) or an actual range (ie. "all characters from a to z").
+
+### Syntax
+
+=== "DSL"
+
+    Basic syntax:
+
+    ```dsl
+    Expression: my text
+    ```
+
+    With a href:
+
+    ```dsl
+    Expression "https://github.com": github
+    ```
+
+=== "JSON"
+
+    Basic syntax:
+
+    ```json
+    {
+        "element": "Expression",
+        "text": "my expression"
+    }
+    ```
+
+    With href:
+
+    ```json
+    {
+        "element": "Expression",
+        "text": "github",
+        "href": "https://github.com"
+    }
+    ```
+
+    With additional options:
+
+    ```json
+    {
+        "element": "Expression",
+        "text": "github",
+        "href": "https://github.com",
+        "title": "This is a link",
+        "cls": "custom_terminal"
+    }
+    ```
+
+=== "YAML"
+
+    Basic:
+
+    ```yaml
+    element: Expression
+    text: my expression
+    ```
+
+    With href
+
+    ```yaml
+    element: Expression
+    text: github
+    href: https://github.com
+    ```
+
+    With additional options:
+
+    ```yaml
+    element: Expression
+    text: github
+    href: https://github.com
+    title: This is a link
+    cls: custom_terminal
+    ```
+
+### Properties
+
+### Output
+
+<figure markdown>
+![Expression with only text](../images/expression_base.svg)
+<figcaption>Expression</figcaption>
+</figure>
+
+<figure markdown>
+![Expression with href](../images/expression_href.svg)
+<figcaption>Expression with href</figcaption>
+</figure>
+
+<figure markdown>
+![Expression with additional options](../images/expression_full.svg)
+<figcaption>Expression with additional options</figcaption>
+</figure>
 
 ## Terminal
 
@@ -20,7 +159,7 @@ Terminal represents literal text. The Terminal element has a required property `
     With a href:
 
     ```dsl
-    Terminal https://github.com: github
+    Terminal"https://github.com": github
     ```
 
 === "JSON"
@@ -122,7 +261,7 @@ NonTerminal represents another production or diagram. The NonTerminal element ha
     With a href:
 
     ```dsl
-    NonTerminal https://github.com: github
+    NonTerminal "https://github.com": github
     ```
 
 === "JSON"
@@ -224,7 +363,7 @@ Represents a comment. The Comment element has a required property `text`, and th
     With a href:
 
     ```dsl
-    Comment https://github.com: github
+    Comment "https://github.com": github
     ```
 
 === "JSON"

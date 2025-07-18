@@ -1,0 +1,7 @@
+<svg class="railroad-diagram" height="92" viewBox="0 0 258 92" width="258">
+<g transform="translate(.5 .5)">
+<g>
+<path class="start" d="M20 51v20m0 -10h90" /><text style="text-anchor:start" x="20" y="46">EntityDecl</text></g><g>
+<path class="choice ch1" d="M110 61h0.0" /><path class="choice ch2" d="M218.0 61h0.0" /><path class="choice ch3" d="M110.0 61a10 10 0 0 0 10 -10v-10a10 10 0 0 1 10 -10" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M130.0 31h0.0" /><path class="nonterm nt2" d="M198.0 31h0.0" /><rect height="22" width="68" x="130" y="20"></rect><text x="164" y="35">GEDecl</text></g><path class="choice ch4" d="M198.0 31a10 10 0 0 1 10 10v10a10 10 0 0 0 10 10" /><path class="choice ch5" d="M110.0 61h20" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M130.0 61h0.0" /><path class="nonterm nt2" d="M198.0 61h0.0" /><rect height="22" width="68" x="130" y="50"></rect><text x="164" y="65">PEDecl</text></g><path class="choice ch6" d="M198.0 61h20" /></g><path class="end" d="M 218 61 h 20 m 0 -10 v 20"></path></g></svg>

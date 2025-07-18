@@ -12,6 +12,19 @@ def silent_remove(filename):
             raise  # re-raise exception if a different error occurred
 
 
+def silent_remove_dir(path):
+    try:
+        dirpath, _, filenames = list(os.walk(path))[0]
+        for file in filenames:
+            silent_remove(os.path.join(dirpath, file))
+        os.rmdir(path)
+    except OSError as e:  # this would be "except OSError, e:" before Python 2.6
+        if e.errno != errno.ENOENT:  # errno.ENOENT = no such file or directory
+            raise  # re-raise exception if a different error occurred
+    except IndexError:
+        pass
+
+
 class BaseTest(unittest.TestCase):
     def setUp(self) -> None:
         return super().setUp()
@@ -31,7 +44,7 @@ class UnitTests(BaseTest):
         from pyrailroad.elements import Terminal, Diagram
 
         with pytest.raises(TypeError):
-            Terminal()
+            Terminal()  # type: ignore
         t = Terminal("text")
         assert t.to_dict() == {
             "element": "Terminal",
@@ -67,12 +80,18 @@ class UnitTests(BaseTest):
         with open("tests/terminal_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
+        text = []
+        d.write_text(text.append)
+        text = "".join(text)
+        with open("tests/terminal_text.txt", "r") as f:
+            text_result = f.read()
+        assert text == text_result
 
     def test_non_terminal(self):
         from pyrailroad.elements import NonTerminal, Diagram
 
         with pytest.raises(TypeError):
-            NonTerminal()
+            NonTerminal()  # type: ignore
         t = NonTerminal("text")
         assert t.to_dict() == {
             "element": "NonTerminal",
@@ -108,12 +127,18 @@ class UnitTests(BaseTest):
         with open("tests/non_terminal_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
+        text = []
+        d.write_text(text.append)
+        text = "".join(text)
+        with open("tests/non_terminal_text.txt", "r") as f:
+            text_result = f.read()
+        assert text == text_result
 
     def test_comment(self):
         from pyrailroad.elements import Comment, Diagram
 
         with pytest.raises(TypeError):
-            Comment()
+            Comment()  # type: ignore
         t = Comment("text")
         assert t.to_dict() == {
             "element": "Comment",
@@ -149,6 +174,12 @@ class UnitTests(BaseTest):
         with open("tests/comment_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
+        text = []
+        d.write_text(text.append)
+        text = "".join(text)
+        with open("tests/comment_text.txt", "r") as f:
+            text_result = f.read()
+        assert text == text_result
 
     def test_arrow(self):
         from pyrailroad.elements import Arrow, Diagram
@@ -166,6 +197,12 @@ class UnitTests(BaseTest):
         with open("tests/arrow_right_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
+        text = []
+        d.write_text(text.append)
+        text = "".join(text)
+        with open("tests/arrow_right_text.txt", "r") as f:
+            text_result = f.read()
+        assert text == text_result
 
         t = Arrow("left")
         assert t.to_dict() == {"element": "Arrow", "direction": "left"}
@@ -180,6 +217,12 @@ class UnitTests(BaseTest):
         with open("tests/arrow_left_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
+        text = []
+        d.write_text(text.append)
+        text = "".join(text)
+        with open("tests/arrow_left_text.txt", "r") as f:
+            text_result = f.read()
+        assert text == text_result
 
         t = Arrow("undirected")
         assert t.to_dict() == {"element": "Arrow", "direction": "undirected"}
@@ -194,6 +237,59 @@ class UnitTests(BaseTest):
         with open("tests/arrow_undirected_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
+        text = []
+        d.write_text(text.append)
+        text = "".join(text)
+        with open("tests/arrow_undirected_text.txt", "r") as f:
+            text_result = f.read()
+        assert text == text_result
+
+    def test_expression(self):
+        from pyrailroad.elements import Expression, Diagram
+
+        with pytest.raises(TypeError):
+            Expression()  # type: ignore
+        t = Expression("text")
+        assert t.to_dict() == {
+            "element": "Expression",
+            "text": "text",
+            "href": None,
+            "title": None,
+            "cls": "",
+        }
+        t = Expression("text", "href")
+        assert t.to_dict() == {
+            "element": "Expression",
+            "text": "text",
+            "href": "href",
+            "title": None,
+            "cls": "",
+        }
+        t = Expression("text", "href", "title")
+        assert t.to_dict() == {
+            "element": "Expression",
+            "text": "text",
+            "href": "href",
+            "title": "title",
+            "cls": "",
+        }
+        d = Diagram(t)
+        svg = []
+        d.write_svg(svg.append)
+        with open("tests/expression.svg", "r") as f:
+            svg_result = f.read()
+        assert " ".join(svg) == svg_result
+        svg = []
+        d.write_standalone(svg.append)
+        with open("tests/expression_standalone.svg", "r") as f:
+            svg_result = f.read()
+        assert " ".join(svg) == svg_result
+        text = []
+        d.write_text(text.append)
+        text = "".join(text)
+        with open("tests/expression_text.txt", "r") as f:
+            text_result = f.read()
+        assert text == text_result
 
     def test_skip(self):
         from pyrailroad.elements import Skip, Diagram
@@ -211,6 +307,12 @@ class UnitTests(BaseTest):
         with open("tests/skip_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
+        text = []
+        d.write_text(text.append)
+        text = "".join(text)
+        with open("tests/skip_text.txt", "r") as f:
+            text_result = f.read()
+        assert text == text_result
 
     def test_sequence(self):
         from pyrailroad.elements import Terminal, Sequence, Diagram
@@ -246,6 +348,12 @@ class UnitTests(BaseTest):
         with open("tests/sequence_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
+        text = []
+        d.write_text(text.append)
+        text = "".join(text)
+        with open("tests/sequence_text.txt", "r") as f:
+            text_result = f.read()
+        assert text == text_result
 
     def test_stack(self):
         from pyrailroad.elements import Terminal, Diagram, Stack
@@ -281,6 +389,12 @@ class UnitTests(BaseTest):
         with open("tests/stack_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
+        text = []
+        d.write_text(text.append)
+        text = "".join(text)
+        with open("tests/stack_text.txt", "r") as f:
+            text_result = f.read()
+        assert text == text_result
 
     def test_optional_sequence(self):
         from pyrailroad.elements import Terminal, OptionalSequence, Diagram
@@ -316,6 +430,12 @@ class UnitTests(BaseTest):
         with open("tests/optional_sequence_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
+        text = []
+        d.write_text(text.append)
+        text = "".join(text)
+        with open("tests/optional_sequence_text.txt", "r") as f:
+            text_result = f.read()
+        assert text == text_result
 
     def test_alternating_sequence(self):
         from pyrailroad.elements import Terminal, AlternatingSequence, Diagram
@@ -351,12 +471,18 @@ class UnitTests(BaseTest):
         with open("tests/alternating_sequence_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
+        text = []
+        d.write_text(text.append)
+        text = "".join(text)
+        with open("tests/alternating_sequence_text.txt", "r") as f:
+            text_result = f.read()
+        assert text == text_result
 
     def test_choice(self):
         from pyrailroad.elements import Terminal, Choice, Diagram
 
         with pytest.raises(TypeError):
-            Choice(Terminal("term1"), Terminal("term2"))
+            Choice(Terminal("term1"), Terminal("term2"))  # type: ignore
         t = Choice(0, Terminal("term1"), Terminal("term2"))
         assert t.to_dict() == {
             "default": 0,
@@ -389,6 +515,13 @@ class UnitTests(BaseTest):
         with open("tests/choice0_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
+        text = []
+        d.write_text(text.append)
+        text = "".join(text)
+        with open("tests/choice0_text.txt", "r") as f:
+            text_result = f.read()
+        assert text == text_result
+
         t = Choice(1, Terminal("term1"), Terminal("term2"))
         assert t.to_dict() == {
             "default": 1,
@@ -421,16 +554,22 @@ class UnitTests(BaseTest):
         with open("tests/choice1_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
+        text = []
+        d.write_text(text.append)
+        text = "".join(text)
+        with open("tests/choice1_text.txt", "r") as f:
+            text_result = f.read()
+        assert text == text_result
 
     def test_multiple_choice(self):
         from pyrailroad.elements import Terminal, MultipleChoice, Diagram
 
         with pytest.raises(TypeError):
-            MultipleChoice()
+            MultipleChoice()  # type: ignore
         with pytest.raises(TypeError):
-            MultipleChoice(Terminal("term1"))
+            MultipleChoice(Terminal("term1"))  # type: ignore
         with pytest.raises(TypeError):
-            MultipleChoice(Terminal("term1"), Terminal("term2"))
+            MultipleChoice(Terminal("term1"), Terminal("term2"))  # type: ignore
         t = MultipleChoice(0, "all", Terminal("term1"), Terminal("term2"))
         assert t.to_dict() == {
             "default": 0,
@@ -464,6 +603,12 @@ class UnitTests(BaseTest):
         with open("tests/multiple_choice0_all_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
+        text = []
+        d.write_text(text.append)
+        text = "".join(text)
+        with open("tests/multiple_choice0_all_text.txt", "r") as f:
+            text_result = f.read()
+        assert text == text_result
         t = MultipleChoice(1, "all", Terminal("term1"), Terminal("term2"))
         assert t.to_dict() == {
             "default": 1,
@@ -497,6 +642,13 @@ class UnitTests(BaseTest):
         with open("tests/multiple_choice1_all_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
+        text = []
+        d.write_text(text.append)
+        text = "".join(text)
+        with open("tests/multiple_choice1_all_text.txt", "r") as f:
+            text_result = f.read()
+        assert text == text_result
+
         t = MultipleChoice(0, "any", Terminal("term1"), Terminal("term2"))
         assert t.to_dict() == {
             "default": 0,
@@ -530,6 +682,13 @@ class UnitTests(BaseTest):
         with open("tests/multiple_choice0_any_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
+        text = []
+        d.write_text(text.append)
+        text = "".join(text)
+        with open("tests/multiple_choice0_any_text.txt", "r") as f:
+            text_result = f.read()
+        assert text == text_result
+
         t = MultipleChoice(1, "any", Terminal("term1"), Terminal("term2"))
         assert t.to_dict() == {
             "default": 1,
@@ -563,6 +722,12 @@ class UnitTests(BaseTest):
         with open("tests/multiple_choice1_any_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
+        text = []
+        d.write_text(text.append)
+        text = "".join(text)
+        with open("tests/multiple_choice1_any_text.txt", "r") as f:
+            text_result = f.read()
+        assert text == text_result
 
     def test_horizontal_choice(self):
         from pyrailroad.elements import Terminal, HorizontalChoice, Diagram
@@ -615,6 +780,12 @@ class UnitTests(BaseTest):
         with open("tests/horizontal_choice_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
+        text = []
+        d.write_text(text.append)
+        text = "".join(text)
+        with open("tests/horizontal_choice_text.txt", "r") as f:
+            text_result = f.read()
+        assert text == text_result
 
     def test_optional(self):
         from pyrailroad.elements import Terminal, optional, Diagram
@@ -645,6 +816,12 @@ class UnitTests(BaseTest):
         with open("tests/optional_no_skip_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
+        text = []
+        d.write_text(text.append)
+        text = "".join(text)
+        with open("tests/optional_no_skip_text.txt", "r") as f:
+            text_result = f.read()
+        assert text == text_result
 
         t = optional(Terminal("term"), True)
         assert t.to_dict() == {
@@ -672,12 +849,18 @@ class UnitTests(BaseTest):
         with open("tests/optional_skip_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
+        text = []
+        d.write_text(text.append)
+        text = "".join(text)
+        with open("tests/optional_skip_text.txt", "r") as f:
+            text_result = f.read()
+        assert text == text_result
 
     def test_one_or_more(self):
         from pyrailroad.elements import Diagram, OneOrMore, Terminal
 
         with pytest.raises(TypeError):
-            OneOrMore()
+            OneOrMore()  # type: ignore
 
         t = OneOrMore(Terminal("term"))
         assert t.to_dict() == {
@@ -702,6 +885,12 @@ class UnitTests(BaseTest):
         with open("tests/one_or_more_skip_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
+        text = []
+        d.write_text(text.append)
+        text = "".join(text)
+        with open("tests/one_or_more_skip_text.txt", "r") as f:
+            text_result = f.read()
+        assert text == text_result
 
         t = OneOrMore(Terminal("term"), Terminal("repeat"))
         assert t.to_dict() == {
@@ -732,12 +921,18 @@ class UnitTests(BaseTest):
         with open("tests/one_or_more_repeat_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
+        text = []
+        d.write_text(text.append)
+        text = "".join(text)
+        with open("tests/one_or_more_repeat_text.txt", "r") as f:
+            text_result = f.read()
+        assert text == text_result
 
     def test_zero_or_more(self):
         from pyrailroad.elements import Diagram, zero_or_more, Terminal
 
         with pytest.raises(TypeError):
-            zero_or_more()  # NOSONAR
+            zero_or_more()  # type: ignore
 
         t = zero_or_more(Terminal("term"))
         assert t.to_dict() == {
@@ -769,6 +964,12 @@ class UnitTests(BaseTest):
         with open("tests/zero_or_more_skip1_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
+        text = []
+        d.write_text(text.append)
+        text = "".join(text)
+        with open("tests/zero_or_more_skip1_text.txt", "r") as f:
+            text_result = f.read()
+        assert text == text_result
 
         t = zero_or_more(Terminal("term"), skip=True)
         assert t.to_dict() == {
@@ -800,6 +1001,12 @@ class UnitTests(BaseTest):
         with open("tests/zero_or_more_skip0_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
+        text = []
+        d.write_text(text.append)
+        text = "".join(text)
+        with open("tests/zero_or_more_skip0_text.txt", "r") as f:
+            text_result = f.read()
+        assert text == text_result
 
         t = zero_or_more(Terminal("term"), Terminal("repeat"))
         assert t.to_dict() == {
@@ -837,6 +1044,12 @@ class UnitTests(BaseTest):
         with open("tests/zero_or_more_repeat1_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
+        text = []
+        d.write_text(text.append)
+        text = "".join(text)
+        with open("tests/zero_or_more_repeat1_text.txt", "r") as f:
+            text_result = f.read()
+        assert text == text_result
 
         t = zero_or_more(Terminal("term"), Terminal("repeat"), skip=True)
         assert t.to_dict() == {
@@ -874,12 +1087,18 @@ class UnitTests(BaseTest):
         with open("tests/zero_or_more_repeat0_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
+        text = []
+        d.write_text(text.append)
+        text = "".join(text)
+        with open("tests/zero_or_more_repeat0_text.txt", "r") as f:
+            text_result = f.read()
+        assert text == text_result
 
     def test_group(self):
         from pyrailroad.elements import Diagram, Group, Terminal
 
         with pytest.raises(TypeError):
-            Group()
+            Group()  # type: ignore
 
         t = Group(Terminal("term"))
         assert t.to_dict() == {
@@ -904,6 +1123,12 @@ class UnitTests(BaseTest):
         with open("tests/group_no_label_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
+        text = []
+        d.write_text(text.append)
+        text = "".join(text)
+        with open("tests/group_no_label_text.txt", "r") as f:
+            text_result = f.read()
+        assert text == text_result
 
         t = Group(Terminal("term"), "label")
         assert t.to_dict() == {
@@ -934,6 +1159,12 @@ class UnitTests(BaseTest):
         with open("tests/group_label_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
+        text = []
+        d.write_text(text.append)
+        text = "".join(text)
+        with open("tests/group_label_text.txt", "r") as f:
+            text_result = f.read()
+        assert text == text_result
 
     def test_start(self):
         from pyrailroad.elements import Start, Diagram
@@ -951,6 +1182,12 @@ class UnitTests(BaseTest):
         with open("tests/start_simple_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
+        text = []
+        d.write_text(text.append)
+        text = "".join(text)
+        with open("tests/start_simple_text.txt", "r") as f:
+            text_result = f.read()
+        assert text == text_result
 
         t = Start(label="label")
         assert t.to_dict() == {"element": "Start", "type": "simple", "label": "label"}
@@ -965,6 +1202,12 @@ class UnitTests(BaseTest):
         with open("tests/start_label_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
+        text = []
+        d.write_text(text.append)
+        text = "".join(text)
+        with open("tests/start_label_text.txt", "r") as f:
+            text_result = f.read()
+        assert text == text_result
 
         t = Start("complex")
         assert t.to_dict() == {"element": "Start", "type": "complex", "label": None}
@@ -979,6 +1222,12 @@ class UnitTests(BaseTest):
         with open("tests/start_complex_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
+        text = []
+        d.write_text(text.append)
+        text = "".join(text)
+        with open("tests/start_complex_text.txt", "r") as f:
+            text_result = f.read()
+        assert text == text_result
 
         t = Start("sql")
         assert t.to_dict() == {"element": "Start", "type": "sql", "label": None}
@@ -993,6 +1242,12 @@ class UnitTests(BaseTest):
         with open("tests/start_sql_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
+        text = []
+        d.write_text(text.append)
+        text = "".join(text)
+        with open("tests/start_sql_text.txt", "r") as f:
+            text_result = f.read()
+        assert text == text_result
 
     def test_end(self):
         from pyrailroad.elements import End, Diagram
@@ -1013,6 +1268,12 @@ class UnitTests(BaseTest):
         with open("tests/end_simple_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
+        text = []
+        d.write_text(text.append)
+        text = "".join(text)
+        with open("tests/end_simple_text.txt", "r") as f:
+            text_result = f.read()
+        assert text == text_result
 
         t = End("complex")
         assert t.to_dict() == {
@@ -1030,6 +1291,12 @@ class UnitTests(BaseTest):
         with open("tests/end_complex_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
+        text = []
+        d.write_text(text.append)
+        text = "".join(text)
+        with open("tests/end_complex_text.txt", "r") as f:
+            text_result = f.read()
+        assert text == text_result
 
         t = End("sql")
         assert t.to_dict() == {
@@ -1047,6 +1314,12 @@ class UnitTests(BaseTest):
         with open("tests/end_sql_standalone.svg", "r") as f:
             svg_result = f.read()
         assert " ".join(svg) == svg_result
+        text = []
+        d.write_text(text.append)
+        text = "".join(text)
+        with open("tests/end_sql_text.txt", "r") as f:
+            text_result = f.read()
+        assert text == text_result
 
 
 class JSONParserTests(BaseTest):
@@ -1416,6 +1689,7 @@ class CLITests(BaseTest):
 
     def tearDown(self):
         silent_remove("tests/cli/output.svg")
+        silent_remove_dir("tests/cli/ebnf/output")
         super().tearDown()
 
     def test_cli_help(self):
@@ -1426,6 +1700,7 @@ class CLITests(BaseTest):
         assert "dsl" in result.stdout
         assert "json" in result.stdout
         assert "yaml" in result.stdout
+        assert "ebnf" in result.stdout
         result = self.runner.invoke(cli, ["dsl", "--help"])
         assert result.exit_code == 0
         assert "file" in result.stdout
@@ -1440,6 +1715,12 @@ class CLITests(BaseTest):
         assert "file" in result.stdout
         assert "target" in result.stdout
         assert "parameters" in result.stdout
+        result = self.runner.invoke(cli, ["ebnf", "--help"])
+        assert result.exit_code == 0
+        assert "file" in result.stdout
+        assert "target" in result.stdout
+        assert "parameters" in result.stdout
+        assert "to-json" in result.stdout
 
     def test_cli_dsl(self):
         from pyrailroad.cli import cli
@@ -1464,6 +1745,20 @@ class CLITests(BaseTest):
         assert result.exit_code == 0
         with open(out_file, "r") as res:
             with open("tests/cli/diagram_standalone_simple.svg", "r") as base:
+                assert res.read() == base.read()
+
+        result = self.runner.invoke(
+            cli, ["dsl", in_file, out_file, "--text", "--simple"]
+        )
+        assert result.exit_code == 0
+        with open(out_file, "r") as res:
+            with open("tests/cli/diagram_text_simple.txt", "r") as base:
+                assert res.read() == base.read()
+
+        result = self.runner.invoke(cli, ["dsl", in_file, out_file, "--text"])
+        assert result.exit_code == 0
+        with open(out_file, "r") as res:
+            with open("tests/cli/diagram_text.txt", "r") as base:
                 assert res.read() == base.read()
 
     def test_cli_json(self):
@@ -1509,6 +1804,39 @@ class CLITests(BaseTest):
             with open("tests/cli/diagram_sql_standalone.svg", "r") as base:
                 assert res.read() == base.read()
 
+        # Text mode
+        result = self.runner.invoke(
+            cli, ["json", in_file, out_file, "tests/cli/complex_text.json"]
+        )
+        assert result.exit_code == 0
+        with open(out_file, "r") as res:
+            with open("tests/cli/diagram_text.txt", "r") as base:
+                assert res.read() == base.read()
+
+        result = self.runner.invoke(
+            cli, ["json", in_file, out_file, "tests/cli/simple_text.json"]
+        )
+        assert result.exit_code == 0
+        with open(out_file, "r") as res:
+            with open("tests/cli/diagram_text_simple.txt", "r") as base:
+                assert res.read() == base.read()
+
+        result = self.runner.invoke(
+            cli, ["json", in_file, out_file, "tests/cli/customized_text.json"]
+        )
+        assert result.exit_code == 0
+        with open(out_file, "r") as res:
+            with open("tests/cli/diagram_text_custom.txt", "r") as base:
+                assert res.read() == base.read()
+
+        result = self.runner.invoke(
+            cli, ["yaml", in_file, out_file, "tests/cli/sql_text.json"]
+        )
+        assert result.exit_code == 0
+        with open(out_file, "r") as res:
+            with open("tests/cli/diagram_sql_text.txt", "r") as base:
+                assert res.read() == base.read()
+
     def test_cli_yaml(self):
         from pyrailroad.cli import cli
 
@@ -1551,3 +1879,85 @@ class CLITests(BaseTest):
         with open(out_file, "r") as res:
             with open("tests/cli/diagram_sql_standalone.svg", "r") as base:
                 assert res.read() == base.read()
+
+        # Text output
+        result = self.runner.invoke(
+            cli, ["yaml", in_file, out_file, "tests/cli/complex_text.yaml"]
+        )
+        assert result.exit_code == 0
+        with open(out_file, "r") as res:
+            with open("tests/cli/diagram_text.txt", "r") as base:
+                assert res.read() == base.read()
+
+        result = self.runner.invoke(
+            cli, ["yaml", in_file, out_file, "tests/cli/simple_text.yaml"]
+        )
+        assert result.exit_code == 0
+        with open(out_file, "r") as res:
+            with open("tests/cli/diagram_text_simple.txt", "r") as base:
+                assert res.read() == base.read()
+
+        result = self.runner.invoke(
+            cli, ["yaml", in_file, out_file, "tests/cli/customized_text.yaml"]
+        )
+        assert result.exit_code == 0
+        with open(out_file, "r") as res:
+            with open("tests/cli/diagram_text_custom.txt", "r") as base:
+                assert res.read() == base.read()
+
+        result = self.runner.invoke(
+            cli, ["yaml", in_file, out_file, "tests/cli/sql_text.yaml"]
+        )
+        assert result.exit_code == 0
+        with open(out_file, "r") as res:
+            with open("tests/cli/diagram_sql_text.txt", "r") as base:
+                assert res.read() == base.read()
+
+    def test_cli_ebnf(self):
+        from pyrailroad.cli import cli
+
+        in_file = "tests/cli/ebnf/error.ebnf"
+        out_dir = "tests/cli/ebnf/output"
+
+        result = self.runner.invoke(cli, ["ebnf", in_file, out_dir])
+
+        assert result.exit_code == 1
+
+        in_file = "tests/cli/ebnf/w3c_blindfold_grammar.ebnf"
+        out_dir = "tests/cli/ebnf/output"
+
+        result = self.runner.invoke(cli, ["ebnf", in_file, out_dir])
+
+        assert result.exit_code == 0
+
+        result = self.runner.invoke(cli, ["ebnf", in_file, out_dir, "--to-json"])
+
+        assert result.exit_code == 0
+
+        in_file = "tests/cli/ebnf/xml_grammar.ebnf"
+        out_dir = "tests/cli/ebnf/output"
+
+        result = self.runner.invoke(cli, ["ebnf", in_file, out_dir])
+
+        assert result.exit_code == 0
+
+        w3c_dir = "tests/cli/ebnf/w3c_blindfold/"
+        xml_dir = "tests/cli/ebnf/xml_grammar/"
+
+        dirpath, _, filenames = list(os.walk(w3c_dir))[0]
+        for filename in filenames:
+            file_ = os.path.join(dirpath, filename)
+            with open(file_, "r") as f:
+                expected = f.read()
+            with open(os.path.join(out_dir, filename), "r") as f:
+                actual = f.read()
+            assert expected == actual
+
+        dirpath, _, filenames = list(os.walk(xml_dir))[0]
+        for filename in filenames:
+            file_ = os.path.join(dirpath, filename)
+            with open(file_, "r") as f:
+                expected = f.read()
+            with open(os.path.join(out_dir, filename), "r") as f:
+                actual = f.read()
+            assert expected == actual

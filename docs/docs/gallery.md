@@ -4,11 +4,13 @@ A simplified SELECT statement in SQL :
 
 ![SQL SELECT](images/sql_select_stmt_simple.svg)
 
-Parameters:
+`parameters.yaml`:
 
 ```yaml
 type: sql
 ```
+
+`select.yaml`:
 
 ```yaml
 element: Sequence

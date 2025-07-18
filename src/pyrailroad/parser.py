@@ -20,6 +20,7 @@ from .elements import (
     zero_or_more,
     optional,
     Arrow,
+    Expression,
 )
 
 from .exceptions import ParseException
@@ -91,7 +92,7 @@ def parse(string: str, simple: bool) -> Diagram | None:
     tree = RRCommand(name="Diagram", prelude="", children=[], text=None, line=0)
     active_commands = {"0": tree}
     block_names = "And|Seq|Sequence|Stack|Or|Choice|Opt|Optional|Plus|OneOrMore|Star|ZeroOrMore|OptionalSequence|HorizontalChoice|AlternatingSequence|Group"
-    text_names = "T|Terminal|N|NonTerminal|C|Comment|S|Skip|Arrow"
+    text_names = "T|Terminal|N|NonTerminal|C|Comment|S|Skip|Arrow|Expression"
     for i, line in enumerate(lines, 1):
         indent = 0
         while line.startswith(indent_text):
@@ -125,7 +126,7 @@ def parse(string: str, simple: bool) -> Diagram | None:
                 name=command, prelude=prelude, children=[], text=None, line=i
             )
         elif re.match(rf"\s*({text_names})\W", line):
-            match = re.match(r"\s*(\w+)\s*(\"[\w\s/:.-]+\"|[\w\s]+)?:\s*(.*)", line)
+            match = re.match(r"\s*(\w+)\s*(\"[\w\s/:.-]+\"|[\w\s]+)?:\s*(.*)", line)  # NOSONAR
             if not match:  # Unreachable?
                 raise ParseException(
                     f"Line {i} doesn't match the grammar 'Command [optional prelude]: text'. Got:\n{line.strip()},"
@@ -177,6 +178,14 @@ def create_non_terminal_node(command: RRCommand) -> NonTerminal | None:
             f"Line {command.line} - NonTerminal commands cannot have children."
         )
     return NonTerminal(command.text or "", command.prelude)
+
+
+def create_expression_node(command: RRCommand) -> Expression | None:
+    if command.children:
+        raise ParseException(
+            f"Line {command.line} - Expression commands cannot have children."
+        )
+    return Expression(command.text or "", command.prelude)
 
 
 def create_comment_node(command: RRCommand) -> Comment | None:
@@ -405,6 +414,8 @@ def create_diagram(command: RRCommand, diagram_type="simple") -> DiagramItem | N
             return create_terminal_node(command)
         case "N" | "NonTerminal":
             return create_non_terminal_node(command)
+        case "Expression":
+            return create_expression_node(command)
         case "C" | "Comment":
             return create_comment_node(command)
         case "S" | "Skip":

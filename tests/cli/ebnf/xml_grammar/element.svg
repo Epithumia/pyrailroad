@@ -1,0 +1,10 @@
+<svg class="railroad-diagram" height="92" viewBox="0 0 386 92" width="386">
+<g transform="translate(.5 .5)">
+<g>
+<path class="start" d="M20 51v20m0 -10h66" /><text style="text-anchor:start" x="20" y="46">element</text></g><g>
+<path class="choice ch1" d="M86 61h0.0" /><path class="choice ch2" d="M346.0 61h0.0" /><path class="choice ch3" d="M86.0 61a10 10 0 0 0 10 -10v-10a10 10 0 0 1 10 -10" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M106.0 31h52.0" /><path class="nonterm nt2" d="M274.0 31h52.0" /><rect height="22" width="116" x="158" y="20"></rect><text x="216" y="35">EmptyElemTag</text></g><path class="choice ch4" d="M326.0 31a10 10 0 0 1 10 10v10a10 10 0 0 0 10 10" /><path class="choice ch5" d="M86.0 61h20" /><g>
+<path class="seq seq1" d="M106.0 61h0.0" /><path class="seq seq2" d="M326.0 61h0.0" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M106.0 61h0.0" /><path class="nonterm nt2" d="M158.0 61h0.0" /><rect height="22" width="52" x="106" y="50"></rect><text x="132" y="65">STag</text></g><path class="seq seq4" d="M158.0 61h10" /><path class="seq seq3" d="M168.0 61h10" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M178.0 61h0.0" /><path class="nonterm nt2" d="M254.0 61h0.0" /><rect height="22" width="76" x="178" y="50"></rect><text x="216" y="65">content</text></g><path class="seq seq4" d="M254.0 61h10" /><path class="seq seq3" d="M264.0 61h10" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M274.0 61h0.0" /><path class="nonterm nt2" d="M326.0 61h0.0" /><rect height="22" width="52" x="274" y="50"></rect><text x="300" y="65">ETag</text></g></g><path class="choice ch6" d="M326.0 61h20" /></g><path class="end" d="M 346 61 h 20 m 0 -10 v 20"></path></g></svg>

@@ -22,7 +22,7 @@ jobs:
           path: .cache
           restore-keys: |
             mkdocs-material-
-      - run: pip install mkdocs-material mkdocs-plugin-inline-svg
+      - run: pip install mkdocs-material mkdocs-plugin-inline-svg "mkdocstrings[python]" markdown-exec
       - run: |
           cd docs
           mkdocs gh-deploy --force
