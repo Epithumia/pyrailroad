@@ -1720,7 +1720,7 @@ class CLITests(BaseTest):
         assert "file" in result.stdout
         assert "target" in result.stdout
         assert "parameters" in result.stdout
-        assert "to-json" in result.stdout
+        assert "JSON" in result.stdout
 
     def test_cli_dsl(self):
         from pyrailroad.cli import cli
