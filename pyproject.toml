@@ -25,7 +25,7 @@ version = {attr = "pyrailroad.VERSION"}
 
 [project.optional-dependencies]
 tests = ["pytest", "coverage"]
-documentation = ["mkdocs", "mkdocs-material", "mkdocstrings[python]"]
+documentation = ["mkdocs", "mkdocs-material", "mkdocs-plugin-inline-svg", "mkdocstrings[python]", "markdown-exec"]
 
 [project.scripts]
 py-railroad = "pyrailroad.cli:cli"
