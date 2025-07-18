@@ -126,7 +126,7 @@ def parse(string: str, simple: bool) -> Diagram | None:
                 name=command, prelude=prelude, children=[], text=None, line=i
             )
         elif re.match(rf"\s*({text_names})\W", line):
-            match = re.match(r"\s*(\w+)\s*(\"[\w\s/:.-]+\"|[\w\s]+)?:\s*(.*)", line)
+            match = re.match(r"\s*(\w+)\s*(\"[\w\s/:.-]+\"|[\w\s]+)?:\s*(.*)", line)  # NOSONAR
             if not match:  # Unreachable?
                 raise ParseException(
                     f"Line {i} doesn't match the grammar 'Command [optional prelude]: text'. Got:\n{line.strip()},"

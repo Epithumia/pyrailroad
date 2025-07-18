@@ -646,8 +646,8 @@ class Diagram(DiagramMultiContainer):
             with inp_file.open("rt") as f:
                 css = f.read()
         Style(css).add_to(self)
-        self.attrs["xmlns"] = "http://www.w3.org/2000/svg"
-        self.attrs["xmlns:xlink"] = "http://www.w3.org/1999/xlink"
+        self.attrs["xmlns"] = "http://www.w3.org/2000/svg"  # NOSONAR
+        self.attrs["xmlns:xlink"] = "http://www.w3.org/1999/xlink"  # NOSONAR
         DiagramItem.write_svg(self, write)
         self.children.pop()
         del self.attrs["xmlns"]
