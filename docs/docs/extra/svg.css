@@ -46,3 +46,25 @@ svg.railroad-diagram g.custom_terminal a {
     color: red;
     fill: red;
 }
+
+svg.railroad-diagram g.term a {    
+    stroke: red;
+    color: red;
+    fill: red;
+}
+
+svg.custom {
+    stroke: red;
+    color: red;
+    fill: red;
+    stroke-width:3;
+    fill:hsl(120,100%,90%);
+    font:bold 14px monospace;
+    text-anchor:middle;
+    background-color:hsl(30,20%,95%);
+}
+svg.custom text {
+    stroke: black;
+    stroke-width: 1px;
+    fill: black;
+}

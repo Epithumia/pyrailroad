@@ -18,6 +18,6 @@ First release. This is on par with [tabatkins' railroad.py](https://github.com/t
 
 - Added support for external css files in yaml and json mode.
 
-## v0.4.0-pre
+## v0.4.0
 
 - Added parsing of EBNF grammar on a best-effort basis. This notably doesn't include eliminating recursions or reductions. Best used to generate a JSON representation then tweaking that to get the desired result.
