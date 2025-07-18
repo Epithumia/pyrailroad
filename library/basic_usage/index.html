@@ -1,0 +1,7178 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://epithumia.github.io/pyrailroad/library/basic_usage/">
+      
+      
+        <link rel="prev" href="../../cli/block_elem/">
+      
+      
+        <link rel="next" href="../library/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+    
+    
+      
+        <title>Basic usage - PyRailroad</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_markdown_exec_pyodide.css">
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../extra/custom.css">
+    
+      <link rel="stylesheet" href="../../extra/svg.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#using-pyrailroad-as-a-library" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="PyRailroad" class="md-header__button md-logo" aria-label="PyRailroad" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PyRailroad
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Basic usage
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Epithumia/pyrailroad" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Epithumia/pyrailroad
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="PyRailroad" class="md-nav__button md-logo" aria-label="PyRailroad" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    PyRailroad
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Epithumia/pyrailroad" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Epithumia/pyrailroad
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Usage
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Usage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cli/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    CLI
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            CLI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/base_elem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Base elements
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/text_elem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Text elements
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/block_elem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Block elements
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Library
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Library
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Basic usage
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Basic usage
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#building-a-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building a diagram
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-of-elements-used-in-a-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary of elements used in a diagram
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Summary of elements used in a diagram">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#base-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Base elements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Base elements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start" class="md-nav__link">
+    <span class="md-ellipsis">
+      Start
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#end" class="md-nav__link">
+    <span class="md-ellipsis">
+      End
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#text-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Text elements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Text elements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#terminal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Terminal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nonterminal" class="md-nav__link">
+    <span class="md-ellipsis">
+      NonTerminal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arrow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arrow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skip" class="md-nav__link">
+    <span class="md-ellipsis">
+      Skip
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expression" class="md-nav__link">
+    <span class="md-ellipsis">
+      Expression
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#block-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Block elements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Block elements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sequence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sequence
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stack
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optionalsequence" class="md-nav__link">
+    <span class="md-ellipsis">
+      OptionalSequence
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alternatingsequence" class="md-nav__link">
+    <span class="md-ellipsis">
+      AlternatingSequence
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#choice" class="md-nav__link">
+    <span class="md-ellipsis">
+      Choice
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiplechoice" class="md-nav__link">
+    <span class="md-ellipsis">
+      MultipleChoice
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#horizontalchoice" class="md-nav__link">
+    <span class="md-ellipsis">
+      HorizontalChoice
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      optional
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oneormore" class="md-nav__link">
+    <span class="md-ellipsis">
+      OneOrMore
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zero_or_more" class="md-nav__link">
+    <span class="md-ellipsis">
+      zero_or_more
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#group" class="md-nav__link">
+    <span class="md-ellipsis">
+      Group
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../library/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Code documentation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gallery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Gallery
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            About
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    License
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Release Notes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#building-a-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building a diagram
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-of-elements-used-in-a-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary of elements used in a diagram
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Summary of elements used in a diagram">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#base-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Base elements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Base elements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start" class="md-nav__link">
+    <span class="md-ellipsis">
+      Start
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#end" class="md-nav__link">
+    <span class="md-ellipsis">
+      End
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#text-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Text elements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Text elements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#terminal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Terminal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nonterminal" class="md-nav__link">
+    <span class="md-ellipsis">
+      NonTerminal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arrow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arrow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skip" class="md-nav__link">
+    <span class="md-ellipsis">
+      Skip
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expression" class="md-nav__link">
+    <span class="md-ellipsis">
+      Expression
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#block-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Block elements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Block elements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sequence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sequence
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stack
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optionalsequence" class="md-nav__link">
+    <span class="md-ellipsis">
+      OptionalSequence
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alternatingsequence" class="md-nav__link">
+    <span class="md-ellipsis">
+      AlternatingSequence
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#choice" class="md-nav__link">
+    <span class="md-ellipsis">
+      Choice
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiplechoice" class="md-nav__link">
+    <span class="md-ellipsis">
+      MultipleChoice
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#horizontalchoice" class="md-nav__link">
+    <span class="md-ellipsis">
+      HorizontalChoice
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      optional
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oneormore" class="md-nav__link">
+    <span class="md-ellipsis">
+      OneOrMore
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zero_or_more" class="md-nav__link">
+    <span class="md-ellipsis">
+      zero_or_more
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#group" class="md-nav__link">
+    <span class="md-ellipsis">
+      Group
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<!-- markdownlint-disable MD007 MD031 -->
+<h1 id="using-pyrailroad-as-a-library">Using pyrailroad as a library<a class="headerlink" href="#using-pyrailroad-as-a-library" title="Permanent link">&para;</a></h1>
+<h2 id="building-a-diagram">Building a diagram<a class="headerlink" href="#building-a-diagram" title="Permanent link">&para;</a></h2>
+<p>If you are familiar with <a href="https://github.com/tabatkins/railroad-diagrams">tabatkins' railroad-diagrams</a>, building a diagram should be a straightforward task, with a few differences for two elements (Optional and ZeroOrMore).</p>
+<p>A really simple diagram would be:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyrailroad.elements</span><span class="w"> </span><span class="kn">import</span> <span class="n">Diagram</span><span class="p">,</span> <span class="n">Terminal</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">d</span> <span class="o">=</span> <span class="n">Diagram</span><span class="p">(</span><span class="n">Terminal</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">))</span>
+</span></code></pre></div></p>
+<p>To write it out as SVG, do:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Write an SVG file without stylesheet</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;foo.svg&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="n">d</span><span class="o">.</span><span class="n">write_svg</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">)</span>
+</span></code></pre></div>
+or
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Write an SVG file with a CSS styleshzeet included</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;foo.svg&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="n">d</span><span class="o">.</span><span class="n">write_standalone</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">)</span>
+</span></code></pre></div></p>
+<p>To crate a text-format diagram instead, do:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sys</span><span class="w"> </span><span class="kn">import</span> <span class="n">stdout</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">d</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">)</span>
+</span></code></pre></div></p>
+<h2 id="summary-of-elements-used-in-a-diagram">Summary of elements used in a diagram<a class="headerlink" href="#summary-of-elements-used-in-a-diagram" title="Permanent link">&para;</a></h2>
+<h3 id="base-elements">Base elements<a class="headerlink" href="#base-elements" title="Permanent link">&para;</a></h3>
+<h4 id="diagram">Diagram<a class="headerlink" href="#diagram" title="Permanent link">&para;</a></h4>
+<p>The constructor for <code>Diagram</code> takes any element, a dictionary of parameters (to override the diagram class) and an optional type.</p>
+<p>By default, a <code>Diagram</code> will always include a <a href="#start">Start</a> and an <a href="#end">End</a> when printed even if they were omitted.</p>
+<p>Examples</p>
+<ul>
+<li>
+<p>Text element</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="exec-1--__tabbed_1_1" name="exec-1--__tabbed_1" type="radio" /><input id="exec-1--__tabbed_1_2" name="exec-1--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="exec-1--__tabbed_1_1">Source</label><label for="exec-1--__tabbed_1_2">Result</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyrailroad.elements</span><span class="w"> </span><span class="kn">import</span> <span class="n">Diagram</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">d</span> <span class="o">=</span> <span class="n">Diagram</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><svg
+ class="railroad-diagram"
+ height="62"
+ viewBox="0 0 144 62"
+ width="144"
+>
+
+
+<g
+ transform="translate(.5 .5)"
+>
+
+
+<g
+>
+
+
+<path
+ class="start"
+ d="M20 21v20m10 -20v20m-10 -10h20"
+ />
+</g>
+<path
+ d="M40 31h10"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M50 31h0.0"
+ />
+<path
+ class="terminal term2"
+ d="M94.0 31h0.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="44"
+ x="50"
+ y="20"
+>
+</rect>
+<text
+ x="72"
+ y="35"
+>
+foo
+</text>
+</g>
+<path
+ d="M94 31h10"
+ />
+<path
+ class="end"
+ d="M 104 31 h 20 m -10 -10 v 20 m 10 -20 v 20"
+>
+</path>
+</g>
+</svg>
+</p>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>A Terminal again (explicitly called), with the <em>sql</em> type
+    <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="exec-2--__tabbed_1_1" name="exec-2--__tabbed_1" type="radio" /><input id="exec-2--__tabbed_1_2" name="exec-2--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="exec-2--__tabbed_1_1">Source</label><label for="exec-2--__tabbed_1_2">Result</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyrailroad.elements</span><span class="w"> </span><span class="kn">import</span> <span class="n">Diagram</span><span class="p">,</span> <span class="n">Terminal</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">d</span> <span class="o">=</span> <span class="n">Diagram</span><span class="p">(</span><span class="n">Terminal</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">),</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;sql&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><svg
+ class="railroad-diagram"
+ height="62"
+ viewBox="0 0 144 62"
+ width="144"
+>
+
+
+<g
+ transform="translate(.5 .5)"
+>
+
+
+<g
+>
+
+
+<path
+ class="start "
+ d="M20 21m0 10a 3.7,3.7 0 0 1 -3.7,3.7 3.7,3.7 0 0 1 -3.7,-3.7 3.7,3.7 0 0 1 3.7,-3.7 3.7,3.7 0 0 1 3.7,3.7 zM20 31h20"
+ />
+</g>
+<path
+ d="M40 31h10"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M50 31h0.0"
+ />
+<path
+ class="terminal term2"
+ d="M94.0 31h0.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="44"
+ x="50"
+ y="20"
+>
+</rect>
+<text
+ x="72"
+ y="35"
+>
+foo
+</text>
+</g>
+<path
+ d="M94 31h10"
+ />
+<path
+ class="end"
+ d="M 104 31 h 20 m -5 -5 5,5 -5,5"
+>
+</path>
+</g>
+</svg>
+</p>
+</div>
+</div>
+</div></p>
+</li>
+<li>
+<p>Multiple diagram elements, with the <em>complex</em> type and a parameter override
+    <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="exec-3--__tabbed_1_1" name="exec-3--__tabbed_1" type="radio" /><input id="exec-3--__tabbed_1_2" name="exec-3--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="exec-3--__tabbed_1_1">Source</label><label for="exec-3--__tabbed_1_2">Result</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyrailroad.elements</span><span class="w"> </span><span class="kn">import</span> <span class="n">Diagram</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">d</span> <span class="o">=</span> <span class="n">Diagram</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="n">parameters</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;diagram_class&#39;</span><span class="p">:</span> <span class="s1">&#39;custom&#39;</span><span class="p">},</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;complex&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><svg
+ class="custom"
+ height="62"
+ viewBox="0 0 208 62"
+ width="208"
+>
+
+
+<g
+ transform="translate(.5 .5)"
+>
+
+
+<g
+>
+
+
+<path
+ class="start"
+ d="M20 21v20m0 -10h20"
+ />
+</g>
+<path
+ d="M40 31h10"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M50 31h0.0"
+ />
+<path
+ class="terminal term2"
+ d="M94.0 31h0.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="44"
+ x="50"
+ y="20"
+>
+</rect>
+<text
+ x="72"
+ y="35"
+>
+foo
+</text>
+</g>
+<path
+ d="M94 31h10"
+ />
+<path
+ d="M104 31h10"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M114 31h0.0"
+ />
+<path
+ class="terminal term2"
+ d="M158.0 31h0.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="44"
+ x="114"
+ y="20"
+>
+</rect>
+<text
+ x="136"
+ y="35"
+>
+bar
+</text>
+</g>
+<path
+ d="M158 31h10"
+ />
+<path
+ class="end"
+ d="M 168 31 h 20 m 0 -10 v 20"
+>
+</path>
+</g>
+</svg>
+</p>
+</div>
+</div>
+</div></p>
+</li>
+</ul>
+<h4 id="start">Start<a class="headerlink" href="#start" title="Permanent link">&para;</a></h4>
+<p>This is the element that starts a diagram at the top left, you'd usually only use one. The constructor for <code>Start</code> takes a type (same as <a href="#diagram">Diagram</a>), an optional label and an optional dictionary of parameters to override <code>char_width</code>.</p>
+<p>Examples</p>
+<ul>
+<li>
+<p>Simple
+    <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="exec-4--__tabbed_1_1" name="exec-4--__tabbed_1" type="radio" /><input id="exec-4--__tabbed_1_2" name="exec-4--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="exec-4--__tabbed_1_1">Source</label><label for="exec-4--__tabbed_1_2">Result</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyrailroad.elements</span><span class="w"> </span><span class="kn">import</span> <span class="n">Diagram</span><span class="p">,</span> <span class="n">Start</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">d</span> <span class="o">=</span> <span class="n">Diagram</span><span class="p">(</span><span class="n">Start</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;foo&quot;</span><span class="p">))</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><svg
+ class="railroad-diagram"
+ height="60"
+ viewBox="0 0 94 60"
+ width="94"
+>
+
+
+<g
+ transform="translate(.5 .5)"
+>
+
+
+<g
+>
+
+
+<path
+ class="start"
+ d="M20 20v20m10 -20v20m-10 -10h34"
+ />
+<text
+ style="text-anchor:start"
+ x="20"
+ y="15"
+>
+foo
+</text>
+</g>
+<path
+ class="end"
+ d="M 54 30 h 20 m -10 -10 v 20 m 10 -20 v 20"
+>
+</path>
+</g>
+</svg>
+</p>
+</div>
+</div>
+</div></p>
+</li>
+<li>
+<p>Customized
+    <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="exec-5--__tabbed_1_1" name="exec-5--__tabbed_1" type="radio" /><input id="exec-5--__tabbed_1_2" name="exec-5--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="exec-5--__tabbed_1_1">Source</label><label for="exec-5--__tabbed_1_2">Result</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyrailroad.elements</span><span class="w"> </span><span class="kn">import</span> <span class="n">Diagram</span><span class="p">,</span> <span class="n">Start</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">d</span> <span class="o">=</span> <span class="n">Diagram</span><span class="p">(</span><span class="n">Start</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="n">parameters</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;char_width&quot;</span><span class="p">:</span> <span class="mi">25</span><span class="p">},</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;sql&quot;</span><span class="p">))</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><svg
+ class="railroad-diagram"
+ height="60"
+ viewBox="0 0 145 60"
+ width="145"
+>
+
+
+<g
+ transform="translate(.5 .5)"
+>
+
+
+<g
+>
+
+
+<path
+ class="start "
+ d="M20 20m0 10a 3.7,3.7 0 0 1 -3.7,3.7 3.7,3.7 0 0 1 -3.7,-3.7 3.7,3.7 0 0 1 3.7,-3.7 3.7,3.7 0 0 1 3.7,3.7 zM20 30h85"
+ />
+<text
+ style="text-anchor:start"
+ x="20"
+ y="15"
+>
+foo
+</text>
+</g>
+<path
+ class="end"
+ d="M 105 30 h 20 m -10 -10 v 20 m 10 -20 v 20"
+>
+</path>
+</g>
+</svg>
+</p>
+</div>
+</div>
+</div></p>
+</li>
+</ul>
+<h4 id="end">End<a class="headerlink" href="#end" title="Permanent link">&para;</a></h4>
+<p>This is the opposite end of the diagram. The constructor is similar to <a href="#start">Start</a> but doesn't have a label. You can pass a dictionary of parameters, but they have no effect on End (this is kept for practical coding reasons so that all elements can take the full parameters dictionary recursively and use only what they need).</p>
+<p>Examples</p>
+<ul>
+<li>
+<p>Simple
+    <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="exec-6--__tabbed_1_1" name="exec-6--__tabbed_1" type="radio" /><input id="exec-6--__tabbed_1_2" name="exec-6--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="exec-6--__tabbed_1_1">Source</label><label for="exec-6--__tabbed_1_2">Result</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyrailroad.elements</span><span class="w"> </span><span class="kn">import</span> <span class="n">Diagram</span><span class="p">,</span> <span class="n">End</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">d</span> <span class="o">=</span> <span class="n">Diagram</span><span class="p">(</span><span class="n">End</span><span class="p">())</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><svg
+ class="railroad-diagram"
+ height="60"
+ viewBox="0 0 80 60"
+ width="80"
+>
+
+
+<g
+ transform="translate(.5 .5)"
+>
+
+
+<g
+>
+
+
+<path
+ class="start"
+ d="M20 20v20m10 -20v20m-10 -10h20"
+ />
+</g>
+<path
+ class="end"
+ d="M 40 30 h 20 m -10 -10 v 20 m 10 -20 v 20"
+>
+</path>
+</g>
+</svg>
+</p>
+</div>
+</div>
+</div></p>
+</li>
+<li>
+<p>Customized
+    <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="exec-7--__tabbed_1_1" name="exec-7--__tabbed_1" type="radio" /><input id="exec-7--__tabbed_1_2" name="exec-7--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="exec-7--__tabbed_1_1">Source</label><label for="exec-7--__tabbed_1_2">Result</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyrailroad.elements</span><span class="w"> </span><span class="kn">import</span> <span class="n">Diagram</span><span class="p">,</span> <span class="n">End</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">d</span> <span class="o">=</span> <span class="n">Diagram</span><span class="p">(</span><span class="n">End</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;sql&quot;</span><span class="p">))</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><svg
+ class="railroad-diagram"
+ height="60"
+ viewBox="0 0 80 60"
+ width="80"
+>
+
+
+<g
+ transform="translate(.5 .5)"
+>
+
+
+<g
+>
+
+
+<path
+ class="start"
+ d="M20 20v20m10 -20v20m-10 -10h20"
+ />
+</g>
+<path
+ class="end"
+ d="M 40 30 h 20 m -5 -5 5,5 -5,5"
+>
+</path>
+</g>
+</svg>
+</p>
+</div>
+</div>
+</div></p>
+</li>
+</ul>
+<h3 id="text-elements">Text elements<a class="headerlink" href="#text-elements" title="Permanent link">&para;</a></h3>
+<h4 id="terminal">Terminal<a class="headerlink" href="#terminal" title="Permanent link">&para;</a></h4>
+<p>In a grammar, a Terminal is a symbol that cannot be replaced by other symbols of the vocabulary. Typically, this will be keywords for your language/tool, or literals.</p>
+<p>The constructor for <code>Terminal</code> takes a text, an optional href that will be converted to a link in SVG only, an optional title, a optional class for SVG styling and an optional dictionary of parameters to override <code>char_width</code>.</p>
+<p>Examples</p>
+<ul>
+<li>
+<p>Simple
+    <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="exec-8--__tabbed_1_1" name="exec-8--__tabbed_1" type="radio" /><input id="exec-8--__tabbed_1_2" name="exec-8--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="exec-8--__tabbed_1_1">Source</label><label for="exec-8--__tabbed_1_2">Result</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyrailroad.elements</span><span class="w"> </span><span class="kn">import</span> <span class="n">Diagram</span><span class="p">,</span> <span class="n">Terminal</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">d</span> <span class="o">=</span> <span class="n">Diagram</span><span class="p">(</span><span class="n">Terminal</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">))</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><svg
+ class="railroad-diagram"
+ height="62"
+ viewBox="0 0 144 62"
+ width="144"
+>
+
+
+<g
+ transform="translate(.5 .5)"
+>
+
+
+<g
+>
+
+
+<path
+ class="start"
+ d="M20 21v20m10 -20v20m-10 -10h20"
+ />
+</g>
+<path
+ d="M40 31h10"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M50 31h0.0"
+ />
+<path
+ class="terminal term2"
+ d="M94.0 31h0.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="44"
+ x="50"
+ y="20"
+>
+</rect>
+<text
+ x="72"
+ y="35"
+>
+foo
+</text>
+</g>
+<path
+ d="M94 31h10"
+ />
+<path
+ class="end"
+ d="M 104 31 h 20 m -10 -10 v 20 m 10 -20 v 20"
+>
+</path>
+</g>
+</svg>
+</p>
+</div>
+</div>
+</div></p>
+</li>
+<li>
+<p>Customized
+    <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="exec-9--__tabbed_1_1" name="exec-9--__tabbed_1" type="radio" /><input id="exec-9--__tabbed_1_2" name="exec-9--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="exec-9--__tabbed_1_1">Source</label><label for="exec-9--__tabbed_1_2">Result</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyrailroad.elements</span><span class="w"> </span><span class="kn">import</span> <span class="n">Diagram</span><span class="p">,</span> <span class="n">Terminal</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">d</span> <span class="o">=</span> <span class="n">Diagram</span><span class="p">(</span><span class="n">Terminal</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">),</span> <span class="n">Terminal</span><span class="p">(</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s2">&quot;https://github.com&quot;</span><span class="p">,</span> <span class="n">parameters</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;char_width&quot;</span><span class="p">:</span> <span class="mi">25</span><span class="p">},</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;This is a terminal with a link&quot;</span><span class="p">,</span> <span class="bp">cls</span><span class="o">=</span><span class="s2">&quot;term&quot;</span><span class="p">))</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><svg
+ class="railroad-diagram"
+ height="62"
+ viewBox="0 0 259 62"
+ width="259"
+>
+
+
+<g
+ transform="translate(.5 .5)"
+>
+
+
+<g
+>
+
+
+<path
+ class="start"
+ d="M20 21v20m10 -20v20m-10 -10h20"
+ />
+</g>
+<path
+ d="M40 31h10"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M50 31h0.0"
+ />
+<path
+ class="terminal term2"
+ d="M94.0 31h0.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="44"
+ x="50"
+ y="20"
+>
+</rect>
+<text
+ x="72"
+ y="35"
+>
+foo
+</text>
+</g>
+<path
+ d="M94 31h10"
+ />
+<path
+ d="M104 31h10"
+ />
+<g
+ class="terminal term"
+>
+
+
+<path
+ class="terminal term1"
+ d="M114 31h0.0"
+ />
+<path
+ class="terminal term2"
+ d="M209.0 31h0.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="95"
+ x="114"
+ y="20"
+>
+</rect>
+<a
+ xlink:href="https://github.com"
+>
+<text
+ x="161.5"
+ y="35"
+>
+bar
+</text>
+</a>
+<title
+>
+This is a terminal with a link
+</title>
+</g>
+<path
+ d="M209 31h10"
+ />
+<path
+ class="end"
+ d="M 219 31 h 20 m -10 -10 v 20 m 10 -20 v 20"
+>
+</path>
+</g>
+</svg>
+</p>
+</div>
+</div>
+</div></p>
+</li>
+</ul>
+<h4 id="nonterminal">NonTerminal<a class="headerlink" href="#nonterminal" title="Permanent link">&para;</a></h4>
+<p>By opposition, a NonTerminal is a symbol that is replaceable (and likely defined in another diagram).</p>
+<p>The constructor for <code>NonTerminal</code> takes a text, an optional href that will be converted to a link in SVG only, an optional title, a optional class for SVG styling and an optional dictionary of parameters to override <code>char_width</code>.</p>
+<ul>
+<li>
+<p>Simple
+    <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="exec-10--__tabbed_1_1" name="exec-10--__tabbed_1" type="radio" /><input id="exec-10--__tabbed_1_2" name="exec-10--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="exec-10--__tabbed_1_1">Source</label><label for="exec-10--__tabbed_1_2">Result</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyrailroad.elements</span><span class="w"> </span><span class="kn">import</span> <span class="n">Diagram</span><span class="p">,</span> <span class="n">NonTerminal</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">d</span> <span class="o">=</span> <span class="n">Diagram</span><span class="p">(</span><span class="n">NonTerminal</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">))</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><svg
+ class="railroad-diagram"
+ height="62"
+ viewBox="0 0 144 62"
+ width="144"
+>
+
+
+<g
+ transform="translate(.5 .5)"
+>
+
+
+<g
+>
+
+
+<path
+ class="start"
+ d="M20 21v20m10 -20v20m-10 -10h20"
+ />
+</g>
+<path
+ d="M40 31h10"
+ />
+<g
+ class="non-terminal "
+>
+
+
+<path
+ class="nonterm nt1"
+ d="M50 31h0.0"
+ />
+<path
+ class="nonterm nt2"
+ d="M94.0 31h0.0"
+ />
+<rect
+ height="22"
+ width="44"
+ x="50"
+ y="20"
+>
+</rect>
+<text
+ x="72"
+ y="35"
+>
+foo
+</text>
+</g>
+<path
+ d="M94 31h10"
+ />
+<path
+ class="end"
+ d="M 104 31 h 20 m -10 -10 v 20 m 10 -20 v 20"
+>
+</path>
+</g>
+</svg>
+</p>
+</div>
+</div>
+</div></p>
+</li>
+<li>
+<p>Customized
+    <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="exec-11--__tabbed_1_1" name="exec-11--__tabbed_1" type="radio" /><input id="exec-11--__tabbed_1_2" name="exec-11--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="exec-11--__tabbed_1_1">Source</label><label for="exec-11--__tabbed_1_2">Result</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyrailroad.elements</span><span class="w"> </span><span class="kn">import</span> <span class="n">Diagram</span><span class="p">,</span> <span class="n">NonTerminal</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">d</span> <span class="o">=</span> <span class="n">Diagram</span><span class="p">(</span><span class="n">NonTerminal</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">),</span> <span class="n">NonTerminal</span><span class="p">(</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s2">&quot;https://github.com&quot;</span><span class="p">,</span> <span class="n">parameters</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;char_width&quot;</span><span class="p">:</span> <span class="mi">25</span><span class="p">},</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;This is a non-terminal with a link&quot;</span><span class="p">,</span> <span class="bp">cls</span><span class="o">=</span><span class="s2">&quot;term&quot;</span><span class="p">))</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><svg
+ class="railroad-diagram"
+ height="62"
+ viewBox="0 0 259 62"
+ width="259"
+>
+
+
+<g
+ transform="translate(.5 .5)"
+>
+
+
+<g
+>
+
+
+<path
+ class="start"
+ d="M20 21v20m10 -20v20m-10 -10h20"
+ />
+</g>
+<path
+ d="M40 31h10"
+ />
+<g
+ class="non-terminal "
+>
+
+
+<path
+ class="nonterm nt1"
+ d="M50 31h0.0"
+ />
+<path
+ class="nonterm nt2"
+ d="M94.0 31h0.0"
+ />
+<rect
+ height="22"
+ width="44"
+ x="50"
+ y="20"
+>
+</rect>
+<text
+ x="72"
+ y="35"
+>
+foo
+</text>
+</g>
+<path
+ d="M94 31h10"
+ />
+<path
+ d="M104 31h10"
+ />
+<g
+ class="non-terminal term"
+>
+
+
+<path
+ class="nonterm nt1"
+ d="M114 31h0.0"
+ />
+<path
+ class="nonterm nt2"
+ d="M209.0 31h0.0"
+ />
+<rect
+ height="22"
+ width="95"
+ x="114"
+ y="20"
+>
+</rect>
+<a
+ xlink:href="https://github.com"
+>
+<text
+ x="161.5"
+ y="35"
+>
+bar
+</text>
+</a>
+<title
+>
+This is a non-terminal with a link
+</title>
+</g>
+<path
+ d="M209 31h10"
+ />
+<path
+ class="end"
+ d="M 219 31 h 20 m -10 -10 v 20 m 10 -20 v 20"
+>
+</path>
+</g>
+</svg>
+</p>
+</div>
+</div>
+</div></p>
+</li>
+</ul>
+<h4 id="comment">Comment<a class="headerlink" href="#comment" title="Permanent link">&para;</a></h4>
+<p>A comment is a neutral element that is best used to label branches in some of the block elements (repeat lines for example).</p>
+<p>The constructor for <code>Comment</code> takes a text, an optional href that will be converted to a link in SVG only, an optional title, a optional class for SVG styling and an optional dictionary of parameters to override <code>comment_char_width</code>.</p>
+<ul>
+<li>
+<p>Simple
+    <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="exec-12--__tabbed_1_1" name="exec-12--__tabbed_1" type="radio" /><input id="exec-12--__tabbed_1_2" name="exec-12--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="exec-12--__tabbed_1_1">Source</label><label for="exec-12--__tabbed_1_2">Result</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyrailroad.elements</span><span class="w"> </span><span class="kn">import</span> <span class="n">Diagram</span><span class="p">,</span> <span class="n">Comment</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">d</span> <span class="o">=</span> <span class="n">Diagram</span><span class="p">(</span><span class="n">Comment</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">))</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><svg
+ class="railroad-diagram"
+ height="60"
+ viewBox="0 0 131 60"
+ width="131"
+>
+
+
+<g
+ transform="translate(.5 .5)"
+>
+
+
+<g
+>
+
+
+<path
+ class="start"
+ d="M20 20v20m10 -20v20m-10 -10h20"
+ />
+</g>
+<path
+ d="M40 30h10"
+ />
+<g
+ class="non-terminal "
+>
+
+
+<path
+ class="comment com1"
+ d="M50 30h0.0"
+ />
+<path
+ class="comment com2"
+ d="M81.0 30h0.0"
+ />
+<text
+ class="comment"
+ x="65.5"
+ y="35"
+>
+foo
+</text>
+</g>
+<path
+ d="M81 30h10"
+ />
+<path
+ class="end"
+ d="M 91 30 h 20 m -10 -10 v 20 m 10 -20 v 20"
+>
+</path>
+</g>
+</svg>
+</p>
+</div>
+</div>
+</div></p>
+</li>
+<li>
+<p>Customized
+    <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="exec-13--__tabbed_1_1" name="exec-13--__tabbed_1" type="radio" /><input id="exec-13--__tabbed_1_2" name="exec-13--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="exec-13--__tabbed_1_1">Source</label><label for="exec-13--__tabbed_1_2">Result</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyrailroad.elements</span><span class="w"> </span><span class="kn">import</span> <span class="n">Diagram</span><span class="p">,</span> <span class="n">Comment</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">d</span> <span class="o">=</span> <span class="n">Diagram</span><span class="p">(</span><span class="n">Comment</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">),</span> <span class="n">Comment</span><span class="p">(</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s2">&quot;https://github.com&quot;</span><span class="p">,</span> <span class="n">parameters</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;comment_char_width&quot;</span><span class="p">:</span> <span class="mi">25</span><span class="p">},</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;This is a comment with a link&quot;</span><span class="p">,</span> <span class="bp">cls</span><span class="o">=</span><span class="s2">&quot;term&quot;</span><span class="p">))</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><svg
+ class="railroad-diagram"
+ height="60"
+ viewBox="0 0 236 60"
+ width="236"
+>
+
+
+<g
+ transform="translate(.5 .5)"
+>
+
+
+<g
+>
+
+
+<path
+ class="start"
+ d="M20 20v20m10 -20v20m-10 -10h20"
+ />
+</g>
+<path
+ d="M40 30h10"
+ />
+<g
+ class="non-terminal "
+>
+
+
+<path
+ class="comment com1"
+ d="M50 30h0.0"
+ />
+<path
+ class="comment com2"
+ d="M81.0 30h0.0"
+ />
+<text
+ class="comment"
+ x="65.5"
+ y="35"
+>
+foo
+</text>
+</g>
+<path
+ d="M81 30h10"
+ />
+<path
+ d="M91 30h10"
+ />
+<g
+ class="non-terminal term"
+>
+
+
+<path
+ class="comment com1"
+ d="M101 30h0.0"
+ />
+<path
+ class="comment com2"
+ d="M186.0 30h0.0"
+ />
+<a
+ xlink:href="https://github.com"
+>
+<text
+ class="comment"
+ x="143.5"
+ y="35"
+>
+bar
+</text>
+</a>
+<title
+>
+This is a comment with a link
+</title>
+</g>
+<path
+ d="M186 30h10"
+ />
+<path
+ class="end"
+ d="M 196 30 h 20 m -10 -10 v 20 m 10 -20 v 20"
+>
+</path>
+</g>
+</svg>
+</p>
+</div>
+</div>
+</div></p>
+</li>
+</ul>
+<h4 id="arrow">Arrow<a class="headerlink" href="#arrow" title="Permanent link">&para;</a></h4>
+<p>The arrow element is an addition in pyrailroad over railroad-diagram that lets you add an arrow to a line to help read a longer or more complex diagram.</p>
+<p>The constructor for <code>Arrow</code> takes an optional direction (and like <a href="#end">End</a>, a parameters dictionary that has no effect).</p>
+<p>Examples</p>
+<ul>
+<li>
+<p>Arrow to the right
+    <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="exec-14--__tabbed_1_1" name="exec-14--__tabbed_1" type="radio" /><input id="exec-14--__tabbed_1_2" name="exec-14--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="exec-14--__tabbed_1_1">Source</label><label for="exec-14--__tabbed_1_2">Result</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyrailroad.elements</span><span class="w"> </span><span class="kn">import</span> <span class="n">Diagram</span><span class="p">,</span> <span class="n">Arrow</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">d</span> <span class="o">=</span> <span class="n">Diagram</span><span class="p">(</span><span class="s2">&quot;going&quot;</span><span class="p">,</span> <span class="n">Arrow</span><span class="p">(),</span> <span class="s2">&quot;right&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><svg
+ class="railroad-diagram"
+ height="62"
+ viewBox="0 0 260 62"
+ width="260"
+>
+
+
+<g
+ transform="translate(.5 .5)"
+>
+
+
+<g
+>
+
+
+<path
+ class="start"
+ d="M20 21v20m10 -20v20m-10 -10h20"
+ />
+</g>
+<path
+ d="M40 31h10"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M50 31h0.0"
+ />
+<path
+ class="terminal term2"
+ d="M110.0 31h0.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="60"
+ x="50"
+ y="20"
+>
+</rect>
+<text
+ x="80"
+ y="35"
+>
+going
+</text>
+</g>
+<path
+ d="M110 31h10"
+ />
+<path
+ class="arrow"
+ d="M 120 31 h 20 m -5 -5 5,5 -5,5"
+>
+</path>
+<path
+ d="M140 31h10"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M150 31h0.0"
+ />
+<path
+ class="terminal term2"
+ d="M210.0 31h0.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="60"
+ x="150"
+ y="20"
+>
+</rect>
+<text
+ x="180"
+ y="35"
+>
+right
+</text>
+</g>
+<path
+ d="M210 31h10"
+ />
+<path
+ class="end"
+ d="M 220 31 h 20 m -10 -10 v 20 m 10 -20 v 20"
+>
+</path>
+</g>
+</svg>
+</p>
+</div>
+</div>
+</div></p>
+</li>
+<li>
+<p>Arrow to the left
+    <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="exec-15--__tabbed_1_1" name="exec-15--__tabbed_1" type="radio" /><input id="exec-15--__tabbed_1_2" name="exec-15--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="exec-15--__tabbed_1_1">Source</label><label for="exec-15--__tabbed_1_2">Result</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyrailroad.elements</span><span class="w"> </span><span class="kn">import</span> <span class="n">Diagram</span><span class="p">,</span> <span class="n">Arrow</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">d</span> <span class="o">=</span> <span class="n">Diagram</span><span class="p">(</span><span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="n">Arrow</span><span class="p">(</span><span class="s2">&quot;left&quot;</span><span class="p">),</span> <span class="s2">&quot;going&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><svg
+ class="railroad-diagram"
+ height="62"
+ viewBox="0 0 252 62"
+ width="252"
+>
+
+
+<g
+ transform="translate(.5 .5)"
+>
+
+
+<g
+>
+
+
+<path
+ class="start"
+ d="M20 21v20m10 -20v20m-10 -10h20"
+ />
+</g>
+<path
+ d="M40 31h10"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M50 31h0.0"
+ />
+<path
+ class="terminal term2"
+ d="M102.0 31h0.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="52"
+ x="50"
+ y="20"
+>
+</rect>
+<text
+ x="76"
+ y="35"
+>
+left
+</text>
+</g>
+<path
+ d="M102 31h10"
+ />
+<path
+ class="arrow"
+ d="M 112 31 m 5 -5 -5,5 5,5 -5,-5 h 20"
+>
+</path>
+<path
+ d="M132 31h10"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M142 31h0.0"
+ />
+<path
+ class="terminal term2"
+ d="M202.0 31h0.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="60"
+ x="142"
+ y="20"
+>
+</rect>
+<text
+ x="172"
+ y="35"
+>
+going
+</text>
+</g>
+<path
+ d="M202 31h10"
+ />
+<path
+ class="end"
+ d="M 212 31 h 20 m -10 -10 v 20 m 10 -20 v 20"
+>
+</path>
+</g>
+</svg>
+</p>
+</div>
+</div>
+</div></p>
+</li>
+<li>
+<p>Undirected (similar to a <a href="#skip">Skip</a>)
+    <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="exec-16--__tabbed_1_1" name="exec-16--__tabbed_1" type="radio" /><input id="exec-16--__tabbed_1_2" name="exec-16--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="exec-16--__tabbed_1_1">Source</label><label for="exec-16--__tabbed_1_2">Result</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyrailroad.elements</span><span class="w"> </span><span class="kn">import</span> <span class="n">Diagram</span><span class="p">,</span> <span class="n">Arrow</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">d</span> <span class="o">=</span> <span class="n">Diagram</span><span class="p">(</span><span class="s2">&quot;step on&quot;</span><span class="p">,</span> <span class="n">Arrow</span><span class="p">(</span><span class="s2">&quot;skip&quot;</span><span class="p">),</span> <span class="s2">&quot;no pets&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><svg
+ class="railroad-diagram"
+ height="62"
+ viewBox="0 0 292 62"
+ width="292"
+>
+
+
+<g
+ transform="translate(.5 .5)"
+>
+
+
+<g
+>
+
+
+<path
+ class="start"
+ d="M20 21v20m10 -20v20m-10 -10h20"
+ />
+</g>
+<path
+ d="M40 31h10"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M50 31h0.0"
+ />
+<path
+ class="terminal term2"
+ d="M126.0 31h0.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="76"
+ x="50"
+ y="20"
+>
+</rect>
+<text
+ x="88"
+ y="35"
+>
+step on
+</text>
+</g>
+<path
+ d="M126 31h10"
+ />
+<path
+ class="arrow"
+ d="M 136 31 h 20"
+>
+</path>
+<path
+ d="M156 31h10"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M166 31h0.0"
+ />
+<path
+ class="terminal term2"
+ d="M242.0 31h0.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="76"
+ x="166"
+ y="20"
+>
+</rect>
+<text
+ x="204"
+ y="35"
+>
+no pets
+</text>
+</g>
+<path
+ d="M242 31h10"
+ />
+<path
+ class="end"
+ d="M 252 31 h 20 m -10 -10 v 20 m 10 -20 v 20"
+>
+</path>
+</g>
+</svg>
+</p>
+</div>
+</div>
+</div></p>
+</li>
+</ul>
+<h4 id="skip">Skip<a class="headerlink" href="#skip" title="Permanent link">&para;</a></h4>
+<p>This element lets you add spacing in your diagram by adding an empty line (in a<a href="#stack">Stack</a>, typically).</p>
+<p>The constructor only takes an optional parameters dictionary.</p>
+<p>Example</p>
+<ul>
+<li>
+<p>One Skip
+    <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="exec-17--__tabbed_1_1" name="exec-17--__tabbed_1" type="radio" /><input id="exec-17--__tabbed_1_2" name="exec-17--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="exec-17--__tabbed_1_1">Source</label><label for="exec-17--__tabbed_1_2">Result</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyrailroad.elements</span><span class="w"> </span><span class="kn">import</span> <span class="n">Diagram</span><span class="p">,</span> <span class="n">Stack</span><span class="p">,</span> <span class="n">Skip</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">d</span> <span class="o">=</span> <span class="n">Diagram</span><span class="p">(</span><span class="n">Stack</span><span class="p">(</span><span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="n">Skip</span><span class="p">(),</span> <span class="s2">&quot;skip&quot;</span><span class="p">))</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><svg
+ class="railroad-diagram"
+ height="142"
+ viewBox="0 0 192 142"
+ width="192"
+>
+
+
+<g
+ transform="translate(.5 .5)"
+>
+
+
+<g
+>
+
+
+<path
+ class="start"
+ d="M20 21v20m10 -20v20m-10 -10h20"
+ />
+</g>
+<path
+ d="M40 31h10"
+ />
+<g
+>
+
+
+<path
+ class="stack stack1"
+ d="M50 31h0.0"
+ />
+<path
+ class="stack stack2"
+ d="M50.0 31h10"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M60.0 31h14.0"
+ />
+<path
+ class="terminal term2"
+ d="M118.0 31h14.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="44"
+ x="74"
+ y="20"
+>
+</rect>
+<text
+ x="96"
+ y="35"
+>
+one
+</text>
+</g>
+<path
+ class="stack stack3"
+ d="M132.0 31a10 10 0 0 1 10 10v0a10 10 0 0 1 -10 10h-72a10 10 0 0 0 -10 10v0a10 10 0 0 0 10 10h10"
+ />
+<g
+>
+
+
+<path
+ class="skip"
+ d="M60.0 71h72"
+ />
+</g>
+<path
+ class="stack stack3"
+ d="M132.0 71a10 10 0 0 1 10 10v0a10 10 0 0 1 -10 10h-72a10 10 0 0 0 -10 10v0a10 10 0 0 0 10 10h10"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M60.0 111h10.0"
+ />
+<path
+ class="terminal term2"
+ d="M122.0 111h10.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="52"
+ x="70"
+ y="100"
+>
+</rect>
+<text
+ x="96"
+ y="115"
+>
+skip
+</text>
+</g>
+<path
+ class="stack stack4"
+ d="M132.0 111h10"
+ />
+<path
+ class="stack stack5"
+ d="M142.0 111h0.0"
+ />
+</g>
+<path
+ d="M142 111h10"
+ />
+<path
+ class="end"
+ d="M 152 111 h 20 m -10 -10 v 20 m 10 -20 v 20"
+>
+</path>
+</g>
+</svg>
+</p>
+</div>
+</div>
+</div></p>
+</li>
+<li>
+<p>Three Skips
+    <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="exec-18--__tabbed_1_1" name="exec-18--__tabbed_1" type="radio" /><input id="exec-18--__tabbed_1_2" name="exec-18--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="exec-18--__tabbed_1_1">Source</label><label for="exec-18--__tabbed_1_2">Result</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyrailroad.elements</span><span class="w"> </span><span class="kn">import</span> <span class="n">Diagram</span><span class="p">,</span> <span class="n">Stack</span><span class="p">,</span> <span class="n">Skip</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">d</span> <span class="o">=</span> <span class="n">Diagram</span><span class="p">(</span><span class="n">Stack</span><span class="p">(</span><span class="s2">&quot;three&quot;</span><span class="p">,</span> <span class="n">Skip</span><span class="p">(),</span> <span class="n">Skip</span><span class="p">(),</span> <span class="n">Skip</span><span class="p">(),</span> <span class="s2">&quot;skips&quot;</span><span class="p">))</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><svg
+ class="railroad-diagram"
+ height="222"
+ viewBox="0 0 200 222"
+ width="200"
+>
+
+
+<g
+ transform="translate(.5 .5)"
+>
+
+
+<g
+>
+
+
+<path
+ class="start"
+ d="M20 21v20m10 -20v20m-10 -10h20"
+ />
+</g>
+<path
+ d="M40 31h10"
+ />
+<g
+>
+
+
+<path
+ class="stack stack1"
+ d="M50 31h0.0"
+ />
+<path
+ class="stack stack2"
+ d="M50.0 31h10"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M60.0 31h10.0"
+ />
+<path
+ class="terminal term2"
+ d="M130.0 31h10.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="60"
+ x="70"
+ y="20"
+>
+</rect>
+<text
+ x="100"
+ y="35"
+>
+three
+</text>
+</g>
+<path
+ class="stack stack3"
+ d="M140.0 31a10 10 0 0 1 10 10v0a10 10 0 0 1 -10 10h-80a10 10 0 0 0 -10 10v0a10 10 0 0 0 10 10h10"
+ />
+<g
+>
+
+
+<path
+ class="skip"
+ d="M60.0 71h80"
+ />
+</g>
+<path
+ class="stack stack3"
+ d="M140.0 71a10 10 0 0 1 10 10v0a10 10 0 0 1 -10 10h-80a10 10 0 0 0 -10 10v0a10 10 0 0 0 10 10h10"
+ />
+<g
+>
+
+
+<path
+ class="skip"
+ d="M60.0 111h80"
+ />
+</g>
+<path
+ class="stack stack3"
+ d="M140.0 111a10 10 0 0 1 10 10v0a10 10 0 0 1 -10 10h-80a10 10 0 0 0 -10 10v0a10 10 0 0 0 10 10h10"
+ />
+<g
+>
+
+
+<path
+ class="skip"
+ d="M60.0 151h80"
+ />
+</g>
+<path
+ class="stack stack3"
+ d="M140.0 151a10 10 0 0 1 10 10v0a10 10 0 0 1 -10 10h-80a10 10 0 0 0 -10 10v0a10 10 0 0 0 10 10h10"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M60.0 191h10.0"
+ />
+<path
+ class="terminal term2"
+ d="M130.0 191h10.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="60"
+ x="70"
+ y="180"
+>
+</rect>
+<text
+ x="100"
+ y="195"
+>
+skips
+</text>
+</g>
+<path
+ class="stack stack4"
+ d="M140.0 191h10"
+ />
+<path
+ class="stack stack5"
+ d="M150.0 191h0.0"
+ />
+</g>
+<path
+ d="M150 191h10"
+ />
+<path
+ class="end"
+ d="M 160 191 h 20 m -10 -10 v 20 m 10 -20 v 20"
+>
+</path>
+</g>
+</svg>
+</p>
+</div>
+</div>
+</div></p>
+</li>
+</ul>
+<h4 id="expression">Expression<a class="headerlink" href="#expression" title="Permanent link">&para;</a></h4>
+<p>The expression element is an addition in pyrailroad over railroad-diagram. It was added to deal with EBNF grammars having ambiguities in their notations which means the parser has to guess for some elements and it can't decide how to represent it other than as an <em>expression</em>. The best example is when a grammar contains a <em>regular expression</em>.</p>
+<p>The constructor for <code>Expression</code> takes a text, an optional href that will be converted to a link in SVG only, an optional title, a optional class for SVG styling and an optional dictionary of parameters to override <code>char_width</code>.</p>
+<p>Examples</p>
+<ul>
+<li>
+<p>Simple
+    <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="exec-19--__tabbed_1_1" name="exec-19--__tabbed_1" type="radio" /><input id="exec-19--__tabbed_1_2" name="exec-19--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="exec-19--__tabbed_1_1">Source</label><label for="exec-19--__tabbed_1_2">Result</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyrailroad.elements</span><span class="w"> </span><span class="kn">import</span> <span class="n">Diagram</span><span class="p">,</span> <span class="n">Expression</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">d</span> <span class="o">=</span> <span class="n">Diagram</span><span class="p">(</span><span class="n">Expression</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">))</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><svg
+ class="railroad-diagram"
+ height="62"
+ viewBox="0 0 164 62"
+ width="164"
+>
+
+
+<g
+ transform="translate(.5 .5)"
+>
+
+
+<g
+>
+
+
+<path
+ class="start"
+ d="M20 21v20m10 -20v20m-10 -10h20"
+ />
+</g>
+<path
+ d="M40 31h10"
+ />
+<g
+ class="expression "
+>
+
+
+<path
+ class="expression exp1"
+ d="M50 31h0.0"
+ />
+<path
+ class="expression exp2"
+ d="M114.0 31h0.0"
+ />
+<polygon
+ points="60.0, 20 104.0, 20 114.0, 31 104.0, 42 60.0, 42 50.0, 31"
+>
+</polygon>
+<text
+ x="82"
+ y="35"
+>
+foo
+</text>
+</g>
+<path
+ d="M114 31h10"
+ />
+<path
+ class="end"
+ d="M 124 31 h 20 m -10 -10 v 20 m 10 -20 v 20"
+>
+</path>
+</g>
+</svg>
+</p>
+</div>
+</div>
+</div></p>
+</li>
+<li>
+<p>Customized
+    <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="exec-20--__tabbed_1_1" name="exec-20--__tabbed_1" type="radio" /><input id="exec-20--__tabbed_1_2" name="exec-20--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="exec-20--__tabbed_1_1">Source</label><label for="exec-20--__tabbed_1_2">Result</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyrailroad.elements</span><span class="w"> </span><span class="kn">import</span> <span class="n">Diagram</span><span class="p">,</span> <span class="n">Expression</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">d</span> <span class="o">=</span> <span class="n">Diagram</span><span class="p">(</span><span class="n">Expression</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">),</span> <span class="n">Expression</span><span class="p">(</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s2">&quot;https://github.com&quot;</span><span class="p">,</span> <span class="n">parameters</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;char_width&quot;</span><span class="p">:</span> <span class="mi">25</span><span class="p">},</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;This is an expression with a link&quot;</span><span class="p">,</span> <span class="bp">cls</span><span class="o">=</span><span class="s2">&quot;term&quot;</span><span class="p">))</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><svg
+ class="railroad-diagram"
+ height="62"
+ viewBox="0 0 299 62"
+ width="299"
+>
+
+
+<g
+ transform="translate(.5 .5)"
+>
+
+
+<g
+>
+
+
+<path
+ class="start"
+ d="M20 21v20m10 -20v20m-10 -10h20"
+ />
+</g>
+<path
+ d="M40 31h10"
+ />
+<g
+ class="expression "
+>
+
+
+<path
+ class="expression exp1"
+ d="M50 31h0.0"
+ />
+<path
+ class="expression exp2"
+ d="M114.0 31h0.0"
+ />
+<polygon
+ points="60.0, 20 104.0, 20 114.0, 31 104.0, 42 60.0, 42 50.0, 31"
+>
+</polygon>
+<text
+ x="82"
+ y="35"
+>
+foo
+</text>
+</g>
+<path
+ d="M114 31h10"
+ />
+<path
+ d="M124 31h10"
+ />
+<g
+ class="expression term"
+>
+
+
+<path
+ class="expression exp1"
+ d="M134 31h0.0"
+ />
+<path
+ class="expression exp2"
+ d="M249.0 31h0.0"
+ />
+<polygon
+ points="144.0, 20 239.0, 20 249.0, 31 239.0, 42 144.0, 42 134.0, 31"
+>
+</polygon>
+<a
+ xlink:href="https://github.com"
+>
+<text
+ x="191.5"
+ y="35"
+>
+bar
+</text>
+</a>
+<title
+>
+This is an expression with a link
+</title>
+</g>
+<path
+ d="M249 31h10"
+ />
+<path
+ class="end"
+ d="M 259 31 h 20 m -10 -10 v 20 m 10 -20 v 20"
+>
+</path>
+</g>
+</svg>
+</p>
+</div>
+</div>
+</div></p>
+</li>
+</ul>
+<h3 id="block-elements">Block elements<a class="headerlink" href="#block-elements" title="Permanent link">&para;</a></h3>
+<h4 id="sequence">Sequence<a class="headerlink" href="#sequence" title="Permanent link">&para;</a></h4>
+<p>As the name says, this is a sequence of elements. This is a useful container when you build more complex diagrams that use the other block elements (like <a href="#stack">Stack</a>, for example).</p>
+<p>The constructor for <code>Sequence</code> takes one or more elements and an optional parameter dictionary.</p>
+<p>Example</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="exec-21--__tabbed_1_1" name="exec-21--__tabbed_1" type="radio" /><input id="exec-21--__tabbed_1_2" name="exec-21--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="exec-21--__tabbed_1_1">Source</label><label for="exec-21--__tabbed_1_2">Result</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyrailroad.elements</span><span class="w"> </span><span class="kn">import</span> <span class="n">Diagram</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">Arrow</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">d</span> <span class="o">=</span> <span class="n">Diagram</span><span class="p">(</span><span class="n">Sequence</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="n">Arrow</span><span class="p">(),</span> <span class="s2">&quot;bar&quot;</span><span class="p">))</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><svg
+ class="railroad-diagram"
+ height="62"
+ viewBox="0 0 228 62"
+ width="228"
+>
+
+
+<g
+ transform="translate(.5 .5)"
+>
+
+
+<g
+>
+
+
+<path
+ class="start"
+ d="M20 21v20m10 -20v20m-10 -10h20"
+ />
+</g>
+<path
+ d="M40 31h10"
+ />
+<g
+>
+
+
+<path
+ class="seq seq1"
+ d="M50 31h0.0"
+ />
+<path
+ class="seq seq2"
+ d="M178.0 31h0.0"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M50.0 31h0.0"
+ />
+<path
+ class="terminal term2"
+ d="M94.0 31h0.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="44"
+ x="50"
+ y="20"
+>
+</rect>
+<text
+ x="72"
+ y="35"
+>
+foo
+</text>
+</g>
+<path
+ class="seq seq4"
+ d="M94.0 31h10"
+ />
+<path
+ class="arrow"
+ d="M 104.0 31 h 20 m -5 -5 5,5 -5,5"
+>
+</path>
+<path
+ class="seq seq3"
+ d="M124.0 31h10"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M134.0 31h0.0"
+ />
+<path
+ class="terminal term2"
+ d="M178.0 31h0.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="44"
+ x="134"
+ y="20"
+>
+</rect>
+<text
+ x="156"
+ y="35"
+>
+bar
+</text>
+</g>
+</g>
+<path
+ d="M178 31h10"
+ />
+<path
+ class="end"
+ d="M 188 31 h 20 m -10 -10 v 20 m 10 -20 v 20"
+>
+</path>
+</g>
+</svg>
+</p>
+</div>
+</div>
+</div>
+<h4 id="stack">Stack<a class="headerlink" href="#stack" title="Permanent link">&para;</a></h4>
+<p>This allows you to stack elements vertically.</p>
+<p>The constructor for <code>Stack</code> takes one or more elements and an optional parameter dictionary (to modify the arc radius of curves).</p>
+<p>Examples</p>
+<ul>
+<li>
+<p>A simple stack</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="exec-22--__tabbed_1_1" name="exec-22--__tabbed_1" type="radio" /><input id="exec-22--__tabbed_1_2" name="exec-22--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="exec-22--__tabbed_1_1">Source</label><label for="exec-22--__tabbed_1_2">Result</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyrailroad.elements</span><span class="w"> </span><span class="kn">import</span> <span class="n">Diagram</span><span class="p">,</span> <span class="n">Stack</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">d</span> <span class="o">=</span> <span class="n">Diagram</span><span class="p">(</span><span class="n">Stack</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="s2">&quot;bar&quot;</span><span class="p">))</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><svg
+ class="railroad-diagram"
+ height="102"
+ viewBox="0 0 184 102"
+ width="184"
+>
+
+
+<g
+ transform="translate(.5 .5)"
+>
+
+
+<g
+>
+
+
+<path
+ class="start"
+ d="M20 21v20m10 -20v20m-10 -10h20"
+ />
+</g>
+<path
+ d="M40 31h10"
+ />
+<g
+>
+
+
+<path
+ class="stack stack1"
+ d="M50 31h0.0"
+ />
+<path
+ class="stack stack2"
+ d="M50.0 31h10"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M60.0 31h10.0"
+ />
+<path
+ class="terminal term2"
+ d="M114.0 31h10.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="44"
+ x="70"
+ y="20"
+>
+</rect>
+<text
+ x="92"
+ y="35"
+>
+foo
+</text>
+</g>
+<path
+ class="stack stack3"
+ d="M124.0 31a10 10 0 0 1 10 10v0a10 10 0 0 1 -10 10h-64a10 10 0 0 0 -10 10v0a10 10 0 0 0 10 10h10"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M60.0 71h10.0"
+ />
+<path
+ class="terminal term2"
+ d="M114.0 71h10.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="44"
+ x="70"
+ y="60"
+>
+</rect>
+<text
+ x="92"
+ y="75"
+>
+bar
+</text>
+</g>
+<path
+ class="stack stack4"
+ d="M124.0 71h10"
+ />
+<path
+ class="stack stack5"
+ d="M134.0 71h0.0"
+ />
+</g>
+<path
+ d="M134 71h10"
+ />
+<path
+ class="end"
+ d="M 144 71 h 20 m -10 -10 v 20 m 10 -20 v 20"
+>
+</path>
+</g>
+</svg>
+</p>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>A customized stack with more elements</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="exec-23--__tabbed_1_1" name="exec-23--__tabbed_1" type="radio" /><input id="exec-23--__tabbed_1_2" name="exec-23--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="exec-23--__tabbed_1_1">Source</label><label for="exec-23--__tabbed_1_2">Result</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyrailroad.elements</span><span class="w"> </span><span class="kn">import</span> <span class="n">Diagram</span><span class="p">,</span> <span class="n">Stack</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">Terminal</span><span class="p">,</span> <span class="n">NonTerminal</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">d</span> <span class="o">=</span> <span class="n">Diagram</span><span class="p">(</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>        <span class="n">Stack</span><span class="p">(</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>            <span class="n">Sequence</span><span class="p">(</span><span class="n">NonTerminal</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">),</span> <span class="n">Terminal</span><span class="p">(</span><span class="s2">&quot;bar&quot;</span><span class="p">)),</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>            <span class="n">Sequence</span><span class="p">(</span><span class="n">NonTerminal</span><span class="p">(</span><span class="s2">&quot;baz&quot;</span><span class="p">),</span> <span class="n">Terminal</span><span class="p">(</span><span class="s2">&quot;buzz&quot;</span><span class="p">)),</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>            <span class="n">parameters</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;AR&#39;</span><span class="p">:</span><span class="mi">20</span><span class="p">}</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>            <span class="p">)</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>        <span class="p">)</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><svg
+ class="railroad-diagram"
+ height="142"
+ viewBox="0 0 276 142"
+ width="276"
+>
+
+
+<g
+ transform="translate(.5 .5)"
+>
+
+
+<g
+>
+
+
+<path
+ class="start"
+ d="M20 21v20m10 -20v20m-10 -10h20"
+ />
+</g>
+<path
+ d="M40 31h10"
+ />
+<g
+>
+
+
+<path
+ class="stack stack1"
+ d="M50 31h0.0"
+ />
+<path
+ class="stack stack2"
+ d="M50.0 31h20"
+ />
+<g
+>
+
+
+<path
+ class="seq seq1"
+ d="M70.0 31h14.0"
+ />
+<path
+ class="seq seq2"
+ d="M192.0 31h14.0"
+ />
+<g
+ class="non-terminal "
+>
+
+
+<path
+ class="nonterm nt1"
+ d="M84.0 31h0.0"
+ />
+<path
+ class="nonterm nt2"
+ d="M128.0 31h0.0"
+ />
+<rect
+ height="22"
+ width="44"
+ x="84"
+ y="20"
+>
+</rect>
+<text
+ x="106"
+ y="35"
+>
+foo
+</text>
+</g>
+<path
+ class="seq seq4"
+ d="M128.0 31h10"
+ />
+<path
+ class="seq seq3"
+ d="M138.0 31h10"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M148.0 31h0.0"
+ />
+<path
+ class="terminal term2"
+ d="M192.0 31h0.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="44"
+ x="148"
+ y="20"
+>
+</rect>
+<text
+ x="170"
+ y="35"
+>
+bar
+</text>
+</g>
+</g>
+<path
+ class="stack stack3"
+ d="M206.0 31a20 20 0 0 1 20 20v0a20 20 0 0 1 -20 20h-136a20 20 0 0 0 -20 20v0a20 20 0 0 0 20 20h10"
+ />
+<g
+>
+
+
+<path
+ class="seq seq1"
+ d="M70.0 111h10.0"
+ />
+<path
+ class="seq seq2"
+ d="M196.0 111h10.0"
+ />
+<g
+ class="non-terminal "
+>
+
+
+<path
+ class="nonterm nt1"
+ d="M80.0 111h0.0"
+ />
+<path
+ class="nonterm nt2"
+ d="M124.0 111h0.0"
+ />
+<rect
+ height="22"
+ width="44"
+ x="80"
+ y="100"
+>
+</rect>
+<text
+ x="102"
+ y="115"
+>
+baz
+</text>
+</g>
+<path
+ class="seq seq4"
+ d="M124.0 111h10"
+ />
+<path
+ class="seq seq3"
+ d="M134.0 111h10"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M144.0 111h0.0"
+ />
+<path
+ class="terminal term2"
+ d="M196.0 111h0.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="52"
+ x="144"
+ y="100"
+>
+</rect>
+<text
+ x="170"
+ y="115"
+>
+buzz
+</text>
+</g>
+</g>
+<path
+ class="stack stack4"
+ d="M206.0 111h20"
+ />
+<path
+ class="stack stack5"
+ d="M226.0 111h0.0"
+ />
+</g>
+<path
+ d="M226 111h10"
+ />
+<path
+ class="end"
+ d="M 236 111 h 20 m -10 -10 v 20 m 10 -20 v 20"
+>
+</path>
+</g>
+</svg>
+</p>
+</div>
+</div>
+</div>
+</li>
+</ul>
+<h4 id="optionalsequence">OptionalSequence<a class="headerlink" href="#optionalsequence" title="Permanent link">&para;</a></h4>
+<p>This block is a sequence of elements where you must choose at least one element among the elements passed to it. If only one element is provided, it is turned into a <a href="#sequence">Sequence</a>.</p>
+<p>The constructor for <code>OptionalSequence</code> takes one or more elements and an optional parameter dictionary (to modify the arc radius of curves).</p>
+<p>Examples</p>
+<ul>
+<li>
+<p>A simple optional sequence</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="exec-24--__tabbed_1_1" name="exec-24--__tabbed_1" type="radio" /><input id="exec-24--__tabbed_1_2" name="exec-24--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="exec-24--__tabbed_1_1">Source</label><label for="exec-24--__tabbed_1_2">Result</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyrailroad.elements</span><span class="w"> </span><span class="kn">import</span> <span class="n">Diagram</span><span class="p">,</span> <span class="n">OptionalSequence</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">d</span> <span class="o">=</span> <span class="n">Diagram</span><span class="p">(</span><span class="n">OptionalSequence</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="s2">&quot;bar&quot;</span><span class="p">))</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><svg
+ class="railroad-diagram"
+ height="80"
+ viewBox="0 0 228 80"
+ width="228"
+>
+
+
+<g
+ transform="translate(.5 .5)"
+>
+
+
+<g
+>
+
+
+<path
+ class="start"
+ d="M20 30v20m10 -20v20m-10 -10h20"
+ />
+</g>
+<g
+>
+
+
+<path
+ class="optseq os1"
+ d="M40 40h0"
+ />
+<path
+ class="optseq os2"
+ d="M188.0 40h0"
+ />
+<path
+ class="optseq os3"
+ d="M40.0 40a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10h44a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10"
+ />
+<path
+ class="optseq os4"
+ d="M40.0 40h20"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M60.0 40h0.0"
+ />
+<path
+ class="terminal term2"
+ d="M104.0 40h0.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="44"
+ x="60"
+ y="29"
+>
+</rect>
+<text
+ x="82"
+ y="44"
+>
+foo
+</text>
+</g>
+<path
+ class="optseq os9"
+ d="M104.0 40h20"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M124.0 40h0.0"
+ />
+<path
+ class="terminal term2"
+ d="M168.0 40h0.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="44"
+ x="124"
+ y="29"
+>
+</rect>
+<text
+ x="146"
+ y="44"
+>
+bar
+</text>
+</g>
+<path
+ class="optseq os10"
+ d="M168.0 40h20"
+ />
+<path
+ class="optseq os11"
+ d="M104.0 40a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10h44a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10"
+ />
+</g>
+<path
+ class="end"
+ d="M 188 40 h 20 m -10 -10 v 20 m 10 -20 v 20"
+>
+</path>
+</g>
+</svg>
+</p>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>A customized optional sequence with more elements</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="exec-25--__tabbed_1_1" name="exec-25--__tabbed_1" type="radio" /><input id="exec-25--__tabbed_1_2" name="exec-25--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="exec-25--__tabbed_1_1">Source</label><label for="exec-25--__tabbed_1_2">Result</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyrailroad.elements</span><span class="w"> </span><span class="kn">import</span> <span class="n">Diagram</span><span class="p">,</span> <span class="n">OptionalSequence</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">Terminal</span><span class="p">,</span> <span class="n">NonTerminal</span><span class="p">,</span> <span class="n">Expression</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">d</span> <span class="o">=</span> <span class="n">Diagram</span><span class="p">(</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>        <span class="n">OptionalSequence</span><span class="p">(</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>            <span class="n">Sequence</span><span class="p">(</span><span class="n">NonTerminal</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">),</span> <span class="n">Terminal</span><span class="p">(</span><span class="s2">&quot;bar&quot;</span><span class="p">)),</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>            <span class="n">Sequence</span><span class="p">(</span><span class="n">NonTerminal</span><span class="p">(</span><span class="s2">&quot;baz&quot;</span><span class="p">),</span> <span class="n">Terminal</span><span class="p">(</span><span class="s2">&quot;buzz&quot;</span><span class="p">)),</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>            <span class="n">Expression</span><span class="p">(</span><span class="s2">&quot;fizz&quot;</span><span class="p">),</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>            <span class="n">parameters</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;AR&#39;</span><span class="p">:</span><span class="mi">20</span><span class="p">}</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>            <span class="p">)</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>        <span class="p">)</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><svg
+ class="railroad-diagram"
+ height="120"
+ viewBox="0 0 546 120"
+ width="546"
+>
+
+
+<g
+ transform="translate(.5 .5)"
+>
+
+
+<g
+>
+
+
+<path
+ class="start"
+ d="M20 50v20m10 -20v20m-10 -10h20"
+ />
+</g>
+<g
+>
+
+
+<path
+ class="optseq os1"
+ d="M40 60h0"
+ />
+<path
+ class="optseq os2"
+ d="M506.0 60h0"
+ />
+<path
+ class="optseq os3"
+ d="M40.0 60a20 20 0 0 0 20 -20v0a20 20 0 0 1 20 -20h98a20 20 0 0 1 20 20v0a20 20 0 0 0 20 20"
+ />
+<path
+ class="optseq os4"
+ d="M40.0 60h30"
+ />
+<g
+>
+
+
+<path
+ class="seq seq1"
+ d="M70.0 60h0.0"
+ />
+<path
+ class="seq seq2"
+ d="M178.0 60h0.0"
+ />
+<g
+ class="non-terminal "
+>
+
+
+<path
+ class="nonterm nt1"
+ d="M70.0 60h0.0"
+ />
+<path
+ class="nonterm nt2"
+ d="M114.0 60h0.0"
+ />
+<rect
+ height="22"
+ width="44"
+ x="70"
+ y="49"
+>
+</rect>
+<text
+ x="92"
+ y="64"
+>
+foo
+</text>
+</g>
+<path
+ class="seq seq4"
+ d="M114.0 60h10"
+ />
+<path
+ class="seq seq3"
+ d="M124.0 60h10"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M134.0 60h0.0"
+ />
+<path
+ class="terminal term2"
+ d="M178.0 60h0.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="44"
+ x="134"
+ y="49"
+>
+</rect>
+<text
+ x="156"
+ y="64"
+>
+bar
+</text>
+</g>
+</g>
+<path
+ class="optseq os5"
+ d="M178.0 20h186a20 20 0 0 1 20 20v0a20 20 0 0 0 20 20"
+ />
+<path
+ class="optseq os6"
+ d="M178.0 60h40"
+ />
+<g
+>
+
+
+<path
+ class="seq seq1"
+ d="M218.0 60h0.0"
+ />
+<path
+ class="seq seq2"
+ d="M334.0 60h0.0"
+ />
+<g
+ class="non-terminal "
+>
+
+
+<path
+ class="nonterm nt1"
+ d="M218.0 60h0.0"
+ />
+<path
+ class="nonterm nt2"
+ d="M262.0 60h0.0"
+ />
+<rect
+ height="22"
+ width="44"
+ x="218"
+ y="49"
+>
+</rect>
+<text
+ x="240"
+ y="64"
+>
+baz
+</text>
+</g>
+<path
+ class="seq seq4"
+ d="M262.0 60h10"
+ />
+<path
+ class="seq seq3"
+ d="M272.0 60h10"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M282.0 60h0.0"
+ />
+<path
+ class="terminal term2"
+ d="M334.0 60h0.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="52"
+ x="282"
+ y="49"
+>
+</rect>
+<text
+ x="308"
+ y="64"
+>
+buzz
+</text>
+</g>
+</g>
+<path
+ class="optseq os7"
+ d="M334.0 60h30"
+ />
+<path
+ class="optseq os8"
+ d="M178.0 60a20 20 0 0 1 20 20v0a20 20 0 0 0 20 20h106a20 20 0 0 0 20 -20v0a20 20 0 0 1 20 -20"
+ />
+<path
+ class="optseq os9"
+ d="M364.0 60h40"
+ />
+<g
+ class="expression "
+>
+
+
+<path
+ class="expression exp1"
+ d="M404.0 60h0.0"
+ />
+<path
+ class="expression exp2"
+ d="M476.0 60h0.0"
+ />
+<polygon
+ points="414.0, 49 466.0, 49 476.0, 60 466.0, 71 414.0, 71 404.0, 60"
+>
+</polygon>
+<text
+ x="440"
+ y="64"
+>
+fizz
+</text>
+</g>
+<path
+ class="optseq os10"
+ d="M476.0 60h30"
+ />
+<path
+ class="optseq os11"
+ d="M364.0 60a20 20 0 0 1 20 20v0a20 20 0 0 0 20 20h62a20 20 0 0 0 20 -20v0a20 20 0 0 1 20 -20"
+ />
+</g>
+<path
+ class="end"
+ d="M 506 60 h 20 m -10 -10 v 20 m 10 -20 v 20"
+>
+</path>
+</g>
+</svg>
+</p>
+</div>
+</div>
+</div>
+</li>
+</ul>
+<h4 id="alternatingsequence">AlternatingSequence<a class="headerlink" href="#alternatingsequence" title="Permanent link">&para;</a></h4>
+<p>This block means that the two arguments may repeat any number of times, by alternating between the two. You have to take at least one of the two elements.</p>
+<p>The constructor for <code>AlternatingSequence</code> takes exactly two elements and an optional parameter dictionary (to modify the arc radius of curves).</p>
+<p>Examples</p>
+<ul>
+<li>
+<p>A simple alternating sequence</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="exec-26--__tabbed_1_1" name="exec-26--__tabbed_1" type="radio" /><input id="exec-26--__tabbed_1_2" name="exec-26--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="exec-26--__tabbed_1_1">Source</label><label for="exec-26--__tabbed_1_2">Result</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyrailroad.elements</span><span class="w"> </span><span class="kn">import</span> <span class="n">Diagram</span><span class="p">,</span> <span class="n">AlternatingSequence</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">d</span> <span class="o">=</span> <span class="n">Diagram</span><span class="p">(</span><span class="n">AlternatingSequence</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="s2">&quot;bar&quot;</span><span class="p">))</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><svg
+ class="railroad-diagram"
+ height="112.0"
+ viewBox="0 0 184 112.0"
+ width="184"
+>
+
+
+<g
+ transform="translate(.5 .5)"
+>
+
+
+<g
+>
+
+
+<path
+ class="start"
+ d="M20 46.0v20m10 -20v20m-10 -10h20"
+ />
+</g>
+<g
+>
+
+
+<path
+ class="altseq as1"
+ d="M40 56.0h0"
+ />
+<path
+ class="altseq as2"
+ d="M144.0 56.0h0"
+ />
+<path
+ class="altseq as3"
+ d="M40.0 56.0a10 10 0 0 0 10 -10v-5.0a10 10 0 0 1 10 -10"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M60.0 31.0h10.0"
+ />
+<path
+ class="terminal term2"
+ d="M114.0 31.0h10.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="44"
+ x="70"
+ y="20"
+>
+</rect>
+<text
+ x="92"
+ y="35"
+>
+foo
+</text>
+</g>
+<path
+ class="altseq as4"
+ d="M124.0 31.0a10 10 0 0 1 10 10v5.0a10 10 0 0 0 10 10"
+ />
+<path
+ class="altseq as5"
+ d="M40.0 56.0a10 10 0 0 1 10 10v5.0a10 10 0 0 0 10 10"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M60.0 81.0h10.0"
+ />
+<path
+ class="terminal term2"
+ d="M114.0 81.0h10.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="44"
+ x="70"
+ y="70"
+>
+</rect>
+<text
+ x="92"
+ y="85"
+>
+bar
+</text>
+</g>
+<path
+ class="altseq as6"
+ d="M124.0 81.0a10 10 0 0 0 10 -10v-5.0a10 10 0 0 1 10 -10"
+ />
+<path
+ class="altseq as7"
+ d="M50.0 41.0a10 10 0 0 0 10 10h22.85786437626905a 10 10 0 0 1 7.071067811865475 2.9289321881345254l4.142135623730949 4.142135623730949a 10 10 0 0 0 7.071067811865475 2.9289321881345254h22.85786437626905a10 10 0 0 1 10 10"
+ />
+<path
+ class="altseq as8"
+ d="M50.0 71.0a10 10 0 0 1 10 -10h22.85786437626905a 10 10 0 0 0 7.071067811865475 -2.9289321881345254l4.142135623730949 -4.142135623730949a 10 10 0 0 1 7.071067811865475 -2.9289321881345254h22.85786437626905a10 10 0 0 0 10 -10"
+ />
+</g>
+<path
+ class="end"
+ d="M 144 56.0 h 20 m -10 -10 v 20 m 10 -20 v 20"
+>
+</path>
+</g>
+</svg>
+</p>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>A customized alternating sequence with more elements</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="exec-27--__tabbed_1_1" name="exec-27--__tabbed_1" type="radio" /><input id="exec-27--__tabbed_1_2" name="exec-27--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="exec-27--__tabbed_1_1">Source</label><label for="exec-27--__tabbed_1_2">Result</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyrailroad.elements</span><span class="w"> </span><span class="kn">import</span> <span class="n">Diagram</span><span class="p">,</span> <span class="n">AlternatingSequence</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">Terminal</span><span class="p">,</span> <span class="n">NonTerminal</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">d</span> <span class="o">=</span> <span class="n">Diagram</span><span class="p">(</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>        <span class="n">AlternatingSequence</span><span class="p">(</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>            <span class="n">Sequence</span><span class="p">(</span><span class="n">NonTerminal</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">),</span> <span class="n">Terminal</span><span class="p">(</span><span class="s2">&quot;bar&quot;</span><span class="p">)),</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>            <span class="n">Sequence</span><span class="p">(</span><span class="n">NonTerminal</span><span class="p">(</span><span class="s2">&quot;baz&quot;</span><span class="p">),</span> <span class="n">Terminal</span><span class="p">(</span><span class="s2">&quot;buzz&quot;</span><span class="p">)),</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>            <span class="n">parameters</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;AR&#39;</span><span class="p">:</span><span class="mi">20</span><span class="p">}</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>            <span class="p">)</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>        <span class="p">)</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><svg
+ class="railroad-diagram"
+ height="162.0"
+ viewBox="0 0 296 162.0"
+ width="296"
+>
+
+
+<g
+ transform="translate(.5 .5)"
+>
+
+
+<g
+>
+
+
+<path
+ class="start"
+ d="M20 71.0v20m10 -20v20m-10 -10h20"
+ />
+</g>
+<g
+>
+
+
+<path
+ class="altseq as1"
+ d="M40 81.0h0"
+ />
+<path
+ class="altseq as2"
+ d="M256.0 81.0h0"
+ />
+<path
+ class="altseq as3"
+ d="M40.0 81.0a20 20 0 0 0 20 -20v-10.0a20 20 0 0 1 20 -20"
+ />
+<g
+>
+
+
+<path
+ class="seq seq1"
+ d="M80.0 31.0h14.0"
+ />
+<path
+ class="seq seq2"
+ d="M202.0 31.0h14.0"
+ />
+<g
+ class="non-terminal "
+>
+
+
+<path
+ class="nonterm nt1"
+ d="M94.0 31.0h0.0"
+ />
+<path
+ class="nonterm nt2"
+ d="M138.0 31.0h0.0"
+ />
+<rect
+ height="22"
+ width="44"
+ x="94"
+ y="20"
+>
+</rect>
+<text
+ x="116"
+ y="35"
+>
+foo
+</text>
+</g>
+<path
+ class="seq seq4"
+ d="M138.0 31.0h10"
+ />
+<path
+ class="seq seq3"
+ d="M148.0 31.0h10"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M158.0 31.0h0.0"
+ />
+<path
+ class="terminal term2"
+ d="M202.0 31.0h0.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="44"
+ x="158"
+ y="20"
+>
+</rect>
+<text
+ x="180"
+ y="35"
+>
+bar
+</text>
+</g>
+</g>
+<path
+ class="altseq as4"
+ d="M216.0 31.0a20 20 0 0 1 20 20v10.0a20 20 0 0 0 20 20"
+ />
+<path
+ class="altseq as5"
+ d="M40.0 81.0a20 20 0 0 1 20 20v10.0a20 20 0 0 0 20 20"
+ />
+<g
+>
+
+
+<path
+ class="seq seq1"
+ d="M80.0 131.0h10.0"
+ />
+<path
+ class="seq seq2"
+ d="M206.0 131.0h10.0"
+ />
+<g
+ class="non-terminal "
+>
+
+
+<path
+ class="nonterm nt1"
+ d="M90.0 131.0h0.0"
+ />
+<path
+ class="nonterm nt2"
+ d="M134.0 131.0h0.0"
+ />
+<rect
+ height="22"
+ width="44"
+ x="90"
+ y="120"
+>
+</rect>
+<text
+ x="112"
+ y="135"
+>
+baz
+</text>
+</g>
+<path
+ class="seq seq4"
+ d="M134.0 131.0h10"
+ />
+<path
+ class="seq seq3"
+ d="M144.0 131.0h10"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M154.0 131.0h0.0"
+ />
+<path
+ class="terminal term2"
+ d="M206.0 131.0h0.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="52"
+ x="154"
+ y="120"
+>
+</rect>
+<text
+ x="180"
+ y="135"
+>
+buzz
+</text>
+</g>
+</g>
+<path
+ class="altseq as6"
+ d="M216.0 131.0a20 20 0 0 0 20 -20v-10.0a20 20 0 0 1 20 -20"
+ />
+<path
+ class="altseq as7"
+ d="M60.0 51.0a20 20 0 0 0 20 20h49.7157287525381a 20 20 0 0 1 14.14213562373095 5.857864376269051l8.284271247461898 8.284271247461898a 20 20 0 0 0 14.14213562373095 5.857864376269051h49.7157287525381a20 20 0 0 1 20 20"
+ />
+<path
+ class="altseq as8"
+ d="M60.0 111.0a20 20 0 0 1 20 -20h49.7157287525381a 20 20 0 0 0 14.14213562373095 -5.857864376269051l8.284271247461898 -8.284271247461898a 20 20 0 0 1 14.14213562373095 -5.857864376269051h49.7157287525381a20 20 0 0 0 20 -20"
+ />
+</g>
+<path
+ class="end"
+ d="M 256 81.0 h 20 m -10 -10 v 20 m 10 -20 v 20"
+>
+</path>
+</g>
+</svg>
+</p>
+</div>
+</div>
+</div>
+</li>
+</ul>
+<h4 id="choice">Choice<a class="headerlink" href="#choice" title="Permanent link">&para;</a></h4>
+<p>This block lets you choose one element among multiple elements.</p>
+<p>The constructor for <code>Choice</code> takes one integer (index for the default element, starting at 0), one or more elements and an optional parameter dictionary (to modify the arc radius of curves or the vertical seperation between lines).</p>
+<p>Examples</p>
+<ul>
+<li>
+<p>A simple choice</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="exec-28--__tabbed_1_1" name="exec-28--__tabbed_1" type="radio" /><input id="exec-28--__tabbed_1_2" name="exec-28--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="exec-28--__tabbed_1_1">Source</label><label for="exec-28--__tabbed_1_2">Result</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyrailroad.elements</span><span class="w"> </span><span class="kn">import</span> <span class="n">Diagram</span><span class="p">,</span> <span class="n">Choice</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">d</span> <span class="o">=</span> <span class="n">Diagram</span><span class="p">(</span><span class="n">Choice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="s2">&quot;bar&quot;</span><span class="p">))</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><svg
+ class="railroad-diagram"
+ height="92"
+ viewBox="0 0 164 92"
+ width="164"
+>
+
+
+<g
+ transform="translate(.5 .5)"
+>
+
+
+<g
+>
+
+
+<path
+ class="start"
+ d="M20 21v20m10 -20v20m-10 -10h20"
+ />
+</g>
+<g
+>
+
+
+<path
+ class="choice ch1"
+ d="M40 31h0.0"
+ />
+<path
+ class="choice ch2"
+ d="M124.0 31h0.0"
+ />
+<path
+ class="choice ch5"
+ d="M40.0 31h20"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M60.0 31h0.0"
+ />
+<path
+ class="terminal term2"
+ d="M104.0 31h0.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="44"
+ x="60"
+ y="20"
+>
+</rect>
+<text
+ x="82"
+ y="35"
+>
+foo
+</text>
+</g>
+<path
+ class="choice ch6"
+ d="M104.0 31h20"
+ />
+<path
+ class="choice ch7"
+ d="M40.0 31a10 10 0 0 1 10 10v10a10 10 0 0 0 10 10"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M60.0 61h0.0"
+ />
+<path
+ class="terminal term2"
+ d="M104.0 61h0.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="44"
+ x="60"
+ y="50"
+>
+</rect>
+<text
+ x="82"
+ y="65"
+>
+bar
+</text>
+</g>
+<path
+ class="choice ch8"
+ d="M104.0 61a10 10 0 0 0 10 -10v-10a10 10 0 0 1 10 -10"
+ />
+</g>
+<path
+ class="end"
+ d="M 124 31 h 20 m -10 -10 v 20 m 10 -20 v 20"
+>
+</path>
+</g>
+</svg>
+</p>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>A customized choice with more elements</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="exec-29--__tabbed_1_1" name="exec-29--__tabbed_1" type="radio" /><input id="exec-29--__tabbed_1_2" name="exec-29--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="exec-29--__tabbed_1_1">Source</label><label for="exec-29--__tabbed_1_2">Result</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyrailroad.elements</span><span class="w"> </span><span class="kn">import</span> <span class="n">Diagram</span><span class="p">,</span> <span class="n">Choice</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">Terminal</span><span class="p">,</span> <span class="n">NonTerminal</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">d</span> <span class="o">=</span> <span class="n">Diagram</span><span class="p">(</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>        <span class="n">Choice</span><span class="p">(</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>            <span class="mi">1</span><span class="p">,</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>            <span class="n">Sequence</span><span class="p">(</span><span class="n">NonTerminal</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">),</span> <span class="n">Terminal</span><span class="p">(</span><span class="s2">&quot;bar&quot;</span><span class="p">)),</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>            <span class="n">Sequence</span><span class="p">(</span><span class="n">NonTerminal</span><span class="p">(</span><span class="s2">&quot;baz&quot;</span><span class="p">),</span> <span class="n">Terminal</span><span class="p">(</span><span class="s2">&quot;buzz&quot;</span><span class="p">)),</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>            <span class="n">parameters</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;VS&#39;</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span> <span class="s1">&#39;AR&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>            <span class="p">)</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>        <span class="p">)</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><svg
+ class="railroad-diagram"
+ height="134"
+ viewBox="0 0 216 134"
+ width="216"
+>
+
+
+<g
+ transform="translate(.5 .5)"
+>
+
+
+<g
+>
+
+
+<path
+ class="start"
+ d="M20 93v20m10 -20v20m-10 -10h20"
+ />
+</g>
+<g
+>
+
+
+<path
+ class="choice ch1"
+ d="M40 103h0.0"
+ />
+<path
+ class="choice ch2"
+ d="M176.0 103h0.0"
+ />
+<path
+ class="choice ch3"
+ d="M40.0 103a5 5 0 0 0 5 -5v-62a5 5 0 0 1 5 -5"
+ />
+<g
+>
+
+
+<path
+ class="seq seq1"
+ d="M50.0 31h4.0"
+ />
+<path
+ class="seq seq2"
+ d="M162.0 31h4.0"
+ />
+<g
+ class="non-terminal "
+>
+
+
+<path
+ class="nonterm nt1"
+ d="M54.0 31h0.0"
+ />
+<path
+ class="nonterm nt2"
+ d="M98.0 31h0.0"
+ />
+<rect
+ height="22"
+ width="44"
+ x="54"
+ y="20"
+>
+</rect>
+<text
+ x="76"
+ y="35"
+>
+foo
+</text>
+</g>
+<path
+ class="seq seq4"
+ d="M98.0 31h10"
+ />
+<path
+ class="seq seq3"
+ d="M108.0 31h10"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M118.0 31h0.0"
+ />
+<path
+ class="terminal term2"
+ d="M162.0 31h0.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="44"
+ x="118"
+ y="20"
+>
+</rect>
+<text
+ x="140"
+ y="35"
+>
+bar
+</text>
+</g>
+</g>
+<path
+ class="choice ch4"
+ d="M166.0 31a5 5 0 0 1 5 5v62a5 5 0 0 0 5 5"
+ />
+<path
+ class="choice ch5"
+ d="M40.0 103h10"
+ />
+<g
+>
+
+
+<path
+ class="seq seq1"
+ d="M50.0 103h0.0"
+ />
+<path
+ class="seq seq2"
+ d="M166.0 103h0.0"
+ />
+<g
+ class="non-terminal "
+>
+
+
+<path
+ class="nonterm nt1"
+ d="M50.0 103h0.0"
+ />
+<path
+ class="nonterm nt2"
+ d="M94.0 103h0.0"
+ />
+<rect
+ height="22"
+ width="44"
+ x="50"
+ y="92"
+>
+</rect>
+<text
+ x="72"
+ y="107"
+>
+baz
+</text>
+</g>
+<path
+ class="seq seq4"
+ d="M94.0 103h10"
+ />
+<path
+ class="seq seq3"
+ d="M104.0 103h10"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M114.0 103h0.0"
+ />
+<path
+ class="terminal term2"
+ d="M166.0 103h0.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="52"
+ x="114"
+ y="92"
+>
+</rect>
+<text
+ x="140"
+ y="107"
+>
+buzz
+</text>
+</g>
+</g>
+<path
+ class="choice ch6"
+ d="M166.0 103h10"
+ />
+</g>
+<path
+ class="end"
+ d="M 176 103 h 20 m -10 -10 v 20 m 10 -20 v 20"
+>
+</path>
+</g>
+</svg>
+</p>
+</div>
+</div>
+</div>
+</li>
+</ul>
+<h4 id="multiplechoice">MultipleChoice<a class="headerlink" href="#multiplechoice" title="Permanent link">&para;</a></h4>
+<p>This block lets you choose one or more elements among multiple elements. Unlike <a href="#choice">Choice</a>, more than one branch can be taken.</p>
+<p>The constructor for <code>MultipleChoice</code> takes one integer (index for the default element, starting at 0), one of "any" (at least one branch must be taken) or "all" (all branches must be taken), one or more elements and an optional parameter dictionary (to modify the arc radius of curves or the vertical seperation between lines).</p>
+<p>Examples</p>
+<ul>
+<li>
+<p>A simple alternating sequence</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="exec-30--__tabbed_1_1" name="exec-30--__tabbed_1" type="radio" /><input id="exec-30--__tabbed_1_2" name="exec-30--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="exec-30--__tabbed_1_1">Source</label><label for="exec-30--__tabbed_1_2">Result</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyrailroad.elements</span><span class="w"> </span><span class="kn">import</span> <span class="n">Diagram</span><span class="p">,</span> <span class="n">MultipleChoice</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">d</span> <span class="o">=</span> <span class="n">Diagram</span><span class="p">(</span><span class="n">MultipleChoice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;any&quot;</span><span class="p">,</span> <span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="s2">&quot;bar&quot;</span><span class="p">))</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><svg
+ class="railroad-diagram"
+ height="92"
+ viewBox="0 0 214 92"
+ width="214"
+>
+
+
+<g
+ transform="translate(.5 .5)"
+>
+
+
+<g
+>
+
+
+<path
+ class="start"
+ d="M20 21v20m10 -20v20m-10 -10h20"
+ />
+</g>
+<path
+ d="M40 31h10"
+ />
+<g
+>
+
+
+<path
+ class="multichoice mc1"
+ d="M50 31h0.0"
+ />
+<path
+ class="multichoice mc2"
+ d="M164.0 31h0.0"
+ />
+<path
+ class="multichoice mc5"
+ d="M80.0 31h10"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M90.0 31h0.0"
+ />
+<path
+ class="terminal term2"
+ d="M134.0 31h0.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="44"
+ x="90"
+ y="20"
+>
+</rect>
+<text
+ x="112"
+ y="35"
+>
+foo
+</text>
+</g>
+<path
+ class="multichoice mc6"
+ d="M134.0 31h10"
+ />
+<path
+ class="multichoice mc7"
+ d="M80.0 31v20a10 10 0 0 0 10 10"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M90.0 61h0.0"
+ />
+<path
+ class="terminal term2"
+ d="M134.0 61h0.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="44"
+ x="90"
+ y="50"
+>
+</rect>
+<text
+ x="112"
+ y="65"
+>
+bar
+</text>
+</g>
+<path
+ class="multichoice mc8"
+ d="M134.0 61a10 10 0 0 0 10 -10v-10"
+ />
+<g
+ class="diagram-text"
+>
+
+
+<title
+>
+take one or more branches, once each, in any order
+</title>
+<path
+ class="diagram-text"
+ d="M 80.0 21 h -26 a 4 4 0 0 0 -4 4 v 12 a 4 4 0 0 0 4 4 h 26 z"
+>
+</path>
+<text
+ class="diagram-text"
+ x="65"
+ y="35"
+>
+1+
+</text>
+<path
+ class="diagram-text"
+ d="M 144.0 21 h 16 a 4 4 0 0 1 4 4 v 12 a 4 4 0 0 1 -4 4 h -16 z"
+>
+</path>
+<text
+ class="diagram-arrow"
+ x="154"
+ y="35"
+>
+↺
+</text>
+</g>
+</g>
+<path
+ d="M164 31h10"
+ />
+<path
+ class="end"
+ d="M 174 31 h 20 m -10 -10 v 20 m 10 -20 v 20"
+>
+</path>
+</g>
+</svg>
+</p>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>A customized alternating sequence with more elements</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="exec-31--__tabbed_1_1" name="exec-31--__tabbed_1" type="radio" /><input id="exec-31--__tabbed_1_2" name="exec-31--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="exec-31--__tabbed_1_1">Source</label><label for="exec-31--__tabbed_1_2">Result</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyrailroad.elements</span><span class="w"> </span><span class="kn">import</span> <span class="n">Diagram</span><span class="p">,</span> <span class="n">MultipleChoice</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">Terminal</span><span class="p">,</span> <span class="n">NonTerminal</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">d</span> <span class="o">=</span> <span class="n">Diagram</span><span class="p">(</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>        <span class="n">MultipleChoice</span><span class="p">(</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>            <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;all&quot;</span><span class="p">,</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>            <span class="n">Sequence</span><span class="p">(</span><span class="n">NonTerminal</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">),</span> <span class="n">Terminal</span><span class="p">(</span><span class="s2">&quot;bar&quot;</span><span class="p">)),</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>            <span class="n">Sequence</span><span class="p">(</span><span class="n">NonTerminal</span><span class="p">(</span><span class="s2">&quot;baz&quot;</span><span class="p">),</span> <span class="n">Terminal</span><span class="p">(</span><span class="s2">&quot;buzz&quot;</span><span class="p">)),</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>            <span class="n">parameters</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;VS&#39;</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span> <span class="s1">&#39;AR&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>            <span class="p">)</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>        <span class="p">)</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><svg
+ class="railroad-diagram"
+ height="134"
+ viewBox="0 0 276 134"
+ width="276"
+>
+
+
+<g
+ transform="translate(.5 .5)"
+>
+
+
+<g
+>
+
+
+<path
+ class="start"
+ d="M20 93v20m10 -20v20m-10 -10h20"
+ />
+</g>
+<path
+ d="M40 103h10"
+ />
+<g
+>
+
+
+<path
+ class="multichoice mc1"
+ d="M50 103h0.0"
+ />
+<path
+ class="multichoice mc2"
+ d="M226.0 103h0.0"
+ />
+<path
+ class="multichoice mc3"
+ d="M80.0 103v-67a5 5 0 0 1 5 -5"
+ />
+<g
+>
+
+
+<path
+ class="seq seq1"
+ d="M85.0 31h4.0"
+ />
+<path
+ class="seq seq2"
+ d="M197.0 31h4.0"
+ />
+<g
+ class="non-terminal "
+>
+
+
+<path
+ class="nonterm nt1"
+ d="M89.0 31h0.0"
+ />
+<path
+ class="nonterm nt2"
+ d="M133.0 31h0.0"
+ />
+<rect
+ height="22"
+ width="44"
+ x="89"
+ y="20"
+>
+</rect>
+<text
+ x="111"
+ y="35"
+>
+foo
+</text>
+</g>
+<path
+ class="seq seq4"
+ d="M133.0 31h10"
+ />
+<path
+ class="seq seq3"
+ d="M143.0 31h10"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M153.0 31h0.0"
+ />
+<path
+ class="terminal term2"
+ d="M197.0 31h0.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="44"
+ x="153"
+ y="20"
+>
+</rect>
+<text
+ x="175"
+ y="35"
+>
+bar
+</text>
+</g>
+</g>
+<path
+ class="multichoice mc4"
+ d="M201.0 31a5 5 0 0 1 5 5v57"
+ />
+<path
+ class="multichoice mc5"
+ d="M80.0 103h5"
+ />
+<g
+>
+
+
+<path
+ class="seq seq1"
+ d="M85.0 103h0.0"
+ />
+<path
+ class="seq seq2"
+ d="M201.0 103h0.0"
+ />
+<g
+ class="non-terminal "
+>
+
+
+<path
+ class="nonterm nt1"
+ d="M85.0 103h0.0"
+ />
+<path
+ class="nonterm nt2"
+ d="M129.0 103h0.0"
+ />
+<rect
+ height="22"
+ width="44"
+ x="85"
+ y="92"
+>
+</rect>
+<text
+ x="107"
+ y="107"
+>
+baz
+</text>
+</g>
+<path
+ class="seq seq4"
+ d="M129.0 103h10"
+ />
+<path
+ class="seq seq3"
+ d="M139.0 103h10"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M149.0 103h0.0"
+ />
+<path
+ class="terminal term2"
+ d="M201.0 103h0.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="52"
+ x="149"
+ y="92"
+>
+</rect>
+<text
+ x="175"
+ y="107"
+>
+buzz
+</text>
+</g>
+</g>
+<path
+ class="multichoice mc6"
+ d="M201.0 103h5"
+ />
+<g
+ class="diagram-text"
+>
+
+
+<title
+>
+take all branches, once each, in any order
+</title>
+<path
+ class="diagram-text"
+ d="M 80.0 93 h -26 a 4 4 0 0 0 -4 4 v 12 a 4 4 0 0 0 4 4 h 26 z"
+>
+</path>
+<text
+ class="diagram-text"
+ x="65"
+ y="107"
+>
+all
+</text>
+<path
+ class="diagram-text"
+ d="M 206.0 93 h 16 a 4 4 0 0 1 4 4 v 12 a 4 4 0 0 1 -4 4 h -16 z"
+>
+</path>
+<text
+ class="diagram-arrow"
+ x="216"
+ y="107"
+>
+↺
+</text>
+</g>
+</g>
+<path
+ d="M226 103h10"
+ />
+<path
+ class="end"
+ d="M 236 103 h 20 m -10 -10 v 20 m 10 -20 v 20"
+>
+</path>
+</g>
+</svg>
+</p>
+</div>
+</div>
+</div>
+</li>
+</ul>
+<h4 id="horizontalchoice">HorizontalChoice<a class="headerlink" href="#horizontalchoice" title="Permanent link">&para;</a></h4>
+<p>This block lets you choose one element among multiple elements. Unlike <a href="#choice">Choice</a>, items are stacked horizontally, there is no default choice.</p>
+<p>The constructor for <code>HorizontalChoice</code> takes one or more elements and an optional parameter dictionary (to modify the arc radius of curves or the vertical seperation between lines).</p>
+<p>Examples</p>
+<ul>
+<li>
+<p>A simple choice</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="exec-32--__tabbed_1_1" name="exec-32--__tabbed_1" type="radio" /><input id="exec-32--__tabbed_1_2" name="exec-32--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="exec-32--__tabbed_1_1">Source</label><label for="exec-32--__tabbed_1_2">Result</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyrailroad.elements</span><span class="w"> </span><span class="kn">import</span> <span class="n">Diagram</span><span class="p">,</span> <span class="n">HorizontalChoice</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">d</span> <span class="o">=</span> <span class="n">Diagram</span><span class="p">(</span><span class="n">HorizontalChoice</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="s2">&quot;bar&quot;</span><span class="p">))</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><svg
+ class="railroad-diagram"
+ height="80"
+ viewBox="0 0 248 80"
+ width="248"
+>
+
+
+<g
+ transform="translate(.5 .5)"
+>
+
+
+<g
+>
+
+
+<path
+ class="start"
+ d="M20 30v20m10 -20v20m-10 -10h20"
+ />
+</g>
+<g
+>
+
+
+<path
+ class="horizchoice hc1"
+ d="M40 40h0.0"
+ />
+<path
+ class="horizchoice hc2"
+ d="M208.0 40h0.0"
+ />
+<path
+ class="horizchoice hc3"
+ d="M40.0 40a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10h54"
+ />
+<path
+ class="horizchoice hc4"
+ d="M134.0 60h54a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10"
+ />
+<path
+ class="horizchoice hc5"
+ d="M40.0 40h10"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M50.0 40h10.0"
+ />
+<path
+ class="terminal term2"
+ d="M104.0 40h10.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="44"
+ x="60"
+ y="29"
+>
+</rect>
+<text
+ x="82"
+ y="44"
+>
+foo
+</text>
+</g>
+<path
+ class="horizchoice hc11"
+ d="M114.0 40a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10"
+ />
+<path
+ class="horizchoice hc6"
+ d="M114.0 20a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M134.0 40h10.0"
+ />
+<path
+ class="terminal term2"
+ d="M188.0 40h10.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="44"
+ x="144"
+ y="29"
+>
+</rect>
+<text
+ x="166"
+ y="44"
+>
+bar
+</text>
+</g>
+<path
+ class="horizchoice hc7"
+ d="M198.0 40h10"
+ />
+</g>
+<path
+ class="end"
+ d="M 208 40 h 20 m -10 -10 v 20 m 10 -20 v 20"
+>
+</path>
+</g>
+</svg>
+</p>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>A customized choice with more elements</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="exec-33--__tabbed_1_1" name="exec-33--__tabbed_1" type="radio" /><input id="exec-33--__tabbed_1_2" name="exec-33--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="exec-33--__tabbed_1_1">Source</label><label for="exec-33--__tabbed_1_2">Result</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyrailroad.elements</span><span class="w"> </span><span class="kn">import</span> <span class="n">Diagram</span><span class="p">,</span> <span class="n">HorizontalChoice</span><span class="p">,</span> <span class="n">Stack</span><span class="p">,</span> <span class="n">Terminal</span><span class="p">,</span> <span class="n">NonTerminal</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">d</span> <span class="o">=</span> <span class="n">Diagram</span><span class="p">(</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>        <span class="n">HorizontalChoice</span><span class="p">(</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>            <span class="n">Stack</span><span class="p">(</span><span class="n">NonTerminal</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">),</span> <span class="n">Terminal</span><span class="p">(</span><span class="s2">&quot;bar&quot;</span><span class="p">)),</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>            <span class="n">Stack</span><span class="p">(</span><span class="n">NonTerminal</span><span class="p">(</span><span class="s2">&quot;baz&quot;</span><span class="p">),</span> <span class="n">Terminal</span><span class="p">(</span><span class="s2">&quot;buzz&quot;</span><span class="p">)),</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>            <span class="n">parameters</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;VS&#39;</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span> <span class="s1">&#39;AR&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>            <span class="p">)</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>        <span class="p">)</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><svg
+ class="railroad-diagram"
+ height="202"
+ viewBox="0 0 321 202"
+ width="321"
+>
+
+
+<g
+ transform="translate(.5 .5)"
+>
+
+
+<g
+>
+
+
+<path
+ class="start"
+ d="M20 71v20m10 -20v20m-10 -10h20"
+ />
+</g>
+<g
+>
+
+
+<path
+ class="horizchoice hc1"
+ d="M40 81h0.0"
+ />
+<path
+ class="horizchoice hc2"
+ d="M281.0 81h0.0"
+ />
+<path
+ class="horizchoice hc3"
+ d="M40.0 81a5 5 0 0 0 5 -5v-51a5 5 0 0 1 5 -5h99"
+ />
+<path
+ class="horizchoice hc4"
+ d="M159.0 182h112a5 5 0 0 0 5 -5v-91a5 5 0 0 1 5 -5"
+ />
+<path
+ class="horizchoice hc5"
+ d="M40.0 81h5"
+ />
+<g
+>
+
+
+<path
+ class="stack stack1"
+ d="M45.0 81h10.0"
+ />
+<path
+ class="stack stack2"
+ d="M55.0 81h10"
+ />
+<g
+ class="non-terminal "
+>
+
+
+<path
+ class="nonterm nt1"
+ d="M65.0 81h10.0"
+ />
+<path
+ class="nonterm nt2"
+ d="M119.0 81h10.0"
+ />
+<rect
+ height="22"
+ width="44"
+ x="75"
+ y="70"
+>
+</rect>
+<text
+ x="97"
+ y="85"
+>
+foo
+</text>
+</g>
+<path
+ class="stack stack3"
+ d="M129.0 81a10 10 0 0 1 10 10v0a10 10 0 0 1 -10 10h-64a10 10 0 0 0 -10 10v0a10 10 0 0 0 10 10h10"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M65.0 121h10.0"
+ />
+<path
+ class="terminal term2"
+ d="M119.0 121h10.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="44"
+ x="75"
+ y="110"
+>
+</rect>
+<text
+ x="97"
+ y="125"
+>
+bar
+</text>
+</g>
+<path
+ class="stack stack4"
+ d="M129.0 121h10"
+ />
+<path
+ class="stack stack5"
+ d="M139.0 121h10.0"
+ />
+</g>
+<path
+ class="horizchoice hc11"
+ d="M149.0 121a5 5 0 0 1 5 5v51a5 5 0 0 0 5 5"
+ />
+<path
+ class="horizchoice hc6"
+ d="M149.0 20a5 5 0 0 1 5 5v51a5 5 0 0 0 5 5"
+ />
+<g
+>
+
+
+<path
+ class="stack stack1"
+ d="M159.0 81h10.0"
+ />
+<path
+ class="stack stack2"
+ d="M169.0 81h10"
+ />
+<g
+ class="non-terminal "
+>
+
+
+<path
+ class="nonterm nt1"
+ d="M179.0 81h14.0"
+ />
+<path
+ class="nonterm nt2"
+ d="M237.0 81h14.0"
+ />
+<rect
+ height="22"
+ width="44"
+ x="193"
+ y="70"
+>
+</rect>
+<text
+ x="215"
+ y="85"
+>
+baz
+</text>
+</g>
+<path
+ class="stack stack3"
+ d="M251.0 81a10 10 0 0 1 10 10v0a10 10 0 0 1 -10 10h-72a10 10 0 0 0 -10 10v0a10 10 0 0 0 10 10h10"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M179.0 121h10.0"
+ />
+<path
+ class="terminal term2"
+ d="M241.0 121h10.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="52"
+ x="189"
+ y="110"
+>
+</rect>
+<text
+ x="215"
+ y="125"
+>
+buzz
+</text>
+</g>
+<path
+ class="stack stack4"
+ d="M251.0 121h10"
+ />
+<path
+ class="stack stack5"
+ d="M261.0 121h10.0"
+ />
+</g>
+<path
+ class="horizchoice hc8"
+ d="M271.0 121a5 5 0 0 0 5 -5"
+ />
+</g>
+<path
+ class="end"
+ d="M 281 81 h 20 m -10 -10 v 20 m 10 -20 v 20"
+>
+</path>
+</g>
+</svg>
+</p>
+</div>
+</div>
+</div>
+</li>
+</ul>
+<h4 id="optional">optional<a class="headerlink" href="#optional" title="Permanent link">&para;</a></h4>
+<p>This pseudo-block is a shortcut for <code class="language-python highlight"><span class="n">Choice</span><span class="p">(</span><span class="n">skip</span><span class="err">?</span><span class="p">,</span> <span class="n">Skip</span><span class="p">(),</span> <span class="n">element</span><span class="p">)</span></code>.</p>
+<p><code>optional</code> takes one element, an optional boolean (default: <code>False</code>) indicating if skipping is the default, and an optional parameter dictionary (to modify the arc radius of curves or the vertical seperation between lines).</p>
+<p>Examples</p>
+<ul>
+<li>
+<p>optional with skip = False
+    <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="exec-34--__tabbed_1_1" name="exec-34--__tabbed_1" type="radio" /><input id="exec-34--__tabbed_1_2" name="exec-34--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="exec-34--__tabbed_1_1">Source</label><label for="exec-34--__tabbed_1_2">Result</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyrailroad.elements</span><span class="w"> </span><span class="kn">import</span> <span class="n">Diagram</span><span class="p">,</span> <span class="n">optional</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">d</span> <span class="o">=</span> <span class="n">Diagram</span><span class="p">(</span><span class="n">optional</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">))</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><svg
+ class="railroad-diagram"
+ height="71"
+ viewBox="0 0 164 71"
+ width="164"
+>
+
+
+<g
+ transform="translate(.5 .5)"
+>
+
+
+<g
+>
+
+
+<path
+ class="start"
+ d="M20 30v20m10 -20v20m-10 -10h20"
+ />
+</g>
+<g
+>
+
+
+<path
+ class="choice ch1"
+ d="M40 40h0.0"
+ />
+<path
+ class="choice ch2"
+ d="M124.0 40h0.0"
+ />
+<path
+ class="choice ch3"
+ d="M40.0 40a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10"
+ />
+<g
+>
+
+
+<path
+ class="skip"
+ d="M60.0 20h44"
+ />
+</g>
+<path
+ class="choice ch4"
+ d="M104.0 20a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10"
+ />
+<path
+ class="choice ch5"
+ d="M40.0 40h20"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M60.0 40h0.0"
+ />
+<path
+ class="terminal term2"
+ d="M104.0 40h0.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="44"
+ x="60"
+ y="29"
+>
+</rect>
+<text
+ x="82"
+ y="44"
+>
+foo
+</text>
+</g>
+<path
+ class="choice ch6"
+ d="M104.0 40h20"
+ />
+</g>
+<path
+ class="end"
+ d="M 124 40 h 20 m -10 -10 v 20 m 10 -20 v 20"
+>
+</path>
+</g>
+</svg>
+</p>
+</div>
+</div>
+</div></p>
+</li>
+<li>
+<p>optional with skip = True and customization
+    <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="exec-35--__tabbed_1_1" name="exec-35--__tabbed_1" type="radio" /><input id="exec-35--__tabbed_1_2" name="exec-35--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="exec-35--__tabbed_1_1">Source</label><label for="exec-35--__tabbed_1_2">Result</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyrailroad.elements</span><span class="w"> </span><span class="kn">import</span> <span class="n">Diagram</span><span class="p">,</span> <span class="n">optional</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">d</span> <span class="o">=</span> <span class="n">Diagram</span><span class="p">(</span><span class="n">optional</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="n">parameters</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;VS&#39;</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span> <span class="s1">&#39;AR&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">}))</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><svg
+ class="railroad-diagram"
+ height="122"
+ viewBox="0 0 144 122"
+ width="144"
+>
+
+
+<g
+ transform="translate(.5 .5)"
+>
+
+
+<g
+>
+
+
+<path
+ class="start"
+ d="M20 20v20m10 -20v20m-10 -10h20"
+ />
+</g>
+<g
+>
+
+
+<path
+ class="choice ch1"
+ d="M40 30h0.0"
+ />
+<path
+ class="choice ch2"
+ d="M104.0 30h0.0"
+ />
+<path
+ class="choice ch5"
+ d="M40.0 30h10"
+ />
+<g
+>
+
+
+<path
+ class="skip"
+ d="M50.0 30h44"
+ />
+</g>
+<path
+ class="choice ch6"
+ d="M94.0 30h10"
+ />
+<path
+ class="choice ch7"
+ d="M40.0 30a5 5 0 0 1 5 5v51a5 5 0 0 0 5 5"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M50.0 91h0.0"
+ />
+<path
+ class="terminal term2"
+ d="M94.0 91h0.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="44"
+ x="50"
+ y="80"
+>
+</rect>
+<text
+ x="72"
+ y="95"
+>
+foo
+</text>
+</g>
+<path
+ class="choice ch8"
+ d="M94.0 91a5 5 0 0 0 5 -5v-51a5 5 0 0 1 5 -5"
+ />
+</g>
+<path
+ class="end"
+ d="M 104 30 h 20 m -10 -10 v 20 m 10 -20 v 20"
+>
+</path>
+</g>
+</svg>
+</p>
+</div>
+</div>
+</div></p>
+</li>
+</ul>
+<h4 id="oneormore">OneOrMore<a class="headerlink" href="#oneormore" title="Permanent link">&para;</a></h4>
+<p>This lets you repeat an element.</p>
+<p>The contructor for <code>OneOrMore</code> takes one item, an optional repeated item (for example a comment) and an optional parameter dictionary (to modify the arc radius of curves or the vertical seperation between lines).</p>
+<p>Examples</p>
+<ul>
+<li>
+<p>OneOrMore with no repeat item
+    <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="exec-36--__tabbed_1_1" name="exec-36--__tabbed_1" type="radio" /><input id="exec-36--__tabbed_1_2" name="exec-36--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="exec-36--__tabbed_1_1">Source</label><label for="exec-36--__tabbed_1_2">Result</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyrailroad.elements</span><span class="w"> </span><span class="kn">import</span> <span class="n">Diagram</span><span class="p">,</span> <span class="n">OneOrMore</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">d</span> <span class="o">=</span> <span class="n">Diagram</span><span class="p">(</span><span class="n">OneOrMore</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">))</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><svg
+ class="railroad-diagram"
+ height="71"
+ viewBox="0 0 164 71"
+ width="164"
+>
+
+
+<g
+ transform="translate(.5 .5)"
+>
+
+
+<g
+>
+
+
+<path
+ class="start"
+ d="M20 21v20m10 -20v20m-10 -10h20"
+ />
+</g>
+<path
+ d="M40 31h10"
+ />
+<g
+>
+
+
+<path
+ class="oneor oom1"
+ d="M50 31h0.0"
+ />
+<path
+ class="oneor oom2"
+ d="M114.0 31h0.0"
+ />
+<path
+ class="oneor oom3"
+ d="M50.0 31h10"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M60.0 31h0.0"
+ />
+<path
+ class="terminal term2"
+ d="M104.0 31h0.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="44"
+ x="60"
+ y="20"
+>
+</rect>
+<text
+ x="82"
+ y="35"
+>
+foo
+</text>
+</g>
+<path
+ class="oneor oom4"
+ d="M104.0 31h10"
+ />
+<path
+ class="oneor oom5"
+ d="M60.0 31a10 10 0 0 0 -10 10v0a10 10 0 0 0 10 10"
+ />
+<g
+>
+
+
+<path
+ class="skip"
+ d="M60.0 51h44"
+ />
+</g>
+<path
+ class="oneor oom6"
+ d="M104.0 51a10 10 0 0 0 10 -10v0a10 10 0 0 0 -10 -10"
+ />
+</g>
+<path
+ d="M114 31h10"
+ />
+<path
+ class="end"
+ d="M 124 31 h 20 m -10 -10 v 20 m 10 -20 v 20"
+>
+</path>
+</g>
+</svg>
+</p>
+</div>
+</div>
+</div></p>
+</li>
+<li>
+<p>OneOrMore with a repeat item and customization
+    <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="exec-37--__tabbed_1_1" name="exec-37--__tabbed_1" type="radio" /><input id="exec-37--__tabbed_1_2" name="exec-37--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="exec-37--__tabbed_1_1">Source</label><label for="exec-37--__tabbed_1_2">Result</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyrailroad.elements</span><span class="w"> </span><span class="kn">import</span> <span class="n">Diagram</span><span class="p">,</span> <span class="n">OneOrMore</span><span class="p">,</span> <span class="n">Comment</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">d</span> <span class="o">=</span> <span class="n">Diagram</span><span class="p">(</span><span class="n">OneOrMore</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="n">Comment</span><span class="p">(</span><span class="s2">&quot;bar&quot;</span><span class="p">),</span> <span class="n">parameters</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;VS&#39;</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span> <span class="s1">&#39;AR&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">}))</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><svg
+ class="railroad-diagram"
+ height="128"
+ viewBox="0 0 154 128"
+ width="154"
+>
+
+
+<g
+ transform="translate(.5 .5)"
+>
+
+
+<g
+>
+
+
+<path
+ class="start"
+ d="M20 21v20m10 -20v20m-10 -10h20"
+ />
+</g>
+<path
+ d="M40 31h10"
+ />
+<g
+>
+
+
+<path
+ class="oneor oom1"
+ d="M50 31h0.0"
+ />
+<path
+ class="oneor oom2"
+ d="M104.0 31h0.0"
+ />
+<path
+ class="oneor oom3"
+ d="M50.0 31h5"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M55.0 31h0.0"
+ />
+<path
+ class="terminal term2"
+ d="M99.0 31h0.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="44"
+ x="55"
+ y="20"
+>
+</rect>
+<text
+ x="77"
+ y="35"
+>
+foo
+</text>
+</g>
+<path
+ class="oneor oom4"
+ d="M99.0 31h5"
+ />
+<path
+ class="oneor oom5"
+ d="M55.0 31a5 5 0 0 0 -5 5v59a5 5 0 0 0 5 5"
+ />
+<g
+ class="non-terminal "
+>
+
+
+<path
+ class="comment com1"
+ d="M55.0 100h6.5"
+ />
+<path
+ class="comment com2"
+ d="M92.5 100h6.5"
+ />
+<text
+ class="comment"
+ x="77"
+ y="105"
+>
+bar
+</text>
+</g>
+<path
+ class="oneor oom6"
+ d="M99.0 100a5 5 0 0 0 5 -5v-59a5 5 0 0 0 -5 -5"
+ />
+</g>
+<path
+ d="M104 31h10"
+ />
+<path
+ class="end"
+ d="M 114 31 h 20 m -10 -10 v 20 m 10 -20 v 20"
+>
+</path>
+</g>
+</svg>
+</p>
+</div>
+</div>
+</div></p>
+</li>
+</ul>
+<h4 id="zero_or_more">zero_or_more<a class="headerlink" href="#zero_or_more" title="Permanent link">&para;</a></h4>
+<p>This pseudo block is a shortcut for <code class="language-python highlight"><span class="n">optional</span><span class="p">(</span><span class="n">OneOrMore</span><span class="p">(</span><span class="n">child</span><span class="p">,</span> <span class="n">repeat</span><span class="p">),</span> <span class="n">skip</span><span class="p">)</span></code>.</p>
+<p><code>zero_or_more</code> takes one element, an optional repeated item, an optional boolean (default: False) indicating if skipping is the default, and an optional parameter dictionary (to modify the arc radius of curves or the vertical seperation between lines).</p>
+<p>Examples</p>
+<ul>
+<li>
+<p>zero_or_more with no repeat item
+    <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="exec-38--__tabbed_1_1" name="exec-38--__tabbed_1" type="radio" /><input id="exec-38--__tabbed_1_2" name="exec-38--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="exec-38--__tabbed_1_1">Source</label><label for="exec-38--__tabbed_1_2">Result</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyrailroad.elements</span><span class="w"> </span><span class="kn">import</span> <span class="n">Diagram</span><span class="p">,</span> <span class="n">zero_or_more</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">d</span> <span class="o">=</span> <span class="n">Diagram</span><span class="p">(</span><span class="n">zero_or_more</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">))</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><svg
+ class="railroad-diagram"
+ height="80"
+ viewBox="0 0 184 80"
+ width="184"
+>
+
+
+<g
+ transform="translate(.5 .5)"
+>
+
+
+<g
+>
+
+
+<path
+ class="start"
+ d="M20 30v20m10 -20v20m-10 -10h20"
+ />
+</g>
+<g
+>
+
+
+<path
+ class="choice ch1"
+ d="M40 40h0.0"
+ />
+<path
+ class="choice ch2"
+ d="M144.0 40h0.0"
+ />
+<path
+ class="choice ch3"
+ d="M40.0 40a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10"
+ />
+<g
+>
+
+
+<path
+ class="skip"
+ d="M60.0 20h64"
+ />
+</g>
+<path
+ class="choice ch4"
+ d="M124.0 20a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10"
+ />
+<path
+ class="choice ch5"
+ d="M40.0 40h20"
+ />
+<g
+>
+
+
+<path
+ class="oneor oom1"
+ d="M60.0 40h0.0"
+ />
+<path
+ class="oneor oom2"
+ d="M124.0 40h0.0"
+ />
+<path
+ class="oneor oom3"
+ d="M60.0 40h10"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M70.0 40h0.0"
+ />
+<path
+ class="terminal term2"
+ d="M114.0 40h0.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="44"
+ x="70"
+ y="29"
+>
+</rect>
+<text
+ x="92"
+ y="44"
+>
+foo
+</text>
+</g>
+<path
+ class="oneor oom4"
+ d="M114.0 40h10"
+ />
+<path
+ class="oneor oom5"
+ d="M70.0 40a10 10 0 0 0 -10 10v0a10 10 0 0 0 10 10"
+ />
+<g
+>
+
+
+<path
+ class="skip"
+ d="M70.0 60h44"
+ />
+</g>
+<path
+ class="oneor oom6"
+ d="M114.0 60a10 10 0 0 0 10 -10v0a10 10 0 0 0 -10 -10"
+ />
+</g>
+<path
+ class="choice ch6"
+ d="M124.0 40h20"
+ />
+</g>
+<path
+ class="end"
+ d="M 144 40 h 20 m -10 -10 v 20 m 10 -20 v 20"
+>
+</path>
+</g>
+</svg>
+</p>
+</div>
+</div>
+</div></p>
+</li>
+<li>
+<p>zero_or_more with a repeat item and customization
+    <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="exec-39--__tabbed_1_1" name="exec-39--__tabbed_1" type="radio" /><input id="exec-39--__tabbed_1_2" name="exec-39--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="exec-39--__tabbed_1_1">Source</label><label for="exec-39--__tabbed_1_2">Result</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyrailroad.elements</span><span class="w"> </span><span class="kn">import</span> <span class="n">Diagram</span><span class="p">,</span> <span class="n">zero_or_more</span><span class="p">,</span> <span class="n">Comment</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">d</span> <span class="o">=</span> <span class="n">Diagram</span><span class="p">(</span><span class="n">zero_or_more</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="n">Comment</span><span class="p">(</span><span class="s2">&quot;bar&quot;</span><span class="p">),</span> <span class="kc">True</span><span class="p">,</span> <span class="n">parameters</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;VS&#39;</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span> <span class="s1">&#39;AR&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">}))</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><svg
+ class="railroad-diagram"
+ height="188"
+ viewBox="0 0 154 188"
+ width="154"
+>
+
+
+<g
+ transform="translate(.5 .5)"
+>
+
+
+<g
+>
+
+
+<path
+ class="start"
+ d="M20 20v20m10 -20v20m-10 -10h20"
+ />
+</g>
+<g
+>
+
+
+<path
+ class="choice ch1"
+ d="M40 30h0.0"
+ />
+<path
+ class="choice ch2"
+ d="M114.0 30h0.0"
+ />
+<path
+ class="choice ch5"
+ d="M40.0 30h10"
+ />
+<g
+>
+
+
+<path
+ class="skip"
+ d="M50.0 30h54"
+ />
+</g>
+<path
+ class="choice ch6"
+ d="M104.0 30h10"
+ />
+<path
+ class="choice ch7"
+ d="M40.0 30a5 5 0 0 1 5 5v51a5 5 0 0 0 5 5"
+ />
+<g
+>
+
+
+<path
+ class="oneor oom1"
+ d="M50.0 91h0.0"
+ />
+<path
+ class="oneor oom2"
+ d="M104.0 91h0.0"
+ />
+<path
+ class="oneor oom3"
+ d="M50.0 91h5"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M55.0 91h0.0"
+ />
+<path
+ class="terminal term2"
+ d="M99.0 91h0.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="44"
+ x="55"
+ y="80"
+>
+</rect>
+<text
+ x="77"
+ y="95"
+>
+foo
+</text>
+</g>
+<path
+ class="oneor oom4"
+ d="M99.0 91h5"
+ />
+<path
+ class="oneor oom5"
+ d="M55.0 91a5 5 0 0 0 -5 5v59a5 5 0 0 0 5 5"
+ />
+<g
+ class="non-terminal "
+>
+
+
+<path
+ class="comment com1"
+ d="M55.0 160h6.5"
+ />
+<path
+ class="comment com2"
+ d="M92.5 160h6.5"
+ />
+<text
+ class="comment"
+ x="77"
+ y="165"
+>
+bar
+</text>
+</g>
+<path
+ class="oneor oom6"
+ d="M99.0 160a5 5 0 0 0 5 -5v-59a5 5 0 0 0 -5 -5"
+ />
+</g>
+<path
+ class="choice ch8"
+ d="M104.0 91a5 5 0 0 0 5 -5v-51a5 5 0 0 1 5 -5"
+ />
+</g>
+<path
+ class="end"
+ d="M 114 30 h 20 m -10 -10 v 20 m 10 -20 v 20"
+>
+</path>
+</g>
+</svg>
+</p>
+</div>
+</div>
+</div></p>
+</li>
+</ul>
+<h4 id="group">Group<a class="headerlink" href="#group" title="Permanent link">&para;</a></h4>
+<p>This lets you highlight an element with a dashed outline.</p>
+<p>The constructor for <code>Group</code> takes an element, an optioanl label and an optional parameter dictionary (to modify the arc radius of curves or the vertical seperation between lines).</p>
+<p>Examples</p>
+<ul>
+<li>
+<p>A group with no label</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="exec-40--__tabbed_1_1" name="exec-40--__tabbed_1" type="radio" /><input id="exec-40--__tabbed_1_2" name="exec-40--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="exec-40--__tabbed_1_1">Source</label><label for="exec-40--__tabbed_1_2">Result</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyrailroad.elements</span><span class="w"> </span><span class="kn">import</span> <span class="n">Diagram</span><span class="p">,</span> <span class="n">Choice</span><span class="p">,</span> <span class="n">Group</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">d</span> <span class="o">=</span> <span class="n">Diagram</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="n">Group</span><span class="p">(</span><span class="n">Choice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;opt1&quot;</span><span class="p">,</span> <span class="s2">&quot;opt2&quot;</span><span class="p">))</span> <span class="p">,</span><span class="s2">&quot;bar&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><svg
+ class="railroad-diagram"
+ height="108"
+ viewBox="0 0 320 108"
+ width="320"
+>
+
+
+<g
+ transform="translate(.5 .5)"
+>
+
+
+<g
+>
+
+
+<path
+ class="start"
+ d="M20 29v20m10 -20v20m-10 -10h20"
+ />
+</g>
+<path
+ d="M40 39h10"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M50 39h0.0"
+ />
+<path
+ class="terminal term2"
+ d="M94.0 39h0.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="44"
+ x="50"
+ y="28"
+>
+</rect>
+<text
+ x="72"
+ y="43"
+>
+foo
+</text>
+</g>
+<path
+ d="M94 39h10"
+ />
+<path
+ d="M104 39h10"
+ />
+<g
+>
+
+
+<path
+ class="group gr1"
+ d="M114 39h0.0"
+ />
+<path
+ class="group gr2"
+ d="M206.0 39h0.0"
+ />
+<rect
+ class="group-box"
+ height="68"
+ rx="10"
+ ry="10"
+ width="92"
+ x="114"
+ y="20"
+>
+</rect>
+<g
+>
+
+
+<path
+ class="choice ch1"
+ d="M114.0 39h0.0"
+ />
+<path
+ class="choice ch2"
+ d="M206.0 39h0.0"
+ />
+<path
+ class="choice ch5"
+ d="M114.0 39h20"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M134.0 39h0.0"
+ />
+<path
+ class="terminal term2"
+ d="M186.0 39h0.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="52"
+ x="134"
+ y="28"
+>
+</rect>
+<text
+ x="160"
+ y="43"
+>
+opt1
+</text>
+</g>
+<path
+ class="choice ch6"
+ d="M186.0 39h20"
+ />
+<path
+ class="choice ch7"
+ d="M114.0 39a10 10 0 0 1 10 10v10a10 10 0 0 0 10 10"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M134.0 69h0.0"
+ />
+<path
+ class="terminal term2"
+ d="M186.0 69h0.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="52"
+ x="134"
+ y="58"
+>
+</rect>
+<text
+ x="160"
+ y="73"
+>
+opt2
+</text>
+</g>
+<path
+ class="choice ch8"
+ d="M186.0 69a10 10 0 0 0 10 -10v-10a10 10 0 0 1 10 -10"
+ />
+</g>
+</g>
+<path
+ d="M206 39h10"
+ />
+<path
+ d="M216 39h10"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M226 39h0.0"
+ />
+<path
+ class="terminal term2"
+ d="M270.0 39h0.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="44"
+ x="226"
+ y="28"
+>
+</rect>
+<text
+ x="248"
+ y="43"
+>
+bar
+</text>
+</g>
+<path
+ d="M270 39h10"
+ />
+<path
+ class="end"
+ d="M 280 39 h 20 m -10 -10 v 20 m 10 -20 v 20"
+>
+</path>
+</g>
+</svg>
+</p>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>A group with a label and customization</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="exec-41--__tabbed_1_1" name="exec-41--__tabbed_1" type="radio" /><input id="exec-41--__tabbed_1_2" name="exec-41--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="exec-41--__tabbed_1_1">Source</label><label for="exec-41--__tabbed_1_2">Result</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyrailroad.elements</span><span class="w"> </span><span class="kn">import</span> <span class="n">Diagram</span><span class="p">,</span> <span class="n">Choice</span><span class="p">,</span> <span class="n">Group</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">d</span> <span class="o">=</span> <span class="n">Diagram</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="n">Group</span><span class="p">(</span><span class="n">Choice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;opt1&quot;</span><span class="p">,</span> <span class="s2">&quot;opt2&quot;</span><span class="p">),</span> <span class="s2">&quot;a group&quot;</span><span class="p">,</span> <span class="n">parameters</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;VS&#39;</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span> <span class="s1">&#39;AR&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">})</span> <span class="p">,</span><span class="s2">&quot;bar&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><svg
+ class="railroad-diagram"
+ height="208"
+ viewBox="0 0 320 208"
+ width="320"
+>
+
+
+<g
+ transform="translate(.5 .5)"
+>
+
+
+<g
+>
+
+
+<path
+ class="start"
+ d="M20 87v20m10 -20v20m-10 -10h20"
+ />
+</g>
+<path
+ d="M40 97h10"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M50 97h0.0"
+ />
+<path
+ class="terminal term2"
+ d="M94.0 97h0.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="44"
+ x="50"
+ y="86"
+>
+</rect>
+<text
+ x="72"
+ y="101"
+>
+foo
+</text>
+</g>
+<path
+ d="M94 97h10"
+ />
+<path
+ d="M104 97h10"
+ />
+<g
+>
+
+
+<path
+ class="group gr1"
+ d="M114 97h0.0"
+ />
+<path
+ class="group gr2"
+ d="M206.0 97h0.0"
+ />
+<rect
+ class="group-box"
+ height="152"
+ rx="5"
+ ry="5"
+ width="92"
+ x="114"
+ y="36"
+>
+</rect>
+<g
+>
+
+
+<path
+ class="choice ch1"
+ d="M114.0 97h0.0"
+ />
+<path
+ class="choice ch2"
+ d="M206.0 97h0.0"
+ />
+<path
+ class="choice ch5"
+ d="M114.0 97h20"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M134.0 97h0.0"
+ />
+<path
+ class="terminal term2"
+ d="M186.0 97h0.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="52"
+ x="134"
+ y="86"
+>
+</rect>
+<text
+ x="160"
+ y="101"
+>
+opt1
+</text>
+</g>
+<path
+ class="choice ch6"
+ d="M186.0 97h20"
+ />
+<path
+ class="choice ch7"
+ d="M114.0 97a10 10 0 0 1 10 10v10a10 10 0 0 0 10 10"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M134.0 127h0.0"
+ />
+<path
+ class="terminal term2"
+ d="M186.0 127h0.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="52"
+ x="134"
+ y="116"
+>
+</rect>
+<text
+ x="160"
+ y="131"
+>
+opt2
+</text>
+</g>
+<path
+ class="choice ch8"
+ d="M186.0 127a10 10 0 0 0 10 -10v-10a10 10 0 0 1 10 -10"
+ />
+</g>
+<g
+ class="non-terminal "
+>
+
+
+<path
+ class="comment com1"
+ d="M114.0 28h0.0"
+ />
+<path
+ class="comment com2"
+ d="M173.0 28h0.0"
+ />
+<text
+ class="comment"
+ x="143.5"
+ y="33"
+>
+a group
+</text>
+</g>
+</g>
+<path
+ d="M206 97h10"
+ />
+<path
+ d="M216 97h10"
+ />
+<g
+ class="terminal "
+>
+
+
+<path
+ class="terminal term1"
+ d="M226 97h0.0"
+ />
+<path
+ class="terminal term2"
+ d="M270.0 97h0.0"
+ />
+<rect
+ height="22"
+ rx="10"
+ ry="10"
+ width="44"
+ x="226"
+ y="86"
+>
+</rect>
+<text
+ x="248"
+ y="101"
+>
+bar
+</text>
+</g>
+<path
+ d="M270 97h10"
+ />
+<path
+ class="end"
+ d="M 280 97 h 20 m -10 -10 v 20 m 10 -20 v 20"
+>
+</path>
+</g>
+</svg>
+</p>
+</div>
+</div>
+</div>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; Rafaël Lopez – <a href="#__consent">Change cookie settings</a>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+
+  
+
+
+<h4>Cookie consent</h4>
+<p>We use only cookies to recognize your repeated visits and preferences. While installed by the theme used, both Google Analytics and Github cookies have been disabled by default.</p>
+<input class="md-toggle" type="checkbox" id="__settings" >
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+    
+    
+    
+      
+        
+  
+  
+    
+    
+  
+  <li class="task-list-item">
+    <label class="task-list-control">
+      <input type="checkbox" name="analytics" >
+      <span class="task-list-indicator"></span>
+      Google Analytics
+    </label>
+  </li>
+
+      
+    
+      
+        
+  
+  
+    
+    
+  
+  <li class="task-list-item">
+    <label class="task-list-control">
+      <input type="checkbox" name="github" >
+      <span class="task-list-indicator"></span>
+      Github
+    </label>
+  </li>
+
+      
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accept</button>
+    
+    
+    
+  
+    
+    
+    
+      <label class="md-button" for="__settings">Manage settings</label>
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.sections", "content.code.copy"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+        <script src="../../assets/_markdown_exec_pyodide.js"></script>
+      
+    
+  </body>
+</html>
