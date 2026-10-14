@@ -16,7 +16,7 @@ classifiers = [
     "Programming Language :: Python :: 3",
 ]
 dependencies = [
-    "typer<=0.27.3", "pyyaml<=6.0.3", "DHParser<1.9.8"
+    "typer<=0.27.3", "pyyaml<=6.0.3", "DHParser<1.9.8", "typing-extensions<=4.16.0"
 ]
 dynamic = ["version"]
 
