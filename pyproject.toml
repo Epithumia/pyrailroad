@@ -16,7 +16,7 @@ classifiers = [
     "Programming Language :: Python :: 3",
 ]
 dependencies = [
-    "typer[all]", "pyyaml", "DHParser==1.8.3"
+    "typer<=0.27.3", "pyyaml<=6.0.3", "DHParser<1.9.8"
 ]
 dynamic = ["version"]
 
@@ -24,8 +24,8 @@ dynamic = ["version"]
 version = {attr = "pyrailroad.VERSION"}
 
 [project.optional-dependencies]
-tests = ["pytest", "coverage"]
-documentation = ["mkdocs", "mkdocs-material", "mkdocs-plugin-inline-svg", "mkdocstrings[python]", "markdown-exec"]
+tests = ["pytest<=9.1.1", "coverage<=7.16.2"]
+documentation = ["markdown-exec==1.11.0", "mkdocs==1.6.1", "mkdocs-material==9.5.42", "mkdocs-autorefs==1.4.4", "mkdocs-plugin-inline-svg==0.1.0", "mkdocstrings[python]==0.26.2", "mkdocstrings-python==1.12.2", "griffe==1.15.0"]
 
 [project.scripts]
 py-railroad = "pyrailroad.cli:cli"
