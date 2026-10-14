@@ -1,0 +1,5 @@
+<svg class="railroad-diagram" height="62" viewBox="0 0 188 62" width="188">
+<g transform="translate(.5 .5)">
+<g>
+<path class="start" d="M20 21v20m0 -10h20" /></g><path d="M40 31h10" /><g class="expression custom_terminal">
+<path class="expression exp1" d="M50 31h0.0" /><path class="expression exp2" d="M138.0 31h0.0" /><polygon points="60.0, 20 128.0, 20 138.0, 31 128.0, 42 60.0, 42 50.0, 31"></polygon><a xlink:href="https://github.com"><text x="94" y="35">github</text></a><title>This is a link</title></g><path d="M138 31h10" /><path class="end" d="M 148 31 h 20 m 0 -10 v 20"></path></g></svg>

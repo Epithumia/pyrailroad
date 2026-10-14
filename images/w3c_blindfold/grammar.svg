@@ -1,0 +1,9 @@
+<svg class="railroad-diagram" height="80" viewBox="0 0 254 80" width="254">
+<g transform="translate(.5 .5)">
+<g>
+<path class="start" d="M20 30v20m0 -10h66" /><text style="text-anchor:start" x="20" y="25">grammar</text></g><g>
+<path class="choice ch1" d="M86 40h0.0" /><path class="choice ch2" d="M214.0 40h0.0" /><path class="choice ch3" d="M86.0 40a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10" /><g>
+<path class="skip" d="M106.0 20h88" /></g><path class="choice ch4" d="M194.0 20a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10" /><path class="choice ch5" d="M86.0 40h20" /><g>
+<path class="oneor oom1" d="M106.0 40h0.0" /><path class="oneor oom2" d="M194.0 40h0.0" /><path class="oneor oom3" d="M106.0 40h10" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M116.0 40h0.0" /><path class="nonterm nt2" d="M184.0 40h0.0" /><rect height="22" width="68" x="116" y="29"></rect><text x="150" y="44">clause</text></g><path class="oneor oom4" d="M184.0 40h10" /><path class="oneor oom5" d="M116.0 40a10 10 0 0 0 -10 10v0a10 10 0 0 0 10 10" /><g>
+<path class="skip" d="M116.0 60h68" /></g><path class="oneor oom6" d="M184.0 60a10 10 0 0 0 10 -10v0a10 10 0 0 0 -10 -10" /></g><path class="choice ch6" d="M194.0 40h20" /></g><path class="end" d="M 214 40 h 20 m 0 -10 v 20"></path></g></svg>

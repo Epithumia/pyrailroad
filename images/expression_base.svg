@@ -1,0 +1,5 @@
+<svg class="railroad-diagram" height="62" viewBox="0 0 244 62" width="244">
+<g transform="translate(.5 .5)">
+<g>
+<path class="start" d="M20 21v20m0 -10h20" /></g><path d="M40 31h10" /><g class="expression ">
+<path class="expression exp1" d="M50 31h0.0" /><path class="expression exp2" d="M194.0 31h0.0" /><polygon points="60.0, 20 184.0, 20 194.0, 31 184.0, 42 60.0, 42 50.0, 31"></polygon><text x="122" y="35">my expression</text></g><path d="M194 31h10" /><path class="end" d="M 204 31 h 20 m 0 -10 v 20"></path></g></svg>

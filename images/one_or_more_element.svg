@@ -1,0 +1,10 @@
+<svg class="railroad-diagram" height="92" viewBox="0 0 356 92" width="356">
+<g transform="translate(.5 .5)">
+<g>
+<path class="start" d="M20 21v20m10 -20v20m-10 -10h20" /></g><path d="M40 31h10" /><g>
+<path class="seq seq1" d="M50 31h0.0" /><path class="seq seq2" d="M306.0 31h0.0" /><g class="terminal ">
+<path class="terminal term1" d="M50.0 31h0.0" /><path class="terminal term2" d="M142.0 31h0.0" /><rect height="22" rx="10" ry="10" width="92" x="50" y="20"></rect><text x="96" y="35">Sequence(</text></g><path class="seq seq4" d="M142.0 31h10" /><path class="seq seq3" d="M152.0 31h10" /><g>
+<path class="oneor oom1" d="M162.0 31h0.0" /><path class="oneor oom2" d="M258.0 31h0.0" /><path class="oneor oom3" d="M162.0 31h10" /><g class="non-terminal ">
+<path class="nonterm nt1" d="M172.0 31h0.0" /><path class="nonterm nt2" d="M248.0 31h0.0" /><rect height="22" width="76" x="172" y="20"></rect><text x="210" y="35">element</text></g><path class="oneor oom4" d="M248.0 31h10" /><path class="oneor oom5" d="M172.0 31a10 10 0 0 0 -10 10v10a10 10 0 0 0 10 10" /><g class="terminal ">
+<path class="terminal term1" d="M172.0 61h24.0" /><path class="terminal term2" d="M224.0 61h24.0" /><rect height="22" rx="10" ry="10" width="28" x="196" y="50"></rect><text x="210" y="65">,</text></g><path class="oneor oom6" d="M248.0 61a10 10 0 0 0 10 -10v-10a10 10 0 0 0 -10 -10" /></g><path class="seq seq4" d="M258.0 31h10" /><path class="seq seq3" d="M268.0 31h10" /><g class="terminal ">
+<path class="terminal term1" d="M278.0 31h0.0" /><path class="terminal term2" d="M306.0 31h0.0" /><rect height="22" rx="10" ry="10" width="28" x="278" y="20"></rect><text x="292" y="35">)</text></g></g><path d="M306 31h10" /><path class="end" d="M 316 31 h 20 m -10 -10 v 20 m 10 -20 v 20"></path></g></svg>
